@@ -1,0 +1,18 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <!--<item name="android:buttonStyle">@style/Widget.Button.Custom</item>-->
+        <!--<item name="android:textViewStyle">@style/Widget.TextView.Custom</item>-->
+       
+    </style>
+    
+    <style name="Widget.Button.Custom" parent="android:Widget.Button">
+        <item name="android:textColor">#ff2a1cdd</item>
+    </style>
+    
+    <style name="Widget.TextView.Custom" parent="android:Widget.TextView">
+        <item name="android:textColor">#ff1b23ff</item>
+    </style>
+</resources>

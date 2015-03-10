@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">智造链</string>
+    <string name="title_activity_main">MainActivity</string>
+
+    <string name="title_section1">基本信息</string>
+    <string name="title_section2">面辅信息</string>
+    <string name="title_section3">样衣信息</string>
+    <string name="title_section4">加工信息</string>
+    <string name="title_section5">版型信息</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_example">Example action</string>
+
+    <string name="action_settings">Settings</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="title_activity_add_order_detail">客户下单</string>
+    <string name="title_activity_custom_list">客户列表</string>
+
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_order_detail">客户下单</string>
+    <string name="title_button">下单</string>
+    <string-array name="yesOrNO">
+
+        <item>是</item>
+        <item>否</item>
+    </string-array>
+</resources>
