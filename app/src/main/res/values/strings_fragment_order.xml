@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="title_section1">基本信息</string>
+    <string name="title_section2">面辅信息</string>
+    <string name="title_section3">样衣信息</string>
+    <string name="title_section4">加工信息</string>
+    <string name="title_section5">版型信息</string>
+    <string-array name="colorType_array">
+        <item>上衣</item>
+        <item>连衣裙</item>
+        <item>T恤</item>
+        <item>下裤</item>
+        <item>毛衣</item>
+        <item>其他</item>
+    </string-array>
+    <string name="choose_name">请选择</string>
+    <string name="title_activity_add_order_detail">客户下单</string>
+    <string-array name="sex_array">
+        <item>男</item>
+        <item>女</item>
+        <item>儿童</item>
+    </string-array>
+    <string-array name="season_array">
+        <item>春夏</item>
+        <item>秋冬</item>
+    </string-array>
+    <string-array name="material_array">
+        <item>梭织</item>
+        <item>针织</item>
+        <item>编织</item>
+        <item>梭针混合</item>
+        <item>针编混合</item>
+        <item>梭编混合</item>
+    </string-array>
+    <string name="title_style_info">款式信息</string>
+    <string name="title_style_name">款式名称</string>
+    <string name="title_clothes_type">衣服类型</string>
+    <string name="title_sex">款式性别</string>
+    <string name="title_season">款式季节</string>
+    <string name="title_material_type">面料类型</string>
+    <string name="title_special_technology">特殊工艺</string>
+    <string name="title_other">其他说明</string>
+    <string name="title_reference">参考链接</string>
+    <string name="hint_reference">参考链接以“http://”开头</string>
+    <string name="hint_other">其他</string>
+</resources>
