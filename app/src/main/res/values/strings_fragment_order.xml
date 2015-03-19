@@ -43,4 +43,23 @@
     <string name="title_reference">参考链接</string>
     <string name="hint_reference">参考链接以“http://”开头</string>
     <string name="hint_other">其他</string>
+
+    
+
+    <string name="title_custom_sample">客户样衣</string>
+    <string name="title_provide_sample">提供样衣</string>
+    <string name="title_express_time">邮寄时间</string>
+    <string name="title_express_name">快递名称</string>
+    <string name="title_express_number">快递单号</string>
+    <string-array name="express_array">
+        <item>顺丰</item>
+        <item>韵达</item>
+        <item>圆通</item>
+        <item>中通</item>
+        <item>申通</item>
+        <item>汇通</item>
+        <item>EMS</item>
+    </string-array>
+    
+    <string name="title_make_sample">生产样衣</string>
 </resources>
