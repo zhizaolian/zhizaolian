@@ -1,23 +1,117 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/title_custom_name"
+        android:id="@+id/textView71"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="New Text"
-        android:id="@+id/custom_nameTextView" />
+        android:id="@+id/custom_name"
+        android:layout_marginLeft="29dp"
+        android:layout_marginStart="29dp"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/textView71"
+        android:layout_toEndOf="@+id/textView71" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/title_custom_phone"
+        android:id="@+id/textView73"
+        android:layout_below="@+id/textView71"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="New Text"
-        android:id="@+id/custom_phoneTextView" />
+        android:id="@+id/custom_phone"
+        android:layout_alignTop="@+id/textView73"
+        android:layout_alignLeft="@+id/custom_name"
+        android:layout_alignStart="@+id/custom_name" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/title_custom_company"
+        android:id="@+id/textView75"
+        android:layout_below="@+id/textView73"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New Text"
+        android:id="@+id/custom_company"
+        android:layout_alignTop="@+id/textView75"
+        android:layout_alignLeft="@+id/custom_phone"
+        android:layout_alignStart="@+id/custom_phone" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/title_custom_company_address"
+        android:id="@+id/textView77"
+        android:layout_below="@+id/textView75"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New Text"
+        android:id="@+id/custom_company_address"
+        android:layout_alignTop="@+id/textView77"
+        android:layout_alignLeft="@+id/custom_company"
+        android:layout_alignStart="@+id/custom_company" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/title_custom_company_phone"
+        android:id="@+id/textView79"
+        android:layout_below="@+id/textView77"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New Text"
+        android:id="@+id/custom_company_phone"
+        android:layout_alignTop="@+id/textView79"
+        android:layout_alignLeft="@+id/custom_company_address"
+        android:layout_alignStart="@+id/custom_company_address" />
+
     <Button
-        android:id="@+id/button_addOrder"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="right"
-        android:text="@string/title_button"/>
-</LinearLayout>
+        android:text="@string/button_add_order"
+        android:id="@+id/button7"
+        android:layout_below="@+id/textView79"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/button_add_duplicate_order"
+        android:id="@+id/button8"
+        android:layout_alignBottom="@+id/button7"
+        android:layout_toRightOf="@+id/button7"
+        android:layout_toEndOf="@+id/button7" />
+
+</RelativeLayout>

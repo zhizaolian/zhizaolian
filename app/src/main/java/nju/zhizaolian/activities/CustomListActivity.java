@@ -1,13 +1,12 @@
 package nju.zhizaolian.activities;
 
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ListView;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import nju.zhizaolian.R;
 import nju.zhizaolian.adapters.CustomAdapter;
@@ -27,12 +26,24 @@ public class CustomListActivity extends ActionBarActivity {
         Custom a=new Custom();
         a.setName("luck");
         a.setPhone("143423425");
+        a.setCompanyName("hadohfo");
+        a.setCompanyPhone("1242354235");
+        a.setCompanyAddress("fdhfkashg");
         customAdapter.add(a);
         Custom b=new Custom();
-        b.setName("jack");
-        b.setPhone("121421432");
-        customAdapter.add(b);
+        b.setName("luck");
+        b.setPhone("143423425");
+        b.setCompanyName("hadohfo");
+        b.setCompanyPhone("1242354235");
+        b.setCompanyAddress("fdhfkashg");
 
+        customAdapter.add(b);
+         Custom a1=a;
+        customAdapter.add(a1);
+        Custom a2=a;
+        customAdapter.add(a2);
+        Custom a3=a;
+        customAdapter.add(a3);
 
     }
 

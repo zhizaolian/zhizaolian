@@ -31,12 +31,18 @@ public class CustomAdapter extends ArrayAdapter<Custom> {
             convertView= LayoutInflater.from(parent.getContext()).inflate(R.layout.item_custom,parent,false);
         }
 
-        TextView customNameView= (TextView) convertView.findViewById(R.id.custom_nameTextView);
-        TextView customPhoneView= (TextView) convertView.findViewById(R.id.custom_phoneTextView);
+        TextView customNameView= (TextView) convertView.findViewById(R.id.custom_name);
+        TextView customPhoneView= (TextView) convertView.findViewById(R.id.custom_phone);
+        TextView customCompanyView= (TextView) convertView.findViewById(R.id.custom_company);
+        TextView customCompanyAddressView= (TextView) convertView.findViewById(R.id.custom_company_address);
+        TextView customCompanyPhoneView= (TextView) convertView.findViewById(R.id.custom_company_phone);
+
 
         customNameView.setText(custom.getName());
         customPhoneView.setText(custom.getPhone());
-
+        customCompanyView.setText(custom.getCompanyName());
+        customCompanyAddressView.setText(custom.getCompanyAddress());
+        customCompanyPhoneView.setText(custom.getCompanyPhone());
 
         return convertView;
     }
