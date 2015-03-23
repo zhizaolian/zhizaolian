@@ -14,8 +14,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
             <include layout="@layout/process_info"/>
-
-
+            <include layout="@layout/process_biggoods"/>
+            <include layout="@layout/process_sample"/>
             </LinearLayout>
     </ScrollView>
 </FrameLayout>

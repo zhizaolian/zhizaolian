@@ -5,6 +5,7 @@
     <string name="title_section3">样衣信息</string>
     <string name="title_section4">加工信息</string>
     <string name="title_section5">版型信息</string>
+    <string name="post_order">提交订单</string>
     <string-array name="colorType_array">
         <item>上衣</item>
         <item>连衣裙</item>
@@ -62,4 +63,32 @@
     </string-array>
     
     <string name="title_make_sample">生产样衣</string>
+    <string name="title_do_clothes">制作样衣</string>
+    <string name="title_post_man">邮寄人</string>
+    <string name="title_cellphone">手机</string>
+    <string name="title_post_address">邮寄地址</string>
+    <string name="title_remarks">其他备注</string>
+    <string name="title_sample_info">样衣信息</string>
+    <string name="title_sample_picture">样衣图片</string>
+    <string name="title_reference_picture">参考图片</string>
+    <string name="selectfile">选取文件</string>
+
+    <!--加工信息-->
+    <string name="title_process_info">加工信息</string>
+    <string name="title_biggoods_number">大货总数</string>
+    <string name="title_delivery_time">最迟交货时间</string>
+    <string name="title_finsh_time">完工时间（天）</string>
+    <string name="title_process_biggoogs">大货加工</string>
+    <string name="title_color">颜色</string>
+    <string name="button_add">添加</string>
+    <string name="title_average_size">均码</string>
+    <string name="title_XS">XS</string>
+    <string name="title_S">S</string>
+    <string name="title_M">M</string>
+    <string name="title_L">L</string>
+    <string name="title_XL">XL</string>
+    <string name="title_XXL">XXL</string>
+    <string name="hint_add_data">(点击添加之后数据生效)</string>
+    <string name="title_process_sample">样衣加工</string>
+
 </resources>
