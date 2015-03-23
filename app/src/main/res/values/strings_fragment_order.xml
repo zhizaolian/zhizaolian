@@ -91,4 +91,9 @@
     <string name="hint_add_data">(点击添加之后数据生效)</string>
     <string name="title_process_sample">样衣加工</string>
 
+    <!--版型信息-->
+    <string name="title_version_data">版型数据</string>
+    <string name="title_size">尺寸表/部位</string>
+
+
 </resources>
