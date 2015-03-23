@@ -3,16 +3,21 @@
     android:layout_height="match_parent"
     tools:context="nju.zhizaolian.fragments.OrderSampleDetailFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView android:layout_width="match_parent" android:layout_height="match_parent"
-        android:text="sss" />
-
-    <TextView
+    <ScrollView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Medium Text"
-        android:id="@+id/textView3"
-        android:layout_gravity="left|bottom" />
+        android:id="@+id/scrollView4" >
 
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+
+            <include layout="@layout/sample_custom"/>
+
+            <include layout="@layout/sample_make"/>
+
+            <include layout="@layout/sample_info"/>
+        </LinearLayout>
+    </ScrollView>
 </FrameLayout>
