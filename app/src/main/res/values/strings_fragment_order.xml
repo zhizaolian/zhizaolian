@@ -94,6 +94,19 @@
     <!--版型信息-->
     <string name="title_version_data">版型数据</string>
     <string name="title_size">尺寸表/部位</string>
-
+    <string name="title_afterthelong">后中长</string>
+    <string name="title_bust">胸围</string>
+    <string name="title_waist">腰围</string>
+    <string name="title_shoulder_width">肩宽</string>
+    <string name="title_hip">臀围</string>
+    <string name="title_hem">下摆</string>
+    <string name="title_pants_length">裤长</string>
+    <string name="title_skirt_length">裙长</string>
+    <string name="title_sleeve_length">袖长</string>
+    <string name="title_fabric">面料</string>
+    <string name="title_packing">包装</string>
+    <string name="title_stereotype">版型</string>
+    <string name="title_boxing">装箱</string>
+    <string name="title_technology">工艺</string>
 
 </resources>
