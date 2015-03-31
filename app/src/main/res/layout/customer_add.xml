@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/custom_add">
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/customer_login_name"
+        android:id="@+id/textView86"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="30dp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:id="@+id/editText42"
+        android:layout_alignBottom="@+id/textView86"
+        android:layout_toRightOf="@+id/textView86"
+        android:layout_toEndOf="@+id/textView86" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/customer_name"
+        android:id="@+id/textView87"
+        android:layout_marginTop="30dp"
+        android:layout_below="@+id/textView86"
+        android:layout_alignLeft="@+id/textView86"
+        android:layout_alignStart="@+id/textView86"
+        android:layout_alignRight="@+id/textView86"
+        android:layout_alignEnd="@+id/textView86" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:id="@+id/editText43"
+        android:layout_alignBottom="@+id/textView87"
+        android:layout_alignLeft="@+id/editText42"
+        android:layout_alignStart="@+id/editText42" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/customer_password"
+        android:id="@+id/textView88"
+        android:layout_marginTop="30dp"
+        android:layout_below="@+id/textView87"
+        android:layout_alignLeft="@+id/textView87"
+        android:layout_alignStart="@+id/textView87"
+        android:layout_alignRight="@+id/textView87"
+        android:layout_alignEnd="@+id/textView87" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:ems="10"
+        android:id="@+id/editText44"
+        android:layout_alignBottom="@+id/textView88"
+        android:layout_alignLeft="@+id/editText43"
+        android:layout_alignStart="@+id/editText43" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/customer_telephone"
+        android:id="@+id/textView89"
+        android:layout_marginTop="30dp"
+        android:layout_below="@+id/textView88"
+        android:layout_alignLeft="@+id/textView88"
+        android:layout_alignStart="@+id/textView88"
+        android:layout_alignRight="@+id/textView88"
+        android:layout_alignEnd="@+id/textView88" />
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="phone"
+        android:ems="10"
+        android:id="@+id/editText45"
+        android:layout_alignBottom="@+id/textView89"
+        android:layout_alignLeft="@+id/editText44"
+        android:layout_alignStart="@+id/editText44" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/customer_company_name"
+        android:id="@+id/textView90"
+        android:layout_marginTop="30dp"
+        android:layout_below="@+id/textView89"
+        android:layout_alignLeft="@+id/textView89"
+        android:layout_alignStart="@+id/textView89"
+        android:layout_alignRight="@+id/textView89"
+        android:layout_alignEnd="@+id/textView89" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:id="@+id/editText46"
+        android:layout_alignBottom="@+id/textView90"
+        android:layout_alignLeft="@+id/editText45"
+        android:layout_alignStart="@+id/editText45" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/customer_purchase_contacts_name"
+        android:id="@+id/textView91"
+        android:layout_marginTop="30dp"
+        android:layout_below="@+id/textView90"
+        android:layout_alignLeft="@+id/textView90"
+        android:layout_alignStart="@+id/textView90"
+        android:layout_alignRight="@+id/textView90"
+        android:layout_alignEnd="@+id/textView90" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:id="@+id/editText47"
+        android:layout_alignBottom="@+id/textView91"
+        android:layout_alignLeft="@+id/editText46"
+        android:layout_alignStart="@+id/editText46" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/customer_purchase_contacts_telephone"
+        android:id="@+id/textView92"
+        android:layout_marginTop="30dp"
+        android:layout_below="@+id/textView91"
+        android:layout_alignLeft="@+id/textView91"
+        android:layout_alignStart="@+id/textView91"
+         />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="phone"
+        android:ems="8"
+        android:id="@+id/editText48"
+        android:layout_alignBottom="@+id/textView92"
+        android:layout_alignRight="@+id/editText47"
+        android:layout_alignEnd="@+id/editText47" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/customer_register_date"
+        android:id="@+id/textView93"
+        android:layout_marginTop="30dp"
+        android:layout_below="@+id/textView92"
+        android:layout_alignLeft="@+id/textView91"
+        android:layout_alignStart="@+id/textView91"
+        android:layout_alignRight="@+id/textView91"
+        android:layout_alignEnd="@+id/textView91" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="date"
+        android:ems="10"
+        android:id="@+id/editText49"
+        android:layout_alignBottom="@+id/textView93"
+        android:layout_alignLeft="@+id/editText47"
+        android:layout_alignStart="@+id/editText47" />
+
+
+</RelativeLayout>
