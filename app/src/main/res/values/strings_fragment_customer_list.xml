@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="edit">编辑</string>
+    <string name="delete">删除</string>
+    <string name="search_condition">输入检索条件</string>
+    <string name="register_new_user">注册</string>
+</resources>

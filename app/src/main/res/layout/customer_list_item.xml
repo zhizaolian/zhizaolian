@@ -1,40 +1,131 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="horizontal" android:layout_width="match_parent"
+    android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/customer_name"
-        android:paddingLeft="5dp"
+        android:id="@+id/customer_name"
+        android:paddingLeft="20dp"
         android:paddingTop="5dp"
         android:paddingBottom="5dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/new_text"
+        android:id="@+id/customer_name_string"
+        android:layout_alignBaseline="@+id/customer_name"
+        android:layout_alignBottom="@+id/customer_name"
+        android:layout_toRightOf="@+id/customer_name"
+        android:layout_toEndOf="@+id/customer_name"
+        android:layout_marginLeft="40dp"
+        android:layout_marginStart="40dp" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/customer_telephone"
+        android:id="@+id/customer_phone"
         android:paddingLeft="20dp"
         android:paddingTop="5dp"
         android:paddingBottom="5dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/new_text"
+            android:id="@+id/customer_phone_string"
+            android:layout_alignBaseline="@+id/customer_phone"
+            android:layout_alignBottom="@+id/customer_phone"
+            android:layout_toRightOf="@+id/customer_phone"
+            android:layout_toEndOf="@+id/customer_phone"
+            android:layout_marginLeft="40dp"
+            android:layout_marginStart="40dp" />
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/customer_address"
+        android:id="@+id/customer_address"
         android:paddingLeft="20dp"
         android:paddingTop="5dp"
         android:paddingBottom="5dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/new_text"
+            android:id="@+id/customer_address_string"
+            android:layout_alignBaseline="@+id/customer_address"
+            android:layout_alignBottom="@+id/customer_address"
+            android:layout_toRightOf="@+id/customer_address"
+            android:layout_toEndOf="@+id/customer_address"
+            android:layout_marginLeft="40dp"
+            android:layout_marginStart="40dp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/customer_company_name"
+        android:id="@+id/customer_company_name"
         android:paddingLeft="20dp"
         android:paddingTop="5dp"
         android:paddingBottom="5dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/new_text"
+            android:id="@+id/customer_company_name_string"
+            android:layout_alignBaseline="@+id/customer_company_name"
+            android:layout_alignBottom="@+id/customer_company_name"
+            android:layout_toRightOf="@+id/customer_company_name"
+            android:layout_toEndOf="@+id/customer_company_name"
+            android:layout_marginLeft="40dp"
+            android:layout_marginStart="40dp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/customer_company_telephone"
+        android:id="@+id/customer_company_phone"
         android:paddingLeft="20dp"
         android:paddingTop="5dp"
         android:paddingBottom="5dp"/>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/new_text"
+            android:id="@+id/customer_company_phone_string"
+            android:layout_alignBaseline="@+id/customer_company_phone"
+            android:layout_alignBottom="@+id/customer_company_phone"
+            android:layout_toRightOf="@+id/customer_company_phone"
+            android:layout_toEndOf="@+id/customer_company_phone"
+            android:layout_marginLeft="40dp"
+            android:layout_marginStart="40dp" />
+    </RelativeLayout>
 </LinearLayout>

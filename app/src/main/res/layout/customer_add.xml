@@ -183,5 +183,24 @@
         android:layout_alignLeft="@+id/editText47"
         android:layout_alignStart="@+id/editText47" />
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/confirm"
+        android:id="@+id/customer_register_button"
+        android:layout_marginTop="30dp"
+        android:layout_below="@+id/textView93"
+        android:layout_alignLeft="@+id/textView93"
+        android:layout_alignStart="@+id/textView93" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/cancel"
+        android:id="@+id/customer_cancel_button"
+        android:layout_alignTop="@+id/customer_register_button"
+        android:layout_alignRight="@+id/editText49"
+        android:layout_alignEnd="@+id/editText49" />
+
 
 </RelativeLayout>

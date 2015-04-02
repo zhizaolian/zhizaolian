@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="customer_name">客户姓名</string>
+    <string name="customer_login_name">客户登录名</string>
+    <string name="customer_password">客户密码</string>
+    <string name="customer_telephone">客户电话</string>
+    <string name="customer_purchase_contacts_name">采购联系人</string>
+    <string name="customer_purchase_contacts_telephone">采购联系人电话</string>
+    <string name="customer_register_date">注册日期</string>
+    <string name="customer_company_name">公司名称</string>
+    <string name="customer_address">客户地址</string>
+    <string name="customer_company_telephone">公司电话</string>
+    <string name="confirm">确定</string>
+    <string name="cancel">取消</string>
+    <string name="new_text">待定</string>
+</resources>
