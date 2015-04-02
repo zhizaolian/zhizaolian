@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="alipay">公共支付宝账号</string>
+    <string name="alipay_account">36933145@qq.com</string>
+    <string name="bank">公用农业银行账号</string>
+    <string name="bank_account">6228480424649506013</string>
+    <string name="bank_owner">农业银行开户人</string>
+    <string name="bank_owner_name">葛祖民</string>
+    <string name="paypal">公用PAYPAL账号</string>
+    <string name="paypal_account">872104037@qq.com</string>
+    <string name="download">下载</string>
+    <string name="upload_time">上传时间</string>
+    <string name="inquirySheet">智造链询价单</string>
+    <string name="priceSheet">智造链报价单</string>
+    <string name="upload_time_string">2014-06-01</string>
+
+</resources>

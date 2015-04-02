@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/alipay"
+        android:id="@+id/textView94"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="40dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/alipay_account"
+        android:id="@+id/textView95"
+        android:layout_alignBottom="@+id/textView94"
+        android:layout_toRightOf="@+id/textView94"
+        android:layout_toEndOf="@+id/textView94"
+        android:layout_marginLeft="40dp"
+        android:layout_marginStart="40dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/bank"
+        android:id="@+id/textView96"
+        android:layout_below="@+id/textView94"
+        android:layout_alignLeft="@+id/textView94"
+        android:layout_alignStart="@+id/textView94"
+        android:layout_marginTop="40dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/bank_account"
+        android:id="@+id/textView97"
+        android:layout_alignBottom="@+id/textView96"
+        android:layout_alignLeft="@+id/textView95"
+        android:layout_alignStart="@+id/textView95" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/bank_owner"
+        android:id="@+id/textView98"
+        android:layout_below="@+id/textView96"
+        android:layout_alignLeft="@+id/textView96"
+        android:layout_alignStart="@+id/textView96"
+        android:layout_marginTop="10dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/bank_owner_name"
+        android:id="@+id/textView99"
+        android:layout_alignBottom="@+id/textView98"
+        android:layout_alignLeft="@+id/textView97"
+        android:layout_alignStart="@+id/textView97" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/paypal"
+        android:id="@+id/textView100"
+        android:layout_marginTop="40dp"
+        android:layout_below="@+id/textView98"
+        android:layout_alignLeft="@+id/textView98"
+        android:layout_alignStart="@+id/textView98" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/paypal_account"
+        android:id="@+id/textView101"
+        android:layout_alignBottom="@+id/textView100"
+        android:layout_alignLeft="@+id/textView99"
+        android:layout_alignStart="@+id/textView99" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/inquirySheet"
+        android:id="@+id/textView102"
+        android:layout_below="@+id/textView100"
+        android:layout_alignLeft="@+id/textView100"
+        android:layout_alignStart="@+id/textView100"
+        android:layout_marginTop="40dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/upload_time"
+        android:id="@+id/textView103"
+        android:layout_below="@+id/textView102"
+        android:layout_alignRight="@+id/textView102"
+        android:layout_alignEnd="@+id/textView102"
+        android:layout_marginTop="10dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/download"
+        android:textColor="@color/blue"
+        android:clickable="true"
+        android:id="@+id/inquiry_sheet_download"
+        android:layout_above="@+id/textView103"
+        android:layout_alignLeft="@+id/textView101"
+        android:layout_alignStart="@+id/textView101" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/upload_time_string"
+        android:id="@+id/inquiry_sheet_upload_time"
+        android:layout_alignBottom="@+id/textView103"
+        android:layout_alignLeft="@+id/inquiry_sheet_download"
+        android:layout_alignStart="@+id/inquiry_sheet_download" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/priceSheet"
+        android:id="@+id/textView106"
+        android:layout_below="@+id/textView103"
+        android:layout_alignLeft="@+id/textView102"
+        android:layout_alignStart="@+id/textView102"
+        android:layout_marginTop="40dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/upload_time"
+        android:id="@+id/textView107"
+        android:layout_below="@+id/textView106"
+        android:layout_alignLeft="@+id/textView103"
+        android:layout_alignStart="@+id/textView103"
+        android:layout_marginTop="10dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/download"
+        android:textColor="@color/blue"
+        android:clickable="true"
+        android:id="@+id/price_sheet_download"
+        android:layout_below="@+id/inquiry_sheet_upload_time"
+        android:layout_alignLeft="@+id/inquiry_sheet_upload_time"
+        android:layout_alignStart="@+id/inquiry_sheet_upload_time"
+        android:layout_marginTop="40dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/upload_time_string"
+        android:id="@+id/price_sheet_upload_time"
+        android:layout_alignTop="@+id/textView107"
+        android:layout_alignLeft="@+id/price_sheet_download"
+        android:layout_alignStart="@+id/price_sheet_download" />
+
+
+</RelativeLayout>
