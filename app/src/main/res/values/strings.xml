@@ -12,6 +12,8 @@
     <string name="title_button">下单</string>
     <string name="button_select_time">选择时间</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="customer_manager">客户管理</string>
+    <string name="right_brackets">)</string>
+    <string name="left_brackets">(</string>
+
 
 </resources>

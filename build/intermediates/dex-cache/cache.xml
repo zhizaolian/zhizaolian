@@ -2,6 +2,27 @@
 <items version="2" >
 
     <item
+        jar="C:\Users\ColorfulCode\.gradle\caches\modules-2\files-2.1\com.squareup.picasso\picasso\2.3.2\d6b7f0093cec6c9faf65dbfd6a6a345d0ed25e27\picasso-2.3.2.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="d6b7f0093cec6c9faf65dbfd6a6a345d0ed25e27">
+        <dex dex="E:\AndroidStudioProjects\zhizaolian\app\build\intermediates\pre-dexed\debug\picasso-2.3.2-80b826d5c22ea1bfbf2e21ae9fa4c32e9b2e2c30.jar" />
+    </item>
+    <item
+        jar="C:\Users\ColorfulCode\.gradle\caches\modules-2\files-2.1\com.loopj.android\android-async-http\1.4.6\a845a88238be0b5be9d238652c1bc0605ef91f52\android-async-http-1.4.6.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="a845a88238be0b5be9d238652c1bc0605ef91f52">
+        <dex dex="E:\AndroidStudioProjects\zhizaolian\app\build\intermediates\pre-dexed\debug\android-async-http-1.4.6-5b890815e8021008eb47413b78b4179242b95360.jar" />
+    </item>
+    <item
+        jar="E:\AndroidStudioProjects\zhizaolian\app\src\main\java\nju\zhizaolian\lib\nineoldandroids-2.4.0.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="197e497b95d34c42c8725f2bc4a58ede6040ba95">
+        <dex dex="E:\AndroidStudioProjects\zhizaolian\app\build\intermediates\pre-dexed\debug\nineoldandroids-2.4.0-899a7a42aff4c9cff67db77c26d7dd9f6ac2aae8.jar" />
+    </item>
+    <item
         jar="E:\AndroidStudioProjects\zhizaolian\app\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.3\classes.jar"
         jumboMode="false"
         revision="21.1.2"
@@ -14,6 +35,13 @@
         revision="21.1.2"
         sha1="dd9247ea0fabe8ee479638c4b4a23e93752be256">
         <dex dex="E:\AndroidStudioProjects\zhizaolian\app\build\intermediates\pre-dexed\debug\classes-d04d4611a4348f04008adf4e85565c0a55c603c1.jar" />
+    </item>
+    <item
+        jar="C:\Users\ColorfulCode\.gradle\caches\modules-2\files-2.1\com.google.code.gson\gson\2.2.4\a60a5e993c98c864010053cb901b7eab25306568\gson-2.2.4.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="a60a5e993c98c864010053cb901b7eab25306568">
+        <dex dex="E:\AndroidStudioProjects\zhizaolian\app\build\intermediates\pre-dexed\debug\gson-2.2.4-e0ea1a19e9789bd333c6f0d83a33578831247f37.jar" />
     </item>
     <item
         jar="E:\AndroidStudioProjects\zhizaolian\app\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.3\libs\internal_impl-21.0.3.jar"

@@ -14,5 +14,8 @@
     <string name="inquirySheet">智造链询价单</string>
     <string name="priceSheet">智造链报价单</string>
     <string name="upload_time_string">2014-06-01</string>
+    <string name="customer_manager">客户管理</string>
+    <string name="welcome">欢迎你</string>
+    <string name="order_manager">订单管理</string>
 
 </resources>

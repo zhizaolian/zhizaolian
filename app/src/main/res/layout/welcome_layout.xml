@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v4.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/drawer_layout"
+    tools:context="nju.zhizaolian.activities.MainActivity">
+
+<RelativeLayout android:layout_width="match_parent"
     android:layout_height="match_parent">
-
-
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -165,5 +170,14 @@
         android:layout_alignLeft="@+id/price_sheet_download"
         android:layout_alignStart="@+id/price_sheet_download" />
 
-
 </RelativeLayout>
+    <fragment
+        android:id="@+id/left_drawer_menu"
+        android:layout_width="100dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="left"
+        android:background="@color/blue"
+        android:name="nju.zhizaolian.fragments.LeftDrawerMenuFragment"
+        tools:layout="@layout/left_drawer_menu" />
+
+    </android.support.v4.widget.DrawerLayout>

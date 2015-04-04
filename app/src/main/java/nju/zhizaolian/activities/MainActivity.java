@@ -2,11 +2,15 @@ package nju.zhizaolian.activities;
 
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Toast;
+
+import com.nineoldandroids.view.ViewHelper;
 
 import nju.zhizaolian.R;
 import nju.zhizaolian.fragments.WelcomeFragment;
@@ -15,7 +19,7 @@ public class MainActivity extends ActionBarActivity implements
         WelcomeFragment.InquirySheetDownloadListener,
         WelcomeFragment.PriceSheetDownloadListener{
 
-    private  WelcomeFragment welcomeFragment;
+        private  WelcomeFragment welcomeFragment;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,6 +32,7 @@ public class MainActivity extends ActionBarActivity implements
             fragmentTransaction.add(R.id.welcome_activity, welcomeFragment);
             fragmentTransaction.commit();
         }
+
     }
 
 
@@ -62,4 +67,5 @@ public class MainActivity extends ActionBarActivity implements
     public void priceSheetDownload() {
         Toast.makeText(this,"价格单下载中",Toast.LENGTH_SHORT).show();
     }
+
 }
