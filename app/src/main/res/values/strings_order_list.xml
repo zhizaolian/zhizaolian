@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="order_number">订单号</string>
+    <string name="order_start_date">开始时间</string>
+    <string name="order_state">订单状态</string>
+    <string name="order_salesman_name">市场专员</string>
+    <string name="operate">操作</string>
+    <string name="view_detail">查看详情</string>
+    <string name="all_orders">所有的订单</string>
+    <string name="doing_orders">进行中订单</string>
+    <string name="title_activity_activity_order_list">订单列表</string>
+    <string name="title_activity_order_list">订单列表</string>
+    <string name="end_orders">完结的订单</string>
+    <string name="stopped_orders">已终止订单</string>
+    <string name="modify_order">修改订单项</string>
+</resources>

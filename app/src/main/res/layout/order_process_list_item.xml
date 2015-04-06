@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="220dp"
+        android:id="@+id/order_detail_image"
+        android:scaleType="fitCenter"
+        android:src="@drawable/ic_launcher"
+        android:layout_gravity="center_horizontal"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/title_style_name"
+        android:id="@+id/order_process_list_item_style_name"
+        android:textColor="@color/item_selector"/>
+
+<LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingTop="20dp"
+
+
+    >
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/order_number"
+        android:id="@+id/textView112"
+        android:paddingLeft="15dp"
+        android:textColor="@color/item_selector"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/new_text"
+        android:paddingLeft="30dp"
+        android:id="@+id/order_process_list_item_order_number"
+        android:textColor="@color/item_selector"
+        />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/order_start_date"
+        android:id="@+id/textView113"
+        android:textColor="@color/item_selector"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/new_text"
+            android:id="@+id/order_process_list_item_order_start_date"
+            android:paddingLeft="30dp"
+            android:textColor="@color/item_selector"/>
+
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/order_state"
+        android:id="@+id/textView114"
+        android:textColor="@color/item_selector"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/new_text"
+            android:id="@+id/order_process_list_item_order_state"
+            android:paddingLeft="30dp"
+            android:textColor="@color/item_selector"/>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/order_salesman_name"
+        android:id="@+id/textView115"
+        android:textColor="@color/item_selector"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/new_text"
+            android:id="@+id/order_process_list_item_order_salesman_name"
+            android:paddingLeft="30dp"
+            android:textColor="@color/item_selector"/>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/customer_name"
+        android:id="@+id/textView116"
+        android:textColor="@color/item_selector"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/new_text"
+            android:id="@+id/order_process_list_item_customer_name"
+            android:paddingLeft="30dp"
+            android:textColor="@color/item_selector"/>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/customer_company_name"
+        android:id="@+id/textView117"
+        android:textColor="@color/item_selector"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/new_text"
+            android:id="@+id/order_process_list_item_custom_company_name"
+            android:paddingLeft="30dp"
+            android:textColor="@color/item_selector"/>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/operate"
+        android:id="@+id/textView118"
+        android:paddingLeft="30dp"
+        android:textColor="@color/item_selector"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/view_detail"
+            android:id="@+id/order_process_list_item_view_detail"
+            android:textColor="@color/blue"
+            android:clickable="true"
+            android:paddingLeft="30dp"/>
+
+    </LinearLayout>
+    </LinearLayout>
+
+
+
+
+
+</LinearLayout>
