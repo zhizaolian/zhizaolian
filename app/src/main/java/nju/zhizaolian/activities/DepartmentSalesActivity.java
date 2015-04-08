@@ -1,0 +1,63 @@
+package nju.zhizaolian.activities;
+import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.ActionBarActivity;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.widget.ArrayAdapter;
+import android.widget.SpinnerAdapter;
+
+import nju.zhizaolian.R;
+import nju.zhizaolian.fragments.MergePriceFragment;
+
+public class DepartmentSalesActivity extends ActionBarActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_sales_department);
+        SpinnerAdapter spinnerAdapter= ArrayAdapter.createFromResource(this,
+                R.array.sales_list,R.layout.support_simple_spinner_dropdown_item);
+        ActionBar actionBar=getSupportActionBar();
+
+        actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_LIST);
+        actionBar.setListNavigationCallbacks(spinnerAdapter, onNavigationListener);
+    }
+
+    ActionBar.OnNavigationListener onNavigationListener =new ActionBar.OnNavigationListener() {
+        @Override
+        public boolean onNavigationItemSelected(int itemPosition, long itemId) {
+            Fragment newFragment=null;
+            switch (itemPosition){
+                case 0:newFragment=new MergePriceFragment();
+               default:break;
+            }
+            getSupportFragmentManager().beginTransaction().replace(R.id.salesDepartmentcontainers,newFragment).commit();
+            return false;
+        }
+    };
+
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_sales_department, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+
+        //noinspection SimplifiableIfStatement
+        if (id == R.id.action_settings) {
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+}

@@ -2,67 +2,60 @@
 <items version="2" >
 
     <item
-        jar="C:\Users\ColorfulCode\.gradle\caches\modules-2\files-2.1\com.squareup.picasso\picasso\2.3.2\d6b7f0093cec6c9faf65dbfd6a6a345d0ed25e27\picasso-2.3.2.jar"
+        jar="/Users/lk/.gradle/caches/modules-2/files-2.1/com.squareup.picasso/picasso/2.3.2/d6b7f0093cec6c9faf65dbfd6a6a345d0ed25e27/picasso-2.3.2.jar"
         jumboMode="false"
         revision="21.1.2"
         sha1="d6b7f0093cec6c9faf65dbfd6a6a345d0ed25e27">
-        <dex dex="E:\AndroidStudioProjects\zhizaolian\app\build\intermediates\pre-dexed\debug\picasso-2.3.2-80b826d5c22ea1bfbf2e21ae9fa4c32e9b2e2c30.jar" />
+        <dex dex="/Users/lk/Desktop/zhizaolian/app/build/intermediates/pre-dexed/debug/picasso-2.3.2-6cfa910c5860fde299e4ce7a6f316b7d8e326f63.jar" />
     </item>
     <item
-        jar="C:\Users\ColorfulCode\.gradle\caches\modules-2\files-2.1\com.loopj.android\android-async-http\1.4.6\a845a88238be0b5be9d238652c1bc0605ef91f52\android-async-http-1.4.6.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="a845a88238be0b5be9d238652c1bc0605ef91f52">
-        <dex dex="E:\AndroidStudioProjects\zhizaolian\app\build\intermediates\pre-dexed\debug\android-async-http-1.4.6-5b890815e8021008eb47413b78b4179242b95360.jar" />
-    </item>
-    <item
-        jar="E:\AndroidStudioProjects\zhizaolian\app\src\main\java\nju\zhizaolian\lib\nineoldandroids-2.4.0.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="197e497b95d34c42c8725f2bc4a58ede6040ba95">
-        <dex dex="E:\AndroidStudioProjects\zhizaolian\app\build\intermediates\pre-dexed\debug\nineoldandroids-2.4.0-899a7a42aff4c9cff67db77c26d7dd9f6ac2aae8.jar" />
-    </item>
-    <item
-        jar="E:\AndroidStudioProjects\zhizaolian\app\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.3\classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="2c91c949a45a21cdecf26e03951e46c7beec9ad8">
-        <dex dex="E:\AndroidStudioProjects\zhizaolian\app\build\intermediates\pre-dexed\debug\classes-839b85fc751a5074321eea2a8a616cdaae02deed.jar" />
-    </item>
-    <item
-        jar="E:\AndroidStudioProjects\zhizaolian\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.5.87\classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="dd9247ea0fabe8ee479638c4b4a23e93752be256">
-        <dex dex="E:\AndroidStudioProjects\zhizaolian\app\build\intermediates\pre-dexed\debug\classes-d04d4611a4348f04008adf4e85565c0a55c603c1.jar" />
-    </item>
-    <item
-        jar="C:\Users\ColorfulCode\.gradle\caches\modules-2\files-2.1\com.google.code.gson\gson\2.2.4\a60a5e993c98c864010053cb901b7eab25306568\gson-2.2.4.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="a60a5e993c98c864010053cb901b7eab25306568">
-        <dex dex="E:\AndroidStudioProjects\zhizaolian\app\build\intermediates\pre-dexed\debug\gson-2.2.4-e0ea1a19e9789bd333c6f0d83a33578831247f37.jar" />
-    </item>
-    <item
-        jar="E:\AndroidStudioProjects\zhizaolian\app\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.3\libs\internal_impl-21.0.3.jar"
+        jar="/Users/lk/Desktop/zhizaolian/app/build/intermediates/exploded-aar/com.android.support/support-v4/21.0.3/libs/internal_impl-21.0.3.jar"
         jumboMode="false"
         revision="21.1.2"
         sha1="01ec05bfbafcc07646ba813000bf2ef11742dd03">
-        <dex dex="E:\AndroidStudioProjects\zhizaolian\app\build\intermediates\pre-dexed\debug\internal_impl-21.0.3-399a2c3a53ad147c314d785cbaeafa031f8ec772.jar" />
+        <dex dex="/Users/lk/Desktop/zhizaolian/app/build/intermediates/pre-dexed/debug/internal_impl-21.0.3-cdc41ce56f0b120f940f560cd40b1ea710100a2f.jar" />
     </item>
     <item
-        jar="E:\AndroidStudioProjects\zhizaolian\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\21.0.3\classes.jar"
+        jar="/Users/lk/.gradle/caches/modules-2/files-2.1/com.loopj.android/android-async-http/1.4.6/a845a88238be0b5be9d238652c1bc0605ef91f52/android-async-http-1.4.6.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="a845a88238be0b5be9d238652c1bc0605ef91f52">
+        <dex dex="/Users/lk/Desktop/zhizaolian/app/build/intermediates/pre-dexed/debug/android-async-http-1.4.6-22da5b8bf5d1bb668edf3d4e51a8c64c4a6540b7.jar" />
+    </item>
+    <item
+        jar="/Users/lk/Desktop/zhizaolian/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/classes.jar"
         jumboMode="false"
         revision="21.1.2"
         sha1="81d42bf983a8741f4888a6e333e454e4a5e0eeb7">
-        <dex dex="E:\AndroidStudioProjects\zhizaolian\app\build\intermediates\pre-dexed\debug\classes-f204f895c23d27009f48a427825035ba91883b7b.jar" />
+        <dex dex="/Users/lk/Desktop/zhizaolian/app/build/intermediates/pre-dexed/debug/classes-4328d3f6c676a9ffce389b5b018e0f18a061dac8.jar" />
     </item>
     <item
-        jar="D:\Program Files\adt-bundle\sdk\extras\android\m2repository\com\android\support\support-annotations\21.0.3\support-annotations-21.0.3.jar"
+        jar="/Users/lk/android-sdks/extras/android/m2repository/com/android/support/support-annotations/21.0.3/support-annotations-21.0.3.jar"
         jumboMode="false"
         revision="21.1.2"
         sha1="4b74cefe1f0c1b819e7260c8627a14674e37fd35">
-        <dex dex="E:\AndroidStudioProjects\zhizaolian\app\build\intermediates\pre-dexed\debug\support-annotations-21.0.3-0c301bcadbff4a64c3850f820d9aaf33eb51114c.jar" />
+        <dex dex="/Users/lk/Desktop/zhizaolian/app/build/intermediates/pre-dexed/debug/support-annotations-21.0.3-9d05ec9ec871fe2bff4eeb72b5d21c0e06842411.jar" />
+    </item>
+    <item
+        jar="/Users/lk/Desktop/zhizaolian/app/build/intermediates/exploded-aar/com.google.android.gms/play-services/6.5.87/classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="dd9247ea0fabe8ee479638c4b4a23e93752be256">
+        <dex dex="/Users/lk/Desktop/zhizaolian/app/build/intermediates/pre-dexed/debug/classes-81aa66d79207ae8fab2cbd62edd96923ac7ba0d2.jar" />
+    </item>
+    <item
+        jar="/Users/lk/Desktop/zhizaolian/app/src/main/java/nju/zhizaolian/lib/nineoldandroids-2.4.0.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="197e497b95d34c42c8725f2bc4a58ede6040ba95">
+        <dex dex="/Users/lk/Desktop/zhizaolian/app/build/intermediates/pre-dexed/debug/nineoldandroids-2.4.0-acb4526599be7cd295703106f0c13732150e5e3f.jar" />
+    </item>
+    <item
+        jar="/Users/lk/Desktop/zhizaolian/app/build/intermediates/exploded-aar/com.android.support/support-v4/21.0.3/classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="2c91c949a45a21cdecf26e03951e46c7beec9ad8">
+        <dex dex="/Users/lk/Desktop/zhizaolian/app/build/intermediates/pre-dexed/debug/classes-60c667b4337b1e984ff6f0bb2d7144dad5a94af9.jar" />
     </item>
 
 </items>

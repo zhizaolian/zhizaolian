@@ -45,6 +45,7 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="app: nju.zhizaolian" />
   </component>
   <component name="ChangeListManager">
+<<<<<<< Updated upstream
     <list default="true" id="fa260fcb-970c-49ff-8343-47a4b7b5c14c" name="Default" comment="抽屉效果加动画化，界面如果好看就还行&#10;1.为了实现有点类QQ效果，引用外部类ViewHelper在nineoldandroid里面&#10;2.">
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/nju/zhizaolian/lib/nineoldandroids-2.4.0.jar" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/nju/zhizaolian/fragments/LeftDrawerMenuFragment.java" />
@@ -55,14 +56,32 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/nju/zhizaolian/activities/MainActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/nju/zhizaolian/activities/MainActivity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/nju/zhizaolian/fragments/WelcomeFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/nju/zhizaolian/fragments/WelcomeFragment.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" />
+=======
+<<<<<<< Updated upstream
+    <list default="true" id="fa260fcb-970c-49ff-8343-47a4b7b5c14c" name="Default" comment="add">
+      <change type="DELETED" beforePath="E:\AndroidStudioProjects\zhizaolian\.idea\libraries\appcompat_v7_21_0_3.xml" afterPath="" />
+      <change type="DELETED" beforePath="E:\AndroidStudioProjects\zhizaolian\.idea\libraries\play_services_6_5_87.xml" afterPath="" />
+      <change type="DELETED" beforePath="E:\AndroidStudioProjects\zhizaolian\.idea\libraries\support_annotations_21_0_3.xml" afterPath="" />
+      <change type="DELETED" beforePath="E:\AndroidStudioProjects\zhizaolian\.idea\libraries\support_v4_21_0_3.xml" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/model_data.bin" afterPath="$PROJECT_DIR$/build/intermediates/model_data.bin" />
+>>>>>>> Stashed changes
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app.iml" afterPath="$PROJECT_DIR$/app/app.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build.gradle" afterPath="$PROJECT_DIR$/app/build.gradle" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" afterPath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/local.properties" afterPath="$PROJECT_DIR$/local.properties" />
+<<<<<<< Updated upstream
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values/strings_in_welcomeview.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings_in_welcomeview.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/support_v4_21_0_3.xml" afterPath="$PROJECT_DIR$/.idea/libraries/support_v4_21_0_3.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/welcome_layout.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/welcome_layout.xml" />
+=======
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+=======
+    <list default="true" id="fa260fcb-970c-49ff-8343-47a4b7b5c14c" name="Default" comment="添加登陆界面">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/model_data.bin" afterPath="$PROJECT_DIR$/build/intermediates/model_data.bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" afterPath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" />
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Zhizaolian.iws" />
@@ -101,11 +120,30 @@
           </provider>
         </entry>
       </file>
+<<<<<<< Updated upstream
       <file leaf-file-name="left_drawer_menu.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/left_drawer_menu.xml">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="4.214286" vertical-offset="232" max-vertical-offset="1444">
               <caret line="6" column="5" selection-start-line="6" selection-start-column="5" selection-end-line="6" selection-end-column="5" />
+=======
+<<<<<<< Updated upstream
+      <file leaf-file-name="strings_activity_customlist.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings_activity_customlist.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="361">
+              <caret line="9" column="35" selection-start-line="9" selection-start-column="35" selection-end-line="9" selection-end-column="35" />
+=======
+      <file leaf-file-name="version_data.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/version_data.xml">
+          <provider editor-type-id="android-designer">
+            <state />
+          </provider>
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="120" max-vertical-offset="3330">
+              <caret line="8" column="39" selection-start-line="8" selection-start-column="39" selection-end-line="8" selection-end-column="39" />
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
               <folding />
             </state>
           </provider>
@@ -117,17 +155,34 @@
       <file leaf-file-name="WelcomeFragment.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/nju/zhizaolian/fragments/WelcomeFragment.java">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< Updated upstream
             <state vertical-scroll-proportion="0.0" vertical-offset="419" max-vertical-offset="2375">
               <caret line="60" column="53" selection-start-line="60" selection-start-column="53" selection-end-line="60" selection-end-column="53" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+=======
+<<<<<<< Updated upstream
+            <state vertical-scroll-proportion="-12.84" vertical-offset="192" max-vertical-offset="703">
+              <caret line="27" column="55" selection-start-line="27" selection-start-column="55" selection-end-line="27" selection-end-column="55" />
+=======
+            <state vertical-scroll-proportion="0.0" vertical-offset="450" max-vertical-offset="825">
+              <caret line="30" column="85" selection-start-line="30" selection-start-column="85" selection-end-line="30" selection-end-column="85" />
+>>>>>>> Stashed changes
+              <folding />
+>>>>>>> Stashed changes
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< Updated upstream
       <file leaf-file-name="MainActivity.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/nju/zhizaolian/activities/MainActivity.java">
+=======
+<<<<<<< Updated upstream
+      <file leaf-file-name="strings_fragment_order.xml" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings_fragment_order.xml">
+>>>>>>> Stashed changes
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.6659341" vertical-offset="20" max-vertical-offset="1216">
               <caret line="30" column="56" selection-start-line="30" selection-start-column="56" selection-end-line="30" selection-end-column="56" />
@@ -162,9 +217,98 @@
               <folding />
             </state>
           </provider>
+<<<<<<< Updated upstream
           <provider editor-type-id="android-designer">
             <state />
           </provider>
+=======
+=======
+      <file leaf-file-name="item_custom.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/item_custom.xml">
+          <provider selected="true" editor-type-id="android-designer">
+            <state />
+          </provider>
+          <provider editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="135" max-vertical-offset="1830">
+              <caret line="4" column="4" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="4" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LoginActivity.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/nju/zhizaolian/activities/LoginActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.54126984" vertical-offset="2914" max-vertical-offset="4185">
+              <caret line="253" column="35" selection-start-line="253" selection-start-column="35" selection-end-line="253" selection-end-column="35" />
+              <folding>
+                <element signature="e#2109#2470#0" expanded="true" />
+                <element signature="e#2459#2460#0" expanded="true" />
+                <element signature="e#2606#2752#0" expanded="true" />
+                <element signature="e#2741#2742#0" expanded="true" />
+                <element signature="e#3829#3871#0" expanded="true" />
+                <element signature="e#4067#4107#0" expanded="true" />
+                <element signature="e#4248#4290#0" expanded="true" />
+                <element signature="e#7704#7712#0" expanded="true" />
+                <element signature="e#8542#8550#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="activity_main.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
+          <provider editor-type-id="android-designer">
+            <state />
+          </provider>
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="270">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="activity_login.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml">
+          <provider editor-type-id="android-designer">
+            <state />
+          </provider>
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-11.615385" vertical-offset="238" max-vertical-offset="870">
+              <caret line="36" column="68" selection-start-line="36" selection-start-column="48" selection-end-line="36" selection-end-column="68" />
+              <folding>
+                <element signature="e#1313#1331#0" expanded="true" />
+                <element signature="e#1706#1731#0" expanded="true" />
+                <element signature="e#2549#2573#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="strings_activity_login.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings_activity_login.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="285">
+              <caret line="11" column="39" selection-start-line="11" selection-start-column="39" selection-end-line="11" selection-end-column="39" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="fragment_order_version_detail.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_order_version_detail.xml">
+          <provider selected="true" editor-type-id="android-designer">
+            <state />
+          </provider>
+          <provider editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="165" max-vertical-offset="405">
+              <caret line="11" column="17" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
+              <folding />
+            </state>
+          </provider>
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
         </entry>
       </file>
     </leaf>
@@ -1138,6 +1282,30 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
+<<<<<<< Updated upstream
+=======
+        <option value="$PROJECT_DIR$/app/src/main/java/nju/zhizaolian/activities/MainActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_add_order_detail.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/values/styles.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/nju/zhizaolian/models/Custom.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/sample_custom_view.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout-zh/view_custom_child.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/view_custom.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/nju/zhizaolian/views/CustomView.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_custom_list.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/nju/zhizaolian/fragments/ItemFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/nju/zhizaolian/activities/AddOrderDetailActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_order_detail.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
+        <option value="$PROJECT_DIR$/app/build.gradle" />
+        <option value="$PROJECT_DIR$/app/src/main/java/nju/zhizaolian/fragments/OrderBaseInfoFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/nju/zhizaolian/fragments/OrderMaterialDetailFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/nju/zhizaolian/fragments/OrderSampleDetailFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/nju/zhizaolian/fragments/OrderVersionDetailFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_order_material_detail.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/nju/zhizaolian/activities/OrderDetailActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/nju/zhizaolian/service/MyService.java" />
+>>>>>>> Stashed changes
         <option value="$PROJECT_DIR$/app/build/intermediates/manifests/full/debug/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/info_custom.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/info_business.xml" />
@@ -1159,12 +1327,14 @@
         <option value="$PROJECT_DIR$/app/src/main/java/nju/zhizaolian/activities/CustomListActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/version_data.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_order_version_detail.xml" />
+<<<<<<< Updated upstream
         <option value="$PROJECT_DIR$/app/src/main/res/layout/item_custom.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/customer_register.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/add_customer.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/customer_add.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/strings_fragment_customer_register.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/customer_list_item.xml" />
+<<<<<<< Updated upstream
         <option value="$PROJECT_DIR$/app/src/main/res/values/strings_fragment_customer_list.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/customer_list.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml" />
@@ -1189,6 +1359,13 @@
         <option value="$PROJECT_DIR$/app/src/main/java/nju/zhizaolian/activities/MainActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/nju/zhizaolian/fragments/WelcomeFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" />
+=======
+=======
+        <option value="$PROJECT_DIR$/app/src/main/res/values/strings_activity_login.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/nju/zhizaolian/activities/LoginActivity.java" />
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
       </list>
     </option>
   </component>
@@ -1311,7 +1488,12 @@
           <PATH>
             <PATH_ELEMENT>
               <option name="myItemId" value="zhizaolian" />
+<<<<<<< Updated upstream
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+=======
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -1320,7 +1502,16 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+<<<<<<< Updated upstream
               <option name="myItemId" value="zhizaolian" />
+=======
+              <option name="myItemId" value="wrapper" />
+=======
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1335,6 +1526,17 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="app" />
+<<<<<<< Updated upstream
+=======
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+>>>>>>> Stashed changes
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1349,6 +1551,17 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="app" />
+<<<<<<< Updated upstream
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+=======
+>>>>>>> Stashed changes
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -1359,18 +1572,12 @@
               <option name="myItemId" value="main" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-          </PATH>
-          <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="zhizaolian" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="zhizaolian" />
+              <option name="myItemId" value="res" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
+              <option name="myItemId" value="values" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -1598,6 +1805,72 @@
           </PATH>
         </subPane>
       </pane>
+<<<<<<< Updated upstream
+=======
+      <pane id="PackagesPane">
+        <subPane />
+      </pane>
+      <pane id="Scope" />
+<<<<<<< Updated upstream
+=======
+      <pane id="AndroidView">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Zhizaolian" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Gradle Scripts" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidBuildScriptsGroupNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Zhizaolian" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="values" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderTypeNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Zhizaolian" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Zhizaolian" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -1612,16 +1885,30 @@
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
     <property name="recentsLimit" value="5" />
+<<<<<<< Updated upstream
     <property name="UI_DESIGNER_EDITOR_MODE.PaletteToolWindowManager.WIDTH" value="215" />
+=======
+    <property name="UI_DESIGNER_EDITOR_MODE.PaletteToolWindowManager.WIDTH" value="174" />
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
     <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager2.WIDTH" value="309" />
     <property name="FullScreen" value="false" />
     <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_SERIALS" value="1387e79d" />
     <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_AVD" value="AVD_for_Galaxy_Nexus" />
+<<<<<<< Updated upstream
     <property name="OverrideImplement.combined" value="true" />
     <property name="OverrideImplement.overriding.sorted" value="false" />
     <property name="restartRequiresConfirmation" value="true" />
     <property name="UI_DESIGNER_EDITOR_MODE.PaletteToolWindowManager.STATE" value="left" />
     <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager2.STATE" value="right" />
+=======
+=======
+    <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager2.WIDTH" value="310" />
+    <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_SERIALS" value="192.168.56.101:5555" />
+    <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_AVD" value="Nexus_5_API_21_x86" />
+    <property name="FullScreen" value="false" />
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
   </component>
   <component name="RecentsManager">
     <key name="android.template.packageName">
@@ -1638,7 +1925,7 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="Android Application.CustomListActivity">
+  <component name="RunManager" selected="Android Application.AddOrderDetailActivity">
     <configuration default="false" name="LoginActivity" type="AndroidRunConfigurationType" factoryName="Android Application" temporary="true">
       <module name="app" />
       <option name="ACTIVITY_CLASS" value="nju.zhizaolian.activities.LoginActivity" />
@@ -1867,8 +2154,8 @@
     </list>
     <recent_temporary>
       <list size="4">
-        <item index="0" class="java.lang.String" itemvalue="Android Application.CustomListActivity" />
-        <item index="1" class="java.lang.String" itemvalue="Android Application.AddOrderDetailActivity" />
+        <item index="0" class="java.lang.String" itemvalue="Android Application.AddOrderDetailActivity" />
+        <item index="1" class="java.lang.String" itemvalue="Android Application.CustomListActivity" />
         <item index="2" class="java.lang.String" itemvalue="Android Application.LoginActivity" />
         <item index="3" class="java.lang.String" itemvalue="Android Tests.ApplicationTest" />
       </list>
@@ -1925,6 +2212,7 @@
       <created>1427092592479</created>
       <updated>1427092592479</updated>
     </task>
+<<<<<<< Updated upstream
     <task id="LOCAL-00006" summary="添加客户的xml，datepicker用不起来，用的个date，textfield">
       <created>1427780949187</created>
       <updated>1427780949187</updated>
@@ -1937,6 +2225,7 @@
       <created>1427784770781</created>
       <updated>1427784770781</updated>
     </task>
+<<<<<<< Updated upstream
     <task id="LOCAL-00009" summary="客户管理全部写完&#10;fragment界面提供接口&#10;activity界面实现操作和fragment的切换&#10;Item里面没有写button而是在ListView上加了个linearLayout，放了三个按钮&#10;明天继续任务2333333&#10;失误：不小心删了dimens.xml文件......">
       <created>1427975055589</created>
       <updated>1427975055589</updated>
@@ -1946,6 +2235,20 @@
       <updated>1427987014303</updated>
     </task>
     <option name="localTasksCounter" value="11" />
+=======
+    <option name="localTasksCounter" value="9" />
+=======
+    <task id="LOCAL-00006" summary="添加登陆界面">
+      <created>1427773771042</created>
+      <updated>1427773771042</updated>
+    </task>
+    <task id="LOCAL-00007" summary="添加登陆界面">
+      <created>1427773797151</created>
+      <updated>1427773797151</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1969,8 +2272,17 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
+<<<<<<< Updated upstream
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="false" />
+=======
+<<<<<<< Updated upstream
+    <frame x="-7" y="9" width="1346" height="728" extended-state="0" />
+=======
+    <frame x="0" y="23" width="1280" height="773" extended-state="6" />
+>>>>>>> Stashed changes
+    <editor active="true" />
+>>>>>>> Stashed changes
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.49574107" sideWeight="0.5" order="15" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.18568996" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1981,6 +2293,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.6439523" sideWeight="0.2624811" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+<<<<<<< Updated upstream
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32980332" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.30937973" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.23679727" sideWeight="0.24357034" order="2" side_tool="false" content_ui="tabs" />
@@ -1993,6 +2306,29 @@
       <window_info id="Memory Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.23679727" sideWeight="0.7564297" order="14" side_tool="true" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32980332" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24886535" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+=======
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3298217" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+<<<<<<< Updated upstream
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.30171072" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.12776831" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+=======
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.20355412" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5707763" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+>>>>>>> Stashed changes
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32980332" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32980332" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33625218" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33637747" sideWeight="0.5" order="12" side_tool="true" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+<<<<<<< Updated upstream
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.30248833" sideWeight="0.4988662" order="0" side_tool="false" content_ui="combo" />
+=======
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.29402262" sideWeight="0.4988662" order="0" side_tool="false" content_ui="combo" />
+>>>>>>> Stashed changes
+      <window_info id="Memory Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32876712" sideWeight="0.8006483" order="14" side_tool="true" content_ui="tabs" />
+      <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24959481" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+>>>>>>> Stashed changes
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3394216" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -2024,12 +2360,21 @@
     <MESSAGE value="add strings" />
     <MESSAGE value="add sample_custom" />
     <MESSAGE value="添加加工信息" />
+<<<<<<< Updated upstream
     <MESSAGE value="添加客户的xml，datepicker用不起来，用的个date，textfield" />
     <MESSAGE value="添加customer_add.xml里面的string" />
     <MESSAGE value="用户列表项，编辑和删除功能没有，同时更新两个string变量" />
+<<<<<<< Updated upstream
     <MESSAGE value="客户管理全部写完&#10;fragment界面提供接口&#10;activity界面实现操作和fragment的切换&#10;Item里面没有写button而是在ListView上加了个linearLayout，放了三个按钮&#10;明天继续任务2333333&#10;失误：不小心删了dimens.xml文件......" />
     <MESSAGE value="登陆主界面welcomeActivity&#10;抽屉界面明天再弄吧&#10;进度是赶出来的" />
     <option name="LAST_COMMIT_MESSAGE" value="登陆主界面welcomeActivity&#10;抽屉界面明天再弄吧&#10;进度是赶出来的" />
+=======
+    <option name="LAST_COMMIT_MESSAGE" value="用户列表项，编辑和删除功能没有，同时更新两个string变量" />
+=======
+    <MESSAGE value="添加登陆界面" />
+    <option name="LAST_COMMIT_MESSAGE" value="添加登陆界面" />
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -2050,6 +2395,7 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
+<<<<<<< Updated upstream
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/process_biggoods.xml">
       <provider editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="2696" max-vertical-offset="3300">
@@ -2067,6 +2413,54 @@
         </state>
       </provider>
       <provider selected="true" editor-type-id="android-designer">
+=======
+<<<<<<< Updated upstream
+=======
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/nju/zhizaolian/adapters/CustomAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="150" max-vertical-offset="645">
+          <caret line="44" column="64" selection-start-line="44" selection-start-column="64" selection-end-line="44" selection-end-column="64" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/item_custom.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="60" max-vertical-offset="1830">
+          <caret line="4" column="4" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+>>>>>>> Stashed changes
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/nju/zhizaolian/models/Custom.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="180" max-vertical-offset="1185">
+          <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+<<<<<<< Updated upstream
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+=======
+    <entry file="jar://$USER_HOME$/android-sdks/extras/android/m2repository/com/android/support/support-v4/21.0.3/support-v4-21.0.3-sources.jar!/android/support/v4/app/Fragment.java">
+>>>>>>> Stashed changes
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.6153846" vertical-offset="127" max-vertical-offset="735">
+          <caret line="13" column="35" selection-start-line="13" selection-start-column="35" selection-end-line="13" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+<<<<<<< Updated upstream
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
+      <provider editor-type-id="android-designer">
+>>>>>>> Stashed changes
         <state />
       </provider>
     </entry>
@@ -2076,7 +2470,15 @@
           <caret line="17" column="53" selection-start-line="17" selection-start-column="53" selection-end-line="17" selection-end-column="53" />
         </state>
       </provider>
+<<<<<<< Updated upstream
       <provider selected="true" editor-type-id="android-designer">
+=======
+    </entry>
+=======
+>>>>>>> Stashed changes
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_order_detail.xml">
+      <provider editor-type-id="android-designer">
+>>>>>>> Stashed changes
         <state />
       </provider>
     </entry>
@@ -2230,11 +2632,25 @@
         </state>
       </provider>
     </entry>
+<<<<<<< Updated upstream
     <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings_fragment_customer_list.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.20430107" vertical-offset="0" max-vertical-offset="558">
           <caret line="6" column="12" selection-start-line="6" selection-start-column="12" selection-end-line="6" selection-end-column="12" />
           <folding />
+=======
+<<<<<<< Updated upstream
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings_activity_login.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="285">
+          <caret line="8" column="68" selection-start-line="8" selection-start-column="68" selection-end-line="8" selection-end-column="68" />
+=======
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-9.6" vertical-offset="0" max-vertical-offset="405">
+          <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
         </state>
       </provider>
     </entry>
@@ -2285,7 +2701,25 @@
         </state>
       </provider>
     </entry>
+<<<<<<< Updated upstream
     <entry file="file://$PROJECT_DIR$/app/src/main/java/nju/zhizaolian/fragments/OrderSampleDetailFragment.java">
+=======
+<<<<<<< Updated upstream
+=======
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_custom_list.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="315">
+          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+>>>>>>> Stashed changes
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/nju/zhizaolian/models/Custom.java">
+>>>>>>> Stashed changes
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.17958412" vertical-offset="0" max-vertical-offset="1330">
           <caret line="13" column="34" selection-start-line="13" selection-start-column="32" selection-end-line="13" selection-end-column="34" />
@@ -2294,8 +2728,23 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/nju/zhizaolian/activities/OrderDetailActivity.java">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< Updated upstream
         <state vertical-scroll-proportion="0.2967864" vertical-offset="1192" max-vertical-offset="2983">
           <caret line="92" column="34" selection-start-line="92" selection-start-column="34" selection-end-line="92" selection-end-column="34" />
+=======
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1485">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+<<<<<<< Updated upstream
+=======
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/nju/zhizaolian/activities/CustomListActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="450" max-vertical-offset="1020">
+          <caret line="40" column="18" selection-start-line="40" selection-start-column="18" selection-end-line="40" selection-end-column="18" />
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
         </state>
       </provider>
     </entry>
@@ -2314,6 +2763,7 @@
           <folding />
         </state>
       </provider>
+<<<<<<< Updated upstream
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/customer_add.xml">
       <provider selected="true" editor-type-id="text-editor">
@@ -2322,6 +2772,13 @@
           <folding />
         </state>
       </provider>
+<<<<<<< Updated upstream
+=======
+=======
+>>>>>>> Stashed changes
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/version_data.xml">
+>>>>>>> Stashed changes
       <provider editor-type-id="android-designer">
         <state />
       </provider>
@@ -2333,12 +2790,22 @@
         </state>
       </provider>
     </entry>
+<<<<<<< Updated upstream
     <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings_fragment_order.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.6978131" vertical-offset="1720" max-vertical-offset="2223">
           <caret line="109" column="47" selection-start-line="109" selection-start-column="47" selection-end-line="109" selection-end-column="47" />
           <folding />
         </state>
+=======
+<<<<<<< Updated upstream
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_order_version_detail.xml">
+=======
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/sample_make.xml">
+>>>>>>> Stashed changes
+      <provider selected="true" editor-type-id="android-designer">
+        <state />
+>>>>>>> Stashed changes
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
@@ -2362,6 +2829,7 @@
           <caret line="45" column="0" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
         </state>
       </provider>
+<<<<<<< Updated upstream
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/customer_list.xml">
       <provider selected="true" editor-type-id="text-editor">
@@ -2381,6 +2849,8 @@
           <folding />
         </state>
       </provider>
+=======
+>>>>>>> Stashed changes
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings_in_welcomeview.xml">
       <provider selected="true" editor-type-id="text-editor">
@@ -2390,7 +2860,12 @@
         </state>
       </provider>
     </entry>
+<<<<<<< Updated upstream
     <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
+=======
+<<<<<<< Updated upstream
+    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+>>>>>>> Stashed changes
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.61860466" vertical-offset="38" max-vertical-offset="475">
           <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
@@ -2400,13 +2875,32 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/menu/menu_main.xml">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< Updated upstream
         <state vertical-scroll-proportion="0.19387755" vertical-offset="0" max-vertical-offset="490">
           <caret line="5" column="46" selection-start-line="5" selection-start-column="46" selection-end-line="5" selection-end-column="46" />
+=======
+        <state vertical-scroll-proportion="-1.6612022" vertical-offset="988" max-vertical-offset="5149">
+          <caret line="51" column="36" selection-start-line="51" selection-start-column="36" selection-end-line="51" selection-end-column="36" />
+=======
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/version_data.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="120" max-vertical-offset="3330">
+          <caret line="8" column="39" selection-start-line="8" selection-start-column="39" selection-end-line="8" selection-end-column="39" />
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
           <folding />
         </state>
       </provider>
     </entry>
+<<<<<<< Updated upstream
     <entry file="file://$PROJECT_DIR$/app/src/main/java/nju/zhizaolian/fragments/CustomerListFragment.java">
+=======
+<<<<<<< Updated upstream
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/nju/zhizaolian/activities/MainActivity.java">
+>>>>>>> Stashed changes
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.92445326" vertical-offset="409" max-vertical-offset="1596">
           <caret line="59" column="2" selection-start-line="59" selection-start-column="2" selection-end-line="59" selection-end-column="2" />
@@ -2414,7 +2908,22 @@
         </state>
       </provider>
     </entry>
+<<<<<<< Updated upstream
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/left_drawer_menu_item.xml">
+=======
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/customer_list.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+=======
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/nju/zhizaolian/adapters/CustomAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="15" max-vertical-offset="645">
+          <caret line="30" column="85" selection-start-line="30" selection-start-column="85" selection-end-line="30" selection-end-column="85" />
+          <folding />
+        </state>
+>>>>>>> Stashed changes
+      </provider>
+>>>>>>> Stashed changes
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.987013" vertical-offset="0" max-vertical-offset="703">
           <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
@@ -2426,7 +2935,17 @@
           </folding>
         </state>
       </provider>
+<<<<<<< Updated upstream
       <provider editor-type-id="android-designer">
+=======
+    </entry>
+<<<<<<< Updated upstream
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/customer_list_item.xml">
+=======
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_order_version_detail.xml">
+>>>>>>> Stashed changes
+      <provider selected="true" editor-type-id="android-designer">
+>>>>>>> Stashed changes
         <state />
       </provider>
     </entry>
@@ -2449,6 +2968,7 @@
         </state>
       </provider>
     </entry>
+<<<<<<< Updated upstream
     <entry file="file://$PROJECT_DIR$/app/src/main/java/nju/zhizaolian/activities/CustomerManagerActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.45714286" vertical-offset="1312" max-vertical-offset="1767">
@@ -2461,18 +2981,54 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.7912088" vertical-offset="210" max-vertical-offset="893">
           <caret line="40" column="33" selection-start-line="40" selection-start-column="33" selection-end-line="40" selection-end-column="33" />
+=======
+<<<<<<< Updated upstream
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/customer_add.xml">
+=======
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/item_custom.xml">
+>>>>>>> Stashed changes
+      <provider selected="true" editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider editor-type-id="text-editor">
+<<<<<<< Updated upstream
+        <state vertical-scroll-proportion="0.0" vertical-offset="114" max-vertical-offset="3648">
+          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+=======
+        <state vertical-scroll-proportion="0.0" vertical-offset="135" max-vertical-offset="1830">
+          <caret line="4" column="4" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="4" />
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
           <folding />
         </state>
       </provider>
     </entry>
+<<<<<<< Updated upstream
     <entry file="file://$PROJECT_DIR$/app/src/main/java/nju/zhizaolian/fragments/LeftDrawerMenuFragment.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1197">
           <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+=======
+<<<<<<< Updated upstream
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings_activity_customlist.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="361">
+          <caret line="9" column="35" selection-start-line="9" selection-start-column="35" selection-end-line="9" selection-end-column="35" />
+=======
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="457">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
           <folding />
         </state>
       </provider>
     </entry>
+<<<<<<< Updated upstream
     <entry file="file://$PROJECT_DIR$/app/src/main/java/nju/zhizaolian/fragments/WelcomeFragment.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="419" max-vertical-offset="2375">
@@ -2487,6 +3043,19 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-7.107143" vertical-offset="3164" max-vertical-offset="3591">
           <caret line="177" column="11" selection-start-line="177" selection-start-column="11" selection-end-line="177" selection-end-column="11" />
+=======
+<<<<<<< Updated upstream
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-12.84" vertical-offset="192" max-vertical-offset="703">
+          <caret line="27" column="55" selection-start-line="27" selection-start-column="55" selection-end-line="27" selection-end-column="55" />
+=======
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings_activity_login.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="285">
+          <caret line="11" column="39" selection-start-line="11" selection-start-column="39" selection-end-line="11" selection-end-column="39" />
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
           <folding />
         </state>
       </provider>
@@ -2494,7 +3063,12 @@
         <state />
       </provider>
     </entry>
+<<<<<<< Updated upstream
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/left_drawer_menu.xml">
+=======
+<<<<<<< Updated upstream
+    <entry file="file://$PROJECT_DIR$/app/build.gradle">
+>>>>>>> Stashed changes
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="4.214286" vertical-offset="232" max-vertical-offset="1444">
           <caret line="6" column="5" selection-start-line="6" selection-start-column="5" selection-end-line="6" selection-end-column="5" />
@@ -2510,6 +3084,39 @@
         <state vertical-scroll-proportion="-7.464286" vertical-offset="0" max-vertical-offset="418">
           <caret line="11" column="37" selection-start-line="11" selection-start-column="37" selection-end-line="11" selection-end-column="37" />
           <folding />
+        </state>
+=======
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+>>>>>>> Stashed changes
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-11.615385" vertical-offset="238" max-vertical-offset="870">
+          <caret line="36" column="68" selection-start-line="36" selection-start-column="48" selection-end-line="36" selection-end-column="68" />
+          <folding>
+            <element signature="e#1313#1331#0" expanded="true" />
+            <element signature="e#1706#1731#0" expanded="true" />
+            <element signature="e#2549#2573#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/nju/zhizaolian/activities/LoginActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.54126984" vertical-offset="2914" max-vertical-offset="4185">
+          <caret line="253" column="35" selection-start-line="253" selection-start-column="35" selection-end-line="253" selection-end-column="35" />
+          <folding>
+            <element signature="e#2109#2470#0" expanded="true" />
+            <element signature="e#2459#2460#0" expanded="true" />
+            <element signature="e#2606#2752#0" expanded="true" />
+            <element signature="e#2741#2742#0" expanded="true" />
+            <element signature="e#3829#3871#0" expanded="true" />
+            <element signature="e#4067#4107#0" expanded="true" />
+            <element signature="e#4248#4290#0" expanded="true" />
+            <element signature="e#7704#7712#0" expanded="true" />
+            <element signature="e#8542#8550#0" expanded="true" />
+          </folding>
         </state>
       </provider>
       <provider editor-type-id="android-designer">
