@@ -5,6 +5,7 @@ import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -62,11 +63,19 @@ public class CustomListActivity extends ActionBarActivity {
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        switch(id){
+            case R.id.action_search:
+                opensearch();
+                return true;
+            case R.id.action_settings:
+                return true;
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    private void opensearch(){
+        //TODO 打开搜索
+        Toast.makeText(this,"opensearch",Toast.LENGTH_SHORT).show();
     }
 }

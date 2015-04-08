@@ -1,15 +1,14 @@
 package nju.zhizaolian.fragments;
 
 
-import android.os.Bundle;
 import android.app.Fragment;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
-import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -45,10 +44,10 @@ public class CustomerListFragment extends Fragment implements View.OnClickListen
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.customer_list,container,false);
         listView = (ListView) view.findViewById(R.id.customer_info_list);
-        ArrayList<HashMap<String,String>> customerList = new ArrayList<>();
+        ArrayList<HashMap<String,String>> customerList = new ArrayList<HashMap<String, String>>();
 //        Test Data
         for(int i=0;i<10;i++){
-            HashMap<String,String> item = new HashMap<>();
+            HashMap<String,String> item = new HashMap<String,String>();
             item.put("name",""+i);
             item.put("phone",""+i);
             item.put("address",""+i);
