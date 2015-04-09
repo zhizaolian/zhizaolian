@@ -15,7 +15,7 @@
     <string name="right_brackets">)</string>
     <string name="left_brackets">(</string>
     <string name="action_search">搜索</string>
-    <string name="title_activity_sales_master">SalesMasterActivity</string>
-    <string name="title_activity_sales_department">SalesDepartment</string>
+    <string name="title_activity_sales_master">市场主管</string>
+    <string name="title_activity_sales_department">市场部</string>
 
 </resources>

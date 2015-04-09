@@ -31,7 +31,14 @@ public class DepartmentSalesActivity extends ActionBarActivity {
             Fragment newFragment=null;
             switch (itemPosition){
                 case 0:newFragment=new MergePriceFragment();
-               default:break;
+                case 1:newFragment=new MergePriceFragment();
+                case 2:newFragment=new MergePriceFragment();
+                case 3:newFragment=new MergePriceFragment();
+                case 4:newFragment=new MergePriceFragment();
+                case 5:newFragment=new MergePriceFragment();
+                case 6:newFragment=new MergePriceFragment();
+                case 7:newFragment=new MergePriceFragment();
+                default:break;
             }
             getSupportFragmentManager().beginTransaction().replace(R.id.salesDepartmentcontainers,newFragment).commit();
             return false;
