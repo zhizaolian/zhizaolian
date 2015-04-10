@@ -15,5 +15,8 @@
     <string name="logistics_cost">物流成本 整单 (单位:元)</string>
     <string name="mass_logistics_cost">大货物流费用</string>
     <string name="advice">意见</string>
+    <string name="accessory_query">辅料要求</string>
+    <string name="accessory_per_cost_number">单件耗数</string>
+    <string name="accessory_per_price">辅料单价</string>
 
 </resources>

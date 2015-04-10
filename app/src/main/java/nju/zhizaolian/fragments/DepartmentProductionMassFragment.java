@@ -29,7 +29,6 @@ public class DepartmentProductionMassFragment extends Fragment {
     ImageButton acceptButton;
     ImageButton cancelButton;
     TableLayout planTable;
-    TableLayout actuallyTable;
     String sizeList[] =new String[]{"颜色","XS","S","M","L","XL","XXL","均码"};
     ArrayList<HashMap<String,String>> planData;
     ArrayList<HashMap<String,String>> actuallyData = new ArrayList<>();

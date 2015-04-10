@@ -2,4 +2,14 @@
 <resources>
 
     <string name="title_activity_department_purchase">DepartmentPurchaseActivity</string>
+    <string name="fabric_cost">面料报价</string>
+    <string name="fabric_name">面料名称</string>
+    <string name="fabric_weight">面料克重</string>
+    <string name="unit_m">单位(米)</string>
+    <string name="unit_yuan_per_m">单位(元/米)</string>
+    <string name="unit_m_cost">单位米耗</string>
+    <string name="price_per_m">每米价格</string>
+    <string name="accessory_cost">辅料报价</string>
+    <string name="accessory_name">辅料名称</string>
+    <string name="unit_one">单位(个)</string>
 </resources>

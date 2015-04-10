@@ -46,7 +46,7 @@ public class DepartmentProductionCheckFragment extends Fragment {
         packing_cost_edit_text = (EditText) view.findViewById(R.id.packing_cost_text);
         other_cost_edit_text = (EditText) view.findViewById(R.id.other_cost_text);
         mass_logistics_cost_edit_text = (EditText) view.findViewById(R.id.mass_logistics_cost_text);
-        advice_edit_text = (EditText) view.findViewById(R.id.advice_text);
+        advice_edit_text = (EditText) view.findViewById(R.id.purchase_check_advice_text);
         production_accept_button=(ImageButton) view.findViewById(R.id.production_check_accept);
         production_accept_button.setOnClickListener(new View.OnClickListener() {
             @Override

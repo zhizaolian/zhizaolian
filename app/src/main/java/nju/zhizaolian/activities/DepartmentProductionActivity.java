@@ -24,28 +24,29 @@ public class DepartmentProductionActivity extends ActionBarActivity {
         setContentView(R.layout.department_production_activity_layout);
         if(savedInstanceState==null){
             //TODO test data
-//            ArrayList<HashMap<String,String>> list = new ArrayList<>();
-//            for(int i=0;i<10;i++){
-//                HashMap<String,String> data=new HashMap<>();
-//                data.put("颜色","白色");
-//                data.put("XS","1");
-//                data.put("S","2");
-//                data.put("M","3");
-//                data.put("L","4");
-//                data.put("XL","5");
-//                data.put("XXL","6");
-//                data.put("均码","7");
-//                list.add(data);
-//            }
-//            Bundle bundle = new Bundle();
-//            bundle.putSerializable("plan_table",list);
+            ArrayList<HashMap<String,String>> list = new ArrayList<>();
+            for(int i=0;i<4;i++){
+                HashMap<String,String> data=new HashMap<>();
+                data.put("颜色","白色");
+                data.put("XS","1");
+                data.put("S","2");
+                data.put("M","3");
+                data.put("L","4");
+                data.put("XL","5");
+                data.put("XXL","6");
+                data.put("均码","7");
+                list.add(data);
+            }
+            Bundle bundle = new Bundle();
+            bundle.putSerializable("plan_table",list);
             //data end
-//            departmentProductionMassFragment = new DepartmentProductionMassFragment();
-//            departmentProductionMassFragment.setArguments(bundle);
-            departmentProductionCheckFragment= new DepartmentProductionCheckFragment();
+            departmentProductionMassFragment = new DepartmentProductionMassFragment();
+            departmentProductionMassFragment.setArguments(bundle);
+//            departmentProductionCheckFragment= new DepartmentProductionCheckFragment();
             FragmentManager fragmentManager = getFragmentManager();
             FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-            fragmentTransaction.add(R.id.department_production_activity_layout, departmentProductionCheckFragment);
+//            fragmentTransaction.add(R.id.department_production_activity_layout, departmentProductionCheckFragment);
+            fragmentTransaction.add(R.id.department_production_activity_layout, departmentProductionMassFragment);
             fragmentTransaction.commit();
         }
 

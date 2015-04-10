@@ -1,18 +1,30 @@
 package nju.zhizaolian.activities;
 
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
 import nju.zhizaolian.R;
+import nju.zhizaolian.fragments.DepartmentPurchaseCheckFragment;
 
 public class DepartmentPurchaseActivity extends ActionBarActivity {
 
+    DepartmentPurchaseCheckFragment departmentPurchaseCheckFragment;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.department_purchase_activity_layout);
+        if(savedInstanceState==null){
+            departmentPurchaseCheckFragment=new DepartmentPurchaseCheckFragment();
+            FragmentManager fragmentManager = getFragmentManager();
+            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+            fragmentTransaction.add(R.id.department_purchase_activity_layout,departmentPurchaseCheckFragment);
+            fragmentTransaction.commit();
+        }
+
     }
 
 
