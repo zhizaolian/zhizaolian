@@ -35,28 +35,28 @@
             <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/editText6"
+                android:id="@+id/materialName"
                 android:layout_alignTop="@+id/textView34"
                 android:layout_toRightOf="@+id/textView34"
 
-                android:layout_alignRight="@+id/editText7"
-                android:layout_alignEnd="@+id/editText7" />
+                android:layout_alignRight="@+id/materialWeight"
+                android:layout_alignEnd="@+id/materialWeight" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="面料克重"
                 android:id="@+id/textView35"
-                android:layout_below="@+id/editText6"
+                android:layout_below="@+id/materialName"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true" />
 
             <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/editText7"
+                android:id="@+id/materialWeight"
                 android:inputType="number"
-                android:layout_below="@+id/editText6"
+                android:layout_below="@+id/materialName"
                 android:layout_toRightOf="@+id/textView35"
 
                 android:layout_alignParentRight="true"
@@ -66,8 +66,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="添加"
-                android:id="@+id/button"
-                android:layout_below="@+id/editText7"
+                android:id="@+id/materialButton"
+                android:layout_below="@+id/materialWeight"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true" />
 
@@ -77,23 +77,30 @@
                 android:text="点击添加之后数据生效"
                 android:id="@+id/textView36"
                 android:textColor="@android:color/holo_red_dark"
-                android:layout_below="@+id/editText7"
-                android:layout_toRightOf="@+id/button"
-                android:layout_toEndOf="@+id/button"
+                android:layout_below="@+id/materialWeight"
+                android:layout_toRightOf="@+id/materialButton"
+                android:layout_toEndOf="@+id/materialButton"
                 android:layout_marginTop="25dp" />
 
         </RelativeLayout>
+        <ScrollView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="fill_parent"
+                android:layout_height="99dp"
+                android:id="@+id/materialLayout">
+                <ListView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/materialaddListView"/>
 
-        <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="fill_parent"
-            android:layout_height="89dp">
 
-            <ScrollView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/scrollView2" />
-        </LinearLayout>
+
+            </LinearLayout>
+            </ScrollView>
+
 
         <RelativeLayout
             android:layout_width="fill_parent"
@@ -121,7 +128,7 @@
             <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/editText8"
+                android:id="@+id/accessoriesName"
                 android:layout_below="@+id/textView37"
                 android:layout_toRightOf="@+id/textView38"
                 android:layout_alignParentRight="true"
@@ -132,15 +139,15 @@
                 android:layout_height="wrap_content"
                 android:text="辅料要求"
                 android:id="@+id/textView39"
-                android:layout_below="@+id/editText8"
+                android:layout_below="@+id/accessoriesName"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true" />
 
             <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/editText9"
-                android:layout_below="@+id/editText8"
+                android:id="@+id/accessoriesWeight"
+                android:layout_below="@+id/accessoriesName"
                 android:layout_toRightOf="@+id/textView39"
                 android:layout_alignParentRight="true"
                 android:layout_alignParentEnd="true" />
@@ -149,8 +156,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="添加"
-                android:id="@+id/button2"
-                android:layout_below="@+id/editText9"
+                android:id="@+id/accessoriesButton"
+                android:layout_below="@+id/accessoriesWeight"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true" />
 
@@ -159,16 +166,17 @@
                 android:layout_height="wrap_content"
                 android:text="点击添加之后数据生效"
                 android:id="@+id/textView40"
-                android:layout_alignBottom="@+id/button2"
-                android:layout_toRightOf="@+id/button2"
-                android:layout_toEndOf="@+id/button2"
+                android:layout_alignBottom="@+id/accessoriesButton"
+                android:layout_toRightOf="@+id/accessoriesButton"
+                android:layout_toEndOf="@+id/accessoriesButton"
                 android:textColor="@android:color/holo_red_dark" />
         </RelativeLayout>
 
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="fill_parent"
-            android:layout_height="fill_parent">
+            android:layout_height="fill_parent"
+            android:id="@+id/accessoriesLayout">
 
             <ScrollView
                 android:layout_width="wrap_content"
