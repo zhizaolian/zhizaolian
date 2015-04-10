@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="color">颜色</string>
+    <string name="actually">实际</string>
+    <string name="plan">计划</string>
+    <string name="title_activity_department_production">DepartmentProductionActivity</string>
+    <string name="production_cost">生产成本(单位:元/件)</string>
+    <string name="cut_cost">裁剪费用</string>
+    <string name="management_cost">管理费用</string>
+    <string name="make_up_cost">缝制费用</string>
+    <string name="ironing_cost">整烫费用</string>
+    <string name="lock_cost">锁定费用</string>
+    <string name="packing_cost">包装费用</string>
+    <string name="other_cost">其他费用</string>
+    <string name="logistics_cost">物流成本 整单 (单位:元)</string>
+    <string name="mass_logistics_cost">大货物流费用</string>
+    <string name="advice">意见</string>
+
+</resources>

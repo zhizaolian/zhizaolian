@@ -63,6 +63,10 @@
             android:name=".activities.DepartmentFinancialActivity"
             android:label="@string/title_activity_department_financial" >
         </activity>
+        <activity
+            android:name=".activities.MainActivity2"
+            android:label="@string/title_activity_main_activity2" >
+        </activity>
     </application>
 
 </manifest>

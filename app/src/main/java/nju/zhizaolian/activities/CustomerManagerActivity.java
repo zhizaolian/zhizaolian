@@ -3,6 +3,7 @@ package nju.zhizaolian.activities;
 import android.app.Activity;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.os.Message;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -76,6 +77,9 @@ public class CustomerManagerActivity extends Activity implements
     public void customerGoToEditFragmentButtonClicked() {
         Toast.makeText(this,"go to edit",Toast.LENGTH_SHORT).show();
         if(customerEditFragment==null){
+            //
+
+            //
             customerEditFragment = new CustomerEditFragment();
         }
         FragmentManager fragmentManager= getFragmentManager();

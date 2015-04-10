@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="title_custom_list">客户列表</string>
+    <string name="title_custom_name">客户姓名</string>
+    <string name="title_custom_phone">客户电话</string>
+    <string name="title_custom_company">公司名称</string>
+    <string name="title_custom_company_address">公司地址</string>
+    <string name="title_custom_company_phone">公司电话</string>
+    <string name="button_add_order">下单</string>
+    <string name="button_add_duplicate_order">下翻单</string>
+    <string-array name="sales_list">
+        <item>客户下单</item>
+        <item>修改询单</item>
+        <item>合并报价</item>
+        <item>报价商定</item>
+        <item>修改报价</item>
+        <item>签订合同</item>
+        <item>催尾款</item>
+        <item>修改大货合同</item>
+    </string-array>
+</resources>
