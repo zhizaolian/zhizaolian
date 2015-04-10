@@ -63,9 +63,30 @@
             android:name=".activities.DepartmentFinancialActivity"
             android:label="@string/title_activity_department_financial" >
         </activity>
+
         <activity
-            android:name=".activities.MainActivity2"
-            android:label="@string/title_activity_main_activity2" >
+            android:name=".activities.DepartmentDesignActivity"
+            android:label="@string/title_activity_department_design" >
+        </activity>
+
+        <activity
+            android:name=".activities.DepartmentProductionActivity"
+            android:label="@string/title_activity_department_production" >
+        </activity>
+
+        <activity
+            android:name=".activities.DepartmentPurchaseActivity"
+            android:label="@string/title_activity_department_purchase" >
+        </activity>
+
+        <activity
+            android:name=".activities.DepartmentSweaterMakerActivity"
+            android:label="@string/title_activity_department_sweater_maker" >
+        </activity>
+
+        <activity
+            android:name=".activities.DepartmentTechnologyActivity"
+            android:label="@string/title_activity_department_technology" >
         </activity>
     </application>
 
