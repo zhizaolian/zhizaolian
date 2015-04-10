@@ -1,28 +1,25 @@
 package nju.zhizaolian.activities;
 
-import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
 import nju.zhizaolian.R;
-import nju.zhizaolian.fragments.CheckQuoteFragment;
 
-public class SalesMasterActivity extends ActionBarActivity {
-    CheckQuoteFragment checkQuoteFragment=null;
+public class DepartmentFinancialActivity extends ActionBarActivity {
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_sales_master);
-        checkQuoteFragment=new CheckQuoteFragment();
-        getFragmentManager().beginTransaction().replace(R.id.salesMasterContainer,checkQuoteFragment).commit();
+        setContentView(R.layout.activity_department_financial);
     }
 
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_sales_master, menu);
+        getMenuInflater().inflate(R.menu.menu_department_financial, menu);
         return true;
     }
 
@@ -40,6 +37,4 @@ public class SalesMasterActivity extends ActionBarActivity {
 
         return super.onOptionsItemSelected(item);
     }
-
-
 }

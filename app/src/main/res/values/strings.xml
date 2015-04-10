@@ -17,5 +17,6 @@
     <string name="action_search">搜索</string>
     <string name="title_activity_sales_master">市场主管</string>
     <string name="title_activity_sales_department">市场部</string>
+    <string name="title_activity_department_financial">DepartmentFinancialActivity</string>
 
 </resources>

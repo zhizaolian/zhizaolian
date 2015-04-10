@@ -26,7 +26,7 @@
         <activity
             android:name=".activities.OrderDetailActivity"
             android:label="@string/title_activity_add_order_detail"
-            android:parentActivityName=".activities.CustomListActivity">
+            android:parentActivityName=".activities.CustomListActivity" >
         </activity>
         <activity
             android:name=".activities.CustomListActivity"
@@ -58,10 +58,11 @@
         </activity>
         <activity
             android:name=".activities.DepartmentSalesActivity"
-            android:label="@string/title_activity_sales_department"></activity>
-
-
-
+            android:label="@string/title_activity_sales_department" />
+        <activity
+            android:name=".activities.DepartmentFinancialActivity"
+            android:label="@string/title_activity_department_financial" >
+        </activity>
     </application>
 
 </manifest>
