@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent">
+    android:layout_width="wrap_content" android:layout_height="wrap_content"
+    android:id="@+id/hhh">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="面料名称"
-        android:id="@+id/textView119"
+        android:id="@+id/textView151"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
@@ -17,38 +18,38 @@
         android:text="棉"
         android:id="@+id/materialaddname"
         android:layout_alignParentTop="true"
-        android:layout_toRightOf="@+id/textView119"
-        android:layout_toEndOf="@+id/textView119"
-        android:layout_marginLeft="34dp"
-        android:layout_marginStart="34dp" />
+        android:layout_toRightOf="@+id/textView151"
+        android:layout_toEndOf="@+id/textView151"
+        android:layout_marginLeft="28dp"
+        android:layout_marginStart="28dp" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="面料克重"
-        android:id="@+id/textView121"
+        android:id="@+id/textView153"
         android:layout_alignParentTop="true"
         android:layout_toRightOf="@+id/materialaddname"
         android:layout_toEndOf="@+id/materialaddname"
-        android:layout_marginLeft="30dp"
-        android:layout_marginStart="30dp" />
+        android:layout_marginLeft="28dp"
+        android:layout_marginStart="28dp" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="0"
+        android:text="111"
         android:id="@+id/materialaddweight"
         android:layout_alignParentTop="true"
-        android:layout_toRightOf="@+id/textView121"
-        android:layout_toEndOf="@+id/textView121"
-        android:layout_marginLeft="30dp"
-        android:layout_marginStart="30dp" />
+        android:layout_toRightOf="@+id/textView153"
+        android:layout_toEndOf="@+id/textView153"
+        android:layout_marginLeft="28dp"
+        android:layout_marginStart="28dp" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="删除"
-        android:id="@+id/materialdeleteButton"
+        android:id="@+id/materialdeletebutton"
         android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
