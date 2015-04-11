@@ -12,4 +12,23 @@
     <string name="accessory_cost">辅料报价</string>
     <string name="accessory_name">辅料名称</string>
     <string name="unit_one">单位(个)</string>
+    <string name="fabric_purchase">面料采购</string>
+    <string name="accessory_purchase">辅料采购</string>
+    <string name="purchase_person_name">采购负责人</string>
+    <string name="purchase_date">采购时间</string>
+    <string name="supplier_name">供应商名称</string>
+    <string name="purchase_number">件数</string>
+    <string name="total_purchase_meter">总采购米数</string>
+    <string name="total_purchase_number">总采购个数</string>
+    <string name="purchase_successful">采购成功</string>
+    <string name="purchase_failed">采购失败</string>
+    <string name="purchase_relative">采购相关</string>
+    <string name="inventory_not_enough">无库存</string>
+    <string name="inventory_enough">有库存</string>
+    <string name="sweater_type">毛线类型</string>
+    <string name="weight">重量</string>
+    <string name="unit_kg">单位(千克)</string>
+    <string name="total_price">总价</string>
+    <string name="unit_yuan">单位(元)</string>
+
 </resources>
