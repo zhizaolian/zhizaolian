@@ -1,0 +1,241 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="nju.zhizaolian.fragments.DepartmentTechnologyMassFragment">
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/customer_technology_request"
+        android:id="@+id/textView151"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/new_text"
+        android:id="@+id/customer_technology_request_text"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/textView151"
+        android:layout_toEndOf="@+id/textView151"
+        android:layout_marginLeft="30dp"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:layout_below="@+id/customer_technology_request_text"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:background="?android:attr/listDivider"
+            android:id="@+id/view"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/new_text"
+        android:id="@+id/ironing_flower_cost_text"
+        android:layout_below="@+id/view"
+        android:layout_alignLeft="@+id/customer_technology_request_text"
+        android:layout_alignStart="@+id/customer_technology_request_text"
+        android:layout_marginTop="10dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/ironing_flower_cost"
+        android:id="@+id/textView154"
+        android:layout_alignTop="@+id/ironing_flower_cost_text"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/new_text"
+        android:id="@+id/washing_cost_text"
+        android:layout_below="@+id/ironing_flower_cost_text"
+        android:layout_alignLeft="@+id/ironing_flower_cost_text"
+        android:layout_alignStart="@+id/ironing_flower_cost_text"
+        android:layout_marginTop="10dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/washing_cost"
+        android:id="@+id/textView156"
+        android:layout_below="@+id/ironing_flower_cost_text"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="10dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/new_text"
+        android:id="@+id/laser_cost_text"
+        android:layout_below="@+id/washing_cost_text"
+        android:layout_alignLeft="@+id/washing_cost_text"
+        android:layout_alignStart="@+id/washing_cost_text"
+        android:layout_marginTop="10dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/laser_cost"
+        android:id="@+id/textView158"
+        android:layout_below="@+id/washing_cost_text"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="10dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/new_text"
+        android:id="@+id/embroidery_cost_text"
+        android:layout_below="@+id/laser_cost_text"
+        android:layout_alignLeft="@+id/laser_cost_text"
+        android:layout_alignStart="@+id/laser_cost_text"
+        android:layout_marginTop="10dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/embroidery_cost"
+        android:id="@+id/textView160"
+        android:layout_below="@+id/laser_cost_text"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="10dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/new_text"
+        android:id="@+id/crushed_cost_text"
+        android:layout_below="@+id/embroidery_cost_text"
+        android:layout_alignLeft="@+id/embroidery_cost_text"
+        android:layout_alignStart="@+id/embroidery_cost_text"
+        android:layout_marginTop="10dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/crushed_cost"
+        android:id="@+id/textView162"
+        android:layout_alignTop="@+id/crushed_cost_text"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/new_text"
+        android:id="@+id/plate_charge_cost_text"
+        android:layout_below="@+id/crushed_cost_text"
+        android:layout_alignLeft="@+id/crushed_cost_text"
+        android:layout_alignStart="@+id/crushed_cost_text"
+        android:layout_marginTop="10dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/plate_charge_cost"
+        android:id="@+id/textView164"
+        android:layout_below="@+id/crushed_cost_text"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="10dp"/>
+     <View
+         android:layout_width="match_parent"
+         android:layout_height="5dp"
+         android:id="@+id/view2"
+         android:layout_below="@+id/plate_charge_cost_text"
+         android:background="?android:attr/listDivider"
+         />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/technology_image_sample"
+        android:id="@+id/textView165"
+        android:layout_alignTop="@+id/technology_sample_image_view"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="10dp"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/technology_sample_image_view"
+        android:layout_below="@+id/view2"
+        android:layout_alignLeft="@+id/plate_charge_cost_text"
+        android:layout_alignStart="@+id/plate_charge_cost_text"
+        android:layout_marginTop="10dp"/>
+
+        <View
+            android:layout_width="wrap_content"
+            android:layout_height="5dp"
+            android:id="@+id/view3"
+            android:layout_below="@+id/technology_sample_image_view"
+            android:background="?android:attr/listDivider"
+            />
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/technology_leading_name_edit_text"
+        android:ems="5"
+        android:layout_below="@+id/view3"
+        android:layout_alignLeft="@+id/technology_sample_image_view"
+        android:layout_alignStart="@+id/technology_sample_image_view"
+        android:layout_marginTop="20dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/technology_leading_name"
+        android:id="@+id/textView166"
+        android:layout_alignBottom="@+id/technology_leading_name_edit_text"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/technology_mass_complete_date"
+        android:id="@+id/textView167"
+        android:layout_alignBottom="@+id/technology_mass_complete_date_edit_text"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/technology_mass_complete_date_edit_text"
+        android:ems="5"
+        android:editable="false"
+        android:layout_below="@+id/technology_leading_name_edit_text"
+        android:layout_alignLeft="@+id/technology_leading_name_edit_text"
+        android:layout_alignStart="@+id/technology_leading_name_edit_text" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/technology_mass_accept_button"
+        android:src="@drawable/ic_action_accept"
+        android:background="@color/blue"
+        android:layout_below="@+id/textView167"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="30dp" />
+
+</RelativeLayout>
+</ScrollView>
+</RelativeLayout>
