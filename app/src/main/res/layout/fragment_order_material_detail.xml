@@ -3,7 +3,9 @@
     android:layout_height="match_parent"
     tools:context="nju.zhizaolian.fragments.OrderMaterialDetailFragment">
 
-
+<ScrollView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="fill_parent"
@@ -83,23 +85,14 @@
                 android:layout_marginTop="25dp" />
 
         </RelativeLayout>
-        <ScrollView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-            <LinearLayout
-                android:orientation="vertical"
-                android:layout_width="fill_parent"
-                android:layout_height="99dp"
-                android:id="@+id/materialLayout">
-                <ListView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/materialaddListView"/>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:id="@+id/materialLayout"/>
 
 
-
-            </LinearLayout>
-            </ScrollView>
 
 
         <RelativeLayout
@@ -172,17 +165,16 @@
                 android:textColor="@android:color/holo_red_dark" />
         </RelativeLayout>
 
+
+
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
-            android:id="@+id/accessoriesLayout">
+            android:id="@+id/accessoriesLayout"/>
 
-            <ScrollView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/scrollView3" />
-        </LinearLayout>
+
+
     </LinearLayout>
-
+</ScrollView>
 </FrameLayout>
