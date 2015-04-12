@@ -7,7 +7,6 @@ import android.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -46,16 +45,16 @@ public class DepartmentTechnologyMassFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view= inflater.inflate(R.layout.department_technology_mass_fragment_layout, container, false);
-        customer_technology_request_text=(TextView) view.findViewById(R.id.customer_technology_request_text);
-        ironing_flower_cost_text=(TextView) view.findViewById(R.id.ironing_flower_cost_text);
-        washing_cost_text=(TextView) view.findViewById(R.id.washing_cost_text);
-        laser_cost_text=(TextView) view.findViewById(R.id.laser_cost_text);
-        embroidery_cost_text=(TextView) view.findViewById(R.id.embroidery_cost_text);
-        crushed_cost_text=(TextView) view.findViewById(R.id.crushed_cost_text);
-        plate_charge_cost_text=(TextView) view.findViewById(R.id.plate_charge_cost_text);
-        technology_leading_name_edit_text=(EditText) view.findViewById(R.id.technology_leading_name_edit_text);
-        technology_mass_complete_date_edit_text=(EditText) view.findViewById(R.id.technology_mass_complete_date_edit_text);
-        technology_mass_accept_button=(ImageButton) view.findViewById(R.id.technology_mass_accept_button);
+        customer_technology_request_text=(TextView) view.findViewById(R.id.check_customer_technology_request_text);
+        ironing_flower_cost_text=(TextView) view.findViewById(R.id.check_ironing_flower_cost_edit_text);
+        washing_cost_text=(TextView) view.findViewById(R.id.check_washing_cost_edit_text);
+        laser_cost_text=(TextView) view.findViewById(R.id.check_laser_cost_text);
+        embroidery_cost_text=(TextView) view.findViewById(R.id.check_embroidery_cost_edit_text);
+        crushed_cost_text=(TextView) view.findViewById(R.id.check_crushed_cost_edit_text);
+        plate_charge_cost_text=(TextView) view.findViewById(R.id.check_plate_charge_cost_edit_text);
+        technology_leading_name_edit_text=(EditText) view.findViewById(R.id.sample_technology_leading_name_edit_text);
+        technology_mass_complete_date_edit_text=(EditText) view.findViewById(R.id.sample_technology_mass_complete_date_edit_text);
+        technology_mass_accept_button=(ImageButton) view.findViewById(R.id.sample_technology_mass_accept_button);
         TextView viewList[] = {
                 customer_technology_request_text,
                 ironing_flower_cost_text,

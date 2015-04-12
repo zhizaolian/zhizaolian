@@ -1,20 +1,39 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="nju.zhizaolian.fragments.DepartmentTechnologyMassFragment">
-<ScrollView
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
-    <RelativeLayout
+    tools:context="nju.zhizaolian.fragments.DepartmentTechnologySampleFragment">
+
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/upload"
+        android:id="@+id/sample_image_upload_button"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/sample_uploaded_image_view"
+        android:scaleType="fitCenter"
+        android:layout_below="@+id/sample_image_upload_button"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/customer_technology_request"
         android:id="@+id/textView151"
-        android:layout_alignParentTop="true"
+        android:layout_below="@id/sample_uploaded_image_view"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
@@ -23,19 +42,19 @@
         android:layout_height="wrap_content"
         android:text="@string/new_text"
         android:id="@+id/check_customer_technology_request_text"
-        android:layout_alignParentTop="true"
+        android:layout_alignTop="@id/textView151"
         android:layout_toRightOf="@+id/textView151"
         android:layout_toEndOf="@+id/textView151"
         android:layout_marginLeft="30dp"/>
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="5dp"
-            android:layout_below="@+id/check_customer_technology_request_text"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:background="?android:attr/listDivider"
-            android:id="@+id/view"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="5dp"
+        android:layout_below="@+id/check_customer_technology_request_text"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:background="?android:attr/listDivider"
+        android:id="@+id/view"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -153,48 +172,22 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginTop="10dp"/>
-     <View
-         android:layout_width="match_parent"
-         android:layout_height="5dp"
-         android:id="@+id/view2"
-         android:layout_below="@+id/check_plate_charge_cost_edit_text"
-         android:background="?android:attr/listDivider"
-         />
 
-    <TextView
+    <View
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/technology_image_sample"
-        android:id="@+id/textView165"
-        android:layout_alignTop="@+id/technology_sample_image_view"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="10dp"/>
-
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/technology_sample_image_view"
-        android:layout_below="@+id/view2"
-        android:layout_alignLeft="@+id/check_plate_charge_cost_edit_text"
-        android:layout_alignStart="@+id/check_plate_charge_cost_edit_text"
-        android:layout_marginTop="10dp"/>
-
-        <View
-            android:layout_width="wrap_content"
-            android:layout_height="5dp"
-            android:id="@+id/view3"
-            android:layout_below="@+id/technology_sample_image_view"
-            android:background="?android:attr/listDivider"
-            />
+        android:layout_height="5dp"
+        android:id="@+id/view3"
+        android:layout_below="@+id/check_plate_charge_cost_edit_text"
+        android:background="?android:attr/listDivider"
+        />
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/sample_technology_leading_name_edit_text"
         android:ems="5"
         android:layout_below="@+id/view3"
-        android:layout_alignLeft="@+id/technology_sample_image_view"
-        android:layout_alignStart="@+id/technology_sample_image_view"
+        android:layout_alignLeft="@+id/check_plate_charge_cost_edit_text"
+        android:layout_alignStart="@+id/check_plate_charge_cost_edit_text"
         android:layout_marginTop="20dp"/>
 
     <TextView
@@ -235,7 +228,6 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginTop="30dp" />
-
 </RelativeLayout>
 </ScrollView>
 </RelativeLayout>

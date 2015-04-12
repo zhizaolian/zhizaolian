@@ -1,5 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="title_activity_department_technology">DepartmentTechnologyActivity</string>
+    <string name="customer_technology_request">客户工艺要求</string>
+    <string name="ironing_flower_cost">印花费</string>
+    <string name="washing_cost">水洗吊染费</string>
+    <string name="laser_cost">激光费</string>
+    <string name="crushed_cost">压皱费</string>
+    <string name="embroidery_cost">刺绣费</string>
+    <string name="plate_charge_cost">开版费</string>
+    <string name="technology_image_sample">工艺样图</string>
+    <string name="technology_leading_name">工艺负责人</string>
+    <string name="technology_mass_complete_date">大货工艺完成时间</string>
+    <string name="upload">上传</string>
+    <string name="unit_yuan_per_one">(元/件)</string>
+    <string name="technology_needed">需要工艺</string>
+    <string name="technology_not_needed">无需工艺</string>
 
 </resources>
