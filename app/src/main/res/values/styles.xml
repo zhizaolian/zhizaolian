@@ -28,6 +28,15 @@
         <item name="android:textColor">@color/black</item>
     </style>
 
+    <style name="MyWarningButtonStyle" >
+        <item name="android:textColor">@color/white</item>
+        <item name="android:background">@color/dark_red</item>
+        <item name="background">@color/dark_red</item>
+    </style>
 
+    <style name="MyButtonStyle" parent="@style/Widget.AppCompat.ActionButton">
+        <item name="android:background">@color/blue</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
 
 </resources>

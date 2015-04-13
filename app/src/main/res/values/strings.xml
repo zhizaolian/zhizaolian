@@ -19,6 +19,6 @@
     <string name="title_activity_sales_department">市场部</string>
     <string name="title_activity_department_financial">DepartmentFinancialActivity</string>
     <string name="ensure">确认</string>
-    <string name="cancel">取消</string>
+
     <string name="back">返回</string>
 </resources>

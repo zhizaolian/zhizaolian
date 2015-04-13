@@ -18,4 +18,10 @@
         <item>催尾款</item>
         <item>修改大货合同</item>
     </string-array>
+    <string name="actual_produce_number">实际生产数</string>
+    <string name="discount_amount">优惠金额</string>
+    <string name="total_amount">总金额</string>
+    <string name="upload_contract">上传合同</string>
+    <string name="upload_deposit">上传首定金收据</string>
+    <string name="remark_info">备注信息</string>
 </resources>
