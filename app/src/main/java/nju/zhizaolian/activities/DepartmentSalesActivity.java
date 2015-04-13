@@ -10,6 +10,7 @@ import android.widget.SpinnerAdapter;
 
 import nju.zhizaolian.R;
 import nju.zhizaolian.fragments.MergePriceFragment;
+import nju.zhizaolian.fragments.QuoteAgreedFragment;
 import nju.zhizaolian.fragments.SignContractFragment;
 
 public class DepartmentSalesActivity extends ActionBarActivity {
@@ -34,7 +35,7 @@ public class DepartmentSalesActivity extends ActionBarActivity {
                 case 0:newFragment=new MergePriceFragment();break;
                 case 1:newFragment=new MergePriceFragment();break;
                 case 2:newFragment=new MergePriceFragment();break;
-                case 3:newFragment=new MergePriceFragment();break;
+                case 3:newFragment=new QuoteAgreedFragment();break;
                 case 4:newFragment=new MergePriceFragment();break;
                 case 5:newFragment=new SignContractFragment();break;
                 case 6:newFragment=new MergePriceFragment();break;
