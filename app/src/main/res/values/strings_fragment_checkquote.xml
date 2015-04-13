@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="material_name">面料名称</string>
+    <string name="cost_per_meter">单件米耗</string>
+    <string name="price">价格</string>
+    <string name="cost_per_clothes">单件成本</string>
+    <string name="material_price">面料报价</string>
+    <string name="accessories_name">辅料名称</string>
+    <string name="cost_per_accessories">单件耗数</string>
+    <string name="accessories_price">辅料报价</string>
+    
+    <string name="material_accessories_total_count">面辅总计</string>
+    <string name="material_total_count">面料总计</string>
+    <string name="accessories_total_count">辅料总计</string>
+
+
+    <string name="technology_price">工艺报价</string>
+    <string name="print_price">印花费(单件)</string>
+    <string name="wash_price">水洗吊染费(单件)</string>
+    <string name="laser_price">激光费(单件)</string>
+    <string name="embroider_price">刺绣费(单件)</string>
+    <string name="crush_price">压皱费(单件)</string>
+    <string name="sample_price">开版费(整体)</string>
+    
+    <string name="other_cost_fee">其他成本</string>
+    <string name="cut_price">裁剪费用(单件)</string>
+    <string name="manager_price">管理费用(单件)</string>
+    <string name="sew_price">缝制费用(单件)</string>
+    <string name="ironing_price">整烫费用(单件)</string>
+    <string name="lock_set_price">锁订费用(单件)</string>
+    <string name="package_price">包装费用(单件)</string>
+    <string name="other_price">其他费用(单件)</string>
+    <string name="large_goods_cost">大货物流费(整体)</string>
+    
+    <string name="check_price">费用核算</string>
+    <string name="total_cost">成本总计</string>
+    <string name="produce_price">生产报价</string>
+    <string name="profit_per_clothes">单件利润</string>
+    <string name="custom_quote_price">客户报价</string>
+    
+    <string name="idea">意见</string>
+    <string name="agree">同意</string>
+    <string name="disagree">拒绝</string>
+</resources>

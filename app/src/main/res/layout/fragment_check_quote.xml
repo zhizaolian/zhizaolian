@@ -3,8 +3,68 @@
     android:layout_height="match_parent"
     tools:context="nju.zhizaolian.fragments.CheckQuoteFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView android:layout_width="match_parent" android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
 
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_gravity="center_horizontal|top">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/material_price"
+            android:textSize="@dimen/abc_text_size_large_material"/>
+        <include layout="@layout/sublayout_material_price"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/accessories_price"
+            android:textSize="@dimen/abc_text_size_large_material"/>
+        <include layout="@layout/sublayout_accessories_price"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/material_accessories_total_count"
+            android:textSize="@dimen/abc_text_size_large_material"/>
+        <include layout="@layout/sublayout_material_accessories_totalcount"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/technology_price"
+            android:textSize="@dimen/abc_text_size_large_material"/>
+            <include layout="@layout/sublayout_technology_price"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/abc_text_size_large_material"
+            android:text="@string/other_cost_fee"/>
+        <include layout="@layout/sublayout_other_cost"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/check_price"
+            android:textSize="@dimen/abc_text_size_large_material"/>
+        <include layout="@layout/sublayout_price_check"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/idea"
+            android:textSize="@dimen/abc_text_size_large_material"/>
+        <EditText
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" />
+        <Button
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/agree"/>
+        <Button
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/disagree"
+            android:background="@color/dark_red"/>
+        </LinearLayout>
+    </ScrollView>
 </FrameLayout>
