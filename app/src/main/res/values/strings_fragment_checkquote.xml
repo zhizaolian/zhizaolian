@@ -41,4 +41,9 @@
     <string name="idea">意见</string>
     <string name="agree">同意</string>
     <string name="disagree">拒绝</string>
+    <string name="sales_master_idea">主管审核意见</string>
+    <string name="nothing">无</string>
+
+
+
 </resources>
