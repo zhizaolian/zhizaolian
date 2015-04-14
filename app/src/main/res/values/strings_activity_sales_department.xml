@@ -24,4 +24,9 @@
     <string name="upload_contract">上传合同</string>
     <string name="upload_deposit">上传首定金收据</string>
     <string name="remark_info">备注信息</string>
+    
+    
+    <string name="design_idea">设计部意见</string>
+    <string name="purchase_idea">采购部意见</string>
+    <string name="production_idea">生产部意见</string>
 </resources>
