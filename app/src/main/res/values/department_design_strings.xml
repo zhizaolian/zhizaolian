@@ -2,10 +2,5 @@
 <resources>
 
     <string name="title_activity_department_design">DepartmentDesignActivity</string>
-    <string name="confirm_version_data">确认版型数据</string>
-    <string name="choose_version_file">选择版型文件</string>
-    <string name="version_maker_name">制版人</string>
-    <string name="version_done_time">完成时间</string>
-    <string name="version_sorter_name">排版人</string>
 
 </resources>

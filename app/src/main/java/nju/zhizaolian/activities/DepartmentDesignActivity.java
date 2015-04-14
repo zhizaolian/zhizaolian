@@ -1,8 +1,6 @@
 package nju.zhizaolian.activities;
 
 
-import android.app.FragmentManager;
-import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
@@ -10,9 +8,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import nju.zhizaolian.R;
-import nju.zhizaolian.fragments.DepartmentDesignConfirmFragment;
-import nju.zhizaolian.fragments.DepartmentDesignEnteringFragment;
-import nju.zhizaolian.fragments.DepartmentDesignSliceFragment;
 
 public class DepartmentDesignActivity extends ActionBarActivity {
 
@@ -21,16 +16,7 @@ public class DepartmentDesignActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.department_design_activity_layout);
-        if(savedInstanceState==null){
-//            DepartmentDesignConfirmFragment fragment = new DepartmentDesignConfirmFragment();
-            DepartmentDesignEnteringFragment fragment = new DepartmentDesignEnteringFragment();
-//            DepartmentDesignSliceFragment fragment = new DepartmentDesignSliceFragment();
-            FragmentManager fragmentManager = getFragmentManager();
-            FragmentTransaction fragmentTransaction= fragmentManager.beginTransaction();
-            fragmentTransaction.add(R.id.department_design_activity_layout,fragment);
-            fragmentTransaction.addToBackStack("null");
-            fragmentTransaction.commit();
-        }
+
 
 
 
@@ -55,7 +41,7 @@ public class DepartmentDesignActivity extends ActionBarActivity {
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             Intent intent = new Intent(DepartmentDesignActivity.this,DepartmentProductionActivity.class);
-//            intent.putExtras(bundle);
+            intent.putExtras(bundle);
             startActivity(intent);
         }
 
