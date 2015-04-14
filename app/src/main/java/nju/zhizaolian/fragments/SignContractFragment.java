@@ -22,7 +22,7 @@ public class SignContractFragment extends Fragment {
                              Bundle savedInstanceState) {
 
 
-        return inflater.inflate(R.layout.fragment_sign_contract,container);
+        return inflater.inflate(R.layout.fragment_sign_contract,container,false);
     }
 
 
