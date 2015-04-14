@@ -23,7 +23,8 @@ public class SignContractFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-       View view=inflater.inflate(R.layout.fragment_sign_contract,container);
+       View view=inflater.inflate(R.layout.fragment_sign_contract,container,false
+       );
 
         return view;
     }
