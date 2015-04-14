@@ -1,8 +1,8 @@
 package nju.zhizaolian.fragments;
 
 
-import android.support.v4.app.Fragment;
 import android.os.Bundle;
+import android.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,10 +12,10 @@ import nju.zhizaolian.R;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class SignContractFragment extends Fragment {
+public class DepartmentDesignVerifyFragment extends Fragment {
 
 
-    public SignContractFragment() {
+    public DepartmentDesignVerifyFragment() {
         // Required empty public constructor
     }
 
@@ -23,9 +23,8 @@ public class SignContractFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-       View view=inflater.inflate(R.layout.fragment_sign_contract,container);
-
-        return view;
+        // Inflate the layout for this fragment
+        return inflater.inflate(R.layout.department_design_verify_fragment_layout, container, false);
     }
 
 

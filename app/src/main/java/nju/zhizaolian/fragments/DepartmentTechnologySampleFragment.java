@@ -94,7 +94,7 @@ public class DepartmentTechnologySampleFragment extends Fragment {
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
-//        super.onActivityResult(requestCode, resultCode, data);
+
         if(resultCode==getActivity().RESULT_OK){
             //TODO upload the image to server
             Uri uri = data.getData();
@@ -107,6 +107,6 @@ public class DepartmentTechnologySampleFragment extends Fragment {
                 Log.e("Exception", e.getMessage(),e);
             }
         }
-
+        super.onActivityResult(requestCode, resultCode, data);
     }
 }
