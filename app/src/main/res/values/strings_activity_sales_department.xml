@@ -42,8 +42,8 @@
     <string name="choose_remaining_balance_picture">选择尾金截图文件</string>
     <string name="sample_dispatch_record">样衣发货纪录</string>
     <string name="express_price">快递价格</string>
-    <string name="ensure_receive_money">确认收到尾款</string>
-    <string name="unable_receive_money">催尾款失败</string>
+    <string name="ensure_receive_money">确认收到汇款</string>
+    <string name="unable_receive_money">未收到汇款</string>
     <!-- 报价商定-->
     <string name="upload_sample_money_picuture">上传收取样衣金截图</string>  
     <string name="chang_price">修改报价</string>

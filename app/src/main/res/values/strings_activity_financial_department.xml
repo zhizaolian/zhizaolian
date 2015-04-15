@@ -18,4 +18,7 @@
         <item>退换定金</item>
         <item>尾款金确认</item>
     </string-array>
+    
+    <string name="number_of_clothes">件数</string>
+    <string name="unit_price">单价</string>
 </resources>

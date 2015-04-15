@@ -11,6 +11,7 @@ import android.widget.SpinnerAdapter;
 
 import nju.zhizaolian.R;
 import nju.zhizaolian.fragments.CheckRemainingBalanceFragment;
+import nju.zhizaolian.fragments.CheckSampleBalanceFragment;
 
 public class DepartmentFinancialActivity extends ActionBarActivity {
 
@@ -28,7 +29,7 @@ public class DepartmentFinancialActivity extends ActionBarActivity {
         public boolean onNavigationItemSelected(int i, long l) {
             Fragment fragment=null;
             switch (i){
-                case 0:fragment= new CheckRemainingBalanceFragment();break;
+                case 0:fragment= new CheckSampleBalanceFragment();break;
                 case 1:fragment= new CheckRemainingBalanceFragment();break;
                 case 2: fragment= new CheckRemainingBalanceFragment();break;
                 case 3:fragment= new CheckRemainingBalanceFragment();break;
