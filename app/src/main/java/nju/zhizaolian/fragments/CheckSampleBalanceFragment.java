@@ -10,12 +10,12 @@ import android.view.ViewGroup;
 import nju.zhizaolian.R;
 
 /**
- * 审核报价
+ * 样衣费确认
  */
-public class CheckQuoteFragment extends Fragment {
+public class CheckSampleBalanceFragment extends Fragment {
 
 
-    public CheckQuoteFragment() {
+    public CheckSampleBalanceFragment() {
         // Required empty public constructor
     }
 
@@ -24,7 +24,7 @@ public class CheckQuoteFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_check_quote, container, false);
+        return inflater.inflate(R.layout.fragment_check_sample_balance, container, false);
     }
 
 
