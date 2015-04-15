@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 import nju.zhizaolian.R;
 
 /**
- *Ç©¶©ºÏÍ¬
+ *
  *
  */
 public class SignContractFragment extends Fragment {

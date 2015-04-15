@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 import nju.zhizaolian.R;
 
 /**
- * 商定报价
+ *
  */
 public class QuoteAgreedFragment extends Fragment {
 

@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 import nju.zhizaolian.R;
 
 /**
- * 样衣费确认
+ *
  */
 public class CheckSampleBalanceFragment extends Fragment {
 

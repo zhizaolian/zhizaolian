@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 import nju.zhizaolian.R;
 
 /**
- * ´ßÎ²¿î
+ *
  */
 public class UrgeRemainingBalance extends Fragment {
 

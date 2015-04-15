@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 import nju.zhizaolian.R;
 
 /**
- * 尾款金确认
+ *
  */
 public class CheckRemainingBalanceFragment extends Fragment {
 

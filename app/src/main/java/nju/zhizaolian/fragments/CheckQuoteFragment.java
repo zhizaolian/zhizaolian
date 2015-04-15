@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 import nju.zhizaolian.R;
 
 /**
- * …Û∫À±®º€
+ *
  */
 public class CheckQuoteFragment extends Fragment {
 
