@@ -10,6 +10,7 @@ import android.widget.ArrayAdapter;
 import android.widget.SpinnerAdapter;
 
 import nju.zhizaolian.R;
+import nju.zhizaolian.fragments.CheckFrontMoneyFragment;
 import nju.zhizaolian.fragments.CheckRemainingBalanceFragment;
 import nju.zhizaolian.fragments.CheckSampleBalanceFragment;
 
@@ -30,10 +31,12 @@ public class DepartmentFinancialActivity extends ActionBarActivity {
             Fragment fragment=null;
             switch (i){
                 case 0:fragment= new CheckSampleBalanceFragment();break;
-                case 1:fragment= new CheckRemainingBalanceFragment();break;
+                case 1:fragment= new CheckFrontMoneyFragment();break;
                 case 2: fragment= new CheckRemainingBalanceFragment();break;
                 case 3:fragment= new CheckRemainingBalanceFragment();break;
-                default:fragment= new CheckRemainingBalanceFragment();break;
+
+                default:
+                    fragment= new CheckRemainingBalanceFragment();break;
 
             }
             getSupportFragmentManager().beginTransaction().replace(R.id.financialContainer,fragment).commit();
