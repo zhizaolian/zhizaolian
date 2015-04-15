@@ -87,6 +87,14 @@
             android:name=".activities.SettingsActivity"
             android:label="@string/title_activity_settings" >
         </activity>
+        <activity
+            android:name=".activities.DepartmentQualityActivity"
+            android:label="@string/title_activity_department_quality" >
+        </activity>
+        <activity
+            android:name=".activities.DepartmentLogisticActivity"
+            android:label="@string/title_activity_department_logistic" >
+        </activity>
     </application>
 
 </manifest>
