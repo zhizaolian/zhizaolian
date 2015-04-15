@@ -29,4 +29,18 @@
     <string name="design_idea">设计部意见</string>
     <string name="purchase_idea">采购部意见</string>
     <string name="production_idea">生产部意见</string>
+    <!-- 大货尾款 -->
+    <string name="cost_info">费用信息</string>
+    <string name="money_type">金额类型</string>
+    <string name="receivable_accounts">应收金额</string>
+    <string name="actual_goods_amounts">实际大货件数</string>
+    <string name="goods_unit_price">大货单价</string>
+    <string name="goods_total_price">大货总价</string>
+    <string name="sample_number">样衣件数</string>
+    <string name="sample_unit_price">样衣单价</string>
+    <string name="sample_total_price">样衣总价</string>
+    <string name="choose_remaining_balance_picture">选择尾金截图文件</string>
+    <string name="sample_dispatch_record">样衣发货纪录</string>
+
+
 </resources>
