@@ -1,0 +1,140 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="nju.zhizaolian.fragments.DepartmentSweaterMakerCheckFragment">
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/mission_choose"
+        android:id="@+id/textView220"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <RadioGroup
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView220"
+        android:id="@+id/mission_choose_radio_group"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:orientation="horizontal">
+
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/make_small_sample"
+            android:id="@+id/make_small_sample_radio" />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/technology_make"
+            android:id="@+id/technology_make_radio"
+            android:layout_gravity="center_horizontal" />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/version_sample"
+            android:id="@+id/version_sample_radio"
+            android:layout_gravity="center_horizontal" />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/sample_confirm"
+            android:id="@+id/sample_confirm_radio"
+            android:layout_gravity="right" />
+    </RadioGroup>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/completed_date_edit_text"
+        android:ems="5"
+        android:layout_below="@+id/mission_choose_radio_group"
+        android:layout_toRightOf="@+id/textView221"
+        android:layout_toEndOf="@+id/textView221"
+        android:layout_marginLeft="30dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="10dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/completed_date"
+        android:id="@+id/textView221"
+        android:layout_alignBottom="@+id/completed_date_edit_text"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/check_leading_name_edit_text"
+        android:ems="5"
+        android:editable="false"
+        android:layout_below="@+id/completed_date_edit_text"
+        android:layout_alignLeft="@+id/completed_date_edit_text"
+        android:layout_alignStart="@+id/completed_date_edit_text" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/leading_name"
+        android:id="@+id/textView222"
+        android:layout_alignBottom="@+id/check_leading_name_edit_text"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textMultiLine"
+        android:ems="5"
+        android:editable="false"
+        android:id="@+id/remark_info_edit_text"
+        android:layout_below="@+id/textView222"
+        android:layout_alignLeft="@+id/check_leading_name_edit_text"
+        android:layout_alignStart="@+id/check_leading_name_edit_text" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/remark_info"
+        android:id="@+id/textView223"
+        android:layout_alignBottom="@+id/remark_info_edit_text"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/operate_history"
+        android:id="@+id/textView224"
+        android:textColor="@color/red"
+        android:layout_below="@+id/textView223"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="30dp" />
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/operate_history_list"
+        android:layout_below="@+id/textView224"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+<ImageButton
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:src="@drawable/ic_action_accept"
+    android:background="@color/blue"
+    android:id="@+id/sweater_maker_check_accept_button"
+    android:layout_below="@+id/operate_history_list"/>
+</RelativeLayout>
