@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="should_receive_number">应收数量</string>
+    <string name="qualified_number">本次实收合格数量</string>
+    <string name="repairs_number">回修数量</string>
+    <string name="discard_number">报废数量</string>
+    <string name="save_this_quality">保存本次质检</string>
+    <string name="complete_total_quality">完成最终质检</string>
+    <string name="choose_data">选择日期</string>
+    <string name="processing">加工方</string>
+    <string name="quality_record">质检记录</string>
+</resources>
