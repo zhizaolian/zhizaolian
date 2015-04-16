@@ -85,7 +85,7 @@
         android:layout_height="wrap_content"
         android:text="@string/processing_name"
         android:id="@+id/textView217"
-        android:layout_alignBottom="@id/processing_name_edit_text"
+        android:layout_alignBottom="@+id/processing_name_edit_text"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginTop="20dp"/>

@@ -3,7 +3,7 @@
 
     <string name="title_activity_department_sweater_maker">DepartmentSweaterMakerActivity</string>
     <string name="sweater_maker_plan_account">计划生产数量</string>
-    <string name="processing_name">加工坊</string>
+    <string name="processing_name">加工方</string>
     <string name="send_out_time">外发时间</string>
     <string name="leading_name">负责人</string>
     <string name="mission_choose">任务选择</string>
