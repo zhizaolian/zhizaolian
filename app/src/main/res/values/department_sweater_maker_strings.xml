@@ -2,4 +2,15 @@
 <resources>
 
     <string name="title_activity_department_sweater_maker">DepartmentSweaterMakerActivity</string>
+    <string name="sweater_maker_plan_account">计划生产数量</string>
+    <string name="processing_name">加工坊</string>
+    <string name="send_out_time">外发时间</string>
+    <string name="leading_name">负责人</string>
+    <string name="mission_choose">任务选择</string>
+    <string name="make_small_sample">打小样</string>
+    <string name="technology_make">制作工艺</string>
+    <string name="version_sample">制版打样</string>
+    <string name="sample_confirm">样衣确认</string>
+    <string name="completed_date">完成时间</string>
+    <string name="operate_history">操作历史</string>
 </resources>
