@@ -12,10 +12,10 @@ import nju.zhizaolian.R;
 /**
  *
  */
-public class CheckQualityFragment extends Fragment {
+public class WarehouseEntryFragment extends Fragment {
 
 
-    public CheckQualityFragment() {
+    public WarehouseEntryFragment() {
         // Required empty public constructor
     }
 
@@ -24,7 +24,7 @@ public class CheckQualityFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_check_quality, container, false);
+        return inflater.inflate(R.layout.fragment_warehouse_entry, container, false);
     }
 
 

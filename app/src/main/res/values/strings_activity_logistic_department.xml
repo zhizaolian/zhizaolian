@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="reveive_sample">收取样衣</string>
+    <string name="ensure_receive_sample">确认收到样衣</string>
+    <string name="no_receive_sample">未收到样衣</string>
+    <string-array name="logistic_list">
+        <item>样衣收取</item>
+        <item>样衣发货</item>
+        <item>产品入库</item>
+        <item>产品发货</item>
+    </string-array>
+    <string name="deliver_sample">样衣发货</string>
+    <string name="save_this_deliver">保存此次发货</string>
+    <string name="complete_total_deliver">完成最终发货</string>
+    <string name="warehouse_entry_info">入库信息</string>
+    <string-array name="size_list">
+        <item>XS</item>
+        <item>S</item>
+        <item>M</item>
+        <item>L</item>
+        <item>XL</item>
+        <item>XXL</item>
+        <item>均码</item>
+    </string-array>
+    <string name="size">大小</string>
+    <string name="complete_box">完成装箱</string>
+    <string name="deliver">发货</string>
+</resources>

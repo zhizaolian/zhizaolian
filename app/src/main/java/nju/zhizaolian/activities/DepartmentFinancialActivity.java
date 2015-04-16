@@ -13,6 +13,7 @@ import nju.zhizaolian.R;
 import nju.zhizaolian.fragments.CheckFrontMoneyFragment;
 import nju.zhizaolian.fragments.CheckRemainingBalanceFragment;
 import nju.zhizaolian.fragments.CheckSampleBalanceFragment;
+import nju.zhizaolian.fragments.ReturnMoneyFragment;
 
 public class DepartmentFinancialActivity extends ActionBarActivity {
 
@@ -32,7 +33,7 @@ public class DepartmentFinancialActivity extends ActionBarActivity {
             switch (i){
                 case 0:fragment= new CheckSampleBalanceFragment();break;
                 case 1:fragment= new CheckFrontMoneyFragment();break;
-                case 2: fragment= new CheckRemainingBalanceFragment();break;
+                case 2: fragment= new ReturnMoneyFragment();break;
                 case 3:fragment= new CheckRemainingBalanceFragment();break;
 
                 default:
