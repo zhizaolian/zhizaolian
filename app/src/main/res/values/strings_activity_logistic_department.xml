@@ -25,4 +25,13 @@
     <string name="size">大小</string>
     <string name="complete_box">完成装箱</string>
     <string name="deliver">发货</string>
+    <string name="entry_register">入库登记</string>
+    <string name="deliver_scan">发货扫描</string>
+    <string name="package_number">包号</string>
+    <string name="warehouse">仓库</string>
+    <string name="storage_rack">货架</string>
+    <string name="location">位置</string>
+    <string name="submit">提交</string>
+    <string name="complete_put_in_storage">完成入库</string>
+    
 </resources>
