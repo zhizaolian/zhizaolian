@@ -17,8 +17,10 @@
     <string name="action_search">搜索</string>
     <string name="title_activity_sales_master">市场主管</string>
     <string name="title_activity_sales_department">市场部</string>
-    <string name="title_activity_department_financial">DepartmentFinancialActivity</string>
+    <string name="title_activity_department_financial">财务部</string>
     <string name="ensure">确认</string>
 
     <string name="back">返回</string>
+    <string name="title_activity_department_quality">质检部</string>
+    <string name="title_activity_department_logistic">物流部</string>
 </resources>

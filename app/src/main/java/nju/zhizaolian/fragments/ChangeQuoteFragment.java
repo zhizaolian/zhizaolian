@@ -2,7 +2,7 @@ package nju.zhizaolian.fragments;
 
 
 import android.os.Bundle;
-import android.app.Fragment;
+import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 import nju.zhizaolian.R;
 
 /**
- * A simple {@link Fragment} subclass.
+ *  修改报价
  */
 public class ChangeQuoteFragment extends Fragment {
 

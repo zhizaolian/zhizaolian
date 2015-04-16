@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--尾款金确认 -->
+    <string name="goods_express_price">大货物流费</string>
+    <string name="sample_express_price">样衣物流费</string>
+    <string name="express_total_price">物流总价</string>
+    <string name="remit_info">汇款信息</string>
+    <string name="remit_person">汇款人</string>
+    <string name="remit_card_number">汇款卡号</string>
+    <string name="remit_bank">汇款银行</string>
+    <string name="remit_money">汇款金额</string>
+    <string name="receive_money_account">收款账号</string>
+    <string name="receive_money_time">收款时间</string>
+    <string name="receive_money_picture">收款图片</string>
+    <string-array name="financial_list">
+        <item>样衣费确认</item>
+        <item>首定金确认</item>
+        <item>退换定金</item>
+        <item>尾款金确认</item>
+    </string-array>
+    
+    <string name="number_of_clothes">件数</string>
+    <string name="unit_price">单价</string>
+</resources>

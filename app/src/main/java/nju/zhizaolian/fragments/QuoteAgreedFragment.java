@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 import nju.zhizaolian.R;
 
 /**
- * A simple {@link Fragment} subclass.
+ *
  */
 public class QuoteAgreedFragment extends Fragment {
 

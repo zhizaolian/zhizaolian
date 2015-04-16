@@ -1,0 +1,106 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="nju.zhizaolian.fragments.UrgeRemainingBalance">
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+      <TableLayout
+          android:layout_width="fill_parent"
+          android:layout_height="wrap_content">
+          <TextView
+              android:text="@string/cost_info"
+              android:textSize="@dimen/abc_text_size_large_material"/>
+          <TableRow>
+              <TextView
+                  android:text="@string/money_type"
+                  />
+              <TextView
+                  android:text="大货尾款"/>
+          </TableRow>
+          <TableRow>
+              <TextView android:text="@string/discount_amount" />
+              <TextView android:text="45555"
+                  />
+          </TableRow>
+
+          <TableRow>
+              <TextView android:text="@string/receivable_accounts" />
+              <TextView android:text="24234525"
+                  />
+          </TableRow>
+          <TableRow>
+              <TextView android:text="@string/actual_goods_amounts"/>
+              <TextView android:text="25253"
+                  />
+          </TableRow>
+          <TableRow>
+              <TextView android:text="@string/goods_unit_price"/>
+              <TextView android:text="144"
+                  />
+          </TableRow>
+          <TableRow>
+              <TextView android:text="@string/goods_total_price" />
+              <TextView android:text="14345235346347"
+                  />
+          </TableRow>
+          <TableRow>
+              <TextView android:text="@string/sample_number"/>
+              <TextView android:text="45235"/>
+
+          </TableRow>
+          <TableRow>
+              <TextView android:text="@string/sample_unit_price"/>
+              <TextView android:text="133"/>
+          </TableRow>
+           <TableRow>
+               <TextView android:text="@string/sample_total_price"/>
+               <TextView android:text="41414"/>
+           </TableRow>
+          </TableLayout>
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <Button
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/choose_remaining_balance_picture"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/remark_info"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="whrrqfhwaef"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/sample_dispatch_record"
+                android:textSize="@dimen/abc_text_size_large_material"
+                android:textColor="@color/red"/>
+            <include layout="@layout/item_sample_express_record"/>
+        </LinearLayout>
+        <Button
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/ensure_receive_money"/>
+        <Button
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/unable_receive_money"
+            style="@style/MyWarningButtonStyle"/>
+
+        </LinearLayout>
+    </ScrollView>
+</FrameLayout>

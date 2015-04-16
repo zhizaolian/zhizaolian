@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/title_express_name"
+        android:id="@+id/textView216"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New Text"
+        android:id="@+id/textView217"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/textView216"
+        android:layout_toEndOf="@+id/textView216"
+        android:layout_marginLeft="75dp"
+        android:layout_marginStart="75dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/title_express_number"
+        android:id="@+id/textView218"
+        android:layout_below="@+id/textView216"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New Text"
+        android:id="@+id/textView219"
+        android:layout_below="@+id/textView217"
+        android:layout_alignLeft="@+id/textView217"
+        android:layout_alignStart="@+id/textView217" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/express_price"
+        android:id="@+id/textView220"
+        android:layout_below="@+id/textView218"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New Text"
+        android:id="@+id/textView221"
+        android:layout_alignTop="@+id/textView220"
+        android:layout_alignLeft="@+id/textView219"
+        android:layout_alignStart="@+id/textView219" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/title_express_time"
+        android:id="@+id/textView222"
+        android:layout_below="@+id/textView220"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New Text"
+        android:id="@+id/textView223"
+        android:layout_below="@+id/textView221"
+        android:layout_alignLeft="@+id/textView221"
+        android:layout_alignStart="@+id/textView221" />
+</RelativeLayout>
