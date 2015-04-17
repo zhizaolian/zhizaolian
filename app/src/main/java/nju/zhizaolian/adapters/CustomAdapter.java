@@ -56,8 +56,8 @@ public class CustomAdapter extends ArrayAdapter<Custom> {
                 getContext().startActivity(j);
             }
         });
-        customNameView.setText(custom.getName());
-        customPhoneView.setText(custom.getPhone());
+        customNameView.setText(custom.getCustomerName());
+        customPhoneView.setText(custom.getCustomerPhone());
         customCompanyView.setText(custom.getCompanyName());
         customCompanyAddressView.setText(custom.getCompanyAddress());
         customCompanyPhoneView.setText(custom.getCompanyPhone());
