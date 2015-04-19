@@ -6,6 +6,7 @@
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission android:name="android.permission.READ_PROFILE" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -26,7 +27,8 @@
         </activity>
         <activity
             android:name=".activities.MainActivity"
-            android:label="@string/title_activity_main" >
+            android:label="@string/title_activity_main"
+            >
         </activity>
         <activity
             android:name=".activities.OrderDetailActivity"
@@ -51,7 +53,6 @@
         <activity
             android:name=".activities.OrderListActivity"
             android:label="@string/title_activity_order_list" >
-
         </activity>
         <activity
             android:name=".activities.SalesMasterActivity"
@@ -96,8 +97,6 @@
             android:name=".activities.DepartmentLogisticActivity"
             android:label="@string/title_activity_department_logistic" >
         </activity>
-
-
     </application>
 
 </manifest>

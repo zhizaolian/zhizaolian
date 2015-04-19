@@ -6,11 +6,13 @@
     android:layout_height="match_parent"
     tools:context="nju.zhizaolian.activities.MainActivity">
 
+
+
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/welcome_activity">
-
         </FrameLayout>
+
 
 </RelativeLayout>

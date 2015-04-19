@@ -1,24 +1,22 @@
 package nju.zhizaolian.fragments;
 
 
-import android.app.FragmentManager;
-import android.app.FragmentTransaction;
-import android.graphics.Color;
 import android.os.Bundle;
+
 import android.app.Fragment;
 import android.support.v4.widget.DrawerLayout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListView;
 import android.widget.TextView;
 
-import com.nineoldandroids.view.ViewHelper;
-
-import org.w3c.dom.Text;
-
-import java.util.zip.Inflater;
+import java.util.ArrayList;
+import java.util.HashMap;
 
 import nju.zhizaolian.R;
+import nju.zhizaolian.adapters.MainMenuAdapter;
+import nju.zhizaolian.models.Account;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -30,11 +28,30 @@ public class WelcomeFragment extends Fragment implements View.OnClickListener{
     private TextView inquirySheetUploadTime;
     private TextView priceSheetUploadTime;
     private DrawerLayout drawerLayout;
+    private ArrayList<HashMap<String,String>> data =new ArrayList<>();
+    private String[] departmentLists = {
+            "市场主管",
+            "市场部",
+            "秘书部",
+            "设计部",
+            "工艺部",
+            "采购部",
+            "生产部",
+            "毛衣制作部",
+            "财务部",
+            "物流部",
+            "质检部",
+            "人事部",
+            "系统管理"
+    };
 
     public WelcomeFragment() {
         // Required empty public constructor
     }
 
+    public DrawerLayout getDrawerLayout(){
+        return drawerLayout;
+    }
     public interface InquirySheetDownloadListener{
         void inquirySheetDownload();
     }
@@ -45,7 +62,10 @@ public class WelcomeFragment extends Fragment implements View.OnClickListener{
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+
         View view = inflater.inflate(R.layout.welcome_layout,container,false);
+        Account account =(Account) getArguments().getSerializable("account");
         inquirySheet=(TextView) view.findViewById(R.id.inquiry_sheet_download);
         inquirySheet.setOnClickListener(this);
         priceSheet=(TextView) view.findViewById(R.id.price_sheet_download);
@@ -56,11 +76,17 @@ public class WelcomeFragment extends Fragment implements View.OnClickListener{
         inquirySheetUploadTime.setText("2015-03-31");
         priceSheetUploadTime.setText("2015-04-01");
         //Test Data End
-        drawerLayout =(DrawerLayout) view.findViewById(R.id.drawer_layout);
-        drawerLayout.setDrawerListener(new MyDrawerListener());
-        drawerLayout.setScrimColor(Color.TRANSPARENT);
-
-
+        drawerLayout =(DrawerLayout) view.findViewById(R.id.main_drawer_layout);
+        TextView usernameView =(TextView)drawerLayout.findViewById(R.id.user_name);
+        usernameView.setText(account.getNickName());
+        ListView departmentList =(ListView) drawerLayout.findViewById(R.id.menuList);
+        setMenuByDepartment(account.getUserType());
+        departmentList.setAdapter(new MainMenuAdapter(
+                getActivity(),
+                data,
+                R.layout.left_drawer_menu_item,
+                new String[]{"department","number"},
+                new int[]{R.id.item_department,R.id.item_department_number}));
         return  view;
     }
 
@@ -77,43 +103,19 @@ public class WelcomeFragment extends Fragment implements View.OnClickListener{
         }
     }
 
-    class MyDrawerListener implements DrawerLayout.DrawerListener{
 
-        @Override
-        public void onDrawerSlide(View drawerView, float slideOffset) {
-            View content = drawerLayout.getChildAt(0);
-            View menu=drawerView;
-            float scale = 1- slideOffset;
-            float leftScale = 1-0.3f*scale;
-            float rightScale = 0.8f + scale*0.2f;
-            ViewHelper.setScaleX(menu, leftScale);
-            ViewHelper.setScaleY(menu, leftScale);
-            ViewHelper.setAlpha(menu, 0.6f + 0.4f * (1 - scale));
-            ViewHelper.setTranslationX(content,
-                    menu.getMeasuredWidth() * (1 - scale));
-            ViewHelper.setPivotX(content, 0);
-            ViewHelper.setPivotY(content,
-                    content.getMeasuredHeight() / 2);
-            content.invalidate();
-            ViewHelper.setScaleX(content, rightScale);
-            ViewHelper.setScaleY(content, rightScale);
-            menu.setFocusableInTouchMode(true);
+    public void setMenuByDepartment(String type){
+        switch (type){
+            case "ADMIN":
+                for(int i=0;i<departmentLists.length;i++){
+                    HashMap<String,String> map= new HashMap<>();
+                    map.put("department",departmentLists[i]);
+                    map.put("number","0");
+                    data.add(map);
+                }
 
-        }
-
-        @Override
-        public void onDrawerOpened(View drawerView) {
-
-        }
-
-        @Override
-        public void onDrawerClosed(View drawerView) {
-
-        }
-
-        @Override
-        public void onDrawerStateChanged(int newState) {
 
         }
     }
+
 }

@@ -1,32 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="horizontal"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:paddingTop="10dp"
+    android:layout_height="wrap_content"
+    android:id="@+id/left_drawer_menu_item">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+
         android:text="@string/new_text"
+        android:layout_gravity="center_vertical"
         android:id="@+id/item_department"
         />
 
-    <TextView
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_toLeftOf="@+id/imageView"
+        android:layout_marginRight="30dp">
+    <TextView
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
         android:text="@string/left_brackets"
+        android:layout_gravity="center_vertical"
         android:id="@+id/textView110" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+
         android:text="@string/new_text"
+        android:layout_gravity="center_vertical"
         android:id="@+id/item_department_number" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/right_brackets"
+        android:layout_gravity="center_vertical"
         android:id="@+id/textView111" />
 
-</LinearLayout>
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:src="@drawable/ic_action_next_item"
+        android:layout_alignParentRight="true"
+        android:id="@+id/imageView" />
+
+
+</RelativeLayout>

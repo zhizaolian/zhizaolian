@@ -1,18 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="200dp"
+    android:layout_width="240dp"
     android:layout_height="match_parent"
+    android:background="@color/bisque"
     android:orientation="vertical"
-    android:background="#00000000"
+
     >
 
     <LinearLayout
+        android:layout_marginTop="30dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+
         android:orientation="vertical">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+
             android:text="@string/prompt_username"
             android:id="@+id/user_name"
             android:layout_marginLeft="20dp"/>
@@ -20,6 +24,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+
             android:text="@string/welcome"
             android:id="@+id/textView104"
             android:layout_marginLeft="20dp"/>
@@ -32,18 +37,22 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingTop="20dp"
-        android:paddingLeft="20dp">
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/title_activity_main"
-        android:id="@+id/textView105"
-        android:clickable="true"/>
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp">
+
+     <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="@string/title_activity_main"
+            android:id="@+id/textView105"
+            android:clickable="true"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+
         android:text="@string/customer_manager"
         android:id="@+id/textView108"
         android:clickable="true"/>
@@ -52,7 +61,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/order_manager"
+
             android:id="@+id/textView109"
+         android:layout_marginTop="10dp"
             android:clickable="true"/>
         </LinearLayout>
 

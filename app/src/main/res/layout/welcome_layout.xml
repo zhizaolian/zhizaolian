@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/drawer_layout"
+    android:id="@+id/main_drawer_layout"
     tools:context="nju.zhizaolian.activities.MainActivity">
 
 <RelativeLayout android:layout_width="match_parent"
@@ -173,10 +173,10 @@
 </RelativeLayout>
     <fragment
         android:id="@+id/left_drawer_menu"
-        android:layout_width="100dp"
+        android:layout_width="240dp"
         android:layout_height="match_parent"
-        android:layout_gravity="left"
-        android:background="@color/blue"
+        android:layout_gravity="start"
+        android:background="#fff"
         android:name="nju.zhizaolian.fragments.LeftDrawerMenuFragment"
         tools:layout="@layout/left_drawer_menu" />
 
