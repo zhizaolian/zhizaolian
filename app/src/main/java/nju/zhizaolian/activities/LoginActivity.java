@@ -11,12 +11,14 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.loopj.android.http.AsyncHttpClient;
+import com.loopj.android.http.JsonHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
-import com.loopj.android.http.TextHttpResponseHandler;
 
 import org.apache.http.Header;
+import org.json.JSONObject;
 
 import nju.zhizaolian.R;
+import nju.zhizaolian.models.Account;
 
 
 public class LoginActivity extends Activity  {
@@ -98,16 +100,17 @@ public class LoginActivity extends Activity  {
             AsyncHttpClient client=new AsyncHttpClient();
             RequestParams params=new RequestParams();
             params.put("username",username);
-            params.put("passwordFake",password);
-            client.post("http://192.168.0.13:8888/pms/ ", params,new TextHttpResponseHandler() {
+            params.put("user_password",password);
+            client.post("http://172.17.188.91:8080/fmc/moblie_doLogin.do", params,new JsonHttpResponseHandler() {
                 @Override
-                public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
-
+                public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+                    Account account=Account.fromJson(response);
+                    login(account);
                 }
 
                 @Override
-                public void onSuccess(int statusCode, Header[] headers, String responseString) {
-                    Log.d("success",responseString);
+                public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
+                    Log.d("fail",responseString);
                 }
             });
         }
@@ -123,9 +126,10 @@ public class LoginActivity extends Activity  {
         return password.length() > 0;
     }
 
-    private void login(){
+    private void login(Account account){
         Intent i=new Intent(this,MainActivity.class);
 
+        i.putExtra("account",account);
         startActivity(i);
     }
 

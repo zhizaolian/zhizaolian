@@ -2,18 +2,15 @@ package nju.zhizaolian.activities;
 
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.Toast;
-
-import com.nineoldandroids.view.ViewHelper;
 
 import nju.zhizaolian.R;
 import nju.zhizaolian.fragments.WelcomeFragment;
+import nju.zhizaolian.models.Account;
 
 public class MainActivity extends ActionBarActivity implements
         WelcomeFragment.InquirySheetDownloadListener,
@@ -24,7 +21,8 @@ public class MainActivity extends ActionBarActivity implements
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        Account account= (Account) getIntent().getSerializableExtra("account");
+        Toast.makeText(getApplicationContext(),account.getUserType(),Toast.LENGTH_SHORT).show();
         if(savedInstanceState==null) {
             welcomeFragment = new WelcomeFragment();
             FragmentManager fragmentManager = getFragmentManager();
