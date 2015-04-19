@@ -19,6 +19,7 @@ import org.json.JSONObject;
 
 import nju.zhizaolian.R;
 import nju.zhizaolian.models.Account;
+import nju.zhizaolian.models.IPAddress;
 
 
 public class LoginActivity extends Activity  {
@@ -101,7 +102,7 @@ public class LoginActivity extends Activity  {
             RequestParams params=new RequestParams();
             params.put("username",username);
             params.put("user_password",password);
-            client.post("http://172.17.188.91:8080/fmc/moblie_doLogin.do", params,new JsonHttpResponseHandler() {
+            client.post(IPAddress.getIP()+"/fmc/mobile_doLogin.do", params,new JsonHttpResponseHandler() {
                 @Override
                 public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                     Account account=Account.fromJson(response);
