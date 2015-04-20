@@ -19,6 +19,7 @@ import nju.zhizaolian.fragments.OrderMaterialDetailFragment;
 import nju.zhizaolian.fragments.OrderProcessDetailFragment;
 import nju.zhizaolian.fragments.OrderSampleDetailFragment;
 import nju.zhizaolian.fragments.OrderVersionDetailFragment;
+import nju.zhizaolian.models.Custom;
 
 public class OrderDetailActivity extends ActionBarActivity implements ActionBar.TabListener {
 
@@ -27,12 +28,12 @@ public class OrderDetailActivity extends ActionBarActivity implements ActionBar.
 
 
     ViewPager mViewPager;
-
+    Custom custom=null;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_order_detail);
-
+        custom= (Custom) getIntent().getSerializableExtra("custom");
         // Set up the action bar.
         final ActionBar actionBar = getSupportActionBar();
         actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
@@ -118,7 +119,7 @@ public class OrderDetailActivity extends ActionBarActivity implements ActionBar.
             // Return a PlaceholderFragment (defined as a static inner class below).
             switch (position){
                 case 0:
-                    return new OrderBaseInfoFragment();
+                    return new OrderBaseInfoFragment(custom);
                 case 1:
                     return new OrderMaterialDetailFragment();
                 case 2:

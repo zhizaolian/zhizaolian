@@ -1,117 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="业务信息"
-        android:id="@+id/title_businessinfo"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="请选择是否为好多衣用户:"
-        android:id="@+id/textView_choose"
-        android:layout_marginTop="35dp"
-        android:layout_below="@+id/title_businessinfo"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
+        android:text="@string/business_info"
+        android:textSize="@dimen/abc_text_size_large_material"/>
     <Switch
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/switch_business"
-        android:checked="true"
-        android:layout_alignTop="@+id/textView_choose"
-        android:layout_toRightOf="@+id/textView_currentTime"
-        android:layout_toEndOf="@+id/textView_currentTime" />
-
+        android:text="@string/is_hao_duo_yi"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="接单时间:"
-        android:id="@+id/textView_time"
-        android:layout_below="@+id/switch_business"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="25dp" />
-
+        android:text="@string/get_order_time"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="2015/03/19 13:47:15"
-        android:id="@+id/textView_currentTime"
-        android:layout_alignTop="@+id/textView_time"
-        android:layout_centerHorizontal="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="订单来源:"
-        android:id="@+id/textView_source"
-        android:layout_below="@+id/textView_time"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="25dp" />
-
+        android:id="@+id/get_order_time"/>
     <EditText
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/editText10"
-        android:layout_toRightOf="@+id/title_businessinfo"
-        android:layout_alignRight="@+id/switch_business"
-        android:layout_alignEnd="@+id/switch_business"
-        android:layout_alignBottom="@+id/textView_source"
-        android:layout_below="@+id/textView_currentTime" />
-
+        android:hint="@string/order_source"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="接单业务员:"
-        android:id="@+id/textView_salesman"
-        android:layout_below="@+id/textView_source"
-        android:layout_toLeftOf="@+id/editText10"
-        android:layout_toStartOf="@+id/editText10"
-        android:layout_marginTop="19dp" />
-
+        android:text="@string/order_salesman"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Salesman"
-        android:id="@+id/textView_salesmanName"
-        android:layout_alignTop="@+id/textView_salesman"
-        android:layout_alignLeft="@+id/textView_currentTime"
-        android:layout_alignStart="@+id/textView_currentTime" />
-
+        android:id="@+id/salesman_name"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="翻单:"
-        android:id="@+id/textView41"
-        android:layout_below="@+id/textView_salesman"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
+        android:text="@string/isDuplicate"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="否"
-        android:id="@+id/textView42"
-        android:layout_alignTop="@+id/textView41"
-        android:layout_alignLeft="@+id/textView_salesmanName"
-        android:layout_alignStart="@+id/textView_salesmanName" />
+        android:id="@+id/Duplicate"/>
 
-</RelativeLayout>
+</LinearLayout>

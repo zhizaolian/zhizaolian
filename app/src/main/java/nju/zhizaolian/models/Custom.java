@@ -4,13 +4,14 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.Serializable;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 
 /**
  * Created by lk on 15/3/3.
  */
-public class Custom {
+public class Custom implements Serializable {
     private Integer customerId;
     private String companyId;
     private String companyName;
@@ -39,7 +40,26 @@ public class Custom {
     public static  Custom fromJson(JSONObject jsonObject){
         Custom custom=new Custom();
         try{
-            custom.customerName=jsonObject.getString("username");
+            custom.customerId=jsonObject.getInt("customerId");
+            custom.companyId=jsonObject.getString("companyId");
+            custom.province=jsonObject.getString("province");
+            custom.websiteUrl=jsonObject.getString("websiteUrl");
+            custom.websiteType=jsonObject.getString("websiteType");
+            custom.buyContact=jsonObject.getString("buyContract");
+            custom.contactPhone1=jsonObject.getString("contactPhone1");
+            custom.contactPhone2=jsonObject.getString("contractPhone2");
+            custom.qq=jsonObject.getString("qq");
+            custom.email=jsonObject.getString("email");
+            custom.bossPhone= jsonObject.getString("bossPhone");
+            custom.registerEmployeeId=jsonObject.getInt("registerEmployeeId");
+            custom.customerName=jsonObject.getString("customerName");
+            custom.customerPhone=jsonObject.getString("customerPhone");
+            custom.companyName=jsonObject.getString("companyName");
+            custom.companyPhone=jsonObject.getString("companyPhone");
+            custom.companyAddress=jsonObject.getString("companyAddress");
+            custom.bossName=jsonObject.getString("bossName");
+            custom.city=jsonObject.getString("city");
+            custom.companyFax=jsonObject.getString("companyFax");
         } catch (JSONException e) {
             e.printStackTrace();
             return null;

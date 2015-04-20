@@ -5,8 +5,25 @@
     <string name="title_section3">样衣信息</string>
     <string name="title_section4">加工信息</string>
     <string name="title_section5">版型信息</string>
+
+
+    <string name="business_info">业务信息</string>
+    <string name="get_order_time">接单时间</string>
+    <string name="order_source">订单来源</string>
+    <string name="order_salesman">接单业务员</string>
+    <string name="isDuplicate">是否是翻单</string>
+
+    <string name="custom_info">客户信息</string>
+    <string name="custom_id">客户编号</string>
+    <string name="custom_name">客户姓名</string>
+    <string name="company">公司</string>
+    <string name="company_fax">公司传真</string>
+    <string name="custom_contract_phone1">手机1</string>
+    <string name="custom_contract_phone2">手机2</string>
+    <string name="company_address">公司地址</string>
+
     <string name="post_order">提交订单</string>
-    <string-array name="colorType_array">
+    <string-array name="clothesType_array">
         <item>上衣</item>
         <item>连衣裙</item>
         <item>T恤</item>
@@ -15,7 +32,12 @@
         <item>其他</item>
     </string-array>
     <string name="choose_name">请选择</string>
+    <string name="is_hao_duo_yi">请选择是否为好多衣客户</string>
     <string name="title_activity_add_order_detail">客户下单</string>
+    <string-array name="yes_or_no">
+        <item>是</item>
+        <item>否</item>
+    </string-array>
     <string-array name="sex_array">
         <item>男</item>
         <item>女</item>
@@ -33,6 +55,13 @@
         <item>针编混合</item>
         <item>梭编混合</item>
     </string-array>
+    <string name="water_wash">水洗</string>
+    <string name="laser">激光</string>
+    <string name="push">压皱</string>
+    <string name="have_main_target">有主标</string>
+    <string name="have_tag">有吊牌</string>
+    <string name="have_water_wash">有水洗</string>
+
     <string name="title_style_info">款式信息</string>
     <string name="title_style_name">款式名称</string>
     <string name="title_clothes_type">衣服类型</string>

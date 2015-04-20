@@ -106,7 +106,12 @@ public class LoginActivity extends Activity  {
                 @Override
                 public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                     Account account=Account.fromJson(response);
-                    login(account);
+                    if(account != null){
+                        login(account);
+                    }else{
+                       mPasswordView.setError(getString(R.string.error_incorrect_password));
+                    }
+
                 }
 
                 @Override
@@ -134,8 +139,12 @@ public class LoginActivity extends Activity  {
         startActivity(i);
     }
 
-
-
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if(requestCode == 0&&resultCode == RESULT_OK){
+            finish();
+        }
+    }
 }
 
 

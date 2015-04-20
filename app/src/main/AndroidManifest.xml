@@ -33,11 +33,7 @@
         <activity
             android:name=".activities.OrderDetailActivity"
             android:label="@string/title_activity_add_order_detail"
-            android:parentActivityName=".activities.CustomListActivity" >
-        </activity>
-        <activity
-            android:name=".activities.CustomListActivity"
-            android:label="@string/title_activity_custom_list" >
+            >
         </activity>
 
         <service

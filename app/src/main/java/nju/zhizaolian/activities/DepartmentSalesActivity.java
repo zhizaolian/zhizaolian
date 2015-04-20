@@ -10,6 +10,7 @@ import android.widget.SpinnerAdapter;
 
 import nju.zhizaolian.R;
 import nju.zhizaolian.fragments.ChangeQuoteFragment;
+import nju.zhizaolian.fragments.CustomListOrderFragment;
 import nju.zhizaolian.fragments.MergePriceFragment;
 import nju.zhizaolian.fragments.QuoteAgreedFragment;
 import nju.zhizaolian.fragments.SignContractFragment;
@@ -33,7 +34,7 @@ public class DepartmentSalesActivity extends ActionBarActivity {
         public boolean onNavigationItemSelected(int itemPosition, long itemId) {
             Fragment newFragment=null;
             switch (itemPosition){
-                case 0:newFragment=new MergePriceFragment();break;
+                case 0:newFragment=new CustomListOrderFragment(getApplicationContext());break;
                 case 1:newFragment=new MergePriceFragment();break;
                 case 2:newFragment=new MergePriceFragment();break;
                 case 3:newFragment=new QuoteAgreedFragment();break;
