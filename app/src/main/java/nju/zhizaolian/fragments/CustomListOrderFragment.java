@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -25,6 +26,7 @@ import nju.zhizaolian.R;
 import nju.zhizaolian.activities.LoginActivity;
 import nju.zhizaolian.adapters.CustomAdapter;
 import nju.zhizaolian.models.Custom;
+import nju.zhizaolian.models.IPAddress;
 
 /**
  *
@@ -32,9 +34,9 @@ import nju.zhizaolian.models.Custom;
 public class CustomListOrderFragment extends Fragment {
     private  ArrayList<Custom> customList;
     private  ListView customListView;
-    private static final String baseUrl="http://172.17.188.91:8080/fmc/";
     private Context context;
     private CustomAdapter customAdapter;
+    private SwipeRefreshLayout swipeRefreshLayout;
     public CustomListOrderFragment(Context context) {
         this.context=context;
     }
@@ -46,7 +48,16 @@ public class CustomListOrderFragment extends Fragment {
         View view=inflater.inflate(R.layout.activity_custom_list,container,false);
         customListView= (ListView) view.findViewById(R.id.custom_listView);
         customList=new ArrayList<Custom>();
+        swipeRefreshLayout= (SwipeRefreshLayout) view.findViewById(R.id.activity_custom_list_container);
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                fetchCustom();
+             swipeRefreshLayout.setRefreshing(false);
+            }
+        });
 
+        swipeRefreshLayout.setColorSchemeColors(R.color.white,R.color.green,R.color.orange,R.color.red);
        customAdapter=new CustomAdapter(container.getContext(),customList);
 
         customListView.setAdapter(customAdapter);
@@ -59,10 +70,12 @@ public class CustomListOrderFragment extends Fragment {
         startActivity(intent);
 
     }
+
+
     public void  fetchCustom(){
         AsyncHttpClient client=new AsyncHttpClient();
 
-        client.get(baseUrl+"account/mobile_customerList.do",new JsonHttpResponseHandler(){
+        client.get(IPAddress.getIP()+"/fmc/account/mobile_customerList.do",new JsonHttpResponseHandler(){
 
 
             @Override

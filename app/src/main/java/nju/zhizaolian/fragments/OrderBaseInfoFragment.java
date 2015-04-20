@@ -55,16 +55,7 @@ public class OrderBaseInfoFragment extends android.support.v4.app.Fragment {
     }
     public OrderBaseInfoFragment(Custom custom){
         this.custom=custom;
-        getOrderTime.setText(MyUtils.getCurrentDate());
-        salesman.setText(custom.getRegisterEmployeeId());
-        isDuplicate.setText("否");
-        customerName.setText(custom.getCustomerName());
-        customerId.setText(custom.getCustomerId());
-        company.setText(custom.getCompanyName());
-        companyFax.setText(custom.getCompanyFax());
-        customerPhone1.setText(custom.getContactPhone1());
-        customerPhone2.setText(custom.getContactPhone2());
-        companyAddress.setText(custom.getCompanyAddress());
+
     }
 
 
@@ -100,6 +91,18 @@ public class OrderBaseInfoFragment extends android.support.v4.app.Fragment {
         other2=(CheckBox)view.findViewById(R.id.other_checkbox2);
         otherEdit2=(EditText)view.findViewById(R.id.other_editText2);
         reference=(EditText)view.findViewById(R.id.reference);
+        //初始化
+        getOrderTime.setText(MyUtils.getCurrentDate());
+        salesman.setText("管理员");
+        isDuplicate.setText("否");
+        customerName.setText(custom.getCustomerName());
+        customerId.setText(custom.getCustomerId());
+        company.setText(custom.getCompanyName());
+        companyFax.setText(custom.getCompanyFax());
+        customerPhone1.setText(custom.getContactPhone1());
+        customerPhone2.setText(custom.getContactPhone2());
+        companyAddress.setText(custom.getCompanyAddress());
+
         return view;
     }
 
