@@ -45,9 +45,9 @@ public class Custom implements Serializable {
             custom.province=jsonObject.getString("province");
             custom.websiteUrl=jsonObject.getString("websiteUrl");
             custom.websiteType=jsonObject.getString("websiteType");
-            custom.buyContact=jsonObject.getString("buyContract");
+            custom.buyContact=jsonObject.getString("buyContact");
             custom.contactPhone1=jsonObject.getString("contactPhone1");
-            custom.contactPhone2=jsonObject.getString("contractPhone2");
+            custom.contactPhone2=jsonObject.getString("contactPhone2");
             custom.qq=jsonObject.getString("qq");
             custom.email=jsonObject.getString("email");
             custom.bossPhone= jsonObject.getString("bossPhone");

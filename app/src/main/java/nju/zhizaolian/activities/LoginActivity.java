@@ -76,10 +76,14 @@ public class LoginActivity extends Activity  {
 
 
         // Check for a valid password, if the user entered one.
-        if (!TextUtils.isEmpty(password) && !isPasswordValid(password)) {
+        if (TextUtils.isEmpty(password)){
+            mPasswordView.setError(getString(R.string.error_field_required));
+            focusView=mPasswordView;
+            cancel=true;
+        }else if (!isPasswordValid(password)){
             mPasswordView.setError(getString(R.string.error_invalid_password));
-            focusView = mPasswordView;
-            cancel = true;
+            focusView=mPasswordView;
+            cancel=true;
         }
 
         // Check for a valid username address.
@@ -90,8 +94,8 @@ public class LoginActivity extends Activity  {
             } else if (!isUsernameValid(username)) {
                 mUserNameView.setError(getString(R.string.error_invalid_username));
                 focusView = mUserNameView;
-            cancel = true;
-        }
+                 cancel = true;
+            }
 
         if (cancel) {
             // There was an error; don't attempt login and focus the first
@@ -105,11 +109,15 @@ public class LoginActivity extends Activity  {
             client.post(IPAddress.getIP()+"/fmc/mobile_doLogin.do", params,new JsonHttpResponseHandler() {
                 @Override
                 public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
-                    Account account=Account.fromJson(response);
-                    if(account != null){
+                    Log.d("account",response.toString());
+                    Log.d("length",String.valueOf(response.length()));
+                    if(response.length()>1){
+                        Account account=Account.fromJson(response);
                         login(account);
                     }else{
-                       mPasswordView.setError(getString(R.string.error_incorrect_password));
+                        mPasswordView.setError(getString(R.string.error_incorrect_password));
+                        mPasswordView.setError(null);
+
                     }
 
                 }
@@ -117,6 +125,8 @@ public class LoginActivity extends Activity  {
                 @Override
                 public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
                     Log.d("fail",responseString);
+                    mPasswordView.setError(getString(R.string.error_incorrect_password));
+
                 }
             });
         }

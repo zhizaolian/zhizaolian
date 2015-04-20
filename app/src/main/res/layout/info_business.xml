@@ -11,6 +11,7 @@
     <Switch
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:id="@+id/is_hao_duo_yi"
         android:text="@string/is_hao_duo_yi"/>
     <TextView
         android:layout_width="wrap_content"
@@ -23,6 +24,7 @@
     <EditText
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:id="@+id/order_source"
         android:hint="@string/order_source"/>
     <TextView
         android:layout_width="wrap_content"
