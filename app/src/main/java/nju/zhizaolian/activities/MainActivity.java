@@ -39,8 +39,6 @@ public class MainActivity extends ActionBarActivity implements
         setContentView(R.layout.activity_main);
         mContext=this;
         Account account= (Account) getIntent().getSerializableExtra("account");
-        Toast.makeText(getApplicationContext(),account.getUserType(),Toast.LENGTH_SHORT).show();
-
         if(savedInstanceState==null) {
             Bundle bundle = new Bundle();
             bundle.putSerializable("account",account);

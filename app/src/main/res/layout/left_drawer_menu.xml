@@ -43,9 +43,8 @@
      <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-
             android:text="@string/title_activity_main"
-            android:id="@+id/textView105"
+            android:id="@+id/go_to_main_view"
             android:clickable="true"/>
 
     <TextView
@@ -54,15 +53,14 @@
         android:layout_marginTop="10dp"
 
         android:text="@string/customer_manager"
-        android:id="@+id/textView108"
+        android:id="@+id/go_to_customer_manager_view"
         android:clickable="true"/>
 
      <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/order_manager"
-
-            android:id="@+id/textView109"
+            android:id="@+id/go_to_order_manager_view"
          android:layout_marginTop="10dp"
             android:clickable="true"/>
         </LinearLayout>

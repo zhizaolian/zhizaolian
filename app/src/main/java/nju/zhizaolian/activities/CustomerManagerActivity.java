@@ -36,10 +36,12 @@ public class CustomerManagerActivity extends Activity implements
 
         if(savedInstanceState==null) {
             customerListFragment = new CustomerListFragment();
-            FragmentManager fragmentManager = getFragmentManager();
-            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-            fragmentTransaction.add(R.id.customer_manager_content, customerListFragment, "ONE");
-            fragmentTransaction.commit();
+            if(!customerListFragment.isAdded()) {
+                FragmentManager fragmentManager = getFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.customer_manager_content, customerListFragment, "ONE");
+                fragmentTransaction.commit();
+            }
         }
     }
 
@@ -47,13 +49,8 @@ public class CustomerManagerActivity extends Activity implements
     @Override
     public void customerCancelButtonClicked() {
         Toast.makeText(this,"canceled",Toast.LENGTH_SHORT).show();
-        if(customerListFragment==null){
-            customerListFragment=new CustomerListFragment();
-        }
-        FragmentManager fragmentManager= getFragmentManager();
-        FragmentTransaction fragmentTransaction =fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.customer_manager_content,customerListFragment,"ONE");
-        fragmentTransaction.commit();
+        FragmentManager fragmentManager = getFragmentManager();
+        fragmentManager.popBackStack();
     }
 
     @Override
@@ -82,11 +79,13 @@ public class CustomerManagerActivity extends Activity implements
             //
             customerEditFragment = new CustomerEditFragment();
         }
-        FragmentManager fragmentManager= getFragmentManager();
-        FragmentTransaction fragmentTransaction =fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.customer_manager_content,customerEditFragment,"TWO");
-        fragmentTransaction.addToBackStack(null);
-        fragmentTransaction.commit();
+        if(!customerEditFragment.isAdded()) {
+            FragmentManager fragmentManager = getFragmentManager();
+            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+            fragmentTransaction.replace(R.id.customer_manager_content, customerEditFragment, "TWO");
+            fragmentTransaction.addToBackStack(null);
+            fragmentTransaction.commit();
+        }
     }
 
     @Override
@@ -95,10 +94,12 @@ public class CustomerManagerActivity extends Activity implements
         if(customerRegisterFragment==null){
             customerRegisterFragment = new CustomerRegisterFragment();
         }
-        FragmentManager fragmentManager= getFragmentManager();
-        FragmentTransaction fragmentTransaction =fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.customer_manager_content,customerRegisterFragment,"THREE");
-        fragmentTransaction.addToBackStack(null);
-        fragmentTransaction.commit();
+        if(!customerRegisterFragment.isAdded()) {
+            FragmentManager fragmentManager = getFragmentManager();
+            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+            fragmentTransaction.replace(R.id.customer_manager_content, customerRegisterFragment, "THREE");
+            fragmentTransaction.addToBackStack(null);
+            fragmentTransaction.commit();
+        }
     }
 }
