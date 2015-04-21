@@ -100,7 +100,6 @@ public class MainMenuAdapter extends SimpleAdapter{
                 }
                 intent.putExtras(bundle);
                 activity.startActivity(intent);
-                activity.finish();
             }
         });
         return view;
