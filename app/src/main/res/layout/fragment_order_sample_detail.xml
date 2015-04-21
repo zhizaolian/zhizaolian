@@ -18,6 +18,11 @@
             <include layout="@layout/sample_make"/>
 
             <include layout="@layout/sample_info"/>
+            <Button
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/save_data"
+                android:id="@+id/save_sample_detail_button"/>
         </LinearLayout>
     </ScrollView>
 </FrameLayout>

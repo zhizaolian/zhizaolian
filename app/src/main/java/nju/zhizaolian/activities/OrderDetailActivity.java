@@ -23,7 +23,8 @@ import nju.zhizaolian.fragments.OrderVersionDetailFragment;
 import nju.zhizaolian.models.Account;
 import nju.zhizaolian.models.Custom;
 
-public class OrderDetailActivity extends ActionBarActivity implements ActionBar.TabListener ,OrderBaseInfoFragment.SaveBaseInfoData {
+public class OrderDetailActivity extends ActionBarActivity implements ActionBar.TabListener ,
+        OrderBaseInfoFragment.SaveBaseInfoData,OrderSampleDetailFragment.SaveSampleData {
 
 
     SectionsPagerAdapter mSectionsPagerAdapter;
@@ -179,6 +180,11 @@ public class OrderDetailActivity extends ActionBarActivity implements ActionBar.
     @Override
     public void saveBaseInfoData(String orderSource) {
         Toast.makeText(getApplicationContext(),orderSource,Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void saveSampleData(String sampleData) {
+        Toast.makeText(getApplicationContext(),sampleData,Toast.LENGTH_SHORT).show();
     }
 
 

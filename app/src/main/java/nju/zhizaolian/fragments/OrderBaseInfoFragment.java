@@ -26,7 +26,7 @@ public class OrderBaseInfoFragment extends android.support.v4.app.Fragment {
     private Custom custom;
     private Account account;
     private Order order;
-    private SaveBaseInfoData saveBaseInfoData;
+    private SaveBaseInfoData saveBaseInfoData;//interface
     private Switch isHaoDuoYi;
     private TextView getOrderTime;
     private EditText orderSource;
@@ -132,25 +132,62 @@ public class OrderBaseInfoFragment extends android.support.v4.app.Fragment {
 
         @Override
         public void onClick(View v) {
-            boolean ifHaoDuoYiData=isHaoDuoYi.getShowText();
+            boolean ifHaoDuoYiData=isHaoDuoYi.isChecked();
             String orderSourceData=orderSource.getText().toString();
             String styleNameData=styleName.getText().toString();
             String clothesTypeData=clothesType.getSelectedItem().toString();
             String styleSexData=styleSex.getSelectedItem().toString();
             String styleSeasonData=styleSeason.getSelectedItem().toString();
             String materialTypeData=materialType.getSelectedItem().toString();
-            
-            saveBaseInfoData.saveBaseInfoData(String.valueOf(ifHaoDuoYiData));
+            String specialProcessData=getSpecialData();
+            String otherRequirements=getOtherRequirements();
+            String referenceUrlData=reference.getText().toString();
+            String baseInfoData=ifHaoDuoYiData+","+orderSourceData+","+styleNameData+","+
+                    clothesTypeData+","+styleSexData+","+styleSeasonData+","+materialTypeData+","+specialProcessData+","+
+                    otherRequirements+","+referenceUrlData;
+            saveBaseInfoData.saveBaseInfoData(baseInfoData);
+            Toast.makeText(getActivity().getApplicationContext(),"保存成功",Toast.LENGTH_SHORT).show();
         }
     }
-
+    private String getOtherRequirements(){
+        String result=null;
+        if(haveMainMark.isChecked()){
+            result=haveMainMark.getText().toString()+"|";
+        }
+        if (haveTag.isChecked()){
+            result+=haveTag.getText().toString()+"|";
+        }
+        if (haveWaterWash.isChecked()){
+            result+=haveWaterWash.getText().toString()+"|";
+        }
+        if (other2.isChecked()){
+           result+=otherEdit2.getText().toString();
+        }
+        return result;
+    }
+    private String getSpecialData(){
+        String result=null;
+        if(waterWash.isChecked()){
+            result=waterWash.getText().toString()+"|";
+        }
+        if(laser.isChecked()){
+            result+=laser.getText().toString()+"|";
+        }
+        if(push.isChecked()){
+            result+=push.getText().toString()+"|";
+        }
+        if(other1.isChecked()){
+            result+=otherEdit1.getText().toString()+"|";
+        }
+        return result;
+    }
     @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);
         try{
             saveBaseInfoData= (SaveBaseInfoData) activity;
         }catch (ClassCastException e){
-            Toast.makeText(getActivity().getApplicationContext(),"保存失败",Toast.LENGTH_SHORT);
+            Toast.makeText(getActivity().getApplicationContext(),"保存失败",Toast.LENGTH_SHORT).show();
         }
     }
 
