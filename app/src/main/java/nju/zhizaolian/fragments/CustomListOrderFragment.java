@@ -1,7 +1,6 @@
 package nju.zhizaolian.fragments;
 
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -25,6 +24,7 @@ import java.util.ArrayList;
 import nju.zhizaolian.R;
 import nju.zhizaolian.activities.LoginActivity;
 import nju.zhizaolian.adapters.CustomAdapter;
+import nju.zhizaolian.models.Account;
 import nju.zhizaolian.models.Custom;
 import nju.zhizaolian.models.IPAddress;
 
@@ -34,11 +34,11 @@ import nju.zhizaolian.models.IPAddress;
 public class CustomListOrderFragment extends Fragment {
     private  ArrayList<Custom> customList;
     private  ListView customListView;
-    private Context context;
     private CustomAdapter customAdapter;
     private SwipeRefreshLayout swipeRefreshLayout;
-    public CustomListOrderFragment(Context context) {
-        this.context=context;
+    private Account account;
+    public CustomListOrderFragment(Account account) {
+        this.account=account;
     }
 
 
@@ -58,15 +58,15 @@ public class CustomListOrderFragment extends Fragment {
         });
 
         swipeRefreshLayout.setColorSchemeColors(R.color.white,R.color.green,R.color.orange,R.color.red);
-       customAdapter=new CustomAdapter(container.getContext(),customList);
+       customAdapter=new CustomAdapter(container.getContext(),customList,account);
 
         customListView.setAdapter(customAdapter);
         fetchCustom();
         return view;
     }
 
-    public void reLogin(Context context){
-        Intent intent=new Intent(context, LoginActivity.class);
+    public void reLogin(){
+        Intent intent=new Intent(getActivity().getApplicationContext(), LoginActivity.class);
         startActivity(intent);
 
     }
@@ -97,7 +97,7 @@ public class CustomListOrderFragment extends Fragment {
             @Override
             public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
                 Log.d("error",responseString);
-                reLogin(context);
+                reLogin();
             }
         });
 

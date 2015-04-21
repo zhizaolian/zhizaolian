@@ -74,7 +74,8 @@
     <string name="hint_reference">参考链接以“http://”开头</string>
     <string name="hint_other">其他</string>
 
-    
+    <string name="material">面料</string>
+    <string name="accessories">辅料</string>
     <string name="accessories_require">辅料要求</string>
     <string name="title_custom_sample">客户样衣</string>
     <string name="title_provide_sample">提供样衣</string>
@@ -137,5 +138,5 @@
     <string name="title_stereotype">版型</string>
     <string name="title_boxing">装箱</string>
     <string name="title_technology">工艺</string>
-
+    <string name="save_data">保存数据</string>
 </resources>

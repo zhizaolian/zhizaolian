@@ -14,6 +14,7 @@ import java.util.ArrayList;
 
 import nju.zhizaolian.R;
 import nju.zhizaolian.activities.OrderDetailActivity;
+import nju.zhizaolian.models.Account;
 import nju.zhizaolian.models.Custom;
 
 /**
@@ -22,9 +23,11 @@ import nju.zhizaolian.models.Custom;
 public class CustomAdapter extends ArrayAdapter<Custom> {
 
 
-    Custom custom=null;
-    public CustomAdapter(Context context, ArrayList<Custom> customs) {
+    private Custom custom=null;
+    private Account account=null;
+    public CustomAdapter(Context context, ArrayList<Custom> customs,Account account) {
         super(context, 0, customs);
+        this.account=account;
     }
 
     @Override
@@ -47,6 +50,7 @@ public class CustomAdapter extends ArrayAdapter<Custom> {
             public void onClick(View v) {
                 Intent i=new Intent(getContext(), OrderDetailActivity.class);
                 i.putExtra("custom",custom);
+                i.putExtra("account",account);
                 getContext().startActivity(i);
             }
         });
@@ -59,8 +63,17 @@ public class CustomAdapter extends ArrayAdapter<Custom> {
         customNameView.setText(custom.getCustomerName());
         customPhoneView.setText(custom.getCustomerPhone());
         customCompanyView.setText(custom.getCompanyName());
-        customCompanyAddressView.setText(custom.getCompanyAddress());
-        customCompanyPhoneView.setText(custom.getCompanyPhone());
+        if(custom.getCompanyAddress()==null){
+            customCompanyAddressView.setText("无");
+        }else {
+            customCompanyAddressView.setText(custom.getCompanyAddress());
+        }
+        if(custom.getCompanyPhone()==null){
+            customCompanyPhoneView.setText("无");
+        }else{
+            customCompanyPhoneView.setText(custom.getCompanyPhone());
+        }
+
 
         return convertView;
     }
