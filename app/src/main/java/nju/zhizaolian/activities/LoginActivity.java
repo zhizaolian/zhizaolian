@@ -118,10 +118,10 @@ public class LoginActivity extends Activity  {
                             Account account= null;
                             try {
                                 account = Account.fromJson(response.getJSONObject("account"));
-                                int jSessionID=response.getInt("jsessionId");
+                                String jSessionID=response.getString("jsessionId");
                                 SharedPreferences common=getSharedPreferences("common",0);
                                 SharedPreferences.Editor editor=common.edit();
-                                editor.putInt("jsessionId",jSessionID);
+                                editor.putString("jsessionId",jSessionID);
                             } catch (JSONException e) {
                                 e.printStackTrace();
                             }
