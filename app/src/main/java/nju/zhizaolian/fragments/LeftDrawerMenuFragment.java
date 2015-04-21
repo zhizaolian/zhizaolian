@@ -25,8 +25,6 @@ import nju.zhizaolian.R;
  */
 public class LeftDrawerMenuFragment extends Fragment {
 
-    private ListView listView;
-
     public LeftDrawerMenuFragment() {
         // Required empty public constructor
     }

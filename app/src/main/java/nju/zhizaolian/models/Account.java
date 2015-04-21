@@ -31,6 +31,8 @@ public class Account implements Serializable {
         Account account=new Account();
         try {
             account.accountId=jsonObject.getInt("accountId");
+            account.userName=jsonObject.getString("userName");
+            account.userPassword=jsonObject.getString("userPassword");
             account.bigAvatar=jsonObject.getString("bigAvatar");
             account.nickName=jsonObject.getString("nickName");
             account.userRole=jsonObject.getString("userRole");

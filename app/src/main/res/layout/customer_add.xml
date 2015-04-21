@@ -4,6 +4,12 @@
     android:layout_height="match_parent"
     android:id="@+id/custom_add">
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
     <TextView
         android:layout_width="wrap_content"
@@ -20,7 +26,7 @@
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
         android:ems="10"
-        android:id="@+id/editText42"
+        android:id="@+id/customer_login_name_edit_text"
         android:layout_alignBottom="@+id/textView86"
         android:layout_toRightOf="@+id/textView86"
         android:layout_toEndOf="@+id/textView86" />
@@ -43,10 +49,10 @@
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
         android:ems="10"
-        android:id="@+id/editText43"
+        android:id="@+id/customer_name_edit_text"
         android:layout_alignBottom="@+id/textView87"
-        android:layout_alignLeft="@+id/editText42"
-        android:layout_alignStart="@+id/editText42" />
+        android:layout_alignLeft="@+id/customer_login_name_edit_text"
+        android:layout_alignStart="@+id/customer_login_name_edit_text" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -66,10 +72,10 @@
         android:layout_height="wrap_content"
         android:inputType="textPassword"
         android:ems="10"
-        android:id="@+id/editText44"
+        android:id="@+id/customer_password_edit_text"
         android:layout_alignBottom="@+id/textView88"
-        android:layout_alignLeft="@+id/editText43"
-        android:layout_alignStart="@+id/editText43" />
+        android:layout_alignLeft="@+id/customer_name_edit_text"
+        android:layout_alignStart="@+id/customer_name_edit_text" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -88,10 +94,10 @@
         android:layout_height="wrap_content"
         android:inputType="phone"
         android:ems="10"
-        android:id="@+id/editText45"
+        android:id="@+id/customer_telephone_edit_text"
         android:layout_alignBottom="@+id/textView89"
-        android:layout_alignLeft="@+id/editText44"
-        android:layout_alignStart="@+id/editText44" />
+        android:layout_alignLeft="@+id/customer_password_edit_text"
+        android:layout_alignStart="@+id/customer_password_edit_text" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -110,10 +116,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:id="@+id/editText46"
+        android:id="@+id/customer_company_name_edit_text"
         android:layout_alignBottom="@+id/textView90"
-        android:layout_alignLeft="@+id/editText45"
-        android:layout_alignStart="@+id/editText45" />
+        android:layout_alignLeft="@+id/customer_telephone_edit_text"
+        android:layout_alignStart="@+id/customer_telephone_edit_text" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -133,10 +139,10 @@
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
         android:ems="10"
-        android:id="@+id/editText47"
+        android:id="@+id/customer_purchase_contacts_name_edit_text"
         android:layout_alignBottom="@+id/textView91"
-        android:layout_alignLeft="@+id/editText46"
-        android:layout_alignStart="@+id/editText46" />
+        android:layout_alignLeft="@+id/customer_company_name_edit_text"
+        android:layout_alignStart="@+id/customer_company_name_edit_text" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -155,10 +161,10 @@
         android:layout_height="wrap_content"
         android:inputType="phone"
         android:ems="8"
-        android:id="@+id/editText48"
+        android:id="@+id/customer_purchase_contacts_telephone_edit_text"
         android:layout_alignBottom="@+id/textView92"
-        android:layout_alignRight="@+id/editText47"
-        android:layout_alignEnd="@+id/editText47" />
+        android:layout_alignRight="@+id/customer_purchase_contacts_name_edit_text"
+        android:layout_alignEnd="@+id/customer_purchase_contacts_name_edit_text" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -177,11 +183,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="date"
+        android:editable="false"
+        android:enabled="false"
         android:ems="10"
-        android:id="@+id/editText49"
+        android:id="@+id/customer_register_date_edit_text"
         android:layout_alignBottom="@+id/textView93"
-        android:layout_alignLeft="@+id/editText47"
-        android:layout_alignStart="@+id/editText47" />
+        android:layout_alignLeft="@+id/customer_purchase_contacts_name_edit_text"
+        android:layout_alignStart="@+id/customer_purchase_contacts_name_edit_text" />
 
     <Button
         android:layout_width="wrap_content"
@@ -193,18 +201,27 @@
         android:layout_marginTop="30dp"
         android:layout_below="@+id/textView93"
         android:layout_alignLeft="@+id/textView93"
-        android:layout_alignStart="@+id/textView93" />
+        android:layout_alignStart="@+id/textView93"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"/>
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/cancel"
-
         android:background="@color/red"
         android:id="@+id/customer_cancel_button"
-        android:layout_alignTop="@+id/customer_register_button"
-        android:layout_alignRight="@+id/editText49"
-        android:layout_alignEnd="@+id/editText49" />
+        android:layout_below="@+id/customer_register_button"
+        android:layout_marginTop="10dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        />
 
+    </RelativeLayout>
+    </ScrollView>
 
 </RelativeLayout>
