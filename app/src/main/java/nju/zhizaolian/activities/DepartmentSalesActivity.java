@@ -14,9 +14,10 @@ import nju.zhizaolian.fragments.CustomListOrderFragment;
 import nju.zhizaolian.fragments.MergePriceFragment;
 import nju.zhizaolian.fragments.QuoteAgreedFragment;
 import nju.zhizaolian.fragments.SignContractFragment;
+import nju.zhizaolian.models.Account;
 
 public class DepartmentSalesActivity extends ActionBarActivity {
-
+    private Account account=null;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,7 +25,7 @@ public class DepartmentSalesActivity extends ActionBarActivity {
         SpinnerAdapter spinnerAdapter= ArrayAdapter.createFromResource(this,
                 R.array.sales_list,R.layout.support_simple_spinner_dropdown_item);
         ActionBar actionBar=getSupportActionBar();
-
+        account= (Account) getIntent().getSerializableExtra("account");
         actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_LIST);
         actionBar.setListNavigationCallbacks(spinnerAdapter, onNavigationListener);
     }
@@ -34,7 +35,7 @@ public class DepartmentSalesActivity extends ActionBarActivity {
         public boolean onNavigationItemSelected(int itemPosition, long itemId) {
             Fragment newFragment=null;
             switch (itemPosition){
-                case 0:newFragment=new CustomListOrderFragment(getApplicationContext());break;
+                case 0:newFragment=new CustomListOrderFragment(account);break;
                 case 1:newFragment=new MergePriceFragment();break;
                 case 2:newFragment=new MergePriceFragment();break;
                 case 3:newFragment=new QuoteAgreedFragment();break;

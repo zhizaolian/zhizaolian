@@ -5,17 +5,22 @@
 
 
     <ScrollView
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:id="@+id/scrollView5" >
 
         <LinearLayout
             android:orientation="vertical"
-            android:layout_width="wrap_content"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content">
             <include layout="@layout/process_info"/>
             <include layout="@layout/process_biggoods"/>
             <include layout="@layout/process_sample"/>
+            <Button
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/button_add"
+                android:id="@+id/save_process_data_button"/>
             </LinearLayout>
     </ScrollView>
 </FrameLayout>

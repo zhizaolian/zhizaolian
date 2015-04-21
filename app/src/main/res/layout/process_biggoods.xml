@@ -1,214 +1,88 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent" android:layout_height="match_parent">
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="@string/title_process_big_goods"
-        android:id="@+id/textView53"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/title_color"
-        android:id="@+id/textView54"
-        android:layout_alignTop="@+id/editText16"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+         />
 
     <EditText
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/editText16"
-        android:layout_below="@+id/textView53"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_toRightOf="@+id/textView54"
-        android:layout_toEndOf="@+id/textView54" />
+        android:id="@+id/produce_color_edit"
+        android:hint="@string/title_color" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/title_XS"
-        android:id="@+id/textView55"
-        android:layout_alignBottom="@+id/editText17"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignTop="@+id/editText17" />
 
     <EditText
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:inputType="number"
-        android:ems="10"
-        android:id="@+id/editText17"
-        android:layout_below="@+id/editText16"
-        android:layout_alignLeft="@+id/editText16"
-        android:layout_alignStart="@+id/editText16"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:text="0"/>
+        android:id="@+id/produce_xs_edit"
+        android:hint="@string/title_XS"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/title_S"
-        android:id="@+id/textView56"
-        android:layout_below="@+id/textView55"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignBottom="@+id/editText18"
-        android:layout_toLeftOf="@+id/editText17"
-        android:layout_toStartOf="@+id/editText17" />
 
     <EditText
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/editText18"
-        android:layout_below="@+id/editText17"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignLeft="@+id/editText17"
-        android:layout_alignStart="@+id/editText17"
-        android:text="0" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/title_M"
-        android:id="@+id/textView57"
-        android:layout_below="@+id/textView56"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_toStartOf="@+id/editText19"
-        android:layout_toLeftOf="@+id/editText19" />
+        android:id="@+id/produce_s_edit"
+        android:hint="@string/title_S" />
 
     <EditText
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:inputType="number"
-        android:ems="10"
-        android:id="@+id/editText19"
-        android:layout_alignTop="@+id/textView57"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_toRightOf="@+id/textView56"
-        android:layout_toEndOf="@+id/textView56"
-        android:text="0" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/title_L"
-        android:id="@+id/textView58"
-        android:layout_below="@+id/editText19"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignBottom="@+id/editText20"
-        android:layout_toLeftOf="@+id/editText20"
-        android:layout_toStartOf="@+id/editText20" />
+        android:id="@+id/produce_m_edit"
+        android:hint="@string/title_M"
+        />
 
     <EditText
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:inputType="number"
-        android:ems="10"
-        android:id="@+id/editText20"
-        android:layout_below="@+id/editText19"
-        android:layout_alignLeft="@+id/editText19"
-        android:layout_alignStart="@+id/editText19"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:text="0" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/title_XL"
-        android:id="@+id/textView59"
-        android:layout_below="@+id/textView58"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_toLeftOf="@+id/editText21"
-        android:layout_toStartOf="@+id/editText21" />
+        android:id="@+id/produce_l_edit"
+        android:hint="@string/title_L"
+         />
 
     <EditText
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:inputType="number"
-        android:ems="10"
-        android:id="@+id/editText21"
-        android:layout_alignTop="@+id/textView59"
-        android:layout_toRightOf="@+id/textView58"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:text="0" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/title_XXL"
-        android:id="@+id/textView60"
-        android:layout_below="@+id/editText21"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:id="@+id/produce_xl_edit"
+        android:hint="@string/title_XL"
+         />
 
     <EditText
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:inputType="number"
-        android:ems="10"
-        android:id="@+id/editText22"
-        android:layout_alignTop="@+id/textView60"
-        android:layout_alignLeft="@+id/editText21"
-        android:layout_alignStart="@+id/editText21"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:text="0" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/title_average_size"
-        android:id="@+id/textView61"
-        android:layout_below="@+id/editText22"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:id="@+id/produce_xxl_edit"
+        android:hint="@string/title_XXL"
+       />
 
     <EditText
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:inputType="number"
-        android:ems="10"
-        android:id="@+id/editText23"
-        android:layout_alignTop="@+id/textView61"
-        android:layout_toRightOf="@+id/textView61"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:text="0" />
+        android:id="@+id/produce_j_edit"
+        android:hint="@string/title_average_size"
+         />
 
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="@string/button_add"
-        android:id="@+id/button5"
-        android:layout_below="@+id/editText23"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:id="@+id/produce_add_button"
+       />
 
-    <ListView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/listView_big_goods"
-        android:layout_below="@+id/button5"
-        android:layout_centerHorizontal="true" />
+        android:orientation="vertical"
+        android:id="@+id/produce_add_layout"/>
 
-</RelativeLayout>
+</LinearLayout>

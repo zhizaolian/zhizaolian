@@ -2,6 +2,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="nju.zhizaolian.activities.OrderDetailActivity">
-    <item android:id="@+id/action_settings" android:title="@string/action_settings"
+    <item android:id="@+id/action_submitData" android:title="@string/submit"
         android:orderInCategory="100" app:showAsAction="never" />
+    <item android:id="@+id/action_deleteOrderData"
+        android:title="@string/delete"
+        app:showAsAction="never"/>
 </menu>

@@ -1,58 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent" android:layout_height="match_parent"
-    tools:showIn="@layout/fragment_order_process_detail">
+    android:orientation="vertical">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="@string/title_process_info"
-        android:id="@+id/textView2"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
+         />
+    <LinearLayout
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="@string/title_big_goods_number"
-        android:id="@+id/textView25"
-        android:layout_below="@+id/textView2"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="@string/title_big_goods_number"
+            />
 
-    <TextView
-        android:layout_width="wrap_content"
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="0"
+            android:layout_marginLeft="30dp"
+            android:id="@+id/ask_number_view"
+            />
+        </LinearLayout>
+
+
+    <Button
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="0"
-        android:id="@+id/textView50"
-        android:layout_below="@+id/textView2"
-        android:layout_toRightOf="@+id/textView2"
-        android:layout_toEndOf="@+id/textView2" />
+        android:id="@+id/ask_period_button"
+        android:text="@string/title_finish_time"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="@string/title_delivery_time"
-        android:id="@+id/textView51"
-        android:layout_below="@+id/textView25"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="@string/title_finish_time"
-        android:id="@+id/textView52"
-        android:layout_below="@+id/textView51"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+   <EditText
+       android:layout_width="fill_parent"
+       android:layout_height="wrap_content"
+       android:id="@+id/ask_deliver_date_edit"
+       android:hint="@string/title_delivery_time"/>
 
 
-</RelativeLayout>
+</LinearLayout>
