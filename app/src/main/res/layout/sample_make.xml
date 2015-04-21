@@ -44,7 +44,7 @@
     <EditText
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/editText15"
+        android:id="@+id/other_remark_edit"
         android:hint="@string/remark_info"/>
 
 </LinearLayout>

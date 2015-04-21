@@ -2,6 +2,7 @@ package nju.zhizaolian.activities;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
@@ -15,6 +16,7 @@ import com.loopj.android.http.JsonHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
 
 import org.apache.http.Header;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import nju.zhizaolian.R;
@@ -111,13 +113,26 @@ public class LoginActivity extends Activity  {
                 public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                     Log.d("account",response.toString());
                     Log.d("length",String.valueOf(response.length()));
-                    if(response.length()>1){
-                        Account account=Account.fromJson(response);
-                        login(account);
-                    }else{
-                        mPasswordView.setError(getString(R.string.error_incorrect_password));
-                        mPasswordView.setError(null);
+                    try {
+                        if(response.getString("isSuccess") == "true"){
+                            Account account= null;
+                            try {
+                                account = Account.fromJson(response.getJSONObject("account"));
+                                int jSessionID=response.getInt("jsessionId");
+                                SharedPreferences common=getSharedPreferences("common",0);
+                                SharedPreferences.Editor editor=common.edit();
+                                editor.putInt("jsessionId",jSessionID);
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+                            login(account);
+                        }else{
+                            mPasswordView.setError(getString(R.string.error_incorrect_password));
+                            mPasswordView.setError(null);
 
+                        }
+                    } catch (JSONException e) {
+                        e.printStackTrace();
                     }
 
                 }
