@@ -54,9 +54,8 @@ public class OrderSampleDetailFragment extends android.support.v4.app.Fragment {
             public void onClick(View v) {
                 DatePickerFragment datePickerFragment=new DatePickerFragment();
                 datePickerFragment.show(getActivity().getFragmentManager(),"datePicker");
-                if(datePickerFragment.isHidden()) {
-                    expressTime.setText("已选择时间:" + datePickerFragment.getDate());
-                }
+                expressTime.setText("已选择时间:" + datePickerFragment.getDate());
+
             }
         });
         expressName=(Spinner)view.findViewById(R.id.express_name_spinner);
@@ -104,6 +103,15 @@ public class OrderSampleDetailFragment extends android.support.v4.app.Fragment {
                 samplePicture.setImageBitmap(bitmap);
 
             }else if(requestCode == Result_LOAD_REFERENCE_IMAGE && resultCode==getActivity().RESULT_OK && null != data){
+                Uri selectImage=data.getData();
+                String[] filePathColumn={MediaStore.Images.Media.DATA};
+                Cursor  cursor=getActivity().getContentResolver().query(selectImage,filePathColumn,null,null,null);
+                cursor.moveToFirst();
+                int columnIndex=cursor.getColumnIndex(filePathColumn[0]);
+                String picturePath=cursor.getString(columnIndex);
+                cursor.close();
+                Bitmap bitmap= BitmapFactory.decodeFile(picturePath);
+                referencePicture.setImageBitmap(bitmap);
 
             }else {
                 Toast.makeText(getActivity().getApplicationContext(),"你还没有选择图片",Toast.LENGTH_SHORT).show();

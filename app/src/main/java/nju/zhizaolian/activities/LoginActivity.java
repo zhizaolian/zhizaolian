@@ -122,6 +122,7 @@ public class LoginActivity extends Activity  {
                                 SharedPreferences common=getSharedPreferences("common",0);
                                 SharedPreferences.Editor editor=common.edit();
                                 editor.putString("jsessionId",jSessionID);
+                                editor.commit();
                             } catch (JSONException e) {
                                 e.printStackTrace();
                             }

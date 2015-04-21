@@ -17,18 +17,18 @@ import nju.zhizaolian.R;
 public class OrderMaterialDetailFragment extends android.support.v4.app.Fragment {
     Button materialButton=null;
     Button accessoriesButton=null;
-    LinearLayout materiallayout=null;
+    LinearLayout materialLayout=null;
     LinearLayout accessoriesLayout=null;
     EditText materialName=null;
     EditText materialWeight=null;
     EditText accessoriesName=null;
-    EditText accessoresWeight=null;
+    EditText accessoriesWeight=null;
 
 
-    Editable smaterialName=null;
-    Editable smaterialWeight=null;
-    Editable saccessoriesName=null;
-    Editable saccessoriesWeight=null;
+    Editable sMaterialName=null;
+    Editable sMaterialWeight=null;
+    Editable sAccessoriesName=null;
+    Editable sAccessoriesWeight=null;
     public OrderMaterialDetailFragment() {
         // Required empty public constructor
 
@@ -46,28 +46,28 @@ public class OrderMaterialDetailFragment extends android.support.v4.app.Fragment
         //初始化
         materialButton= (Button) view.findViewById(R.id.materialButton);
         accessoriesButton=(Button)view.findViewById(R.id.accessoriesButton);
-        materiallayout= (LinearLayout) view.findViewById(R.id.materialLayout);
+        materialLayout= (LinearLayout) view.findViewById(R.id.materialLayout);
         accessoriesLayout=(LinearLayout)view.findViewById(R.id.accessoriesLayout);
         materialName= (EditText) view.findViewById(R.id.materialName);
         materialWeight=(EditText) view.findViewById(R.id.materialWeight);
         accessoriesName=(EditText)view.findViewById(R.id.accessoriesName);
-        accessoresWeight=(EditText)view.findViewById(R.id.accessoriesWeight);
+        accessoriesWeight=(EditText)view.findViewById(R.id.accessoriesWeight);
 
 
-        smaterialName=materialName.getText();
-        smaterialWeight=materialWeight.getText();
-        saccessoriesName=accessoriesName.getText();
-        saccessoriesWeight=accessoresWeight.getText();
+        sMaterialName=materialName.getText();
+        sMaterialWeight=materialWeight.getText();
+        sAccessoriesName=accessoriesName.getText();
+        sAccessoriesWeight=accessoriesWeight.getText();
 
 
         materialButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(smaterialName.length()==0 || smaterialWeight.length()==0){
+                if(sMaterialName.length()==0 || sMaterialWeight.length()==0){
                     Toast.makeText(view.getContext(),"请把信息填写完整",Toast.LENGTH_SHORT).show();
                 }else{
-                   View newView=createMaterailView(inflater,container);
-                    materiallayout.addView(newView);
+                   View newView=createMaterialView(inflater, container);
+                    materialLayout.addView(newView);
 
 
                 }
@@ -78,12 +78,11 @@ public class OrderMaterialDetailFragment extends android.support.v4.app.Fragment
         accessoriesButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(saccessoriesName.length()==0||saccessoriesWeight.length()==0){
+                if(sAccessoriesName.length()==0||sAccessoriesWeight.length()==0){
                     Toast.makeText(view.getContext(),"请把信息填写完整",Toast.LENGTH_SHORT).show();
                 }else{
-                    TextView textView =new TextView(container.getContext());
-                    textView.setText("辅料名称:"+saccessoriesName+"辅料克重:"+saccessoriesWeight);
-                    accessoriesLayout.addView(textView);
+                    View newView=createAccessoriesView(inflater,container);
+                    accessoriesLayout.addView(newView);
                     //todo 添加数据
                 }
             }
@@ -92,23 +91,39 @@ public class OrderMaterialDetailFragment extends android.support.v4.app.Fragment
     }
 
 
-    private View createMaterailView(LayoutInflater inflater,ViewGroup container){
-        final View addview=inflater.inflate(R.layout.material_additem_layout,container,false);
-        TextView materialname= (TextView) addview.findViewById(R.id.materialaddname);
-        TextView materialweight= (TextView) addview.findViewById(R.id.materialaddweight);
-        materialname.setText(smaterialName);
-        materialweight.setText(smaterialWeight);
-        Button deletebutton= (Button) addview.findViewById(R.id.materialdeletebutton);
-        deletebutton.setOnClickListener(new View.OnClickListener() {
+    private View createMaterialView(LayoutInflater inflater,ViewGroup container){
+        final View addView=inflater.inflate(R.layout.material_additem_layout,container,false);
+        TextView materialName= (TextView) addView.findViewById(R.id.materialaddname);
+        TextView materialWeight= (TextView) addView.findViewById(R.id.materialaddweight);
+        materialName.setText(sMaterialName);
+        materialWeight.setText(sMaterialWeight);
+        Button deleteButton= (Button) addView.findViewById(R.id.materialdeletebutton);
+        deleteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                materiallayout.removeView(addview);
+                materialLayout.removeView(addView);
                 //todo 删除数据
             }
         });
-        return addview;
+        return addView;
     }
 
+    private View createAccessoriesView(LayoutInflater inflater,ViewGroup container){
+        final View addAccessoriesView=inflater.inflate(R.layout.accessories_additem_layout,container,false);
+        TextView accessoriesAddName=(TextView)addAccessoriesView.findViewById(R.id.accessories_add_name);
+        TextView accessoriesAddWeight=(TextView)addAccessoriesView.findViewById(R.id.accessories_add_weight);
+        accessoriesAddName.setText(sAccessoriesName);
+        accessoriesAddWeight.setText(sAccessoriesWeight);
+        Button deleteButton= (Button) addAccessoriesView.findViewById(R.id.accessories_item_delete_button);
+        deleteButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                accessoriesLayout.removeView(addAccessoriesView);
 
+            }
+        });
+
+        return addAccessoriesView;
+    }
 
 }
