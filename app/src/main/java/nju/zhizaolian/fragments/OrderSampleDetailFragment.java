@@ -52,8 +52,11 @@ public class OrderSampleDetailFragment extends android.support.v4.app.Fragment {
         expressTime.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                DatePickerFragment datePickerFragment=DatePickerFragment.newInstance();
+                DatePickerFragment datePickerFragment=new DatePickerFragment();
                 datePickerFragment.show(getActivity().getFragmentManager(),"datePicker");
+                if(datePickerFragment.isHidden()) {
+                    expressTime.setText("已选择时间:" + datePickerFragment.getDate());
+                }
             }
         });
         expressName=(Spinner)view.findViewById(R.id.express_name_spinner);

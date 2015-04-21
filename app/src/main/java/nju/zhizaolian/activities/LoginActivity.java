@@ -106,7 +106,7 @@ public class LoginActivity extends Activity  {
         } else {
             AsyncHttpClient client=new AsyncHttpClient();
             RequestParams params=new RequestParams();
-            params.put("username",username);
+            params.put("user_name",username);
             params.put("user_password",password);
             client.post(IPAddress.getIP()+"/fmc/mobile_doLogin.do", params,new JsonHttpResponseHandler() {
                 @Override
