@@ -2,6 +2,7 @@ package nju.zhizaolian.fragments;
 
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import android.app.Fragment;
@@ -16,6 +17,7 @@ import android.widget.Toast;
 
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.JsonHttpResponseHandler;
+import com.loopj.android.http.RequestParams;
 
 import org.apache.http.Header;
 import org.json.JSONObject;
@@ -158,7 +160,7 @@ public class WelcomeFragment extends Fragment implements View.OnClickListener{
         switch (role){
             case "ADMIN":
                 for(int i=0;i<authorization.length;i++)
-                        authorization[i]=1;
+                    authorization[i]=1;
                 break;
             case "marketManager":
                 authorization[0]=1;
@@ -214,16 +216,24 @@ public class WelcomeFragment extends Fragment implements View.OnClickListener{
     }
 
     public void getTaskNumberFromServer(){
+        SharedPreferences settings = getActivity().getSharedPreferences("common", 0);
+        String jSessionId=settings.getString("jsessionId","");
         AsyncHttpClient asyncHttpClient = new AsyncHttpClient();
-        asyncHttpClient.get(IPAddress.getIP()+"/fmc/common/mobile_getTaskNumber.do",new JsonHttpResponseHandler(){
+        RequestParams params = new RequestParams();
+        params.put("jsessionId",jSessionId);
+        asyncHttpClient.get(IPAddress.getIP()+"/fmc/common/mobile_getTaskNumber.do",params,new JsonHttpResponseHandler(){
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
-                taskNumber =TaskNumber.fromJson(response);
-                if(taskNumber==null){
-                    Toast.makeText(mFragment.getActivity(),"服务器错误，稍后重试",Toast.LENGTH_SHORT).show();
+                if(response.toString().contains("notify")){
+                    Toast.makeText(mFragment.getActivity(),"登陆超时，退出重试",Toast.LENGTH_SHORT).show();
                 }else {
-                departmentNumber=taskNumber.getDepartmentTaskNumbers();
-                setMenuByDepartment(account.getUserRole());
+                    taskNumber = TaskNumber.fromJson(response);
+                    if (taskNumber == null) {
+                        Toast.makeText(mFragment.getActivity(), "服务器错误，稍后重试", Toast.LENGTH_SHORT).show();
+                    } else {
+                        departmentNumber = taskNumber.getDepartmentTaskNumbers();
+                        setMenuByDepartment(account.getUserRole());
+                    }
                 }
             }
 
