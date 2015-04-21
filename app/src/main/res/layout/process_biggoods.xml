@@ -7,7 +7,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="@string/title_process_biggoogs"
+        android:text="@string/title_process_big_goods"
         android:id="@+id/textView53"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"

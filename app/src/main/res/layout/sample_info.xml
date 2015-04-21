@@ -9,34 +9,26 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="@string/title_sample_info"
-        android:id="@+id/textView22" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="@string/title_sample_picture"
-        android:id="@+id/textView23" />
+        android:text="@string/title_sample_info" />
 
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="@string/selectfile"
-        android:id="@+id/button3" />
-
-    <TextView
-        android:layout_width="wrap_content"
+        android:text="@string/select_sample_picture"
+        android:id="@+id/select_sample_picture_button" />
+    <ImageView
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="@string/title_reference_picture"
-        android:id="@+id/textView24" />
+        android:id="@+id/sample_picture_image"/>
 
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="@string/selectfile"
-        android:id="@+id/button4" />
-
+        android:text="@string/select_reference_picture"
+        android:id="@+id/select_reference_picture_button" />
+       <ImageView
+           android:layout_width="fill_parent"
+           android:layout_height="wrap_content"
+           android:id="@+id/reference_picture_image"/>
 
 </LinearLayout>

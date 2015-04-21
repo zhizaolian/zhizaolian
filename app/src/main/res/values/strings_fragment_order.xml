@@ -100,14 +100,14 @@
     <string name="title_sample_info">样衣信息</string>
     <string name="title_sample_picture">样衣图片</string>
     <string name="title_reference_picture">参考图片</string>
-    <string name="selectfile">选取文件</string>
-
+    <string name="select_sample_picture">选取样衣图片</string>
+    <string name="select_reference_picture">选取参考图片</string>
     <!--加工信息-->
     <string name="title_process_info">加工信息</string>
-    <string name="title_biggoods_number">大货总数</string>
+    <string name="title_big_goods_number">大货总数</string>
     <string name="title_delivery_time">最迟交货时间</string>
-    <string name="title_finsh_time">完工时间（天）</string>
-    <string name="title_process_biggoogs">大货加工</string>
+    <string name="title_finish_time">完工时间（天）</string>
+    <string name="title_process_big_goods">大货加工</string>
     <string name="title_color">颜色</string>
     <string name="button_add">添加</string>
     <string name="title_average_size">均码</string>
@@ -123,7 +123,7 @@
     <!--版型信息-->
     <string name="title_version_data">版型数据</string>
     <string name="title_size">尺寸表/部位</string>
-    <string name="title_afterthelong">后中长</string>
+    <string name="title_after_the_long">后中长</string>
     <string name="title_bust">胸围</string>
     <string name="title_waist">腰围</string>
     <string name="title_shoulder_width">肩宽</string>

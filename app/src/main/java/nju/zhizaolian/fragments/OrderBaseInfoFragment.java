@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 import nju.zhizaolian.R;
 import nju.zhizaolian.help.MyUtils;
+import nju.zhizaolian.models.Account;
 import nju.zhizaolian.models.Custom;
 import nju.zhizaolian.models.Order;
 
@@ -20,6 +21,7 @@ import nju.zhizaolian.models.Order;
 public class OrderBaseInfoFragment extends android.support.v4.app.Fragment {
 
     private Custom custom;
+    private Account account;
     private Order order;
 
     private Switch isHaoDuoYi;
@@ -96,12 +98,26 @@ public class OrderBaseInfoFragment extends android.support.v4.app.Fragment {
         salesman.setText("管理员");
         isDuplicate.setText("否");
         customerName.setText(custom.getCustomerName());
-        customerId.setText(custom.getCustomerId());
+        customerId.setText(String.valueOf(custom.getCustomerId()));
         company.setText(custom.getCompanyName());
-        companyFax.setText(custom.getCompanyFax());
+        if(custom.getCompanyFax() == null){
+            companyFax.setText(getString(R.string.nothing));
+        }else{
+            companyFax.setText(custom.getCompanyFax());
+        }
+
         customerPhone1.setText(custom.getContactPhone1());
-        customerPhone2.setText(custom.getContactPhone2());
-        companyAddress.setText(custom.getCompanyAddress());
+        if(custom.getContactPhone2() == null){
+            customerPhone2.setText(getString(R.string.nothing));
+        }else{
+            customerPhone2.setText(custom.getContactPhone2());
+        }
+        if(custom.getCompanyAddress() == null){
+            companyAddress.setText(getString(R.string.nothing));
+        }else{
+            companyAddress.setText(custom.getCompanyAddress());
+        }
+
 
         return view;
     }

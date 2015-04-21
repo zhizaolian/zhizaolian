@@ -22,14 +22,14 @@ import nju.zhizaolian.models.Custom;
 public class CustomAdapter extends ArrayAdapter<Custom> {
 
 
-
+    Custom custom=null;
     public CustomAdapter(Context context, ArrayList<Custom> customs) {
         super(context, 0, customs);
     }
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        final Custom custom=getItem(position);
+        custom=getItem(position);
 
         if(convertView == null){
             convertView= LayoutInflater.from(parent.getContext()).inflate(R.layout.item_custom,parent,false);
