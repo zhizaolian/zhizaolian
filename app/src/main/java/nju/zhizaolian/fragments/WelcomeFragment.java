@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.app.Fragment;
 import android.support.v4.widget.DrawerLayout;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -246,4 +247,11 @@ public class WelcomeFragment extends Fragment implements View.OnClickListener{
     }
 
 
+    public void closeDrawers(){
+        drawerLayout.closeDrawers();
+    }
+
+    public boolean isDrawerOpen(){
+        return drawerLayout.isDrawerOpen(Gravity.LEFT);
+    }
 }

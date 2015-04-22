@@ -31,7 +31,7 @@ public class Custom implements Serializable {
     private String customerPhone;
     private String bossName;
     private String bossPhone;
-    private Timestamp registerDate;
+    private String registerDate;
     private Integer registerEmployeeId;
 
     public Custom() {
@@ -60,6 +60,7 @@ public class Custom implements Serializable {
             custom.bossName=jsonObject.getString("bossName");
             custom.city=jsonObject.getString("city");
             custom.companyFax=jsonObject.getString("companyFax");
+            custom.registerDate=jsonObject.getString("registerDate");
         } catch (JSONException e) {
             e.printStackTrace();
             return null;
@@ -235,11 +236,11 @@ public class Custom implements Serializable {
         this.bossPhone = bossPhone;
     }
 
-    public Timestamp getRegisterDate() {
+    public String getRegisterDate() {
         return registerDate;
     }
 
-    public void setRegisterDate(Timestamp registerDate) {
+    public void setRegisterDate(String registerDate) {
         this.registerDate = registerDate;
     }
 

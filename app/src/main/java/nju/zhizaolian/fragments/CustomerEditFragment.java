@@ -116,9 +116,8 @@ public class CustomerEditFragment extends Fragment implements View.OnClickListen
         customer_company_name_edit_text.setText(info.getCompany_name());
         customer_purchase_contacts_name_edit_text.setText(info.getBuy_contact());
         customer_purchase_contacts_telephone_edit_text.setText(info.getContact_phone_1());
-        customer_register_date_edit_text.setHint("注册时间不支持编辑");
+        customer_register_date_edit_text.setText(info.getRegister_date());
         customer_register_date_edit_text.setEnabled(false);
-        customer_register_date_edit_text.setVisibility(View.INVISIBLE);
     }
 
     public void setInfo(CustomerManagerInfo info){

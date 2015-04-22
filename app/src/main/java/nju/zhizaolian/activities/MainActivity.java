@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
@@ -32,6 +33,7 @@ public class MainActivity extends ActionBarActivity implements
         private  WelcomeFragment welcomeFragment;
         private Context mContext;
 
+        private long firstPressTime=0l; //双击退出参数
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -131,5 +133,21 @@ public class MainActivity extends ActionBarActivity implements
         });
     }
 
-
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if(keyCode==KeyEvent.KEYCODE_BACK){
+            if(welcomeFragment.isDrawerOpen()) {
+                welcomeFragment.closeDrawers();
+            }else{
+                if(System.currentTimeMillis()-firstPressTime>2000){
+                    firstPressTime=System.currentTimeMillis();
+                    Toast.makeText(this,"再点一次退出",Toast.LENGTH_SHORT).show();
+                }else {
+                    finish();
+                }
+            }
+            return  true;
+        }
+        return super.onKeyDown(keyCode, event);
+    }
 }

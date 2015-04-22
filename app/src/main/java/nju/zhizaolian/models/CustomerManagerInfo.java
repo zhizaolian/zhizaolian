@@ -101,7 +101,7 @@ public class CustomerManagerInfo implements Serializable{
             info.company_name = custom.getCompanyName();
             info.buy_contact = custom.getBuyContact();
             info.contact_phone_1 = custom.getContactPhone1();
-            //info.register_date=custom.getRegisterDate().toString();//缺少registerDate的解析
+            info.register_date=custom.getRegisterDate();
             return info;
         }
 
