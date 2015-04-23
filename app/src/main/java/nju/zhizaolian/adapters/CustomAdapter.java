@@ -23,7 +23,7 @@ import nju.zhizaolian.models.Custom;
 public class CustomAdapter extends ArrayAdapter<Custom> {
 
 
-    private Custom custom=null;
+
     private Account account=null;
     public CustomAdapter(Context context, ArrayList<Custom> customs,Account account) {
         super(context, 0, customs);
@@ -32,7 +32,7 @@ public class CustomAdapter extends ArrayAdapter<Custom> {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        custom=getItem(position);
+         final Custom custom=getItem(position);
 
         if(convertView == null){
             convertView= LayoutInflater.from(parent.getContext()).inflate(R.layout.item_custom,parent,false);
@@ -63,12 +63,12 @@ public class CustomAdapter extends ArrayAdapter<Custom> {
         customNameView.setText(custom.getCustomerName());
         customPhoneView.setText(custom.getCustomerPhone());
         customCompanyView.setText(custom.getCompanyName());
-        if(custom.getCompanyAddress()==null){
+        if(custom.getCompanyAddress().length()==0){
             customCompanyAddressView.setText("无");
         }else {
             customCompanyAddressView.setText(custom.getCompanyAddress());
         }
-        if(custom.getCompanyPhone()==null){
+        if(custom.getCompanyPhone().length()==0){
             customCompanyPhoneView.setText("无");
         }else{
             customCompanyPhoneView.setText(custom.getCompanyPhone());

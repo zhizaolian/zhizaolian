@@ -6,6 +6,6 @@ public class IPAddress {
     public static String newIP="http://192.168.0.13:8888";
     public static String ip ="http://172.17.188.91:8080";
     public static String getIP(){
-        return ip;
+        return newIP;
     }
 }

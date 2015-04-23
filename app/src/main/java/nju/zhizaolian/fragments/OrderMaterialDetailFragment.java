@@ -1,5 +1,6 @@
 package nju.zhizaolian.fragments;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.text.Editable;
 import android.view.LayoutInflater;
@@ -36,6 +37,9 @@ public class OrderMaterialDetailFragment extends android.support.v4.app.Fragment
     ArrayList<String> fabricWeight=new ArrayList<String>();
     ArrayList<String>  accessoriesName=new ArrayList<String>();
     ArrayList<String> accessoriesWeight=new ArrayList<String>();
+
+    private SaveFabricData saveFabricData;
+
     public OrderMaterialDetailFragment() {
         // Required empty public constructor
 
@@ -60,7 +64,7 @@ public class OrderMaterialDetailFragment extends android.support.v4.app.Fragment
         accessoriesNameEdit=(EditText)view.findViewById(R.id.accessoriesName);
         accessoriesWeightEdit=(EditText)view.findViewById(R.id.accessoriesWeight);
         materialSaveButton=(Button)view.findViewById(R.id.material_save_button);
-
+        materialSaveButton.setOnClickListener(new saveMaterialListener());
         sMaterialName=materialNameEdit.getText();
         sMaterialWeight=materialWeightEdit.getText();
         sAccessoriesName=accessoriesNameEdit.getText();
@@ -75,7 +79,8 @@ public class OrderMaterialDetailFragment extends android.support.v4.app.Fragment
                 }else{
                    View newView=createMaterialView(inflater, container);
                     materialLayout.addView(newView);
-                    
+                    fabricName.add(materialNameEdit.getText().toString());
+                    fabricWeight.add(materialWeightEdit.getText().toString());
 
                 }
 
@@ -90,7 +95,8 @@ public class OrderMaterialDetailFragment extends android.support.v4.app.Fragment
                 }else{
                     View newView=createAccessoriesView(inflater,container);
                     accessoriesLayout.addView(newView);
-                    //todo 添加数据
+                    accessoriesName.add(accessoriesNameEdit.getText().toString());
+                    accessoriesWeight.add(accessoriesWeightEdit.getText().toString());
                 }
             }
         });
@@ -100,7 +106,7 @@ public class OrderMaterialDetailFragment extends android.support.v4.app.Fragment
 
     private View createMaterialView(LayoutInflater inflater,ViewGroup container){
         final View addView=inflater.inflate(R.layout.material_additem_layout,container,false);
-        TextView materialName= (TextView) addView.findViewById(R.id.materialaddname);
+        final TextView materialName= (TextView) addView.findViewById(R.id.materialaddname);
         TextView materialWeight= (TextView) addView.findViewById(R.id.materialaddweight);
         materialName.setText(sMaterialName);
         materialWeight.setText(sMaterialWeight);
@@ -109,7 +115,9 @@ public class OrderMaterialDetailFragment extends android.support.v4.app.Fragment
             @Override
             public void onClick(View v) {
                 materialLayout.removeView(addView);
-                //todo 删除数据
+                int i=fabricName.indexOf(materialName.getText().toString());
+                fabricName.remove(i);
+                fabricWeight.remove(i);
             }
         });
         return addView;
@@ -117,7 +125,7 @@ public class OrderMaterialDetailFragment extends android.support.v4.app.Fragment
 
     private View createAccessoriesView(LayoutInflater inflater,ViewGroup container){
         final View addAccessoriesView=inflater.inflate(R.layout.accessories_additem_layout,container,false);
-        TextView accessoriesAddName=(TextView)addAccessoriesView.findViewById(R.id.accessories_add_name);
+        final TextView accessoriesAddName=(TextView)addAccessoriesView.findViewById(R.id.accessories_add_name);
         TextView accessoriesAddWeight=(TextView)addAccessoriesView.findViewById(R.id.accessories_add_weight);
         accessoriesAddName.setText(sAccessoriesName);
         accessoriesAddWeight.setText(sAccessoriesWeight);
@@ -126,11 +134,86 @@ public class OrderMaterialDetailFragment extends android.support.v4.app.Fragment
             @Override
             public void onClick(View v) {
                 accessoriesLayout.removeView(addAccessoriesView);
+                int j=accessoriesName.indexOf(accessoriesAddName.getText().toString());
+                accessoriesName.remove(j);
+                accessoriesWeight.remove(j);
 
             }
         });
 
         return addAccessoriesView;
     }
+    public class saveMaterialListener implements View.OnClickListener{
 
+        @Override
+        public void onClick(View v) {
+
+            String fabricNameData=null;
+            String fabricWeightData=null;
+            String accessoriesNameData=null;
+            String accessoriesWeightData=null;
+            for(String s:fabricName){
+                if(fabricNameData==null){
+
+                        fabricNameData=s+",";
+
+
+                }else{
+                    fabricNameData+=s+",";
+                }
+            }
+            for(String s:fabricWeight){
+                if(fabricWeightData==null){
+                        fabricWeightData=s+",";
+                }else{
+                    fabricWeightData+=s+",";
+                }
+            }
+            for(String s:accessoriesName){
+                if(accessoriesNameData==null){
+
+                        accessoriesNameData=s+",";
+
+
+                }else {
+                    accessoriesNameData+=s+",";
+                }
+            }
+            for(String s:accessoriesWeight){
+                if(accessoriesWeightData==null){
+
+                        accessoriesWeightData=s+",'";
+
+
+                }else{
+                    accessoriesWeightData+=s+",";
+                }
+            }
+            if(fabricNameData == null){
+                fabricNameData="0";
+            }
+            if(fabricWeightData == null){
+                fabricWeightData="0";
+            }
+            if(accessoriesNameData == null){
+                accessoriesNameData="0";
+            }
+            if(accessoriesWeightData == null){
+                accessoriesWeightData="0";
+            }
+           String result=fabricNameData+"@"+fabricWeightData+"@"+accessoriesNameData+"@"+accessoriesWeightData;
+
+           saveFabricData.saveFabricData(result);
+        }
+    }
+
+    @Override
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
+        saveFabricData= (SaveFabricData) activity;
+    }
+
+    public interface SaveFabricData{
+        public void saveFabricData(String fabricdata);
+    }
 }

@@ -84,9 +84,7 @@ public class CustomListOrderFragment extends Fragment {
                     JSONArray jsonArray=response.getJSONArray("customer_list");
                     ArrayList<Custom> customList=Custom.fromJson(jsonArray);
                     customAdapter.clear();
-                    for(Custom c:customList){
-                        customAdapter.add(c);
-                    }
+                    customAdapter.addAll(customList);
                     customAdapter.notifyDataSetChanged();
                 } catch (JSONException e) {
                     e.printStackTrace();

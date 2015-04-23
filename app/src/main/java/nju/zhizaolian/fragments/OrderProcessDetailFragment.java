@@ -320,7 +320,7 @@ public class OrderProcessDetailFragment extends android.support.v4.app.Fragment 
                  String sampleProduceJ=null;
                 for(String s:produceColorArray){
                     if(produceColor==null){
-                        produceColor=s;
+                        produceColor=s+",";
                     }else {
                         produceColor+=s+",";
                     }
@@ -328,7 +328,7 @@ public class OrderProcessDetailFragment extends android.support.v4.app.Fragment 
                 }
                 for(String s:produceXSArray){
                     if(produceXS==null){
-                        produceXS=s;
+                        produceXS=s+",";
                     }else {
                         produceXS+=s+",";
                     }
@@ -336,88 +336,116 @@ public class OrderProcessDetailFragment extends android.support.v4.app.Fragment 
                 }
                 for(String s:produceSArray){
                     if(produceS==null){
-                        produceS=s;
+                        produceS=s+",";
+                    }else{
+                        produceS+=s+",";
                     }
-                    produceS+=s+",";
+
                 }
                 for(String s:produceMArray){
                     if(produceM==null){
-                        produceM=s;
+                        produceM=s+",";
+                    }else {
+                        produceM+=s+",";
                     }
-                    produceM+=s+",";
+
                 }
                 for (String s: produceLArray){
                     if(produceL==null){
-                        produceL=s;
+                        produceL=s+",";
+                    }else{
+                        produceL+=s+",";
                     }
-                    produceL+=s+",";
+
                 }
                 for(String s:produceXLArray){
                     if(produceXL==null){
-                        produceXL=s;
+                        produceXL=s+",";
+                    }else{
+                        produceXL+=s+",";
                     }
-                    produceXL+=s+",";
+
                 }
                 for(String s:produceXXLArray){
                     if(produceXXL==null){
-                        produceXXL=s;
+                        produceXXL=s+",";
+                    }else{
+                        produceXXL+=s+",";
                     }
-                    produceXXL+=s+",";
+
                 }
                 for(String s:produceJArray){
                     if(produceJ==null){
-                        produceJ=s;
+                        produceJ=s+",";
+                    }else{
+                        produceJ+=s+",";
                     }
-                    produceJ+=s+",";
+
                 }
 
                 for(String s:sampleColorArray){
                     if(sampleProduceColor==null){
-                        sampleProduceColor=s;
+                        sampleProduceColor=s+",";
+                    }else{
+                        sampleProduceColor+=s+",";
                     }
-                    sampleProduceColor+=s+",";
+
                 }
                 for(String s:sampleXSArray){
                     if(sampleProduceXS==null){
-                        sampleProduceXS=s;
+                        sampleProduceXS=s+",";
+                    }else{
+                        sampleProduceXS+=s+",";
                     }
-                    sampleProduceXS+=s+",";
+
                 }
                 for(String s:sampleSArray){
                     if(sampleProduceS==null){
-                        sampleProduceS=s;
+                        sampleProduceS=s+",";
+                    }else{
+                        sampleProduceS+=s+",";
                     }
-                    sampleProduceS+=s+",";
+
                 }
                 for(String s:sampleMArray){
                     if(sampleProduceM==null){
-                        sampleProduceM=s;
+                        sampleProduceM=s+",";
+                    }else{
+                        sampleProduceM+=s+",";
                     }
-                    sampleProduceM+=s+",";
+
                 }
                 for (String s: sampleLArray){
                     if(sampleProduceL==null){
-                        sampleProduceL=s;
+                        sampleProduceL=s+",";
+                    }else {
+                        sampleProduceL+=s+",";
                     }
-                    sampleProduceL+=s+",";
+
                 }
                 for(String s:sampleXLArray){
                     if(sampleProduceXL==null){
-                        sampleProduceXL=s;
+                        sampleProduceXL=s+",";
+                    }else {
+                        sampleProduceXL+=s+",";
                     }
-                    sampleProduceXL+=s+",";
+
                 }
                 for(String s:sampleXXLArray){
                     if(sampleProduceXXL==null){
-                        sampleProduceXXL=s;
+                        sampleProduceXXL=s+",";
+                    }else {
+                        sampleProduceXXL+=s+",";
                     }
-                    sampleProduceXXL+=s+",";
+
                 }
                 for(String s:sampleJArray){
                     if(sampleProduceJ==null){
-                        sampleProduceJ=s;
+                        sampleProduceJ=s+",";
+                    }else {
+                        sampleProduceJ+=s+",";
                     }
-                    sampleProduceJ+=s+",";
+
                 }
                 String processData=askNumberData+"@"+askDeliverDateData+"@"+askDeliverPeriodData+"@"+produceColor+"@"+produceXS+"@"+
                         produceS+"@"+produceM+"@"+produceL+"@"+produceXL+"@"+produceXXL+"@"+
