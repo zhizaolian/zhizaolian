@@ -27,6 +27,7 @@ import java.util.List;
 import java.util.Map;
 
 import nju.zhizaolian.R;
+import nju.zhizaolian.fragments.OrderListFragment;
 import nju.zhizaolian.models.IPAddress;
 
 /**
@@ -73,7 +74,7 @@ public class OrderProcessListAdapter  extends SimpleAdapter{
         clickableTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(context, "第" + position + "个", Toast.LENGTH_SHORT).show();
+                ((OrderListFragment.OrderListItemClickedToGoFragment) context).goFragmentByOrderListItem(position);
             }
         });
         ImageView imageView = (ImageView) itemView.findViewById(R.id.order_detail_image);
@@ -83,7 +84,7 @@ public class OrderProcessListAdapter  extends SimpleAdapter{
                 ImageView view = new ImageView(context);
                 setMyImageView(view,(String) data.get(position).get("big_image_url"),-1);
                 new AlertDialog.Builder(context)
-                        .setTitle((String)data.get(position).get("name")+"样式大图")
+                        .setTitle((String) data.get(position).get("name") + "样式大图")
                         .setView(view)
                         .setPositiveButton("关闭", new DialogInterface.OnClickListener() {
                                     @Override
@@ -142,6 +143,10 @@ public class OrderProcessListAdapter  extends SimpleAdapter{
         return resizeBmp;
     }
 
+    public void updateMyAdapter(){
+        downloaded.clear();
+        downloadedBitmap.clear();
+    }
 
 
 

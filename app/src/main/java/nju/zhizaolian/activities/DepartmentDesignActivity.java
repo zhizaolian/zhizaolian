@@ -1,6 +1,7 @@
 package nju.zhizaolian.activities;
 
 
+import android.app.Fragment;
 import android.content.SharedPreferences;
 import android.support.v7.app.ActionBar;
 import android.app.FragmentManager;
@@ -9,6 +10,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ArrayAdapter;
@@ -36,10 +38,14 @@ import nju.zhizaolian.models.IPAddress;
 import nju.zhizaolian.models.ListInfo;
 import nju.zhizaolian.models.TaskNumber;
 
-public class DepartmentDesignActivity extends ActionBarActivity {
+public class DepartmentDesignActivity extends ActionBarActivity implements OrderListFragment.OrderListItemClickedToGoFragment {
 
-    Bundle bundle;
     OrderListFragment orderListFragment;
+    ArrayList<ListInfo> listInfoArrayList = new ArrayList<>();
+    public static final int SAMPLE_PRODUCTION=0;
+    public static final int SLICE=1;
+    public static final int VERSION_CONFIRM=2;
+    int selectedSpinnerItem = SAMPLE_PRODUCTION;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,7 +63,6 @@ public class DepartmentDesignActivity extends ActionBarActivity {
             FragmentManager fragmentManager = getFragmentManager();
             FragmentTransaction fragmentTransaction= fragmentManager.beginTransaction();
             fragmentTransaction.add(R.id.department_design_activity_layout,orderListFragment,"orderList");
-            fragmentTransaction.addToBackStack("null");
             fragmentTransaction.commit();
         }
     }
@@ -66,14 +71,17 @@ public class DepartmentDesignActivity extends ActionBarActivity {
         @Override
         public boolean onNavigationItemSelected(int itemPosition, long itemId) {
             switch (itemPosition){
-                case 0:
+                case SAMPLE_PRODUCTION:
                     getSampleProduceList();
+                    selectedSpinnerItem=SAMPLE_PRODUCTION;
                     break;
-                case 1:
+                case SLICE:
                     getSliceList();
+                    selectedSpinnerItem=SLICE;
                     break;
-                case 2:
+                case VERSION_CONFIRM:
                     getVersionConfirmList();
+                    selectedSpinnerItem=VERSION_CONFIRM;
                     break;
                 default:break;
             }
@@ -97,9 +105,7 @@ public class DepartmentDesignActivity extends ActionBarActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
-            Intent intent = new Intent(DepartmentDesignActivity.this,DepartmentProductionActivity.class);
-//            intent.putExtras(bundle);
-            startActivity(intent);
+
         }
 
         return super.onOptionsItemSelected(item);
@@ -107,25 +113,34 @@ public class DepartmentDesignActivity extends ActionBarActivity {
 
     public void getVersionConfirmList(){
         Toast.makeText(this,"版型",Toast.LENGTH_SHORT).show();
+        String url = "/fmc/design/mobile_getConfirmCadList.do";
+        updateListFromServer(url);
     }
 
     public void getSliceList(){
         Toast.makeText(this,"切片",Toast.LENGTH_SHORT).show();
+        String url ="/fmc/design/mobile_getTypeSettingSliceList.do";
+        updateListFromServer(url);
     }
 
     public void getSampleProduceList(){
         Toast.makeText(this,"样衣",Toast.LENGTH_SHORT).show();
+        String url ="/fmc/design/mobile_getUploadDesignList.do";
+        updateListFromServer(url);
+    }
+
+    public void updateListFromServer(final String url){
         AsyncHttpClient client = new AsyncHttpClient();
         RequestParams params = new RequestParams();
         SharedPreferences settings =getSharedPreferences("common", 0);
         String jSessionId=settings.getString("jsessionId","");
         params.put("jsessionId",jSessionId);
-        client.get(IPAddress.getIP()+"/fmc/design/mobile_getUploadDesignList.do",params,new JsonHttpResponseHandler(){
+        client.get(IPAddress.getIP()+url,params,new JsonHttpResponseHandler(){
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                 try {
-                    ArrayList<ListInfo> lists =ListInfo.fromJson(response.getJSONArray("list"));
-                    orderListFragment.updateListView(lists);
+                    listInfoArrayList =ListInfo.fromJson(response.getJSONArray("list"));
+                    orderListFragment.updateListView(listInfoArrayList);
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
@@ -133,8 +148,62 @@ public class DepartmentDesignActivity extends ActionBarActivity {
 
             @Override
             public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
-                Toast.makeText(DepartmentDesignActivity.this,"样衣网络错误",Toast.LENGTH_SHORT).show();
+                Toast.makeText(DepartmentDesignActivity.this,"网络错误",Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+    @Override
+    public void goFragmentByOrderListItem(int index) {
+        Fragment fragment = null;
+        String tag="";
+        switch (selectedSpinnerItem){
+            case SAMPLE_PRODUCTION:
+                fragment=new DepartmentDesignEnteringFragment();
+                tag="Entering";
+                break;
+            case SLICE:
+                fragment=new DepartmentDesignSliceFragment();
+                tag="Slice";
+                break;
+            case VERSION_CONFIRM:
+                fragment=new DepartmentDesignConfirmFragment();
+                tag="Confirm";
+                break;
+            default:
+                break;
+        }
+        FragmentManager fragmentManager = getFragmentManager();
+        FragmentTransaction fragmentTransaction= fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.department_design_activity_layout, fragment, tag);
+        fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.commit();
+        getSupportActionBar().hide();
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if(keyCode==KeyEvent.KEYCODE_BACK){
+            if(getFragmentManager().getBackStackEntryCount()>0) {
+                getFragmentManager().popBackStack();
+                getSupportActionBar().show();
+                switch (selectedSpinnerItem){
+                    case SAMPLE_PRODUCTION:
+                        getSampleProduceList();
+                        break;
+                    case SLICE:
+                        getSliceList();
+                        break;
+                    case VERSION_CONFIRM:
+                        getVersionConfirmList();
+                        break;
+                    default:
+                        break;
+
+                }
+                return false;
+            }
+        }
+        return super.onKeyDown(keyCode, event);
     }
 }

@@ -6,8 +6,9 @@ import android.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -15,16 +16,16 @@ import java.util.HashMap;
 import nju.zhizaolian.R;
 import nju.zhizaolian.adapters.OrderProcessListAdapter;
 import nju.zhizaolian.models.ListInfo;
-import nju.zhizaolian.models.Order;
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class OrderListFragment extends Fragment {
 
-    private ListView orderList;
+    private ListView orderListView;
     OrderProcessListAdapter adapter;
     ArrayList<HashMap<String,String>> dataList;
+    ArrayList<ListInfo> orderInfoList;
     public OrderListFragment() {
         // Required empty public constructor
     }
@@ -34,7 +35,7 @@ public class OrderListFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.order_process_list,container,false);
-        orderList =(ListView) view.findViewById(R.id.order_process_list);
+        orderListView =(ListView) view.findViewById(R.id.order_process_list);
         dataList = new ArrayList<>();
         adapter = new OrderProcessListAdapter(this.getActivity(),dataList,R.layout.order_process_list_item,
                                                 new String[]{"name","number","date","state","s_name","c_name","cc_name"},
@@ -46,12 +47,23 @@ public class OrderListFragment extends Fragment {
                                                            R.id.order_process_list_item_customer_name,
                                                            R.id.order_process_list_item_custom_company_name}
                                                 );
-        orderList.setAdapter(adapter);
+        orderListView.setAdapter(adapter);
+        orderListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+               ((OrderListItemClickedToGoFragment) getActivity()).goFragmentByOrderListItem(position);
+            }
+        });
         return view;
     }
 
     public void updateListView(ArrayList<ListInfo> orderListInfo){
+        if (orderListInfo==null){
+            return;
+        }
+        orderInfoList=orderListInfo;
         dataList.clear();
+        adapter.updateMyAdapter();
         for(int i=0;i<orderListInfo.size();i++) {
             HashMap<String, String> data = new HashMap<>();
             data.put("name", orderListInfo.get(i).getOrder().getStyleName());
@@ -68,4 +80,7 @@ public class OrderListFragment extends Fragment {
         adapter.notifyDataSetChanged();
     }
 
+    public interface OrderListItemClickedToGoFragment{
+        void goFragmentByOrderListItem(int index);
+    };
 }
