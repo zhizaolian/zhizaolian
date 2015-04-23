@@ -11,24 +11,31 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+
 import nju.zhizaolian.R;
 
 
 public class OrderMaterialDetailFragment extends android.support.v4.app.Fragment {
     Button materialButton=null;
     Button accessoriesButton=null;
+    Button materialSaveButton=null;
     LinearLayout materialLayout=null;
     LinearLayout accessoriesLayout=null;
-    EditText materialName=null;
-    EditText materialWeight=null;
-    EditText accessoriesName=null;
-    EditText accessoriesWeight=null;
+    EditText materialNameEdit=null;
+    EditText materialWeightEdit=null;
+    EditText accessoriesNameEdit=null;
+    EditText accessoriesWeightEdit=null;
 
 
     Editable sMaterialName=null;
     Editable sMaterialWeight=null;
     Editable sAccessoriesName=null;
     Editable sAccessoriesWeight=null;
+    ArrayList<String> fabricName=new ArrayList<String>();
+    ArrayList<String> fabricWeight=new ArrayList<String>();
+    ArrayList<String>  accessoriesName=new ArrayList<String>();
+    ArrayList<String> accessoriesWeight=new ArrayList<String>();
     public OrderMaterialDetailFragment() {
         // Required empty public constructor
 
@@ -48,16 +55,16 @@ public class OrderMaterialDetailFragment extends android.support.v4.app.Fragment
         accessoriesButton=(Button)view.findViewById(R.id.accessoriesButton);
         materialLayout= (LinearLayout) view.findViewById(R.id.materialLayout);
         accessoriesLayout=(LinearLayout)view.findViewById(R.id.accessoriesLayout);
-        materialName= (EditText) view.findViewById(R.id.materialName);
-        materialWeight=(EditText) view.findViewById(R.id.materialWeight);
-        accessoriesName=(EditText)view.findViewById(R.id.accessoriesName);
-        accessoriesWeight=(EditText)view.findViewById(R.id.accessoriesWeight);
+        materialNameEdit= (EditText) view.findViewById(R.id.materialName);
+        materialWeightEdit=(EditText) view.findViewById(R.id.materialWeight);
+        accessoriesNameEdit=(EditText)view.findViewById(R.id.accessoriesName);
+        accessoriesWeightEdit=(EditText)view.findViewById(R.id.accessoriesWeight);
+        materialSaveButton=(Button)view.findViewById(R.id.material_save_button);
 
-
-        sMaterialName=materialName.getText();
-        sMaterialWeight=materialWeight.getText();
-        sAccessoriesName=accessoriesName.getText();
-        sAccessoriesWeight=accessoriesWeight.getText();
+        sMaterialName=materialNameEdit.getText();
+        sMaterialWeight=materialWeightEdit.getText();
+        sAccessoriesName=accessoriesNameEdit.getText();
+        sAccessoriesWeight=accessoriesWeightEdit.getText();
 
 
         materialButton.setOnClickListener(new View.OnClickListener() {
@@ -68,7 +75,7 @@ public class OrderMaterialDetailFragment extends android.support.v4.app.Fragment
                 }else{
                    View newView=createMaterialView(inflater, container);
                     materialLayout.addView(newView);
-
+                    
 
                 }
 

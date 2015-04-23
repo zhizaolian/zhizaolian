@@ -23,6 +23,18 @@
         android:layout_height="wrap_content"
         android:id="@+id/expressTimeButton"
         android:text="@string/title_express_time"/>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/title_express_time"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/express_time_view"/>
+        </LinearLayout>
 
     <Spinner
         android:layout_width="fill_parent"

@@ -35,7 +35,7 @@ public class DepartmentSalesActivity extends ActionBarActivity {
         public boolean onNavigationItemSelected(int itemPosition, long itemId) {
             Fragment newFragment=null;
             switch (itemPosition){
-                case 0:newFragment=new CustomListOrderFragment(account);break;
+                case 0:newFragment=new CustomListOrderFragment();break;
                 case 1:newFragment=new MergePriceFragment();break;
                 case 2:newFragment=new MergePriceFragment();break;
                 case 3:newFragment=new QuoteAgreedFragment();break;
@@ -45,6 +45,9 @@ public class DepartmentSalesActivity extends ActionBarActivity {
                 case 7:newFragment=new MergePriceFragment();break;
                 default:break;
             }
+            Bundle bundle=new Bundle();
+            bundle.putSerializable("account",account);
+            newFragment.setArguments(bundle);
             getSupportFragmentManager().beginTransaction().replace(R.id.salesDepartmentcontainers,newFragment).commit();
             return false;
         }

@@ -27,6 +27,7 @@
     <EditText
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:inputType="number"
         android:id="@+id/sample_s_edit"
         android:hint="@string/title_S" />
 

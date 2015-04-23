@@ -8,21 +8,25 @@ import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Switch;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import nju.zhizaolian.R;
 import nju.zhizaolian.help.DatePickerFragment;
+import nju.zhizaolian.help.PictureUtil;
 
 
-public class OrderSampleDetailFragment extends android.support.v4.app.Fragment {
+public class OrderSampleDetailFragment extends Fragment {
     private static int Result_LOAD_SAMPLE_IMAGE=1;
     private static int Result_LOAD_REFERENCE_IMAGE=2;
     private SaveSampleData saveSampleData;
@@ -41,8 +45,12 @@ public class OrderSampleDetailFragment extends android.support.v4.app.Fragment {
     private ImageView referencePicture;
     private Button saveData;
     DatePickerFragment datePickerFragment=null;
+    private TextView expressTimeView;
     private String samplePictureUrl;
     private String referencePictureUrl;
+
+    private byte[] samplePictureByte;
+    private byte[] referencePictureByte;
     public OrderSampleDetailFragment() {
         // Required empty public constructor
     }
@@ -54,11 +62,18 @@ public class OrderSampleDetailFragment extends android.support.v4.app.Fragment {
         // Inflate the layout for this fragment
         View view=inflater.inflate(R.layout.fragment_order_sample_detail, container, false);
         ifProvideSample= (Switch) view.findViewById(R.id.isProvideSampleSwitch);
+        expressTimeView=(TextView)view.findViewById(R.id.express_time_view);
         expressTime=(Button)view.findViewById(R.id.expressTimeButton);
         expressTime.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                datePickerFragment=new DatePickerFragment();
+                datePickerFragment=new DatePickerFragment(){
+                    @Override
+                    public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+                        super.onDateSet(view, year, monthOfYear, dayOfMonth);
+                        expressTimeView.setText(year+"-"+monthOfYear+"-"+dayOfMonth);
+                    }
+                };
                 datePickerFragment.show(getActivity().getFragmentManager(),"datePicker");
 
 
@@ -66,12 +81,7 @@ public class OrderSampleDetailFragment extends android.support.v4.app.Fragment {
             }
         });
         expressName=(Spinner)view.findViewById(R.id.express_name_spinner);
-        expressName.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                expressTime.setText("已选择时间:" + datePickerFragment.getDate());
-            }
-        });
+
         expressNumber=(EditText)view.findViewById(R.id.express_number_edit);
         ifMakeSample=(Switch)view.findViewById(R.id.is_make_sample_switch);
         postMan=(EditText)view.findViewById(R.id.post_man_edit);
@@ -115,6 +125,7 @@ public class OrderSampleDetailFragment extends android.support.v4.app.Fragment {
                 samplePictureUrl=cursor.getString(columnIndex);
                 cursor.close();
                 Bitmap bitmap= BitmapFactory.decodeFile(samplePictureUrl);
+                samplePictureByte= PictureUtil.Bitmap2Bytes(bitmap);
                 samplePicture.setImageBitmap(bitmap);
 
             }else if(requestCode == Result_LOAD_REFERENCE_IMAGE && resultCode==getActivity().RESULT_OK && null != data){
@@ -126,6 +137,7 @@ public class OrderSampleDetailFragment extends android.support.v4.app.Fragment {
                 referencePictureUrl=cursor.getString(columnIndex);
                 cursor.close();
                 Bitmap bitmap= BitmapFactory.decodeFile(referencePictureUrl);
+                referencePictureByte=PictureUtil.Bitmap2Bytes(bitmap);
                 referencePicture.setImageBitmap(bitmap);
 
             }else {
@@ -143,18 +155,33 @@ public class OrderSampleDetailFragment extends android.support.v4.app.Fragment {
         @Override
         public void onClick(View v) {
             boolean hasPostedSampleData=ifProvideSample.isChecked();
-            String expressTimeData=expressTime.getText().toString();
-            String expressNameData=expressName.getSelectedItem().toString();
-            String expressNumberData=expressNumber.getText().toString();
+            String expressTimeData="0";
+            String expressNameData="无";
+            String expressNumberData="0";
+
             boolean isNeedSampleData=ifMakeSample.isChecked();
             String postManData=postMan.getText().toString();
             String postManPhoneData=postManPhone.getText().toString();
             String expressAddressData=expressAddress.getText().toString();
             String otherRemarkData=otherRemark.getText().toString();
-            String result=hasPostedSampleData+"|"+expressTimeData+"|"+expressNameData+"|"+expressNumberData+"|"+isNeedSampleData+"|"+
-                    postManData+"|"+postManPhoneData+"|"+expressAddressData+"|"+otherRemarkData+"|"+samplePictureUrl+"|"+referencePictureUrl;
-            saveSampleData.saveSampleData(result);
-            Toast.makeText(getActivity().getApplicationContext(),"保存成功",Toast.LENGTH_SHORT).show();
+
+            if(hasPostedSampleData){
+              expressTimeData=expressTimeView.getText().toString();
+               expressNameData=expressName.getSelectedItem().toString();
+               expressNumberData=expressNumber.getText().toString();
+            }
+            if(expressTimeData.length()==0||expressNameData.length()==0||postManData.length()==0||postManPhoneData.length()==0||
+                    expressAddressData.length()==0||otherRemarkData.length()==0||samplePictureUrl==null||referencePictureUrl==null){
+                Toast.makeText(getActivity().getApplicationContext(),"请填写完整数据",Toast.LENGTH_SHORT).show();
+            }else {
+                String result=hasPostedSampleData+"@"+expressTimeData+"@"+expressNameData+"@"+expressNumberData+"@"+isNeedSampleData+"@"+
+                        postManData+"@"+postManPhoneData+"@"+expressAddressData+"@"+otherRemarkData+"@"+samplePictureUrl+"@"+referencePictureUrl;
+                saveSampleData.saveSampleData(result);
+                saveSampleData.saveReference(samplePictureByte);
+                saveSampleData.saveSamplePicture(referencePictureByte);
+            }
+
+
         }
     }
 
@@ -170,6 +197,8 @@ public class OrderSampleDetailFragment extends android.support.v4.app.Fragment {
 
     public interface SaveSampleData{
         public void saveSampleData(String sampleData);
+        public void saveSamplePicture(byte[] samplePictureByte);
+        public void saveReference(byte[] referencePictureByte);
     }
 
 

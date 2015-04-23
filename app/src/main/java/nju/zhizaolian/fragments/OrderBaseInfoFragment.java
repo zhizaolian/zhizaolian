@@ -142,11 +142,18 @@ public class OrderBaseInfoFragment extends android.support.v4.app.Fragment {
             String specialProcessData=getSpecialData();
             String otherRequirements=getOtherRequirements();
             String referenceUrlData=reference.getText().toString();
-            String baseInfoData=ifHaoDuoYiData+","+orderSourceData+","+styleNameData+","+
-                    clothesTypeData+","+styleSexData+","+styleSeasonData+","+materialTypeData+","+specialProcessData+","+
-                    otherRequirements+","+referenceUrlData;
-            saveBaseInfoData.saveBaseInfoData(baseInfoData);
-            Toast.makeText(getActivity().getApplicationContext(),"保存成功",Toast.LENGTH_SHORT).show();
+            if(orderSourceData.length()==0||styleNameData.length()==0||referenceUrlData.length()==0){
+                Toast.makeText(getActivity().getApplicationContext(),"请填写完数据",Toast.LENGTH_SHORT).show();
+            }else {
+                String baseInfoData=ifHaoDuoYiData+","+orderSourceData+","+styleNameData+","+
+                        clothesTypeData+","+styleSexData+","+styleSeasonData+","+materialTypeData+","+specialProcessData+","+
+                        otherRequirements+","+referenceUrlData+","+custom.getCustomerId();
+                saveBaseInfoData.saveBaseInfoData(baseInfoData);
+            }
+
+
+
+
         }
     }
     private String getOtherRequirements(){
@@ -177,7 +184,7 @@ public class OrderBaseInfoFragment extends android.support.v4.app.Fragment {
             result+=push.getText().toString()+"|";
         }
         if(other1.isChecked()){
-            result+=otherEdit1.getText().toString()+"|";
+            result+=otherEdit1.getText().toString();
         }
         return result;
     }
@@ -192,6 +199,6 @@ public class OrderBaseInfoFragment extends android.support.v4.app.Fragment {
     }
 
     public interface  SaveBaseInfoData{
-        public void saveBaseInfoData(String orderSource);
+        public void saveBaseInfoData(String baseInfo);
     }
 }

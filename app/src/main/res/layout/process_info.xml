@@ -36,13 +36,29 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:id="@+id/ask_period_button"
-        android:text="@string/title_finish_time"/>
+        android:text="@string/title_delivery_time"/>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/title_delivery_time"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/ask_period_view"
+            />
+        </LinearLayout>
+
 
    <EditText
        android:layout_width="fill_parent"
        android:layout_height="wrap_content"
+       android:inputType="number"
        android:id="@+id/ask_deliver_date_edit"
-       android:hint="@string/title_delivery_time"/>
+       android:hint="@string/title_finish_time"/>
 
 
 </LinearLayout>

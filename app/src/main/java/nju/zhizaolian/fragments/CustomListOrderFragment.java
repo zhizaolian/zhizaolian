@@ -37,8 +37,8 @@ public class CustomListOrderFragment extends Fragment {
     private CustomAdapter customAdapter;
     private SwipeRefreshLayout swipeRefreshLayout;
     private Account account;
-    public CustomListOrderFragment(Account account) {
-        this.account=account;
+    public CustomListOrderFragment() {
+
     }
 
 
@@ -56,9 +56,9 @@ public class CustomListOrderFragment extends Fragment {
              swipeRefreshLayout.setRefreshing(false);
             }
         });
-
+        account= (Account) getArguments().getSerializable("account");
         swipeRefreshLayout.setColorSchemeColors(R.color.white,R.color.green,R.color.orange,R.color.red);
-       customAdapter=new CustomAdapter(container.getContext(),customList,account);
+        customAdapter=new CustomAdapter(container.getContext(),customList,account);
 
         customListView.setAdapter(customAdapter);
         fetchCustom();

@@ -19,7 +19,7 @@
             <Button
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/button_add"
+                android:text="@string/save_data"
                 android:id="@+id/save_process_data_button"/>
             </LinearLayout>
     </ScrollView>
