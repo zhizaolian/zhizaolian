@@ -5,17 +5,99 @@
 
 
     <ScrollView
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:id="@+id/scrollView6" >
 
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="fill_parent"
-            android:layout_height="fill_parent">
-           <include layout="@layout/version_data"/>
+            android:layout_height="wrap_content">
+          <LinearLayout
+              android:layout_width="fill_parent"
+              android:layout_height="wrap_content"
+              android:orientation="vertical">
+              <TextView
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:text="@string/title_version_data"
+                  android:textSize="@dimen/abc_text_size_large_material"/>
+                <EditText
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/title_size"
+                    android:inputType="number"
+                    android:id="@+id/version_size_edit"/>
+              <EditText
+                  android:layout_width="fill_parent"
+                  android:layout_height="wrap_content"
+                  android:hint="@string/title_after_the_long"
+                  android:inputType="number"
+                  android:id="@+id/version_center_back_length_Edit"/>
+              <EditText
+                  android:layout_width="fill_parent"
+                  android:layout_height="wrap_content"
+                  android:hint="@string/title_bust"
+                  android:inputType="number"
+                  android:id="@+id/version_bust_edit"/>
+              <EditText
+                  android:layout_width="fill_parent"
+                  android:layout_height="wrap_content"
+                  android:hint="@string/title_waist"
+                  android:id="@+id/version_waist_line"/>
+              <EditText
+                  android:layout_width="fill_parent"
+                  android:layout_height="wrap_content"
+                  android:hint="@string/title_shoulder_width"
+                  android:inputType="number"
+                  android:id="@+id/version_shoulder_edit"/>
+              <EditText
+                  android:layout_width="fill_parent"
+                  android:layout_height="wrap_content"
+                  android:hint="@string/title_hip"
+                  android:inputType="number"
+                  android:id="@+id/version_buttock_edit"/>
+              <EditText
+                  android:layout_width="fill_parent"
+                  android:layout_height="wrap_content"
+                  android:hint="@string/title_hem"
+                  android:inputType="number"
+                  android:id="@+id/version_Hem_edit"/>
+              <EditText
+                  android:layout_width="fill_parent"
+                  android:layout_height="wrap_content"
+                  android:hint="@string/title_pants_length"
+                  android:inputType="number"
+                  android:id="@+id/version_trousers_edit"/>
+              <EditText
+                  android:layout_width="fill_parent"
+                  android:layout_height="wrap_content"
+                  android:hint="@string/title_skirt_length"
+                  android:inputType="number"
+                  android:id="@+id/version_skirt_edit"/>
+              <EditText
+                  android:layout_width="fill_parent"
+                  android:layout_height="wrap_content"
+                  android:hint="@string/title_sleeve_length"
+                  android:inputType="number"
+                  android:id="@+id/version_sleeve_edit"/>
+             <Button
+                 android:layout_width="fill_parent"
+                 android:layout_height="wrap_content"
+                 android:text="@string/button_add"
+                 android:id="@+id/version_add_button"/>
 
-
+              </LinearLayout>
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:id="@+id/version_add_layout"/>
+            <Button
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/save_data"
+                android:id="@+id/save_version_data"/>
             </LinearLayout>
     </ScrollView>
 </FrameLayout>

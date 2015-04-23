@@ -18,14 +18,12 @@ import nju.zhizaolian.R;
 import nju.zhizaolian.help.MyUtils;
 import nju.zhizaolian.models.Account;
 import nju.zhizaolian.models.Custom;
-import nju.zhizaolian.models.Order;
 
 
 public class OrderBaseInfoFragment extends android.support.v4.app.Fragment {
 
     private Custom custom;
     private Account account;
-    private Order order;
     private SaveBaseInfoData saveBaseInfoData;//interface
     private Switch isHaoDuoYi;
     private TextView getOrderTime;
@@ -91,6 +89,7 @@ public class OrderBaseInfoFragment extends android.support.v4.app.Fragment {
         laser=(CheckBox)view.findViewById(R.id.laser_checkbox);
         push=(CheckBox)view.findViewById(R.id.push_checkbox);
         other1=(CheckBox)view.findViewById(R.id.other_checkbox);
+        otherEdit1=(EditText)view.findViewById(R.id.other_edit);
         haveMainMark=(CheckBox)view.findViewById(R.id.main_mark_checkbox);
         haveTag=(CheckBox)view.findViewById(R.id.tag_checkbox);
         haveWaterWash=(CheckBox)view.findViewById(R.id.have_water_wash_checkbox);
@@ -106,19 +105,19 @@ public class OrderBaseInfoFragment extends android.support.v4.app.Fragment {
         customerName.setText(custom.getCustomerName());
         customerId.setText(String.valueOf(custom.getCustomerId()));
         company.setText(custom.getCompanyName());
-        if(custom.getCompanyFax() == null){
+        if(custom.getCompanyFax().length()==0){
             companyFax.setText(getString(R.string.nothing));
         }else{
             companyFax.setText(custom.getCompanyFax());
         }
 
         customerPhone1.setText(custom.getContactPhone1());
-        if(custom.getContactPhone2() == null){
+        if(custom.getContactPhone2().length()==0){
             customerPhone2.setText(getString(R.string.nothing));
         }else{
             customerPhone2.setText(custom.getContactPhone2());
         }
-        if(custom.getCompanyAddress() == null){
+        if(custom.getCompanyAddress().length()==0){
             companyAddress.setText(getString(R.string.nothing));
         }else{
             companyAddress.setText(custom.getCompanyAddress());

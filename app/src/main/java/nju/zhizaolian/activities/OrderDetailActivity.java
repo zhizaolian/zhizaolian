@@ -32,7 +32,8 @@ import nju.zhizaolian.models.Custom;
 import nju.zhizaolian.models.IPAddress;
 
 public class OrderDetailActivity extends ActionBarActivity implements ActionBar.TabListener ,
-        OrderBaseInfoFragment.SaveBaseInfoData,OrderSampleDetailFragment.SaveSampleData,OrderProcessDetailFragment.SaveProcessData {
+        OrderBaseInfoFragment.SaveBaseInfoData,OrderSampleDetailFragment.SaveSampleData,OrderProcessDetailFragment.SaveProcessData,
+        OrderMaterialDetailFragment.SaveFabricData,OrderVersionDetailFragment.SaveVerisonData{
 
 
     SectionsPagerAdapter mSectionsPagerAdapter;
@@ -57,7 +58,7 @@ public class OrderDetailActivity extends ActionBarActivity implements ActionBar.
     //面辅信息
     private String fabricName="";
     private String fabricAmount="";
-    private String accessory_name="";
+    private String accessoryName="";
     private String accessoryAmount="";
     //sample info
     private short hasPostedSampleClothes;//0,1,2
@@ -319,8 +320,36 @@ public class OrderDetailActivity extends ActionBarActivity implements ActionBar.
          sampleProduceXL=k[16];
         sampleProduceXXL=k[17];
          sampleProduceJ=k[18];
-        Toast.makeText(getApplicationContext(),"保存成功",Toast.LENGTH_SHORT).show();
 
+
+    }
+
+
+    @Override
+    public void saveFabricData(String fabricdata) {
+        String[] f=fabricdata.split("@");
+            fabricName=f[0];
+            fabricAmount=f[1];
+            accessoryName=f[2];
+            accessoryAmount=f[3];
+
+        Toast.makeText(getApplicationContext(),"保存成功",Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void saveVersionData(String versionData) {
+        String[] version=versionData.split("@");
+        versionSize=version[0];
+        versionCenterBackLength=version[1];
+        versionBust=version[2];
+        versionWaistLine=version[3];
+        versionShoulder=version[4];
+        versionButtock=version[5];
+        versionHem=version[6];
+        versionTrousers=version[7];
+        versionSkirt=version[8];
+        versionSleeves=version[9];
+        Toast.makeText(getApplicationContext(),"保存成功",Toast.LENGTH_SHORT).show();
     }
 
 
@@ -401,7 +430,7 @@ public class OrderDetailActivity extends ActionBarActivity implements ActionBar.
            // requestParams.put("reference_picture",referenceClothesPicture);
             requestParams.put("fabric_name",fabricName);
             requestParams.put("fabric_amount",fabricAmount);
-            requestParams.put("accessory_name",accessory_name);
+            requestParams.put("accessory_name",accessoryName);
             requestParams.put("accessory_query",accessoryAmount);
             requestParams.put("produce_color",produceColor);
             requestParams.put("produce_xs",produceXS);
@@ -445,9 +474,9 @@ public class OrderDetailActivity extends ActionBarActivity implements ActionBar.
             requestParams.put("sample_clothes_remark",sampleClothesRemark);
 
             requestParams.put("is_haoduoyi",String.valueOf(isHaoDuoYi));
-            requestParams.put("marketStaffId","0");
+            requestParams.put("marketStaffId", String.valueOf(account.getUserId()));
             FormFile file1=new FormFile(sampleClothesPicture,samplePictureByte,"sample_clothes_picture",null);
-            FormFile file2=new FormFile(referenceClothesPicture,samplePictureByte,"reference_picture",null);
+            FormFile file2=new FormFile(referenceClothesPicture,referencePictureByte,"reference_picture",null);
             FormFile[] totalFile=new FormFile[2];
             totalFile[0]=file1;
             totalFile[1]=file2;
