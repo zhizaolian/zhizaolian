@@ -4,61 +4,134 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.sql.Timestamp;
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  * Created by soft on 2015/4/17.
  */
-public class Order {
+public class Order implements Serializable{
     // Fields
-    private boolean buySweaterMaterialResult;//毛衣订单仓是否需要买毛衣原料
-    private String  orderProcessStateName;//订单当前执行到的流程节点的状态
-    private String  confirmDepositFile;//大货定金收据电子图片
-    private String  confirmFinalPaymentFile;//大货尾金收据电子图片
-    private String  confirmSampleMoneyFile;//样衣金收据电子图片
-    private Short   isHaoDuoYi;
-
-    private Integer orderId;
-    private Short reorder;
-    private Integer customerId;
-    private Integer employeeId;
-    private String orderState;//A代表正在进行，Done代表正常结束，1代表被终止订单
-    private Timestamp orderTime;
-    private String customerName;
+    private String askAmount;
+    private String askCodeNumber;
+    private String askDeliverDate;
+    private String askProducePeriod;
+    private String buySweaterMaterialResult;
+    private String clothesType;
+    private String confirmDepositFile;
+    private String confirmFinalPaymentFile;
+    private String confirmSampleMoneyFile;
+    private String contractFile;
     private String customerCompany;
+    private String customerCompanyAddress;
     private String customerCompanyFax;
+    private String customerId;
+    private String customerName;
     private String customerPhone1;
     private String customerPhone2;
-    private String customerCompanyAddress;
-    private String styleName;
-    private String clothesType;
+    private String discount;
+    private String employeeId;
     private String fabricType;
-    private String styleSex;
-    private String styleSeason;
-    private String specialProcess;
+    private String hasPostedSampleClothes;
+    private String isHaoDuoYi;
+    private String isNeedSampleClothes;
+    private String logisticsState;
+    private String masspurDate;
+    private String masspurName;
+    private String masssupplierName;
+    private String moneyremark;
+    private String orderId;
+    private String orderProcessStateName;
+    private String orderSource;
+    private String orderState;
+    private String orderTime;
     private String otherRequirements;
-    private String referenceUrl;
-    private String sampleClothesPicture;
-    private String sampleClothesThumbnailPicture;//样衣缩略图
-    private String referencePicture;
-    private Integer askAmount;
-    private Integer sampleAmount;
+    private String payAccountInfo;
     private String processId;
-
-    private String Purchase_director; //采购负责人
-    private String supplier;//供应商
-    private String Purchase_time;//采购时间
-    private String Wool_type;//毛线类型
-    private String Wool_weight;//重量
-    private String total_price;//总价
+    private String purchase_director;
+    private String purchase_time;
+    private String referencePicture;
+    private String referenceUrl;
+    private String reorder;
+    private String sampleAmount;
+    private String sampleClothesPicture;
+    private String sampleClothesThumbnailPicture;
+    private String sampleMoney;
+    private String samplepurDate;
+    private String samplepurName;
+    private String samplesupplierName;
+    private String specialProcess;
+    private String styleName;
+    private String styleSeason;
+    private String styleSex;
+    private String supplier;
+    private String totalMoney;
+    private String total_price;
+    private String wool_type;
+    private String wool_weight;
     public Order(){
 
     }
     public static Order fromJson(JSONObject jsonObject){
         Order order=new Order();
         try {
-            order.askAmount=jsonObject.getInt("");
+            order.askAmount=jsonObject.getString("askAmount");
+            order.askCodeNumber=jsonObject.getString("askCodeNumber");
+            order.askDeliverDate=jsonObject.getString("askDeliverDate");
+            order.askProducePeriod=jsonObject.getString("askProducePeriod");
+            order.buySweaterMaterialResult=jsonObject.getString("buySweaterMaterialResult");
+            order.clothesType=jsonObject.getString("clothesType");
+            order.confirmDepositFile=jsonObject.getString("confirmDepositFile");
+            order.confirmFinalPaymentFile=jsonObject.getString("confirmFinalPaymentFile");
+            order.confirmSampleMoneyFile=jsonObject.getString("confirmSampleMoneyFile");
+            order.contractFile=jsonObject.getString("contractFile");
+            order.customerCompany=jsonObject.getString("customerCompany");
+            order.customerCompanyAddress=jsonObject.getString("customerCompanyAddress");
+            order.customerCompanyFax=jsonObject.getString("customerCompanyFax");
+            order.customerId=jsonObject.getString("customerId");
+            order.customerName=jsonObject.getString("customerName");
+            order.customerPhone1=jsonObject.getString("customerPhone1");
+            order.customerPhone2=jsonObject.getString("customerPhone2");
+            order.discount=jsonObject.getString("discount");
+            order.employeeId=jsonObject.getString("employeeId");
+            order.fabricType=jsonObject.getString("fabricType");
+            order.hasPostedSampleClothes=jsonObject.getString("hasPostedSampleClothes");
+            order.isHaoDuoYi=jsonObject.getString("isHaoDuoYi");
+            order.isNeedSampleClothes=jsonObject.getString("isNeedSampleClothes");
+            order.logisticsState=jsonObject.getString("logisticsState");
+            order.masspurDate=jsonObject.getString("masspurDate");
+            order.masspurName=jsonObject.getString("masspurName");
+            order.masssupplierName=jsonObject.getString("masssupplierName");
+            order.moneyremark=jsonObject.getString("moneyremark");
+            order.orderId=jsonObject.getString("orderId");
+            order.orderProcessStateName=jsonObject.getString("orderProcessStateName");
+            order.orderSource=jsonObject.getString("orderSource");
+            order.orderState=jsonObject.getString("orderState");
+            order.orderTime=jsonObject.getString("orderTime");
+            order.otherRequirements=jsonObject.getString("otherRequirements");
+            order.payAccountInfo=jsonObject.getString("payAccountInfo");
+            order.processId=jsonObject.getString("processId");
+            order.purchase_director=jsonObject.getString("purchase_director");
+            order.purchase_time=jsonObject.getString("purchase_time");
+            order.referencePicture=jsonObject.getString("referencePicture");
+            order.referenceUrl=jsonObject.getString("referenceUrl");
+            order.reorder=jsonObject.getString("reorder");
+            order.sampleAmount=jsonObject.getString("sampleAmount");
+            order.sampleClothesPicture=jsonObject.getString("sampleClothesPicture");
+            order.sampleClothesThumbnailPicture=jsonObject.getString("sampleClothesThumbnailPicture");
+            order.sampleMoney=jsonObject.getString("sampleMoney");
+            order.samplepurDate=jsonObject.getString("samplepurDate");
+            order.samplepurName=jsonObject.getString("samplepurName");
+            order.samplesupplierName=jsonObject.getString("samplesupplierName");
+            order.specialProcess=jsonObject.getString("specialProcess");
+            order.styleName=jsonObject.getString("styleName");
+            order.styleSeason=jsonObject.getString("styleSeason");
+            order.styleSex=jsonObject.getString("styleSex");
+            order.supplier=jsonObject.getString("supplier");
+            order.totalMoney=jsonObject.getString("totalMoney");
+            order.total_price=jsonObject.getString("total_price");
+            order.wool_type=jsonObject.getString("wool_type");
+            order.wool_weight=jsonObject.getString("wool_weight");
         } catch (JSONException e) {
             e.printStackTrace();
             return null;
@@ -81,12 +154,53 @@ public class Order {
         }
         return orderArrayList;
     }
-    public boolean isBuySweaterMaterialResult() {
+
+    public String getAskAmount() {
+        return askAmount;
+    }
+
+    public void setAskAmount(String askAmount) {
+        this.askAmount = askAmount;
+    }
+
+    public String getAskCodeNumber() {
+        return askCodeNumber;
+    }
+
+    public void setAskCodeNumber(String askCodeNumber) {
+        this.askCodeNumber = askCodeNumber;
+    }
+
+    public String getAskDeliverDate() {
+        return askDeliverDate;
+    }
+
+    public void setAskDeliverDate(String askDeliverDate) {
+        this.askDeliverDate = askDeliverDate;
+    }
+
+    public String getAskProducePeriod() {
+        return askProducePeriod;
+    }
+
+    public void setAskProducePeriod(String askProducePeriod) {
+        this.askProducePeriod = askProducePeriod;
+    }
+
+    public String getBuySweaterMaterialResult() {
         return buySweaterMaterialResult;
     }
 
-    public void setBuySweaterMaterialResult(boolean buySweaterMaterialResult) {
+    public void setBuySweaterMaterialResult(String buySweaterMaterialResult) {
         this.buySweaterMaterialResult = buySweaterMaterialResult;
+    }
+
+    public String getClothesType() {
+        return clothesType;
+    }
+
+    public void setClothesType(String clothesType) {
+        this.clothesType = clothesType;
     }
 
     public String getConfirmDepositFile() {
@@ -95,14 +209,6 @@ public class Order {
 
     public void setConfirmDepositFile(String confirmDepositFile) {
         this.confirmDepositFile = confirmDepositFile;
-    }
-
-    public String getOrderProcessStateName() {
-        return orderProcessStateName;
-    }
-
-    public void setOrderProcessStateName(String orderProcessStateName) {
-        this.orderProcessStateName = orderProcessStateName;
     }
 
     public String getConfirmFinalPaymentFile() {
@@ -121,60 +227,12 @@ public class Order {
         this.confirmSampleMoneyFile = confirmSampleMoneyFile;
     }
 
-    public Short getIsHaoDuoYi() {
-        return isHaoDuoYi;
+    public String getContractFile() {
+        return contractFile;
     }
 
-    public void setIsHaoDuoYi(Short isHaoDuoYi) {
-        this.isHaoDuoYi = isHaoDuoYi;
-    }
-
-    public Integer getOrderId() {
-        return orderId;
-    }
-
-    public void setOrderId(Integer orderId) {
-        this.orderId = orderId;
-    }
-
-    public Short getReorder() {
-        return reorder;
-    }
-
-    public void setReorder(Short reorder) {
-        this.reorder = reorder;
-    }
-
-    public Integer getCustomerId() {
-        return customerId;
-    }
-
-    public void setCustomerId(Integer customerId) {
-        this.customerId = customerId;
-    }
-
-    public Integer getEmployeeId() {
-        return employeeId;
-    }
-
-    public void setEmployeeId(Integer employeeId) {
-        this.employeeId = employeeId;
-    }
-
-    public String getOrderState() {
-        return orderState;
-    }
-
-    public void setOrderState(String orderState) {
-        this.orderState = orderState;
-    }
-
-    public Timestamp getOrderTime() {
-        return orderTime;
-    }
-
-    public void setOrderTime(Timestamp orderTime) {
-        this.orderTime = orderTime;
+    public void setContractFile(String contractFile) {
+        this.contractFile = contractFile;
     }
 
     public String getCustomerCompany() {
@@ -185,12 +243,12 @@ public class Order {
         this.customerCompany = customerCompany;
     }
 
-    public String getCustomerName() {
-        return customerName;
+    public String getCustomerCompanyAddress() {
+        return customerCompanyAddress;
     }
 
-    public void setCustomerName(String customerName) {
-        this.customerName = customerName;
+    public void setCustomerCompanyAddress(String customerCompanyAddress) {
+        this.customerCompanyAddress = customerCompanyAddress;
     }
 
     public String getCustomerCompanyFax() {
@@ -199,6 +257,22 @@ public class Order {
 
     public void setCustomerCompanyFax(String customerCompanyFax) {
         this.customerCompanyFax = customerCompanyFax;
+    }
+
+    public String getCustomerId() {
+        return customerId;
+    }
+
+    public void setCustomerId(String customerId) {
+        this.customerId = customerId;
+    }
+
+    public String getCustomerName() {
+        return customerName;
+    }
+
+    public void setCustomerName(String customerName) {
+        this.customerName = customerName;
     }
 
     public String getCustomerPhone1() {
@@ -217,28 +291,20 @@ public class Order {
         this.customerPhone2 = customerPhone2;
     }
 
-    public String getCustomerCompanyAddress() {
-        return customerCompanyAddress;
+    public String getDiscount() {
+        return discount;
     }
 
-    public void setCustomerCompanyAddress(String customerCompanyAddress) {
-        this.customerCompanyAddress = customerCompanyAddress;
+    public void setDiscount(String discount) {
+        this.discount = discount;
     }
 
-    public String getStyleName() {
-        return styleName;
+    public String getEmployeeId() {
+        return employeeId;
     }
 
-    public void setStyleName(String styleName) {
-        this.styleName = styleName;
-    }
-
-    public String getClothesType() {
-        return clothesType;
-    }
-
-    public void setClothesType(String clothesType) {
-        this.clothesType = clothesType;
+    public void setEmployeeId(String employeeId) {
+        this.employeeId = employeeId;
     }
 
     public String getFabricType() {
@@ -249,28 +315,108 @@ public class Order {
         this.fabricType = fabricType;
     }
 
-    public String getStyleSex() {
-        return styleSex;
+    public String getHasPostedSampleClothes() {
+        return hasPostedSampleClothes;
     }
 
-    public void setStyleSex(String styleSex) {
-        this.styleSex = styleSex;
+    public void setHasPostedSampleClothes(String hasPostedSampleClothes) {
+        this.hasPostedSampleClothes = hasPostedSampleClothes;
     }
 
-    public String getSpecialProcess() {
-        return specialProcess;
+    public String getIsHaoDuoYi() {
+        return isHaoDuoYi;
     }
 
-    public void setSpecialProcess(String specialProcess) {
-        this.specialProcess = specialProcess;
+    public void setIsHaoDuoYi(String isHaoDuoYi) {
+        this.isHaoDuoYi = isHaoDuoYi;
     }
 
-    public String getStyleSeason() {
-        return styleSeason;
+    public String getIsNeedSampleClothes() {
+        return isNeedSampleClothes;
     }
 
-    public void setStyleSeason(String styleSeason) {
-        this.styleSeason = styleSeason;
+    public void setIsNeedSampleClothes(String isNeedSampleClothes) {
+        this.isNeedSampleClothes = isNeedSampleClothes;
+    }
+
+    public String getLogisticsState() {
+        return logisticsState;
+    }
+
+    public void setLogisticsState(String logisticsState) {
+        this.logisticsState = logisticsState;
+    }
+
+    public String getMasspurDate() {
+        return masspurDate;
+    }
+
+    public void setMasspurDate(String masspurDate) {
+        this.masspurDate = masspurDate;
+    }
+
+    public String getMasspurName() {
+        return masspurName;
+    }
+
+    public void setMasspurName(String masspurName) {
+        this.masspurName = masspurName;
+    }
+
+    public String getMasssupplierName() {
+        return masssupplierName;
+    }
+
+    public void setMasssupplierName(String masssupplierName) {
+        this.masssupplierName = masssupplierName;
+    }
+
+    public String getMoneyremark() {
+        return moneyremark;
+    }
+
+    public void setMoneyremark(String moneyremark) {
+        this.moneyremark = moneyremark;
+    }
+
+    public String getOrderId() {
+        return orderId;
+    }
+
+    public void setOrderId(String orderId) {
+        this.orderId = orderId;
+    }
+
+    public String getOrderProcessStateName() {
+        return orderProcessStateName;
+    }
+
+    public void setOrderProcessStateName(String orderProcessStateName) {
+        this.orderProcessStateName = orderProcessStateName;
+    }
+
+    public String getOrderSource() {
+        return orderSource;
+    }
+
+    public void setOrderSource(String orderSource) {
+        this.orderSource = orderSource;
+    }
+
+    public String getOrderState() {
+        return orderState;
+    }
+
+    public void setOrderState(String orderState) {
+        this.orderState = orderState;
+    }
+
+    public String getOrderTime() {
+        return orderTime;
+    }
+
+    public void setOrderTime(String orderTime) {
+        this.orderTime = orderTime;
     }
 
     public String getOtherRequirements() {
@@ -281,12 +427,68 @@ public class Order {
         this.otherRequirements = otherRequirements;
     }
 
+    public String getPayAccountInfo() {
+        return payAccountInfo;
+    }
+
+    public void setPayAccountInfo(String payAccountInfo) {
+        this.payAccountInfo = payAccountInfo;
+    }
+
+    public String getProcessId() {
+        return processId;
+    }
+
+    public void setProcessId(String processId) {
+        this.processId = processId;
+    }
+
+    public String getPurchase_director() {
+        return purchase_director;
+    }
+
+    public void setPurchase_director(String purchase_director) {
+        this.purchase_director = purchase_director;
+    }
+
+    public String getPurchase_time() {
+        return purchase_time;
+    }
+
+    public void setPurchase_time(String purchase_time) {
+        this.purchase_time = purchase_time;
+    }
+
+    public String getReferencePicture() {
+        return referencePicture;
+    }
+
+    public void setReferencePicture(String referencePicture) {
+        this.referencePicture = referencePicture;
+    }
+
     public String getReferenceUrl() {
         return referenceUrl;
     }
 
     public void setReferenceUrl(String referenceUrl) {
         this.referenceUrl = referenceUrl;
+    }
+
+    public String getReorder() {
+        return reorder;
+    }
+
+    public void setReorder(String reorder) {
+        this.reorder = reorder;
+    }
+
+    public String getSampleAmount() {
+        return sampleAmount;
+    }
+
+    public void setSampleAmount(String sampleAmount) {
+        this.sampleAmount = sampleAmount;
     }
 
     public String getSampleClothesPicture() {
@@ -305,28 +507,68 @@ public class Order {
         this.sampleClothesThumbnailPicture = sampleClothesThumbnailPicture;
     }
 
-    public String getReferencePicture() {
-        return referencePicture;
+    public String getSampleMoney() {
+        return sampleMoney;
     }
 
-    public void setReferencePicture(String referencePicture) {
-        this.referencePicture = referencePicture;
+    public void setSampleMoney(String sampleMoney) {
+        this.sampleMoney = sampleMoney;
     }
 
-    public Integer getAskAmount() {
-        return askAmount;
+    public String getSamplepurDate() {
+        return samplepurDate;
     }
 
-    public void setAskAmount(Integer askAmount) {
-        this.askAmount = askAmount;
+    public void setSamplepurDate(String samplepurDate) {
+        this.samplepurDate = samplepurDate;
     }
 
-    public Integer getSampleAmount() {
-        return sampleAmount;
+    public String getSamplepurName() {
+        return samplepurName;
     }
 
-    public void setSampleAmount(Integer sampleAmount) {
-        this.sampleAmount = sampleAmount;
+    public void setSamplepurName(String samplepurName) {
+        this.samplepurName = samplepurName;
+    }
+
+    public String getSamplesupplierName() {
+        return samplesupplierName;
+    }
+
+    public void setSamplesupplierName(String samplesupplierName) {
+        this.samplesupplierName = samplesupplierName;
+    }
+
+    public String getSpecialProcess() {
+        return specialProcess;
+    }
+
+    public void setSpecialProcess(String specialProcess) {
+        this.specialProcess = specialProcess;
+    }
+
+    public String getStyleName() {
+        return styleName;
+    }
+
+    public void setStyleName(String styleName) {
+        this.styleName = styleName;
+    }
+
+    public String getStyleSeason() {
+        return styleSeason;
+    }
+
+    public void setStyleSeason(String styleSeason) {
+        this.styleSeason = styleSeason;
+    }
+
+    public String getStyleSex() {
+        return styleSex;
+    }
+
+    public void setStyleSex(String styleSex) {
+        this.styleSex = styleSex;
     }
 
     public String getSupplier() {
@@ -337,44 +579,12 @@ public class Order {
         this.supplier = supplier;
     }
 
-    public String getPurchase_director() {
-        return Purchase_director;
+    public String getTotalMoney() {
+        return totalMoney;
     }
 
-    public void setPurchase_director(String purchase_director) {
-        Purchase_director = purchase_director;
-    }
-
-    public String getProcessId() {
-        return processId;
-    }
-
-    public void setProcessId(String processId) {
-        this.processId = processId;
-    }
-
-    public String getPurchase_time() {
-        return Purchase_time;
-    }
-
-    public void setPurchase_time(String purchase_time) {
-        Purchase_time = purchase_time;
-    }
-
-    public String getWool_weight() {
-        return Wool_weight;
-    }
-
-    public void setWool_weight(String wool_weight) {
-        Wool_weight = wool_weight;
-    }
-
-    public String getWool_type() {
-        return Wool_type;
-    }
-
-    public void setWool_type(String wool_type) {
-        Wool_type = wool_type;
+    public void setTotalMoney(String totalMoney) {
+        this.totalMoney = totalMoney;
     }
 
     public String getTotal_price() {
@@ -383,5 +593,21 @@ public class Order {
 
     public void setTotal_price(String total_price) {
         this.total_price = total_price;
+    }
+
+    public String getWool_type() {
+        return wool_type;
+    }
+
+    public void setWool_type(String wool_type) {
+        this.wool_type = wool_type;
+    }
+
+    public String getWool_weight() {
+        return wool_weight;
+    }
+
+    public void setWool_weight(String wool_weight) {
+        this.wool_weight = wool_weight;
     }
 }
