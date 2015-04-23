@@ -1,6 +1,12 @@
 package nju.zhizaolian.adapters;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Matrix;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,21 +15,31 @@ import android.widget.SimpleAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.loopj.android.http.AsyncHttpClient;
+import com.loopj.android.http.BinaryHttpResponseHandler;
+
+import org.apache.http.Header;
+
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
 import nju.zhizaolian.R;
+import nju.zhizaolian.models.IPAddress;
 
 /**
  * Created by ColorfulCode on 2015/4/6.
  */
 public class OrderProcessListAdapter  extends SimpleAdapter{
-    public int [] imageList;
     public Context context;
     public List<? extends Map<String, ?>> data;
     public String[] from;
     public int[] to;
-    /**
+    public ArrayList<Integer> downloaded= new ArrayList<>();
+    public ArrayList<Bitmap> downloadedBitmap= new ArrayList<>();
+     /**
      * Constructor
      *
      * @param context  The context where the View associated with this SimpleAdapter is running
@@ -37,13 +53,12 @@ public class OrderProcessListAdapter  extends SimpleAdapter{
      * @param to       The views that should display column in the "from" parameter. These should all be
      *                 TextViews. The first N views in this list are given the values of the first N columns
      */
-    public OrderProcessListAdapter(Context context, List<? extends Map<String, ?>> data, int resource, String[] from, int[] to ,int [] imageList)  {
+    public OrderProcessListAdapter(Context context, List<? extends Map<String, ?>> data, int resource, String[] from, int[] to)  {
         super(context, data, resource, from, to);
         this.context=context;
         this.data=data;
         this.from=from;
         this.to=to;
-        this.imageList=imageList;
     }
 
     @Override
@@ -58,15 +73,74 @@ public class OrderProcessListAdapter  extends SimpleAdapter{
         clickableTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(itemView.getContext(),"第"+position+"个",Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, "第" + position + "个", Toast.LENGTH_SHORT).show();
             }
         });
         ImageView imageView = (ImageView) itemView.findViewById(R.id.order_detail_image);
-        imageView.setImageResource(imageList[position]);
+        imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ImageView view = new ImageView(context);
+                setMyImageView(view,(String) data.get(position).get("big_image_url"),-1);
+                new AlertDialog.Builder(context)
+                        .setTitle((String)data.get(position).get("name")+"样式大图")
+                        .setView(view)
+                        .setPositiveButton("关闭", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        dialog.cancel();
+                                    }
+                                }
+
+                        ).show();
+                        }
+            });
+        if (!downloaded.contains(position)) {
+            setMyImageView(imageView, (String) data.get(position).get("image_url"), position);
+        }else{
+            imageView.setImageBitmap(downloadedBitmap.get(downloaded.indexOf(position)));
+        }
         return itemView;
     }
 
 
+    public void setMyImageView(final ImageView imageView,final String url,final int position){
+        AsyncHttpClient client = new AsyncHttpClient();
+        String[] allowedContentTypes = new String[] { "image/png", "image/jpeg" };
+        client.post(IPAddress.getIP()+url,new BinaryHttpResponseHandler(allowedContentTypes) {
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, byte[] binaryData) {
+                if(position!=-1) {
+                    Bitmap bmp = BitmapFactory.decodeByteArray(binaryData, 0, binaryData.length);
+                    ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+                    int quality = 50;
+                    bmp.compress(Bitmap.CompressFormat.JPEG, quality, byteArrayOutputStream);
+                    ByteArrayInputStream isBm = new ByteArrayInputStream(byteArrayOutputStream.toByteArray());
+                    bmp = BitmapFactory.decodeStream(isBm, null, null);
+                    bmp = small(bmp);
+                    imageView.setImageBitmap(bmp);
+                    downloadedBitmap.add(bmp);
+                    downloaded.add(position);
+                }else{
+                    Bitmap bmp = BitmapFactory.decodeByteArray(binaryData, 0, binaryData.length);
+                    imageView.setImageBitmap(bmp);
+                }
+            }
+
+            @Override
+            public void onFailure(int statusCode, Header[] headers, byte[] binaryData, Throwable error) {
+
+            }
+        });
+    }
+
+
+    private static Bitmap small(Bitmap bitmap) {
+        Matrix matrix = new Matrix();
+        matrix.postScale(0.5f,0.5f);
+        Bitmap resizeBmp = Bitmap.createBitmap(bitmap,0,0,bitmap.getWidth(),bitmap.getHeight(),matrix,true);
+        return resizeBmp;
+    }
 
 
 

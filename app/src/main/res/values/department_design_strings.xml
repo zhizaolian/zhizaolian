@@ -1,11 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="title_activity_department_design">DepartmentDesignActivity</string>
+    <string name="title_activity_department_design">设计部</string>
     <string name="confirm_version_data">确认版型数据</string>
     <string name="choose_version_file">选择版型文件</string>
     <string name="version_maker_name">制版人</string>
     <string name="version_done_time">完成时间</string>
     <string name="version_sorter_name">排版人</string>
+
+    <string-array name="design_department_list">
+        <item>样衣录入和生产</item>
+        <item>排版切片</item>
+        <item>确认版型</item>
+    </string-array>
 
 </resources>
