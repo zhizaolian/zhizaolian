@@ -259,19 +259,17 @@ public class OrderDetailActivity extends ActionBarActivity implements ActionBar.
         //Toast.makeText(getApplicationContext(),sampleData,Toast.LENGTH_SHORT).show();
         String[] temp=sampleData.split("@");
         boolean ab= Boolean.parseBoolean(temp[0]);
-        if(ab==false){
+        if(!ab){
             hasPostedSampleClothes=0;
-        }else if(inPostSampleClothesTime=="0"){
-            hasPostedSampleClothes=1;
         }else{
-            hasPostedSampleClothes=2;
+            hasPostedSampleClothes=1;
         }
 
         inPostSampleClothesTime=temp[1];
         inPostSampleClothesType=temp[2];
         inPostSampleClothesNumber=temp[3];
         boolean bb=Boolean.parseBoolean(temp[4]);
-        if(bb==false){
+        if(!bb){
             isNeedSampleClothes=0;
         }else {
             isNeedSampleClothes=1;
@@ -320,7 +318,7 @@ public class OrderDetailActivity extends ActionBarActivity implements ActionBar.
          sampleProduceXL=k[16];
         sampleProduceXXL=k[17];
          sampleProduceJ=k[18];
-
+        Toast.makeText(getApplicationContext(),"保存成功",Toast.LENGTH_SHORT).show();
 
     }
 

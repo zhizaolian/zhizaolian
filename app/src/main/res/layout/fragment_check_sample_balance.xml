@@ -36,7 +36,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="1414"/>
+                    android:id="@+id/check_sample_money_clothes_number_view"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -45,7 +45,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="2414"/>
+                    android:id="@+id/check_sample_money_unit_money_view"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -54,7 +54,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="2414"/>
+                    android:id="@+id/check_sample_money_receivable_money_view"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="fill_parent"
@@ -68,15 +68,19 @@
                 <EditText
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/remit_person"/>
+                    android:hint="@string/remit_person"
+                    android:id="@+id/check_sample_money_remit_person_edit"/>
                 <EditText
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/remit_card_number"/>
+                    android:hint="@string/remit_card_number"
+                    android:inputType="number"
+                    android:id="@+id/check_sample_money_remit_card_number_edit"/>
                 <EditText
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/remit_bank"/>
+                    android:hint="@string/remit_bank"
+                    android:id="@+id/check_sample_money_remit_bank_edit"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -85,7 +89,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="3414"/>
+                    android:id="@+id/check_sample_money_remit_money_view"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -94,11 +98,18 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="1664/5/2"
+                    android:id="@+id/check_sample_money_receive_money_time_view"
                     />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/receive_money_account"
+                    style="@style/MyTextStyle"/>
                 <Spinner
                     android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content"
+                    android:entries="@array/receive_money_account_list"
+                    android:id="@+id/check_sample_money_account_spinner"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -107,30 +118,31 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="lsghoshgeoajg"/>
+                    android:id="@+id/check_sample_money_remark_view"/>
 
             </LinearLayout>
-            <LinearLayout
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content">
-                <TextView
+
+             <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/receive_money_picture"
                     style="@style/MyTextStyle"/>
-                <ImageView
+              <ImageView
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
-            </LinearLayout>
+                    android:layout_height="wrap_content"
+                    android:id="@+id/check_sample_money_image"/>
+
             <Button
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/ensure_receive_money"/>
+                android:text="@string/ensure_receive_money"
+                android:id="@+id/ensure_receive_sample_money_button"/>
             <Button
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/unable_receive_money"
-                style="@style/MyWarningButtonStyle"/>
+                style="@style/MyWarningButtonStyle"
+                android:id="@+id/unable_receive_sample_money_button"/>
         </LinearLayout>
     </ScrollView>
 

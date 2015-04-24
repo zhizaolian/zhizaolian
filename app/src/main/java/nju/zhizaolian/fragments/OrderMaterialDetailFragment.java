@@ -74,7 +74,7 @@ public class OrderMaterialDetailFragment extends android.support.v4.app.Fragment
         materialButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(sMaterialName.length()==0 || sMaterialWeight.length()==0){
+                if(materialNameEdit.getText().length()==0 || materialWeightEdit.getText().length()==0){
                     Toast.makeText(view.getContext(),"请把信息填写完整",Toast.LENGTH_SHORT).show();
                 }else{
                    View newView=createMaterialView(inflater, container);
@@ -90,7 +90,7 @@ public class OrderMaterialDetailFragment extends android.support.v4.app.Fragment
         accessoriesButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(sAccessoriesName.length()==0||sAccessoriesWeight.length()==0){
+                if(accessoriesNameEdit.getText().length()==0||accessoriesWeightEdit.getText().length()==0){
                     Toast.makeText(view.getContext(),"请把信息填写完整",Toast.LENGTH_SHORT).show();
                 }else{
                     View newView=createAccessoriesView(inflater,container);
