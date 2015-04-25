@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="title_activity_department_purchase">DepartmentPurchaseActivity</string>
+    <string name="title_activity_department_purchase">采购部</string>
     <string name="fabric_cost">面料报价</string>
     <string name="fabric_name">面料名称</string>
     <string name="fabric_weight">面料克重</string>
@@ -30,5 +30,12 @@
     <string name="unit_kg">单位(千克)</string>
     <string name="total_price">总价</string>
     <string name="unit_yuan">单位(元)</string>
+
+    <string-array name="purchase_department_list">
+        <item>成本验证</item>
+        <item>样衣采购</item>
+        <item>大货采购</item>
+        <item>毛衣采购</item>
+    </string-array>
 
 </resources>

@@ -49,10 +49,6 @@ public class DepartmentPurchaseMassSampleFragment extends Fragment {
        supplier_name_edit_text=(EditText) view.findViewById(R.id.supplier_name_edit_text);
        purchase_accept_button =(ImageButton) view.findViewById(R.id.purchase_accept_button);
        purchase_cancel_button =(ImageButton) view.findViewById(R.id.purchase_cancel_button);
-       ArrayList<HashMap<String,String>> fabric_purchase_table_data =(ArrayList<HashMap<String,String>>)getArguments().getSerializable("fabric_purchase");
-       ArrayList<HashMap<String,String>> accessory_purchase_table_data =(ArrayList<HashMap<String,String>>)getArguments().getSerializable("accessory_purchase");
-       generateTable(fabric_purchase_table,fabric_purchase_table_data,0);
-       generateTable(accessory_purchase_table,accessory_purchase_table_data,1);
        return view;
     }
 

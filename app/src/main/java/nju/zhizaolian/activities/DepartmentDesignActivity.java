@@ -1,15 +1,11 @@
 package nju.zhizaolian.activities;
 
 
-import android.app.Fragment;
-import android.content.SharedPreferences;
 import android.support.v7.app.ActionBar;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -17,31 +13,15 @@ import android.widget.ArrayAdapter;
 import android.widget.SpinnerAdapter;
 import android.widget.Toast;
 
-import com.loopj.android.http.AsyncHttpClient;
-import com.loopj.android.http.JsonHttpResponseHandler;
-import com.loopj.android.http.RequestParams;
-
-import org.apache.http.Header;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.util.ArrayList;
-
 import nju.zhizaolian.R;
-import nju.zhizaolian.fragments.DepartmentDesignConfirmFragment;
-import nju.zhizaolian.fragments.DepartmentDesignEnteringFragment;
-import nju.zhizaolian.fragments.DepartmentDesignSliceFragment;
 import nju.zhizaolian.fragments.OrderListFragment;
 import nju.zhizaolian.models.Account;
-import nju.zhizaolian.models.IPAddress;
-import nju.zhizaolian.models.ListInfo;
+import nju.zhizaolian.models.Operation;
 import nju.zhizaolian.models.TaskNumber;
 
-public class DepartmentDesignActivity extends ActionBarActivity implements OrderListFragment.OrderListItemClickedToGoFragment {
+public class DepartmentDesignActivity extends ActionBarActivity{
 
     OrderListFragment orderListFragment;
-    ArrayList<ListInfo> listInfoArrayList = new ArrayList<>();
     public static final int SAMPLE_PRODUCTION=0;
     public static final int SLICE=1;
     public static final int VERSION_CONFIRM=2;
@@ -112,76 +92,22 @@ public class DepartmentDesignActivity extends ActionBarActivity implements Order
     }
 
     public void getVersionConfirmList(){
-        Toast.makeText(this,"版型",Toast.LENGTH_SHORT).show();
         String url = "/fmc/design/mobile_getConfirmCadList.do";
-        updateListFromServer(url);
+        orderListFragment.getListViewByURLAndOperation(url, Operation.DESIGN_CONFIRM);
     }
 
     public void getSliceList(){
-        Toast.makeText(this,"切片",Toast.LENGTH_SHORT).show();
         String url ="/fmc/design/mobile_getTypeSettingSliceList.do";
-        updateListFromServer(url);
+        orderListFragment.getListViewByURLAndOperation(url,Operation.DESIGN_SLICE);
     }
 
     public void getSampleProduceList(){
-        Toast.makeText(this,"样衣",Toast.LENGTH_SHORT).show();
         String url ="/fmc/design/mobile_getUploadDesignList.do";
-        updateListFromServer(url);
+        orderListFragment.getListViewByURLAndOperation(url,Operation.DESIGN_ENTERING);
     }
 
-    public void updateListFromServer(final String url){
-        AsyncHttpClient client = new AsyncHttpClient();
-        RequestParams params = new RequestParams();
-        SharedPreferences settings =getSharedPreferences("common", 0);
-        String jSessionId=settings.getString("jsessionId","");
-        params.put("jsessionId",jSessionId);
-        client.get(IPAddress.getIP()+url,params,new JsonHttpResponseHandler(){
-            @Override
-            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
-                try {
-                    listInfoArrayList =ListInfo.fromJson(response.getJSONArray("list"));
-                    orderListFragment.updateListView(listInfoArrayList);
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            }
 
-            @Override
-            public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
-                Toast.makeText(DepartmentDesignActivity.this,"网络错误",Toast.LENGTH_SHORT).show();
-            }
-        });
-    }
-
-    @Override
-    public void goFragmentByOrderListItem(int index) {
-        Fragment fragment = null;
-        String tag="";
-        switch (selectedSpinnerItem){
-            case SAMPLE_PRODUCTION:
-                fragment=new DepartmentDesignEnteringFragment();
-                tag="Entering";
-                break;
-            case SLICE:
-                fragment=new DepartmentDesignSliceFragment();
-                tag="Slice";
-                break;
-            case VERSION_CONFIRM:
-                fragment=new DepartmentDesignConfirmFragment();
-                tag="Confirm";
-                break;
-            default:
-                break;
-        }
-        FragmentManager fragmentManager = getFragmentManager();
-        FragmentTransaction fragmentTransaction= fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.department_design_activity_layout, fragment, tag);
-        fragmentTransaction.addToBackStack(null);
-        fragmentTransaction.commit();
-        getSupportActionBar().hide();
-    }
-
-    @Override
+   @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if(keyCode==KeyEvent.KEYCODE_BACK){
             if(getFragmentManager().getBackStackEntryCount()>0) {

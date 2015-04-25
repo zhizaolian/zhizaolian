@@ -1,5 +1,6 @@
 package nju.zhizaolian.adapters;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -11,12 +12,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.BinaryHttpResponseHandler;
+import com.squareup.picasso.Picasso;
 
 import org.apache.http.Header;
 
@@ -38,8 +41,6 @@ public class OrderProcessListAdapter  extends SimpleAdapter{
     public List<? extends Map<String, ?>> data;
     public String[] from;
     public int[] to;
-    public ArrayList<Integer> downloaded= new ArrayList<>();
-    public ArrayList<Bitmap> downloadedBitmap= new ArrayList<>();
      /**
      * Constructor
      *
@@ -64,27 +65,42 @@ public class OrderProcessListAdapter  extends SimpleAdapter{
 
     @Override
     public View getView (final int position, View convertView, ViewGroup parent){
+
         LayoutInflater layoutInflater = (LayoutInflater) context
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        final View itemView = layoutInflater.inflate(R.layout.order_process_list_item,parent,false);
-        for(int i=0;i<from.length;i++){
-            ((TextView) itemView.findViewById(to[i])).setText((String)data.get(position).get(from[i]));
+        final ViewHolder viewHolder;
+
+        if(convertView==null) {
+            convertView = layoutInflater.inflate(R.layout.order_process_list_item, parent, false);
+            viewHolder = new ViewHolder();
+            viewHolder.styleName=(TextView) convertView.findViewById(R.id.order_process_list_item_style_name);
+            viewHolder.orderId=(TextView) convertView.findViewById(R.id.order_process_list_item_order_number);
+            viewHolder.orderTime=(TextView) convertView.findViewById(R.id.order_process_list_item_order_start_date);
+            viewHolder.orderProcessStateName=(TextView) convertView.findViewById(R.id.order_process_list_item_order_state);
+            viewHolder.employeeName=(TextView) convertView.findViewById(R.id.order_process_list_item_order_salesman_name);
+            viewHolder.customerName=(TextView) convertView.findViewById(R.id.order_process_list_item_customer_name);
+            viewHolder.customerCompany=(TextView) convertView.findViewById(R.id.order_process_list_item_custom_company_name);
+            viewHolder.clickableTextView = (TextView) convertView.findViewById(R.id.order_process_list_item_view_detail);
+            viewHolder.sampleClothesThumbnailPicture = (ImageView) convertView.findViewById(R.id.order_detail_image);
+            convertView.setTag(viewHolder);
+        }else{
+            viewHolder=(ViewHolder) convertView.getTag();
         }
-        TextView clickableTextView =(TextView)itemView.findViewById(R.id.order_process_list_item_view_detail);
-        clickableTextView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                ((OrderListFragment.OrderListItemClickedToGoFragment) context).goFragmentByOrderListItem(position);
-            }
-        });
-        ImageView imageView = (ImageView) itemView.findViewById(R.id.order_detail_image);
-        imageView.setOnClickListener(new View.OnClickListener() {
+        viewHolder.styleName.setText((String)data.get(position).get("name"));
+        viewHolder.orderId.setText((String) data.get(position).get("number"));
+        viewHolder.orderTime.setText((String)data.get(position).get("date"));
+        viewHolder.orderProcessStateName.setText((String)data.get(position).get("state"));
+        viewHolder.employeeName.setText((String)data.get(position).get("s_name"));
+        viewHolder.customerName.setText((String)data.get(position).get("c_name"));
+        viewHolder.customerCompany.setText((String)data.get(position).get("cc_name"));
+        Picasso.with(context).load(IPAddress.getIP()+data.get(position).get("image_url")).error(R.drawable.ic_action_cancel).into(viewHolder.sampleClothesThumbnailPicture);
+        viewHolder.sampleClothesThumbnailPicture.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 ImageView view = new ImageView(context);
-                setMyImageView(view,(String) data.get(position).get("big_image_url"),-1);
+                Picasso.with(context).load(IPAddress.getIP() + data.get(position).get("big_image_url")).into(view);
                 new AlertDialog.Builder(context)
-                        .setTitle((String) data.get(position).get("name") + "样式大图")
+                        .setTitle(data.get(position).get("name") + "的样式大图")
                         .setView(view)
                         .setPositiveButton("关闭", new DialogInterface.OnClickListener() {
                                     @Override
@@ -94,61 +110,22 @@ public class OrderProcessListAdapter  extends SimpleAdapter{
                                 }
 
                         ).show();
-                        }
-            });
-        if (!downloaded.contains(position)) {
-            setMyImageView(imageView, (String) data.get(position).get("image_url"), position);
-        }else{
-            imageView.setImageBitmap(downloadedBitmap.get(downloaded.indexOf(position)));
-        }
-        return itemView;
-    }
-
-
-    public void setMyImageView(final ImageView imageView,final String url,final int position){
-        AsyncHttpClient client = new AsyncHttpClient();
-        String[] allowedContentTypes = new String[] { "image/png", "image/jpeg" };
-        client.post(IPAddress.getIP()+url,new BinaryHttpResponseHandler(allowedContentTypes) {
-            @Override
-            public void onSuccess(int statusCode, Header[] headers, byte[] binaryData) {
-                if(position!=-1) {
-                    Bitmap bmp = BitmapFactory.decodeByteArray(binaryData, 0, binaryData.length);
-                    ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-                    int quality = 50;
-                    bmp.compress(Bitmap.CompressFormat.JPEG, quality, byteArrayOutputStream);
-                    ByteArrayInputStream isBm = new ByteArrayInputStream(byteArrayOutputStream.toByteArray());
-                    bmp = BitmapFactory.decodeStream(isBm, null, null);
-                    bmp = small(bmp);
-                    imageView.setImageBitmap(bmp);
-                    downloadedBitmap.add(bmp);
-                    downloaded.add(position);
-                }else{
-                    Bitmap bmp = BitmapFactory.decodeByteArray(binaryData, 0, binaryData.length);
-                    imageView.setImageBitmap(bmp);
-                }
-            }
-
-            @Override
-            public void onFailure(int statusCode, Header[] headers, byte[] binaryData, Throwable error) {
-
             }
         });
+        return convertView;
     }
 
 
-    private static Bitmap small(Bitmap bitmap) {
-        Matrix matrix = new Matrix();
-        matrix.postScale(0.5f,0.5f);
-        Bitmap resizeBmp = Bitmap.createBitmap(bitmap,0,0,bitmap.getWidth(),bitmap.getHeight(),matrix,true);
-        return resizeBmp;
+    public class ViewHolder{
+        TextView styleName;
+        TextView orderId;
+        TextView orderTime;
+        TextView orderProcessStateName;
+        TextView employeeName;
+        TextView customerName;
+        TextView customerCompany;
+        TextView clickableTextView;
+        ImageView sampleClothesThumbnailPicture;
     }
-
-    public void updateMyAdapter(){
-        downloaded.clear();
-        downloadedBitmap.clear();
-    }
-
-
-
 
 }

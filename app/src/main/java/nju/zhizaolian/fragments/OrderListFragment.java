@@ -1,7 +1,9 @@
 package nju.zhizaolian.fragments;
 
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
+
 import android.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,22 +12,33 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.loopj.android.http.AsyncHttpClient;
+import com.loopj.android.http.JsonHttpResponseHandler;
+import com.loopj.android.http.RequestParams;
+
+import org.apache.http.Header;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 
 import nju.zhizaolian.R;
 import nju.zhizaolian.adapters.OrderProcessListAdapter;
+import nju.zhizaolian.models.IPAddress;
 import nju.zhizaolian.models.ListInfo;
+import nju.zhizaolian.models.Operation;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class OrderListFragment extends Fragment {
+public class OrderListFragment extends Fragment{
 
     private ListView orderListView;
     OrderProcessListAdapter adapter;
     ArrayList<HashMap<String,String>> dataList;
     ArrayList<ListInfo> orderInfoList;
+    Operation operation;
     public OrderListFragment() {
         // Required empty public constructor
     }
@@ -51,19 +64,18 @@ public class OrderListFragment extends Fragment {
         orderListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-               ((OrderListItemClickedToGoFragment) getActivity()).goFragmentByOrderListItem(position);
+                goToNextFragmentByIndex(position);
             }
         });
         return view;
     }
 
-    public void updateListView(ArrayList<ListInfo> orderListInfo){
+    private void updateListView(ArrayList<ListInfo> orderListInfo){
         if (orderListInfo==null){
             return;
         }
         orderInfoList=orderListInfo;
         dataList.clear();
-        adapter.updateMyAdapter();
         for(int i=0;i<orderListInfo.size();i++) {
             HashMap<String, String> data = new HashMap<>();
             data.put("name", orderListInfo.get(i).getOrder().getStyleName());
@@ -80,7 +92,103 @@ public class OrderListFragment extends Fragment {
         adapter.notifyDataSetChanged();
     }
 
-    public interface OrderListItemClickedToGoFragment{
-        void goFragmentByOrderListItem(int index);
-    };
+    public void getListViewByURLAndOperation(String url, final Operation operate){
+        if(!isVisible()){
+            getActivity().getFragmentManager().popBackStack();
+        }
+        AsyncHttpClient client = new AsyncHttpClient();
+        RequestParams params = new RequestParams();
+        SharedPreferences settings =getActivity().getSharedPreferences("common", 0);
+        String jSessionId=settings.getString("jsessionId","");
+        params.put("jsessionId",jSessionId);
+        client.get(IPAddress.getIP()+url,params,new JsonHttpResponseHandler(){
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+                try {
+                    ArrayList<ListInfo> listInfoArrayList =ListInfo.fromJson(response.getJSONArray("list"));
+                    updateListView(listInfoArrayList);
+                    operation=operate;
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            @Override
+            public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
+                Toast.makeText(getActivity(),"网络错误",Toast.LENGTH_SHORT).show();
+            }
+        });
+
+    }
+
+
+    public void goToNextFragmentByIndex(int index){
+        ListInfo listInfo = orderInfoList.get(index);
+        Bundle bundle = new Bundle();
+        bundle.putSerializable("info",listInfo);
+        Fragment fragment = null;
+        int id=0;
+        switch (operation){
+            case DESIGN_SLICE:
+                fragment = new DepartmentDesignSliceFragment();
+                id=R.id.department_design_activity_layout;
+                break;
+            case DESIGN_ENTERING:
+                fragment = new DepartmentDesignEnteringFragment();
+                id=R.id.department_design_activity_layout;
+                break;
+            case DESIGN_CONFIRM:
+                fragment = new DepartmentDesignConfirmFragment();
+                id=R.id.department_design_activity_layout;
+                break;
+            case TECHNOLOGY_DESIGN:
+                fragment = new DepartmentTechnologyDesignFragment();
+                id=R.id.department_technology_activity_layout;
+                break;
+            case TECHNOLOGY_MASS:
+                fragment = new DepartmentTechnologyMassFragment();
+                id=R.id.department_technology_activity_layout;
+                break;
+            case TECHNOLOGY_SAMPLE:
+                fragment = new DepartmentTechnologySampleFragment();
+                id=R.id.department_technology_activity_layout;
+                break;
+            case PURCHASE_CHECK:
+                fragment = new DepartmentPurchaseCheckFragment();
+                id=R.id.department_purchase_activity_layout;
+                break;
+            case PURCHASE_MASS:
+                fragment = new DepartmentPurchaseMassSampleFragment();
+                id=R.id.department_purchase_activity_layout;
+                break;
+            case PURCHASE_SAMPLE:
+                fragment = new DepartmentPurchaseMassSampleFragment();
+                id=R.id.department_purchase_activity_layout;
+                break;
+            case PURCHASE_SWEATER:
+                fragment = new DepartmentPurchaseSweaterFragment();
+                id=R.id.department_purchase_activity_layout;
+                break;
+            case PRODUCTION_CHECK:
+                fragment = new DepartmentProductionCheckFragment();
+                id=R.id.department_production_activity_layout;
+                break;
+            case PRODUCTION_MASS:
+                fragment = new DepartmentProductionMassFragment();
+                id=R.id.department_production_activity_layout;
+                break;
+            case SWEATER_MAKER_CHECK:
+                fragment = new DepartmentSweaterMakerCheckFragment();
+                id=R.id.department_sweater_maker_activity_layout;
+                break;
+            case SWEATER_MAKER_SENT:
+                fragment = new DepartmentSweaterMakerSentFragment();
+                id=R.id.department_sweater_maker_activity_layout;
+                break;
+        }
+        fragment.setArguments(bundle);
+        getActivity().getFragmentManager().beginTransaction().replace(id,fragment).addToBackStack(null).commit();
+    }
+
 }

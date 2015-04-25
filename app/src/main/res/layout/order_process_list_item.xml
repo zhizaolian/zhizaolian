@@ -40,7 +40,7 @@
             android:textSize="25sp"
             android:id="@+id/order_process_list_item_view_detail"
             android:textColor="@color/blue"
-            android:clickable="true"
+
             android:layout_weight="1"
             android:gravity="center"/>
 

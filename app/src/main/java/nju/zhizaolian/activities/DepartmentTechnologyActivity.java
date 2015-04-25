@@ -2,45 +2,70 @@ package nju.zhizaolian.activities;
 
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
-
-import java.util.ArrayList;
+import android.widget.ArrayAdapter;
+import android.widget.SpinnerAdapter;
 
 import nju.zhizaolian.R;
-import nju.zhizaolian.fragments.DepartmentTechnologyDesignFragment;
-import nju.zhizaolian.fragments.DepartmentTechnologyMassFragment;
-import nju.zhizaolian.fragments.DepartmentTechnologySampleFragment;
+import nju.zhizaolian.fragments.OrderListFragment;
+import nju.zhizaolian.models.Account;
+import nju.zhizaolian.models.Operation;
+import nju.zhizaolian.models.TaskNumber;
 
 public class DepartmentTechnologyActivity extends ActionBarActivity {
+
+    OrderListFragment orderListFragment;
+    public static final int DESIGN =0;
+    public static final int SAMPLE =1;
+    public static final int MASS =2;
+    int selectedSpinnerItem = DESIGN;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.department_technology_activity_layout);
+        Account account =(Account) getIntent().getSerializableExtra("account");
+        TaskNumber taskNumber =(TaskNumber) getIntent().getSerializableExtra("taskNumber");
+        SpinnerAdapter spinnerAdapter= ArrayAdapter.createFromResource(this,
+                R.array.technology_department_list, R.layout.support_simple_spinner_dropdown_item);
+        ActionBar actionBar=getSupportActionBar();
+        actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_LIST);
+        actionBar.setListNavigationCallbacks(spinnerAdapter, onNavigationListener);
         if(savedInstanceState==null){
-//            DepartmentTechnologyMassFragment departmentTechnologyMassFragment = new DepartmentTechnologyMassFragment();
-//            DepartmentTechnologySampleFragment departmentTechnologySampleFragment = new DepartmentTechnologySampleFragment();
-            DepartmentTechnologyDesignFragment departmentTechnologyDesignFragment = new DepartmentTechnologyDesignFragment();
-            Bundle bundle = new Bundle();
-            ArrayList<String> data = new ArrayList<>();
-            for(int i=0;i<7;i++){
-                data.add("0000");
-            }
-            bundle.putSerializable("data",data);
-            bundle.putSerializable("time","20150302 20:13:21");
-//            departmentTechnologyMassFragment.setArguments(bundle);
-            departmentTechnologyDesignFragment.setArguments(bundle);
+            orderListFragment = new OrderListFragment();
             FragmentManager fragmentManager = getFragmentManager();
-            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-            fragmentTransaction.add(R.id.department_technology_activity_layout,departmentTechnologyDesignFragment);
-            fragmentTransaction.addToBackStack(null);
+            FragmentTransaction fragmentTransaction= fragmentManager.beginTransaction();
+            fragmentTransaction.add(R.id.department_technology_activity_layout, orderListFragment, "orderList");
             fragmentTransaction.commit();
         }
     }
 
+    ActionBar.OnNavigationListener onNavigationListener = new ActionBar.OnNavigationListener() {
+        @Override
+        public boolean onNavigationItemSelected(int itemPosition, long itemId) {
+            switch (itemPosition){
+                case DESIGN:
+                    getTechnologyDesignList();
+                    selectedSpinnerItem= DESIGN;
+                    break;
+                case MASS:
+                    getTechnologyMassList();
+                    selectedSpinnerItem= MASS;
+                    break;
+                case SAMPLE:
+                    getTechnologySampleList();
+                    selectedSpinnerItem= SAMPLE;
+                    break;
+                default:break;
+            }
+            return false;
+        }
+    };
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -62,5 +87,45 @@ public class DepartmentTechnologyActivity extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void getTechnologyDesignList(){
+        String url ="/fmc/design/mobile_computeDesignCostList.do";
+        orderListFragment.getListViewByURLAndOperation(url, Operation.TECHNOLOGY_DESIGN);
+    }
+
+    public void getTechnologyMassList(){
+        String url ="/fmc/design/mobile_getNeedCraftProductList.do";
+        orderListFragment.getListViewByURLAndOperation(url, Operation.TECHNOLOGY_MASS);
+    }
+
+    public void getTechnologySampleList(){
+        String url ="/fmc/design/mobile_getNeedCraftSampleList.do";
+        orderListFragment.getListViewByURLAndOperation(url, Operation.TECHNOLOGY_SAMPLE);
+    }
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if(keyCode==KeyEvent.KEYCODE_BACK){
+            if(getFragmentManager().getBackStackEntryCount()>0) {
+                getFragmentManager().popBackStack();
+                getSupportActionBar().show();
+                switch (selectedSpinnerItem){
+                    case DESIGN:
+                        getTechnologyDesignList();
+                        break;
+                    case MASS:
+                        getTechnologyMassList();
+                        break;
+                    case SAMPLE:
+                        getTechnologySampleList();
+                        break;
+                    default:
+                        break;
+
+                }
+                return false;
+            }
+        }
+        return super.onKeyDown(keyCode, event);
     }
 }

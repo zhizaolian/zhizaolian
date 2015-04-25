@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="title_activity_department_technology">DepartmentTechnologyActivity</string>
+    <string name="title_activity_department_technology">设计部</string>
     <string name="customer_technology_request">客户工艺要求</string>
     <string name="ironing_flower_cost">印花费</string>
     <string name="washing_cost">水洗吊染费</string>
@@ -15,5 +15,11 @@
     <string name="unit_yuan_per_one">(元/件)</string>
     <string name="technology_needed">需要工艺</string>
     <string name="technology_not_needed">无需工艺</string>
+
+    <string-array name="technology_department_list">
+        <item>设计验证</item>
+        <item>样衣制作</item>
+        <item>大货制作</item>
+    </string-array>
 
 </resources>

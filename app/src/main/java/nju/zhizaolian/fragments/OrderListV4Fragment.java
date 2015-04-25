@@ -1,30 +1,44 @@
 package nju.zhizaolian.fragments;
 
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
+
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
+
+import com.loopj.android.http.AsyncHttpClient;
+import com.loopj.android.http.JsonHttpResponseHandler;
+import com.loopj.android.http.RequestParams;
+
+import org.apache.http.Header;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 
 import nju.zhizaolian.R;
 import nju.zhizaolian.adapters.OrderProcessListAdapter;
+import nju.zhizaolian.models.IPAddress;
 import nju.zhizaolian.models.ListInfo;
+import nju.zhizaolian.models.Operation;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class OrderListV4Fragment extends Fragment {
+public class OrderListV4Fragment extends Fragment{
 
     private ListView orderListView;
     OrderProcessListAdapter adapter;
     ArrayList<HashMap<String,String>> dataList;
     ArrayList<ListInfo> orderInfoList;
+    Operation operation;
     public OrderListV4Fragment() {
         // Required empty public constructor
     }
@@ -50,19 +64,18 @@ public class OrderListV4Fragment extends Fragment {
         orderListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                ((OrderListItemClickedToGoFragment) getActivity()).goFragmentByOrderListItem(position);
+                goToNextFragmentByIndex(position);
             }
         });
         return view;
     }
 
-    public void updateListView(ArrayList<ListInfo> orderListInfo){
+    private void updateListView(ArrayList<ListInfo> orderListInfo){
         if (orderListInfo==null){
             return;
         }
         orderInfoList=orderListInfo;
         dataList.clear();
-        adapter.updateMyAdapter();
         for(int i=0;i<orderListInfo.size();i++) {
             HashMap<String, String> data = new HashMap<>();
             data.put("name", orderListInfo.get(i).getOrder().getStyleName());
@@ -79,7 +92,99 @@ public class OrderListV4Fragment extends Fragment {
         adapter.notifyDataSetChanged();
     }
 
-    public interface OrderListItemClickedToGoFragment{
-        void goFragmentByOrderListItem(int index);
-    };
+    public void getListViewByURLAndOperation(String url, final Operation operate){
+        if(!isVisible()){
+            getActivity().getFragmentManager().popBackStack();
+        }
+        AsyncHttpClient client = new AsyncHttpClient();
+        RequestParams params = new RequestParams();
+        SharedPreferences settings =getActivity().getSharedPreferences("common", 0);
+        String jSessionId=settings.getString("jsessionId","");
+        params.put("jsessionId",jSessionId);
+        client.get(IPAddress.getIP()+url,params,new JsonHttpResponseHandler(){
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+                try {
+                    ArrayList<ListInfo> listInfoArrayList =ListInfo.fromJson(response.getJSONArray("list"));
+                    updateListView(listInfoArrayList);
+                    operation=operate;
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            @Override
+            public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
+                Toast.makeText(getActivity(),"网络错误",Toast.LENGTH_SHORT).show();
+            }
+        });
+
+    }
+
+
+    public void goToNextFragmentByIndex(int index){
+        ListInfo listInfo = orderInfoList.get(index);
+        Bundle bundle = new Bundle();
+        bundle.putSerializable("info",listInfo);
+        Fragment fragment = null;
+        int id=0;
+        switch (operation){
+            case MERGEPRICE:
+                fragment = new MergePriceFragment();
+                id=R.id.salesDepartmentcontainers;
+                break;
+            case QUOTEAGREED:
+                fragment = new QuoteAgreedFragment();
+                id=R.id.salesDepartmentcontainers;
+                break;
+            case CHANGEQUOTE:
+                fragment = new ChangeQuoteFragment();
+                id=R.id.salesDepartmentcontainers;
+                break;
+            case SIGNCONTRACT:
+                fragment = new SignContractFragment();
+                id=R.id.salesDepartmentcontainers;
+                break;
+            case URGEREMAININGBALANCE:
+                fragment = new UrgeRemainingBalance();
+                id=R.id.salesDepartmentcontainers;
+                break;
+            case CHECKQUOTE:
+                fragment = new CheckQuoteFragment();
+                id=R.id.salesMasterContainer;
+                break;
+            case CHECKSAMPLEBALANCE:
+                fragment = new CheckSampleBalanceFragment();
+                id=R.id.financialContainer;
+                break;
+            case CHECKFRONTMONEY:
+                fragment = new CheckFrontMoneyFragment();
+                id=R.id.financialContainer;
+                break;
+            case RETURNMONEY:
+                fragment = new ReturnMoneyFragment();
+                id=R.id.financialContainer;
+                break;
+            case CHECKREMAININGBALANCE:
+                fragment = new CheckRemainingBalanceFragment();
+                id=R.id.financialContainer;
+                break;
+            case RECEIVESAMPLE:
+                fragment = new ReceiveSampleFragment();
+                id=R.id.logisticContainer;
+                break;
+            case DELIVERSAMPLE:
+                fragment = new DeliverSampleFragment();
+                id=R.id.logisticContainer;
+                break;
+            case CHECKQALITY:
+                fragment = new CheckQualityFragment();
+                id=R.id.qualityContainer;
+                break;
+        }
+        fragment.setArguments(bundle);
+        getActivity().getSupportFragmentManager().beginTransaction().replace(id,fragment).addToBackStack(null).commit();
+    }
+
 }
