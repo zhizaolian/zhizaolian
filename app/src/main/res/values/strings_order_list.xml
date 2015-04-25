@@ -8,9 +8,16 @@
     <string name="view_detail">查看详情</string>
     <string name="all_orders">所有的订单</string>
     <string name="doing_orders">进行中订单</string>
-    <string name="title_activity_activity_order_list">订单列表</string>
-    <string name="title_activity_order_list">订单列表</string>
+    <string name="title_activity_activity_order_list">订单管理</string>
+    <string name="title_activity_order_list">订单管理</string>
     <string name="end_orders">完结的订单</string>
     <string name="stopped_orders">已终止订单</string>
     <string name="modify_order">修改订单项</string>
+
+    <string-array name="order_manager_option_list">
+        <item>所有订单</item>
+        <item>进行订单</item>
+        <item>完结订单</item>
+        <item>终止订单</item>
+    </string-array>
 </resources>

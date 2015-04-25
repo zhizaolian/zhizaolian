@@ -24,9 +24,9 @@ public class ListInfo implements Serializable{
         try {
             listInfo=new ListInfo();
             listInfo.order=Order.fromJson(jsonObject.getJSONObject("order"));
-            listInfo.taskTime=jsonObject.getString("taskTime");
             listInfo.employee=Employee.fromJson(jsonObject.getJSONObject("employee"));
             listInfo.orderId=jsonObject.getString("orderId");
+            listInfo.taskTime=jsonObject.getString("taskTime");
             return  listInfo;
         } catch (JSONException e) {
             e.printStackTrace();

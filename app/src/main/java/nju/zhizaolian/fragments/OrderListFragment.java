@@ -250,6 +250,12 @@ public class OrderListFragment extends Fragment{
                 fragment = new DepartmentSweaterMakerSentFragment();
                 id=R.id.department_sweater_maker_activity_layout;
                 break;
+            case ORDER_MANAGER_DETAIL:
+                //TODO 跳到OrderDetailActivity？求Set方法！
+                fragment = new Fragment();
+                id=R.id.activity_order_list_layout;
+                return;
+
         }
         fragment.setArguments(bundle);
         getActivity().getFragmentManager().beginTransaction().replace(id,fragment).addToBackStack(null).commit();

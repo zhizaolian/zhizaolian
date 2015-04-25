@@ -3,15 +3,4 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="nju.zhizaolian.activities.OrderListActivity"
     >
-
-    <item android:id="@+id/all_orders" android:title="@string/all_orders"
-        android:orderInCategory="100" app:showAsAction="never" />
-    <item android:id="@+id/doing_orders" android:title="@string/doing_orders"
-        android:orderInCategory="100" app:showAsAction="never" />
-    <item android:id="@+id/end_orders" android:title="@string/end_orders"
-        android:orderInCategory="100" app:showAsAction="never" />
-    <item android:id="@+id/stopped_orders" android:title="@string/stopped_orders"
-        android:orderInCategory="100" app:showAsAction="never" />
-    <item android:id="@+id/modify_order" android:title="@string/modify_order"
-        android:orderInCategory="100" app:showAsAction="never" />
 </menu>
