@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import android.app.Fragment;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -39,6 +40,8 @@ public class OrderListFragment extends Fragment{
     ArrayList<HashMap<String,String>> dataList;
     ArrayList<ListInfo> orderInfoList;
     Operation operation;
+    String list_url;
+    SwipeRefreshLayout swipeRefreshLayout;
     public OrderListFragment() {
         // Required empty public constructor
     }
@@ -48,6 +51,15 @@ public class OrderListFragment extends Fragment{
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.order_process_list,container,false);
+        swipeRefreshLayout = (SwipeRefreshLayout) view.findViewById(R.id.order_list_refresh_layout);
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                getListViewByURLAndOperation(list_url,operation);
+                swipeRefreshLayout.setRefreshing(false);
+            }
+        });
+        swipeRefreshLayout.setColorSchemeColors(R.color.white,R.color.green,R.color.orange,R.color.red);
         orderListView =(ListView) view.findViewById(R.id.order_process_list);
         dataList = new ArrayList<>();
         adapter = new OrderProcessListAdapter(this.getActivity(),dataList,R.layout.order_process_list_item,
@@ -92,7 +104,7 @@ public class OrderListFragment extends Fragment{
         adapter.notifyDataSetChanged();
     }
 
-    public void getListViewByURLAndOperation(String url, final Operation operate){
+    public void getListViewByURLAndOperation(final String url, final Operation operate){
         if(!isVisible()){
             getActivity().getFragmentManager().popBackStack();
         }
@@ -108,7 +120,7 @@ public class OrderListFragment extends Fragment{
                     ArrayList<ListInfo> listInfoArrayList =ListInfo.fromJson(response.getJSONArray("list"));
                     updateListView(listInfoArrayList);
                     operation=operate;
-
+                    list_url=url;
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
