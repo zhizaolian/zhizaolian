@@ -3,7 +3,7 @@
     <string name="color">颜色</string>
     <string name="actually">实际</string>
     <string name="plan">计划</string>
-    <string name="title_activity_department_production">DepartmentProductionActivity</string>
+    <string name="title_activity_department_production">生产部</string>
     <string name="production_cost">生产成本(单位:元/件)</string>
     <string name="cut_cost">裁剪费用</string>
     <string name="management_cost">管理费用</string>
@@ -18,5 +18,11 @@
     <string name="accessory_query">辅料要求</string>
     <string name="accessory_per_cost_number">单件耗数</string>
     <string name="accessory_per_price">辅料单价</string>
+
+    <string-array name="production_department_list">
+        <item>成本验证核算</item>
+        <item>大货批量生产</item>
+    </string-array>
+
 
 </resources>

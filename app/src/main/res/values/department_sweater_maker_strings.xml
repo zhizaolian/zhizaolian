@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="title_activity_department_sweater_maker">DepartmentSweaterMakerActivity</string>
+    <string name="title_activity_department_sweater_maker">毛衣制造部</string>
     <string name="sweater_maker_plan_account">计划生产数量</string>
     <string name="processing_name">加工方</string>
     <string name="send_out_time">外发时间</string>
@@ -13,4 +13,10 @@
     <string name="sample_confirm">样衣确认</string>
     <string name="completed_date">完成时间</string>
     <string name="operate_history">操作历史</string>
+
+    <string-array name="sweater_maker_department_list">
+        <item>样衣工艺</item>
+        <item>毛衣外发</item>
+    </string-array>
+
 </resources>

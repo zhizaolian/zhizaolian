@@ -2,10 +2,14 @@ package nju.zhizaolian.activities;
 
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ArrayAdapter;
+import android.widget.SpinnerAdapter;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -13,45 +17,55 @@ import java.util.HashMap;
 import nju.zhizaolian.R;
 import nju.zhizaolian.fragments.DepartmentProductionCheckFragment;
 import nju.zhizaolian.fragments.DepartmentProductionMassFragment;
+import nju.zhizaolian.fragments.OrderListFragment;
+import nju.zhizaolian.models.Account;
+import nju.zhizaolian.models.Operation;
+import nju.zhizaolian.models.TaskNumber;
 
 public class DepartmentProductionActivity extends ActionBarActivity {
 
-    DepartmentProductionMassFragment departmentProductionMassFragment;
-    DepartmentProductionCheckFragment departmentProductionCheckFragment;
+    OrderListFragment orderListFragment;
+    public static final int CHECK=0;
+    public static final int MASS=1;
+    int selectedSpinnerItem = CHECK;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.department_production_activity_layout);
+        Account account =(Account) getIntent().getSerializableExtra("account");
+        TaskNumber taskNumber =(TaskNumber) getIntent().getSerializableExtra("taskNumber");
+        SpinnerAdapter spinnerAdapter= ArrayAdapter.createFromResource(this,
+                R.array.production_department_list, R.layout.support_simple_spinner_dropdown_item);
+        ActionBar actionBar=getSupportActionBar();
+        actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_LIST);
+        actionBar.setListNavigationCallbacks(spinnerAdapter, onNavigationListener);
         if(savedInstanceState==null){
-            //TODO test data
-            ArrayList<HashMap<String,String>> list = new ArrayList<>();
-            for(int i=0;i<4;i++){
-                HashMap<String,String> data=new HashMap<>();
-                data.put("颜色","白色");
-                data.put("XS","1");
-                data.put("S","2");
-                data.put("M","3");
-                data.put("L","4");
-                data.put("XL","5");
-                data.put("XXL","6");
-                data.put("均码","7");
-                list.add(data);
-            }
-            Bundle bundle = new Bundle();
-            bundle.putSerializable("plan_table",list);
-            //data end
-            departmentProductionMassFragment = new DepartmentProductionMassFragment();
-            departmentProductionMassFragment.setArguments(bundle);
-//            departmentProductionCheckFragment= new DepartmentProductionCheckFragment();
+            orderListFragment = new OrderListFragment();
             FragmentManager fragmentManager = getFragmentManager();
-            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-//            fragmentTransaction.add(R.id.department_production_activity_layout, departmentProductionCheckFragment);
-            fragmentTransaction.add(R.id.department_production_activity_layout, departmentProductionMassFragment);
+            FragmentTransaction fragmentTransaction= fragmentManager.beginTransaction();
+            fragmentTransaction.add(R.id.department_production_activity_layout,orderListFragment,"orderList");
             fragmentTransaction.commit();
         }
-
     }
 
+    ActionBar.OnNavigationListener onNavigationListener = new ActionBar.OnNavigationListener() {
+        @Override
+        public boolean onNavigationItemSelected(int itemPosition, long itemId) {
+            switch (itemPosition){
+                case CHECK:
+                    getProductionCheckList();
+                    selectedSpinnerItem=CHECK;
+                    break;
+                case MASS:
+                    getProductionMassList();
+                    selectedSpinnerItem=MASS;
+                    break;
+                default:break;
+            }
+            return false;
+        }
+    };
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -73,5 +87,38 @@ public class DepartmentProductionActivity extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void getProductionCheckList(){
+        String url ="/fmc/produce/mobile_computeProduceCostList.do";
+        orderListFragment.getListViewByURLAndOperation(url, Operation.PRODUCTION_CHECK);
+    }
+
+    public void getProductionMassList(){
+        String url ="/fmc/produce/mobile_produceList.do";
+        orderListFragment.getListViewByURLAndOperation(url, Operation.PRODUCTION_MASS);
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if(keyCode==KeyEvent.KEYCODE_BACK){
+            if(getFragmentManager().getBackStackEntryCount()>0) {
+                getFragmentManager().popBackStack();
+                getSupportActionBar().show();
+                switch (selectedSpinnerItem){
+                    case CHECK:
+                        getProductionCheckList();
+                        break;
+                    case MASS:
+                        getProductionMassList();
+                        break;
+                    default:
+                        break;
+
+                }
+                return false;
+            }
+        }
+        return super.onKeyDown(keyCode, event);
     }
 }
