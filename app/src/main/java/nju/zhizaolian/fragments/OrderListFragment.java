@@ -130,6 +130,58 @@ public class OrderListFragment extends Fragment{
         Fragment fragment = null;
         int id=0;
         switch (operation){
+            case MERGEPRICE:
+                fragment = new MergePriceFragment();
+                id=R.id.salesDepartmentcontainers;
+                break;
+            case QUOTEAGREED:
+                fragment = new QuoteAgreedFragment();
+                id=R.id.salesDepartmentcontainers;
+                break;
+            case CHANGEQUOTE:
+                fragment = new ChangeQuoteFragment();
+                id=R.id.salesDepartmentcontainers;
+                break;
+            case SIGNCONTRACT:
+                fragment = new SignContractFragment();
+                id=R.id.salesDepartmentcontainers;
+                break;
+            case URGEREMAININGBALANCE:
+                fragment = new UrgeRemainingBalance();
+                id=R.id.salesDepartmentcontainers;
+                break;
+            case CHECKQUOTE:
+                fragment = new CheckQuoteFragment();
+                id=R.id.salesMasterContainer;
+                break;
+            case CHECKSAMPLEBALANCE:
+                fragment = new CheckSampleBalanceFragment();
+                id=R.id.financialContainer;
+                break;
+            case CHECKFRONTMONEY:
+                fragment = new CheckFrontMoneyFragment();
+                id=R.id.financialContainer;
+                break;
+            case RETURNMONEY:
+                fragment = new ReturnMoneyFragment();
+                id=R.id.financialContainer;
+                break;
+            case CHECKREMAININGBALANCE:
+                fragment = new CheckRemainingBalanceFragment();
+                id=R.id.financialContainer;
+                break;
+            case RECEIVESAMPLE:
+                fragment = new ReceiveSampleFragment();
+                id=R.id.logisticContainer;
+                break;
+            case DELIVERSAMPLE:
+                fragment = new DeliverSampleFragment();
+                id=R.id.logisticContainer;
+                break;
+            case CHECKQALITY:
+                fragment = new CheckQualityFragment();
+                id=R.id.qualityContainer;
+                break;
             case DESIGN_SLICE:
                 fragment = new DepartmentDesignSliceFragment();
                 id=R.id.department_design_activity_layout;
