@@ -7,11 +7,21 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
+
+
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/reveive_sample"
             android:textSize="@dimen/abc_text_size_large_material"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            />
+
+
+
         <Button
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"

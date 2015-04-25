@@ -2,6 +2,7 @@ package nju.zhizaolian.fragments;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,7 +20,7 @@ import nju.zhizaolian.R;
 import nju.zhizaolian.help.DatePickerFragment;
 
 
-public class OrderProcessDetailFragment extends android.support.v4.app.Fragment {
+public class OrderProcessDetailFragment extends Fragment {
 
     private TextView askNumberView;
     private Button askPeriodButton;

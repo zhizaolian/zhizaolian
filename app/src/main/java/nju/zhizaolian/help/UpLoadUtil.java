@@ -109,14 +109,16 @@ public class UpLoadUtil {
 
         BufferedReader reader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
         Log.d("reader",reader.readLine());
-        if(!reader.readLine().contains("200")){
-            return false;
+        boolean success=true;
+        if(reader.readLine().indexOf("200")==-1){
+            success=false;
         }
+
         outStream.flush();
         outStream.close();
         reader.close();
         socket.close();
-        return true;
+        return success;
     }
 
     /**

@@ -2,6 +2,7 @@ package nju.zhizaolian.fragments;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.text.Editable;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,7 +18,7 @@ import java.util.ArrayList;
 import nju.zhizaolian.R;
 
 
-public class OrderMaterialDetailFragment extends android.support.v4.app.Fragment {
+public class OrderMaterialDetailFragment extends Fragment {
     Button materialButton=null;
     Button accessoriesButton=null;
     Button materialSaveButton=null;

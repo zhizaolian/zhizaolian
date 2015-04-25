@@ -1,5 +1,6 @@
 package nju.zhizaolian.activities;
 
+import android.app.ProgressDialog;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -37,7 +38,7 @@ public class OrderDetailActivity extends ActionBarActivity implements ActionBar.
 
 
     SectionsPagerAdapter mSectionsPagerAdapter;
-
+    ProgressDialog progressDialog=null;
 
     ViewPager mViewPager;
     private Custom custom=null;
@@ -204,10 +205,72 @@ public class OrderDetailActivity extends ActionBarActivity implements ActionBar.
 
 
             }else{
+                progressDialog=ProgressDialog.show(OrderDetailActivity.this,"请稍等","下单中",true);
                 SubmitOrderTask task=new SubmitOrderTask();
                 task.execute();
+
             }
         }else if(id == R.id.action_deleteOrderData){
+
+            orderSource="";
+            styleName="";
+            clothesType="";
+              styleSex="";
+              styleSeason="";
+         materialType="";
+              specialProcess="";
+         otherRequirements="";
+             referenceUrl="";
+            //面辅信息
+            fabricName="";
+            fabricAmount="";
+            accessoryName="";
+            accessoryAmount="";
+            //sample info
+
+            inPostSampleClothesTime="";
+            inPostSampleClothesType="";
+            inPostSampleClothesNumber="";
+            sampleClothesName="";
+            sampleClothesPhone="";
+             sampleClothesAddress="";
+             sampleClothesRemark="";
+           sampleClothesPicture="";
+             referenceClothesPicture="";
+            //process info
+            askAmount="";
+             askProducePeriod="";
+             askDeliverDate="";
+            // private int  ask_code_number;
+            produceColor="";
+           produceXS="";
+            produceS="";
+              produceM="";
+            produceL="";
+             produceXL="";
+             produceXXL="";
+            produceJ="";
+           sampleProduceColor="";
+            sampleProduceXS="";
+             sampleProduceS="";
+             sampleProduceM="";
+              sampleProduceL="";
+             sampleProduceXL="";
+             sampleProduceXXL="";
+              sampleProduceJ="";
+
+            //version info
+              versionSize="";
+              versionCenterBackLength="";
+              versionBust="";
+             versionWaistLine="";
+              versionShoulder="";
+              versionButtock="";
+             versionHem="";
+              versionTrousers="";
+              versionSkirt="";
+             versionSleeves="";
+            Toast.makeText(getApplicationContext(),"删除成功",Toast.LENGTH_SHORT).show();
 
         }
 
@@ -478,13 +541,29 @@ public class OrderDetailActivity extends ActionBarActivity implements ActionBar.
             FormFile[] totalFile=new FormFile[2];
             totalFile[0]=file1;
             totalFile[1]=file2;
-            boolean success= false;
+            boolean success= true;
             try {
-                success = UpLoadUtil.post(IPAddress.getIP() + "/fmc/market/mobile_addOrderSubmit.do", requestParams, totalFile);
+                UpLoadUtil.post(IPAddress.getIP() + "/fmc/market/mobile_addOrderSubmit.do", requestParams, totalFile);
             } catch (Exception e) {
                 e.printStackTrace();
             }
             return success;
+        }
+
+        @Override
+        protected void onPostExecute(Boolean aBoolean) {
+            super.onPostExecute(aBoolean);
+            if(aBoolean){
+                Toast.makeText(getApplicationContext(),"下单成功",Toast.LENGTH_SHORT).show();
+                progressDialog.dismiss();
+                finish();
+            }else {
+                Toast.makeText(getApplicationContext(),"下单失败",Toast.LENGTH_SHORT).show();
+                progressDialog.dismiss();
+            }
+
+
+
         }
     }
 

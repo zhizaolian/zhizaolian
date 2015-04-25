@@ -7,15 +7,20 @@ import android.view.MenuItem;
 
 import nju.zhizaolian.R;
 import nju.zhizaolian.fragments.CheckQuoteFragment;
+import nju.zhizaolian.fragments.OrderListFragment;
 
-public class SalesMasterActivity extends ActionBarActivity {
+public class SalesMasterActivity extends ActionBarActivity  {
     CheckQuoteFragment checkQuoteFragment=null;
+    OrderListFragment orderListFragment=null;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sales_master);
         checkQuoteFragment=new CheckQuoteFragment();
-        getFragmentManager().beginTransaction().replace(R.id.salesMasterContainer,checkQuoteFragment).commit();
+        orderListFragment=new OrderListFragment();
+
+        getFragmentManager().beginTransaction().replace(R.id.salesMasterContainer,orderListFragment).commit();
     }
 
 
@@ -40,6 +45,8 @@ public class SalesMasterActivity extends ActionBarActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+
 
 
 }
