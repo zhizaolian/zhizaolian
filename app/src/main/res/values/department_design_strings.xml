@@ -7,6 +7,11 @@
     <string name="version_maker_name">制版人</string>
     <string name="version_done_time">完成时间</string>
     <string name="version_sorter_name">排版人</string>
+    <string name="completed">完成</string>
+    <string name="error">出错</string>
+    <string name="cad_upload_time">CAD上传时间</string>
+    <string name="current_cad_version">当前CAD版本</string>
+
 
     <string-array name="design_department_list">
         <item>样衣录入和生产</item>

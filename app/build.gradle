@@ -27,4 +27,5 @@ dependencies {
     compile 'com.loopj.android:android-async-http:1.4.6'
     compile files('src/main/java/nju/zhizaolian/lib/nineoldandroids-2.4.0.jar')
     compile 'com.android.support:support-v4:21.0.3'
+    compile 'com.github.dmytrodanylyk.circular-progress-button:library:1.1.3'
 }

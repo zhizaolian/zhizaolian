@@ -109,10 +109,19 @@ public class DepartmentDesignActivity extends ActionBarActivity{
 
    @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
-        if(keyCode==KeyEvent.KEYCODE_BACK){
+       if(keyCode==KeyEvent.KEYCODE_BACK) {
+           if(getFragmentManager().getBackStackEntryCount()>0) {
+               goBack();
+               return false;
+           }
+       }
+        return super.onKeyDown(keyCode, event);
+    }
+
+    public void goBack(){
+
             if(getFragmentManager().getBackStackEntryCount()>0) {
                 getFragmentManager().popBackStack();
-                getSupportActionBar().show();
                 switch (selectedSpinnerItem){
                     case SAMPLE_PRODUCTION:
                         getSampleProduceList();
@@ -127,9 +136,6 @@ public class DepartmentDesignActivity extends ActionBarActivity{
                         break;
 
                 }
-                return false;
-            }
-        }
-        return super.onKeyDown(keyCode, event);
+         }
     }
 }
