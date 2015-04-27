@@ -19,7 +19,7 @@ public class Logistics {
     private String sampleClothesAddress;
     private String sampleClothesName;
     private String sampleClothesPhone;
-    private Timestamp sampleClothesTime;
+    private String sampleClothesTime;
     private String sampleClothesRemark;
     private String sampleClothesNumber;
     private String productClothesType;		//快递名称
@@ -28,7 +28,7 @@ public class Logistics {
     private String productClothesNumber;	//快递单号
     private String productClothesName;      //发货人姓名
     private String productClothesPhone;		//收货人电话
-    private Timestamp productClothesTime;   //发货时间
+    private String productClothesTime;   //发货时间
     private String productClothesRemark;    //发货备注
 
     // Constructors
@@ -47,11 +47,11 @@ public class Logistics {
                      String inPostSampleClothesType, String inPostSampleClothesNumber,
                      String sampleClothesType, String sampleClothesAddress,
                      String sampleClothesName, String sampleClothesPhone,
-                     Timestamp sampleClothesTime, String sampleClothesRemark,
+                     String sampleClothesTime, String sampleClothesRemark,
                      String productClothesType, String productClothesAddress,
                      String productClothesPrice, String productClothesNumber,
                      String productClothesName, String productClothesPhone,
-                     Timestamp productClothesTime, String productClothesRemark) {
+                     String productClothesTime, String productClothesRemark) {
         this.orderId = orderId;
         this.inPostSampleClothesTime = inPostSampleClothesTime;
         this.inPostSampleClothesType = inPostSampleClothesType;
@@ -84,14 +84,14 @@ public class Logistics {
             logistics.productClothesPhone=jsonObject.getString("productClothesPhone");
             logistics.productClothesPrice=jsonObject.getString("productClothesPrice");
             logistics.productClothesRemark=jsonObject.getString("productClothesRemark");
-            logistics.productClothesTime= Timestamp.valueOf(jsonObject.getString("productClothesTime"));
+            logistics.productClothesTime= jsonObject.getString("productClothesTime");
             logistics.productClothesType=jsonObject.getString("productClothesType");
             logistics.sampleClothesAddress=jsonObject.getString("sampleClothesAddress");
             logistics.sampleClothesName=jsonObject.getString("sampleClothesName");
             logistics.sampleClothesNumber=jsonObject.getString("sampleClothesNumber");
             logistics.sampleClothesPhone=jsonObject.getString("sampleClothesPhone");
             logistics.sampleClothesRemark=jsonObject.getString("sampleClothesRemark");
-            logistics.sampleClothesTime= Timestamp.valueOf(jsonObject.getString("sampleClothesTime"));
+            logistics.sampleClothesTime= jsonObject.getString("sampleClothesTime");
             logistics.sampleClothesType=jsonObject.getString("sampleClothesType");
 
         } catch (JSONException e) {
@@ -163,11 +163,11 @@ public class Logistics {
         this.sampleClothesPhone = sampleClothesPhone;
     }
 
-    public Timestamp getSampleClothesTime() {
+    public String getSampleClothesTime() {
         return sampleClothesTime;
     }
 
-    public void setSampleClothesTime(Timestamp sampleClothesTime) {
+    public void setSampleClothesTime(String sampleClothesTime) {
         this.sampleClothesTime = sampleClothesTime;
     }
 
@@ -235,11 +235,11 @@ public class Logistics {
         this.productClothesPhone = productClothesPhone;
     }
 
-    public Timestamp getProductClothesTime() {
+    public String getProductClothesTime() {
         return productClothesTime;
     }
 
-    public void setProductClothesTime(Timestamp productClothesTime) {
+    public void setProductClothesTime(String productClothesTime) {
         this.productClothesTime = productClothesTime;
     }
 

@@ -42,7 +42,7 @@
         android:text="@string/other_cost_fee"/>
     <include layout="@layout/sublayout_other_cost"/>
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="@string/check_price"
         android:textSize="@dimen/abc_text_size_large_material"/>
@@ -59,11 +59,13 @@
         <Button
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
-            android:text="@string/ensure"/>
+            android:text="@string/ensure"
+            android:id="@+id/merge_price_ensure_button"/>
         <Button
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:text="@string/cancel"
+            android:id="@+id/merge_price_cancel_button"
             android:background="@color/dark_red"/>
     </LinearLayout>
      </ScrollView>

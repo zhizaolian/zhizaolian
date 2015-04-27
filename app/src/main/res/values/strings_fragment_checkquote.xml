@@ -43,7 +43,11 @@
     <string name="disagree">拒绝</string>
     <string name="sales_master_idea">主管审核意见</string>
     <string name="nothing">无</string>
+    <string-array name="sales_master_list">
+        <item>审核报价</item>
+        <item>审核变更专员申请</item>
 
+    </string-array>
 
 
 </resources>

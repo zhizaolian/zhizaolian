@@ -3,7 +3,6 @@ package nju.zhizaolian.models;
 import org.json.JSONObject;
 
 import java.io.Serializable;
-import java.sql.Timestamp;
 
 /**
  * Created by lk on 15/4/27.
@@ -22,11 +21,11 @@ public class Craft implements Serializable {
     private String craftFileUrl;//工艺文件位置链接
     private String orderSampleStatus;//订单工艺状态
     private String craftLeader;//工艺负责人
-    private Timestamp completeTime;//工艺完成时间
+    private String completeTime;//工艺完成时间
     private String crafsManName;//大货工艺负责人
-    private Timestamp crafsProduceDate;//大货工艺完成时间
+    private String crafsProduceDate;//大货工艺完成时间
 
-    public Craft(Integer orderId, Integer craftId, Short needCraft, float stampDutyMoney, float washHangDyeMoney, float laserMoney, float embroideryMoney, float crumpleMoney, float openVersionMoney, String craftFileUrl, String orderSampleStatus, String craftLeader, Timestamp completeTime, String crafsManName, Timestamp crafsProduceDate) {
+    public Craft(Integer orderId, Integer craftId, Short needCraft, float stampDutyMoney, float washHangDyeMoney, float laserMoney, float embroideryMoney, float crumpleMoney, float openVersionMoney, String craftFileUrl, String orderSampleStatus, String craftLeader, String completeTime, String crafsManName, String crafsProduceDate) {
         this.orderId = orderId;
         this.craftId = craftId;
         this.needCraft = needCraft;
@@ -49,9 +48,9 @@ public class Craft implements Serializable {
     public static Craft fromJson(JSONObject jsonObject){
         Craft craft=new Craft();
         try{
-            craft.completeTime= Timestamp.valueOf(jsonObject.getString("completeTime"));
+            craft.completeTime= jsonObject.getString("completeTime");
             craft.crafsManName=jsonObject.getString("crafsManName");
-            craft.crafsProduceDate= Timestamp.valueOf(jsonObject.getString("crafsProduceDate"));
+            craft.crafsProduceDate= jsonObject.getString("crafsProduceDate");
             craft.craftFileUrl=jsonObject.getString("craftFileUrl");
             craft.craftId= Integer.valueOf(jsonObject.getString("craftId"));
             craft.craftLeader=jsonObject.getString("craftLeader");
@@ -168,11 +167,11 @@ public class Craft implements Serializable {
         this.craftLeader = craftLeader;
     }
 
-    public Timestamp getCompleteTime() {
+    public String getCompleteTime() {
         return completeTime;
     }
 
-    public void setCompleteTime(Timestamp completeTime) {
+    public void setCompleteTime(String completeTime) {
         this.completeTime = completeTime;
     }
 
@@ -184,11 +183,11 @@ public class Craft implements Serializable {
         this.crafsManName = crafsManName;
     }
 
-    public Timestamp getCrafsProduceDate() {
+    public String getCrafsProduceDate() {
         return crafsProduceDate;
     }
 
-    public void setCrafsProduceDate(Timestamp crafsProduceDate) {
+    public void setCrafsProduceDate(String crafsProduceDate) {
         this.crafsProduceDate = crafsProduceDate;
     }
 }

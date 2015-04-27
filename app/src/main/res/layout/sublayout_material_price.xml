@@ -1,83 +1,87 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
-
-    <TextView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="@string/material_name"
-        android:id="@+id/textView152"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/material_name"
+            />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="dilun"
-        android:id="@+id/textView154"
-        android:layout_marginLeft="50dp"
-        android:layout_marginStart="50dp"
-        android:layout_alignParentTop="true"
-        android:layout_toRightOf="@+id/textView152"
-        android:layout_toEndOf="@+id/textView152" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="111"
+            android:id="@+id/material_name_view"
+            android:layout_marginLeft="20dp"
+            />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/cost_per_meter"
-        android:id="@+id/textView155"
-        android:layout_marginLeft="79dp"
-        android:layout_marginStart="79dp"
-        android:layout_alignParentTop="true"
-        android:layout_toRightOf="@+id/textView154"
-        android:layout_toEndOf="@+id/textView154" />
+        </LinearLayout>
 
-    <TextView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="10"
-        android:id="@+id/textView156"
-        android:layout_alignParentTop="true"
-        android:layout_toRightOf="@+id/textView155"
-        android:layout_toEndOf="@+id/textView155"
-        android:layout_marginLeft="61dp"
-        android:layout_marginStart="61dp" />
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/cost_per_meter"
+            />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/price"
-        android:id="@+id/textView157"
-        android:layout_below="@+id/textView152"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="10"
+            android:layout_marginLeft="20dp"
+            android:id="@+id/material_per_meter_waste_view"
+            />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="10"
-        android:id="@+id/textView158"
-        android:layout_alignTop="@+id/textView157"
-        android:layout_alignLeft="@+id/textView154"
-        android:layout_alignStart="@+id/textView154" />
 
-    <TextView
-        android:layout_width="wrap_content"
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="@string/cost_per_clothes"
-        android:id="@+id/textView159"
-        android:layout_below="@+id/textView155"
-        android:layout_alignLeft="@+id/textView155"
-        android:layout_alignStart="@+id/textView155" />
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/price"
+            />
 
-    <TextView
-        android:layout_width="wrap_content"
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="10"
+            android:layout_marginLeft="50dp"
+            android:id="@+id/material_price_view"
+            />
+
+        </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="100"
-        android:id="@+id/textView160"
-        android:layout_alignTop="@+id/textView159"
-        android:layout_alignLeft="@+id/textView156"
-        android:layout_alignStart="@+id/textView156" />
-</RelativeLayout>
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/cost_per_clothes"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="100"
+            android:layout_marginLeft="20dp"
+            android:id="@+id/material_per_cost_view"
+            />
+
+
+
+        </LinearLayout>
+
+</LinearLayout>

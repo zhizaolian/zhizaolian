@@ -22,24 +22,36 @@ public class Quote {
     private Float fabricCost = (float) 0; // 面料费用
     private Float accessoryCost = (float) 0; // 辅料费用
     private Float singleCost = (float) 0; // 单件成本
+    private String profitPerPiece;
+    private String innerPrice;
+    private String outerPrice;
+
 
     public Quote() {
     }
 
-    public Quote(Integer orderId, Float designCost, Float craftCost, Float cutCost, Float manageCost, Float swingCost, Float ironingCost, Float nailCost, Float packageCost, Float otherCost, Float fabricCost, Float accessoryCost, Float singleCost) {
-        this.orderId = orderId;
-        this.designCost = designCost;
-        this.craftCost = craftCost;
-        this.cutCost = cutCost;
-        this.manageCost = manageCost;
-        this.swingCost = swingCost;
-        this.ironingCost = ironingCost;
-        this.nailCost = nailCost;
-        this.packageCost = packageCost;
-        this.otherCost = otherCost;
-        this.fabricCost = fabricCost;
-        this.accessoryCost = accessoryCost;
-        this.singleCost = singleCost;
+    public String getOuterPrice() {
+        return outerPrice;
+    }
+
+    public void setOuterPrice(String outerPrice) {
+        this.outerPrice = outerPrice;
+    }
+
+    public String getInnerPrice() {
+        return innerPrice;
+    }
+
+    public void setInnerPrice(String innerPrice) {
+        this.innerPrice = innerPrice;
+    }
+
+    public String getProfitPerPiece() {
+        return profitPerPiece;
+    }
+
+    public void setProfitPerPiece(String profitPerPiece) {
+        this.profitPerPiece = profitPerPiece;
     }
 
     public static Quote fromJson(JSONObject jsonObject){
@@ -50,15 +62,15 @@ public class Quote {
             quote.cutCost= Float.valueOf(jsonObject.getString("cutCost"));
             quote.designCost= Float.valueOf(jsonObject.getString("designCost"));
             quote.fabricCost= Float.valueOf(jsonObject.getString("fabricCost"));
-           // quote.innerPrice=jsonObject.getString("innerPrice");
+            quote.innerPrice=jsonObject.getString("innerPrice");
             quote.ironingCost= Float.valueOf(jsonObject.getString("ironingCost"));
             quote.manageCost= Float.valueOf(jsonObject.getString("manageCost"));
             quote.nailCost= Float.valueOf(jsonObject.getString("nailCost"));
             quote.orderId= Integer.valueOf(jsonObject.getString("orderId"));
             quote.otherCost= Float.valueOf(jsonObject.getString("otherCost"));
-           // quote.outerPrice=jsonObject.getString("outerPrice");
+           quote.outerPrice=jsonObject.getString("outerPrice");
             quote.packageCost= Float.valueOf(jsonObject.getString("packageCost"));
-           // quote.profitPerPiece=jsonObject.getString("profitPerPiece");
+            quote.profitPerPiece=jsonObject.getString("profitPerPiece");
             quote.singleCost= Float.valueOf(jsonObject.getString("singleCost"));
             quote.swingCost= Float.valueOf(jsonObject.getString("swingCost"));
 

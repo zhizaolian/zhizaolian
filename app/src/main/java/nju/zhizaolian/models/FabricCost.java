@@ -36,7 +36,7 @@ public class FabricCost {
     public static FabricCost fromJson(JSONObject jsonObject){
         FabricCost fabricCost=new FabricCost();
         try{
-            fabricCost.costPerMeter= (Float) jsonObject.get("costPerMeter");
+            fabricCost.costPerMeter= Float.valueOf(jsonObject.getString("costPerMeter"));
             fabricCost.fabricName=jsonObject.getString("fabricName");
             fabricCost.id= Integer.valueOf(jsonObject.getString("id"));
             fabricCost.orderId= Integer.valueOf(jsonObject.getString("orderId"));

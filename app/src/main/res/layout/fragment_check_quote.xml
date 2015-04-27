@@ -48,22 +48,22 @@
             android:text="@string/check_price"
             android:textSize="@dimen/abc_text_size_large_material"/>
         <include layout="@layout/sublayout_price_check"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/idea"
-            android:textSize="@dimen/abc_text_size_large_material"/>
+
         <EditText
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:hint="@string/idea"
+            android:id="@+id/master_idea_edit"/>
         <Button
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:text="@string/agree"/>
+            android:text="@string/agree"
+            android:id="@+id/ensure_verify_quote_button"/>
         <Button
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:text="@string/disagree"
+            android:id="@+id/unable_verify_quote_button"
             android:background="@color/dark_red"/>
         </LinearLayout>
     </ScrollView>

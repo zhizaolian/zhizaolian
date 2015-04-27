@@ -1,118 +1,124 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent">
-
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:orientation="vertical">
+<LinearLayout
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/print_price"
-        android:id="@+id/textView173"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="5"
+        android:layout_marginLeft="55dp"
         android:id="@+id/textView174"
-        android:layout_alignParentTop="true"
-        android:layout_toRightOf="@+id/textView173"
-        android:layout_toEndOf="@+id/textView173"
-        android:layout_marginLeft="35dp"
-        android:layout_marginStart="35dp" />
+        />
+    </LinearLayout>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/wash_price"
-        android:id="@+id/textView175"
-        android:layout_alignParentTop="true"
-        android:layout_toRightOf="@+id/textView174"
-        android:layout_toEndOf="@+id/textView174"
-        android:layout_marginLeft="34dp"
-        android:layout_marginStart="34dp" />
 
-    <TextView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="5"
-        android:id="@+id/textView176"
-        android:layout_alignParentTop="true"
-        android:layout_toRightOf="@+id/textView175"
-        android:layout_toEndOf="@+id/textView175"
-        android:layout_marginLeft="47dp"
-        android:layout_marginStart="47dp" />
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/wash_price"
+            />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/laser_price"
-        android:id="@+id/textView177"
-        android:layout_below="@+id/textView173"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="5"
+            android:layout_marginLeft="30dp"
+            android:id="@+id/textView176"
+            />
+        </LinearLayout>
 
-    <TextView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="100"
-        android:id="@+id/textView178"
-        android:layout_below="@+id/textView174"
-        android:layout_alignLeft="@+id/textView174"
-        android:layout_alignStart="@+id/textView174" />
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/laser_price"
+            />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/embroider_price"
-        android:id="@+id/textView179"
-        android:layout_below="@+id/textView175"
-        android:layout_alignLeft="@+id/textView175"
-        android:layout_alignStart="@+id/textView175" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="100"
+            android:layout_marginLeft="50dp"
+            android:id="@+id/textView178"
+            />
+        </LinearLayout>
 
-    <TextView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="100"
-        android:id="@+id/textView180"
-        android:layout_below="@+id/textView176"
-        android:layout_alignLeft="@+id/textView176"
-        android:layout_alignStart="@+id/textView176" />
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/embroider_price"
+            />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/crush_price"
-        android:id="@+id/textView181"
-        android:layout_below="@+id/textView177"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="100"
+            android:layout_marginLeft="50dp"
+            android:id="@+id/textView180"
+            />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="100"
-        android:id="@+id/textView182"
-        android:layout_below="@+id/textView178"
-        android:layout_alignLeft="@+id/textView178"
-        android:layout_alignStart="@+id/textView178" />
+        </LinearLayout>
 
-    <TextView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="@string/sample_price"
-        android:id="@+id/textView183"
-        android:layout_below="@+id/textView179"
-        android:layout_alignLeft="@+id/textView179"
-        android:layout_alignStart="@+id/textView179" />
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/crush_price"
+            />
 
-    <TextView
-        android:layout_width="wrap_content"
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="100"
+            android:layout_marginLeft="50dp"
+            android:id="@+id/textView182"
+            />
+        </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="100000"
-        android:id="@+id/textView184"
-        android:layout_below="@+id/textView180"
-        android:layout_alignLeft="@+id/textView180"
-        android:layout_alignStart="@+id/textView180" />
-</RelativeLayout>
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/sample_price"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="100000"
+            android:layout_marginLeft="50dp"
+            android:id="@+id/textView184"
+            />
+
+        </LinearLayout>
+
+
+
+</LinearLayout>
