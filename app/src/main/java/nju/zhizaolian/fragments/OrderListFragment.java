@@ -26,6 +26,7 @@ import java.util.HashMap;
 
 import nju.zhizaolian.R;
 import nju.zhizaolian.adapters.OrderProcessListAdapter;
+import nju.zhizaolian.models.Account;
 import nju.zhizaolian.models.IPAddress;
 import nju.zhizaolian.models.ListInfo;
 import nju.zhizaolian.models.Operation;
@@ -42,6 +43,7 @@ public class OrderListFragment extends Fragment{
     Operation operation;
     String list_url;
     SwipeRefreshLayout swipeRefreshLayout;
+    Account account;
     public OrderListFragment() {
         // Required empty public constructor
     }
@@ -51,6 +53,7 @@ public class OrderListFragment extends Fragment{
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.order_process_list,container,false);
+        account =(Account)getArguments().getSerializable("account");
         swipeRefreshLayout = (SwipeRefreshLayout) view.findViewById(R.id.order_list_refresh_layout);
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
@@ -143,6 +146,7 @@ public class OrderListFragment extends Fragment{
         ListInfo listInfo = orderInfoList.get(index);
         Bundle bundle = new Bundle();
         bundle.putSerializable("info",listInfo);
+        bundle.putSerializable("account",account);
         Fragment fragment = null;
         int id=0;
         switch (operation){
@@ -229,10 +233,12 @@ public class OrderListFragment extends Fragment{
             case PURCHASE_MASS:
                 fragment = new DepartmentPurchaseMassSampleFragment();
                 id=R.id.department_purchase_activity_layout;
+                bundle.putSerializable("TYPE","MASS");
                 break;
             case PURCHASE_SAMPLE:
                 fragment = new DepartmentPurchaseMassSampleFragment();
                 id=R.id.department_purchase_activity_layout;
+                bundle.putSerializable("TYPE","SAMPLE");
                 break;
             case PURCHASE_SWEATER:
                 fragment = new DepartmentPurchaseSweaterFragment();

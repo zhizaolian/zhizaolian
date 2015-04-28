@@ -100,7 +100,7 @@
         android:id="@+id/design_entering_back_button"
         android:layout_weight="2"
         android:src="@drawable/ic_action_back"
-        android:background="@drawable/design_undo_button_selector"
+        android:background="@drawable/back_button_selector"
         />
     <com.dd.CircularProgressButton
             android:id="@+id/design_entering_accept_button"
@@ -129,7 +129,7 @@
             android:layout_weight="1"
             android:visibility="gone"
             android:src="@drawable/ic_action_undo"
-            android:background="@drawable/design_undo_button_selector"
+            android:background="@drawable/commit_button_selector"
     />
 
     <ImageButton
@@ -138,7 +138,7 @@
         android:id="@+id/design_entering_cancel_button"
         android:layout_weight="1"
         android:src="@drawable/ic_action_cancel"
-        android:background="@drawable/design_cancel_button_selector"
+        android:background="@drawable/cancel_button_selector"
         />
 
     </LinearLayout>

@@ -40,6 +40,9 @@ public class DepartmentDesignActivity extends ActionBarActivity{
         actionBar.setListNavigationCallbacks(spinnerAdapter, onNavigationListener);
         if(savedInstanceState==null){
             orderListFragment = new OrderListFragment();
+            Bundle bundle = new Bundle();
+            bundle.putSerializable("account",account);
+            orderListFragment.setArguments(bundle);
             FragmentManager fragmentManager = getFragmentManager();
             FragmentTransaction fragmentTransaction= fragmentManager.beginTransaction();
             fragmentTransaction.add(R.id.department_design_activity_layout,orderListFragment,"orderList");

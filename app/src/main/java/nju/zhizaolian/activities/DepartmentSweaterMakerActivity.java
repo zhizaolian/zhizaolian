@@ -37,6 +37,9 @@ public class DepartmentSweaterMakerActivity extends ActionBarActivity {
         actionBar.setListNavigationCallbacks(spinnerAdapter, onNavigationListener);
         if(savedInstanceState==null){
             orderListFragment = new OrderListFragment();
+            Bundle bundle = new Bundle();
+            bundle.putSerializable("account",account);
+            orderListFragment.setArguments(bundle);
             FragmentManager fragmentManager = getFragmentManager();
             FragmentTransaction fragmentTransaction= fragmentManager.beginTransaction();
             fragmentTransaction.add(R.id.department_sweater_maker_activity_layout,orderListFragment,"orderList");

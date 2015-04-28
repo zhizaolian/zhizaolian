@@ -39,6 +39,9 @@ public class DepartmentPurchaseActivity extends ActionBarActivity {
         actionBar.setListNavigationCallbacks(spinnerAdapter, onNavigationListener);
         if(savedInstanceState==null){
             orderListFragment = new OrderListFragment();
+            Bundle bundle = new Bundle();
+            bundle.putSerializable("account",account);
+            orderListFragment.setArguments(bundle);
             FragmentManager fragmentManager = getFragmentManager();
             FragmentTransaction fragmentTransaction= fragmentManager.beginTransaction();
             fragmentTransaction.add(R.id.department_purchase_activity_layout, orderListFragment, "orderList");
@@ -119,29 +122,35 @@ public class DepartmentPurchaseActivity extends ActionBarActivity {
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if(keyCode==KeyEvent.KEYCODE_BACK){
             if(getFragmentManager().getBackStackEntryCount()>0) {
-                getFragmentManager().popBackStack();
-                getSupportActionBar().show();
-                switch (selectedSpinnerItem){
-                    case CONFIRM:
-                        getPurchaseConfirmList();
-                        break;
-                    case MASS:
-                        getPurchaseMassList();
-                        break;
-                    case SAMPLE:
-                        getPurchaseSampleList();
-                        break;
-                    case SWEATER:
-                        getPurchaseSweaterList();
-                        break;
-                    default:
-                        break;
-
-                }
+                goBack();
                 return false;
             }
         }
         return super.onKeyDown(keyCode, event);
+    }
+
+    public void goBack(){
+        if(getFragmentManager().getBackStackEntryCount()>0) {
+            getFragmentManager().popBackStack();
+            getSupportActionBar().show();
+            switch (selectedSpinnerItem){
+                case CONFIRM:
+                    getPurchaseConfirmList();
+                    break;
+                case MASS:
+                    getPurchaseMassList();
+                    break;
+                case SAMPLE:
+                    getPurchaseSampleList();
+                    break;
+                case SWEATER:
+                    getPurchaseSweaterList();
+                    break;
+                default:
+                    break;
+
+            }
+        }
     }
 
 }
