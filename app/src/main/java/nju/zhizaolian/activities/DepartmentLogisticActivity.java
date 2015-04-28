@@ -1,6 +1,5 @@
 package nju.zhizaolian.activities;
 
-import android.app.Fragment;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
@@ -8,13 +7,14 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ArrayAdapter;
 import android.widget.SpinnerAdapter;
+import android.widget.Toast;
 
 import nju.zhizaolian.R;
-import nju.zhizaolian.fragments.DeliverSampleFragment;
-import nju.zhizaolian.fragments.ReceiveSampleFragment;
+import nju.zhizaolian.fragments.OrderListFragment;
+import nju.zhizaolian.models.Operation;
 
 public class DepartmentLogisticActivity extends ActionBarActivity {
-
+    private OrderListFragment orderListFragment;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,18 +23,24 @@ public class DepartmentLogisticActivity extends ActionBarActivity {
         ActionBar actionBar=getSupportActionBar();
         actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_LIST);
         actionBar.setListNavigationCallbacks(logisticList,onNavigationListener);
+        if(savedInstanceState == null){
+            orderListFragment=new OrderListFragment();
+            getFragmentManager().beginTransaction().replace(R.id.logisticContainer,orderListFragment).commit();
+        }
     }
     ActionBar.OnNavigationListener onNavigationListener=new ActionBar.OnNavigationListener() {
         @Override
         public boolean onNavigationItemSelected(int i, long l) {
-            Fragment newFragment=null;
+
             switch (i){
-                case 0:
+                case 0:orderListFragment.getListViewByURLAndOperation("/fmc/logistics/mobile_receiveSampleList.do", Operation.RECEIVESAMPLE);
                     break;
-                case 1:newFragment=new DeliverSampleFragment();break;
-                case 2: newFragment=new ReceiveSampleFragment();break;
-                case 3:newFragment=new ReceiveSampleFragment();break;
-                default:newFragment=new ReceiveSampleFragment();break;
+                case 1:orderListFragment.getListViewByURLAndOperation("/fmc/logistics/mobile_sendSampleList.do",Operation.DELIVERSAMPLE);break;
+                case 2:Toast.makeText(getApplicationContext(), "暂不可用", Toast.LENGTH_SHORT).show();break;
+                case 3:
+                    Toast.makeText(getApplicationContext(), "暂不可用", Toast.LENGTH_SHORT).show();break;
+
+                default:break;
             }
 
             return false;

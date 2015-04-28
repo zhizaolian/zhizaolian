@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.JsonHttpResponseHandler;
@@ -128,9 +129,7 @@ public class LoginActivity extends Activity  {
                             }
                             login(account);
                         }else{
-                            mPasswordView.setError(getString(R.string.error_incorrect_password));
-                            mPasswordView.setError(null);
-
+                            Toast.makeText(getApplicationContext(),"密码错误",Toast.LENGTH_SHORT).show();
                         }
                     } catch (JSONException e) {
                         e.printStackTrace();

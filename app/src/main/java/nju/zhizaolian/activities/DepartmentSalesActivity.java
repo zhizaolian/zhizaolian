@@ -11,13 +11,8 @@ import android.widget.SpinnerAdapter;
 import android.widget.Toast;
 
 import nju.zhizaolian.R;
-import nju.zhizaolian.fragments.ChangeQuoteFragment;
 import nju.zhizaolian.fragments.CustomListOrderFragment;
-import nju.zhizaolian.fragments.MergePriceFragment;
 import nju.zhizaolian.fragments.OrderListFragment;
-import nju.zhizaolian.fragments.QuoteAgreedFragment;
-import nju.zhizaolian.fragments.SignContractFragment;
-import nju.zhizaolian.fragments.UrgeRemainingBalance;
 import nju.zhizaolian.models.Account;
 import nju.zhizaolian.models.Operation;
 import nju.zhizaolian.models.TaskNumber;
@@ -25,22 +20,36 @@ import nju.zhizaolian.models.TaskNumber;
 public class DepartmentSalesActivity extends ActionBarActivity   {
     private Account account=null;
     OrderListFragment orderListFragment;
+    public static final int CUSTOMLIST=0;
+    public static final int CHANGEORDER=1;
+    public static  final int MERGEPRICE=2;
+    public static final int QUOTEAGREES=3;
+    public static final int CHANGEQUOTE=4;
+    public static final int SIGNCONTRACT=5;
+    public static final int URGEREMAININGMONEY=6;
+    public static final int CHANGECONTRACT=7;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sales_department);
-        SpinnerAdapter spinnerAdapter= ArrayAdapter.createFromResource(this,
-                R.array.sales_list,R.layout.support_simple_spinner_dropdown_item);
-        ActionBar actionBar=getSupportActionBar();
         account= (Account) getIntent().getSerializableExtra("account");
 
 
         TaskNumber taskNumber= (TaskNumber) getIntent().getSerializableExtra("taskNumber");
-        actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_LIST);
-        actionBar.setListNavigationCallbacks(spinnerAdapter, onNavigationListener);
+        SpinnerAdapter spinnerAdapter= ArrayAdapter.createFromResource(this,
+                R.array.sales_list,R.layout.support_simple_spinner_dropdown_item);
+        ActionBar actionBar=getSupportActionBar();
 
-        orderListFragment=new OrderListFragment();
-        getFragmentManager().beginTransaction().replace(R.id.salesDepartmentcontainers,orderListFragment).commit();
+        actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_LIST);
+
+
+        actionBar.setListNavigationCallbacks(spinnerAdapter, onNavigationListener);
+        if(savedInstanceState == null){
+            orderListFragment=new OrderListFragment();
+            getFragmentManager().beginTransaction().replace(R.id.salesDepartmentcontainers,orderListFragment).commit();
+        }
+
+
 
 
     }
@@ -48,21 +57,26 @@ public class DepartmentSalesActivity extends ActionBarActivity   {
     ActionBar.OnNavigationListener onNavigationListener =new ActionBar.OnNavigationListener() {
         @Override
         public boolean onNavigationItemSelected(int itemPosition, long itemId) {
-            Fragment newFragment=new Fragment();
-            switch (itemPosition){
-                case 0:newFragment=new CustomListOrderFragment(account);break;
-                case 1:Toast.makeText(DepartmentSalesActivity.this, "暂不可用", Toast.LENGTH_SHORT).show();break;
 
-                case 2:newFragment=new MergePriceFragment();
-                    Bundle bundle=new Bundle();
-                    bundle.putString("operation", String.valueOf(Operation.MERGEPRICE));
-                    newFragment.setArguments(bundle);
+            switch (itemPosition){
+                case CUSTOMLIST:Fragment newFragment=new CustomListOrderFragment(account);
+
+                       getFragmentManager().beginTransaction().replace(R.id.salesDepartmentcontainers,newFragment).addToBackStack(null).commit();
+
+                    break;
+                case CHANGEORDER:Toast.makeText(DepartmentSalesActivity.this, "暂不可用", Toast.LENGTH_SHORT).show();
+
                     break;
 
-                case 3:newFragment=new QuoteAgreedFragment();break;
-                case 4:newFragment=new ChangeQuoteFragment();break;
-                case 5:newFragment=new SignContractFragment();break;
-                case 6:newFragment=new UrgeRemainingBalance();break;
+                case MERGEPRICE: orderListFragment.getListViewByURLAndOperation("/fmc/market/mobile_mergeQuoteList.do", Operation.MERGEPRICE);
+
+                    break;
+
+
+                case QUOTEAGREES:orderListFragment.getListViewByURLAndOperation("/fmc/market/mobile_mergeQuoteList.do",Operation.QUOTEAGREED);break;
+                case CHANGEQUOTE:orderListFragment.getListViewByURLAndOperation("",Operation.CHANGEQUOTE);break;
+                case 5:Toast.makeText(DepartmentSalesActivity.this, "暂不可用", Toast.LENGTH_SHORT).show();break;
+                case 6:Toast.makeText(DepartmentSalesActivity.this, "暂不可用", Toast.LENGTH_SHORT).show();break;
                 case 7:Toast.makeText(DepartmentSalesActivity.this, "暂不可用", Toast.LENGTH_SHORT).show();break;
                 default:break;
             }
@@ -72,6 +86,8 @@ public class DepartmentSalesActivity extends ActionBarActivity   {
             return false;
         }
     };
+
+
 
 
     @Override

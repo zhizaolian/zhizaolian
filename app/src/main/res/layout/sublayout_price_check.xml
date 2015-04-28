@@ -1,81 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/total_cost"
-        android:id="@+id/textView201"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="1000.0"
-        android:id="@+id/textView202"
-        android:layout_alignParentTop="true"
-        android:layout_toRightOf="@+id/textView201"
-        android:layout_toEndOf="@+id/textView201"
-        android:layout_marginLeft="33dp"
-        android:layout_marginStart="33dp" />
+        android:id="@+id/total_cost_view"
+         />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/produce_price"
-        android:id="@+id/textView203"
-        android:layout_below="@+id/textView201"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+       />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="1000.000"
-        android:id="@+id/textView204"
-        android:layout_alignTop="@+id/textView203"
-        android:layout_alignLeft="@+id/textView202"
-        android:layout_alignStart="@+id/textView202" />
+        android:id="@+id/produce_price_view"
+       />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/profit_per_clothes"
-        android:id="@+id/textView205"
-        android:layout_below="@+id/textView203"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignBottom="@+id/editText6" />
+
 
     <EditText
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/editText6"
-        android:layout_below="@+id/textView204"
-        android:layout_alignLeft="@+id/textView204"
-        android:layout_alignStart="@+id/textView204"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:id="@+id/profit_per_clothes_edit"
+        android:inputType="number"
+        android:hint="@string/profit_per_clothes"
+       />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/custom_quote_price"
-        android:id="@+id/textView206"
-        android:layout_below="@+id/textView205"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+
+         />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="11442412"
-        android:id="@+id/textView207"
-        android:layout_alignTop="@+id/textView206"
-        android:layout_alignLeft="@+id/editText6"
-        android:layout_alignStart="@+id/editText6" />
+        android:id="@+id/custom_quote_view"
+         />
 
-</RelativeLayout>
+</LinearLayout>
