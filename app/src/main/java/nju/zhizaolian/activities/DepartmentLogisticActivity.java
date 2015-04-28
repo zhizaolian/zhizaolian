@@ -33,7 +33,8 @@ public class DepartmentLogisticActivity extends ActionBarActivity {
         public boolean onNavigationItemSelected(int i, long l) {
 
             switch (i){
-                case 0:orderListFragment.getListViewByURLAndOperation("/fmc/logistics/mobile_receiveSampleList.do", Operation.RECEIVESAMPLE);
+                case 0:
+                    orderListFragment.getListViewByURLAndOperation("/fmc/logistics/mobile_receiveSampleList.do", Operation.RECEIVESAMPLE);
                     break;
                 case 1:orderListFragment.getListViewByURLAndOperation("/fmc/logistics/mobile_sendSampleList.do",Operation.DELIVERSAMPLE);break;
                 case 2:Toast.makeText(getApplicationContext(), "暂不可用", Toast.LENGTH_SHORT).show();break;

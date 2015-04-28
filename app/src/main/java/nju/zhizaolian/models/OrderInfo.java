@@ -1,5 +1,6 @@
 package nju.zhizaolian.models;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
@@ -30,19 +31,68 @@ public class OrderInfo {
         OrderInfo orderInfo=new OrderInfo();
         try{
             orderInfo.taskId= String.valueOf(jsonObject.get("taskId"));
-            orderInfo.craft= Craft.fromJson(jsonObject.getJSONObject("craft"));
-            orderInfo.accessories=Accessory.fromJson(jsonObject.getJSONArray("accessorys"));
+            try{
+                orderInfo.logistics=Logistics.fromJson(jsonObject.getJSONObject("logistics"));
+            }catch (JSONException e){
+                e.printStackTrace();
+            }
+            try {
+                orderInfo.craft= Craft.fromJson(jsonObject.getJSONObject("craft"));
+            }catch (JSONException e){
+                e.printStackTrace();
+            }
+            try{
+                orderInfo.accessories=Accessory.fromJson(jsonObject.getJSONArray("accessorys"));
+            }catch (JSONException e){
+                e.printStackTrace();
+            }
+
             orderInfo.custom=Custom.fromJson(jsonObject.getJSONObject("customer"));
-            orderInfo.fabricCosts=FabricCost.fromJson(jsonObject.getJSONArray("fabricCosts"));
-            orderInfo.versionDatas=VersionData.fromJson(jsonObject.getJSONArray("versions"));
-            orderInfo.processInstanceId=jsonObject.getString("processInstanceId");
-            orderInfo.order=Order.fromJson(jsonObject.getJSONObject("order"));
-            orderInfo.accessoryCosts=AccessoryCost.fromJson(jsonObject.getJSONArray("accessoryCosts"));
-            orderInfo.orderSampleAmount=jsonObject.getString("orderSampleAmount");
-            orderInfo.quote= Quote.fromJson(jsonObject.getJSONObject("quote"));
-            orderInfo.fabrics=Fabric.fromJson(jsonObject.getJSONArray("fabrics"));
+            try{
+                orderInfo.fabricCosts=FabricCost.fromJson(jsonObject.getJSONArray("fabricCosts"));
+            }catch (JSONException e){
+                e.printStackTrace();
+            }
+            try{
+                orderInfo.versionDatas=VersionData.fromJson(jsonObject.getJSONArray("versions"));
+
+            }catch (JSONException e){
+                e.printStackTrace();
+            }
+            try{
+                orderInfo.processInstanceId=jsonObject.getString("processInstanceId");
+
+            }catch (JSONException e){
+                e.printStackTrace();
+            }
+            try{
+                orderInfo.order=Order.fromJson(jsonObject.getJSONObject("order"));
+            }catch (JSONException e){
+                e.printStackTrace();
+            }
+            try{
+                orderInfo.accessoryCosts=AccessoryCost.fromJson(jsonObject.getJSONArray("accessoryCosts"));
+            }catch (JSONException e){
+                e.printStackTrace();
+            }
+            try{
+                orderInfo.orderSampleAmount=jsonObject.getString("orderSampleAmount");
+            }catch (JSONException e){
+                e.printStackTrace();
+            }
+            try{
+                orderInfo.quote= Quote.fromJson(jsonObject.getJSONObject("quote"));
+            }catch (JSONException e){
+                e.printStackTrace();
+            }
+            try{
+                orderInfo.fabrics=Fabric.fromJson(jsonObject.getJSONArray("fabrics"));
+            }catch (JSONException e){
+                e.printStackTrace();
+            }
+
             //orderInfo.employee=Employee.fromJson(jsonObject.getJSONObject("employee"));
-            orderInfo.logistics=Logistics.fromJson(jsonObject.getJSONObject("logistics"));
+
             orderInfo.orderId=jsonObject.getString("orderId");
 
         }catch (Exception e){

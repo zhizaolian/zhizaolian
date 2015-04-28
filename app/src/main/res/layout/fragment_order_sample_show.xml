@@ -3,9 +3,7 @@
     android:layout_height="match_parent"
     tools:context="nju.zhizaolian.fragments.OrderSampleShowFragment">
 
-   <ScrollView
-       android:layout_width="fill_parent"
-       android:layout_height="wrap_content">
+
        <LinearLayout
            android:layout_width="fill_parent"
            android:layout_height="wrap_content"
@@ -96,6 +94,6 @@
 
 
            </LinearLayout>
-       </ScrollView>
+
 
 </FrameLayout>

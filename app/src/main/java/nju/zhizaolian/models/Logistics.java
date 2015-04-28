@@ -3,8 +3,6 @@ package nju.zhizaolian.models;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.sql.Timestamp;
-
 /**
  * Created by lk on 15/4/27.
  */
@@ -12,7 +10,7 @@ public class Logistics {
     // Fields
 
     private Integer orderId;
-    private Timestamp inPostSampleClothesTime;
+    private String inPostSampleClothesTime;
     private String inPostSampleClothesType;
     private String inPostSampleClothesNumber;
     private String sampleClothesType;
@@ -43,7 +41,7 @@ public class Logistics {
     }
 
     /** full constructor */
-    public Logistics(Integer orderId, Timestamp inPostSampleClothesTime,
+    public Logistics(Integer orderId, String inPostSampleClothesTime,
                      String inPostSampleClothesType, String inPostSampleClothesNumber,
                      String sampleClothesType, String sampleClothesAddress,
                      String sampleClothesName, String sampleClothesPhone,
@@ -75,7 +73,7 @@ public class Logistics {
         Logistics logistics=new Logistics();
         try {
             logistics.inPostSampleClothesNumber=jsonObject.getString("inPostSampleClothesNumber");
-            logistics.inPostSampleClothesTime= Timestamp.valueOf(jsonObject.getString("inPostSampleClothesTime"));
+            logistics.inPostSampleClothesTime= jsonObject.getString("inPostSampleClothesTime");
             logistics.inPostSampleClothesType=jsonObject.getString("inPostSampleClothesType");
             logistics.orderId= Integer.valueOf(jsonObject.getString("orderId"));
             logistics.productClothesAddress=jsonObject.getString("productClothesAddress");
@@ -107,11 +105,11 @@ public class Logistics {
         this.orderId = orderId;
     }
 
-    public Timestamp getInPostSampleClothesTime() {
+    public String getInPostSampleClothesTime() {
         return inPostSampleClothesTime;
     }
 
-    public void setInPostSampleClothesTime(Timestamp inPostSampleClothesTime) {
+    public void setInPostSampleClothesTime(String inPostSampleClothesTime) {
         this.inPostSampleClothesTime = inPostSampleClothesTime;
     }
 

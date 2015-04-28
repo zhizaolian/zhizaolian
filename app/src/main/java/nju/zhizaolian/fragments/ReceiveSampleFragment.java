@@ -62,10 +62,13 @@ public class ReceiveSampleFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view=inflater.inflate(R.layout.fragment_receive__sample_, container, false);
-       // getReceiveSampleDetail(receiveSampleDetailUrl);
         listInfo= (ListInfo) getArguments().getSerializable("info");
         order=listInfo.getOrder();
-        logistics=orderInfo.getLogistics();
+
+        getReceiveSampleDetail();
+
+
+
 
         isProvideSampleView= (TextView) view.findViewById(R.id.is_Provide_Sample_view);
         expressTimeView= (TextView) view.findViewById(R.id.express_time_view);
@@ -93,32 +96,34 @@ public class ReceiveSampleFragment extends Fragment {
 
 
         isProvideSampleView.setText("未收到样衣");
-        expressTimeView.setText((CharSequence) logistics.getInPostSampleClothesTime());
-        expressNameView.setText(logistics.getInPostSampleClothesType());
-        expressNumberView.setText(logistics.getInPostSampleClothesNumber());
-        postManView.setText(logistics.getSampleClothesName());
-        postManPhoneView.setText(logistics.getSampleClothesPhone());
-        expressAddressView.setText(logistics.getSampleClothesAddress());
+
 
         Picasso.with(container.getContext()).load(IPAddress.getIP()+order.getSampleClothesPicture()).into(samplePictureImage);
         Picasso.with(container.getContext()).load(IPAddress.getIP()+order.getReferencePicture()).into(referencePictureImage);
         return view;
     }
 
-    public void getReceiveSampleDetail(String url){
+    public void getReceiveSampleDetail(){
         AsyncHttpClient client=new AsyncHttpClient();
         RequestParams requestParams=new RequestParams();
-        requestParams.put("orderId",listInfo.getOrderId());
+        requestParams.put("orderId",listInfo.getOrder().getOrderId());
         SharedPreferences sharedPreferences=getActivity().getSharedPreferences("common",0);
         String jsessionId=sharedPreferences.getString("jsessionId", "wrong");
         requestParams.put("jsessionId",jsessionId);
-        client.get(IPAddress.getIP() + url, requestParams, new JsonHttpResponseHandler() {
+        client.get(IPAddress.getIP() + receiveSampleDetailUrl, requestParams, new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                 super.onSuccess(statusCode, headers, response);
                 Log.d("receivesample", response.toString());
                 try {
                     orderInfo = OrderInfo.fromJson(response.getJSONObject("orderInfo"));
+                    logistics=orderInfo.getLogistics();
+                    expressTimeView.setText(logistics.getInPostSampleClothesTime());
+                    expressNameView.setText(logistics.getInPostSampleClothesType());
+                    expressNumberView.setText(logistics.getInPostSampleClothesNumber());
+                    postManView.setText(logistics.getSampleClothesName());
+                    postManPhoneView.setText(logistics.getSampleClothesPhone());
+                    expressAddressView.setText(logistics.getSampleClothesAddress());
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
@@ -138,13 +143,13 @@ public class ReceiveSampleFragment extends Fragment {
     public void receiveSampleSubmit(){
         AsyncHttpClient client=new AsyncHttpClient();
         RequestParams requestParams=new RequestParams();
-        requestParams.put("orderId",listInfo.getOrderId());
+        requestParams.put("orderId",order.getOrderId());
         SharedPreferences sharedPreferences=getActivity().getSharedPreferences("common",0);
         String jsessionId=sharedPreferences.getString("jsessionId", "wrong");
         requestParams.put("jsessionId",jsessionId);
         requestParams.put("result","2");
         requestParams.put("taskId",orderInfo.getTaskId());
-        requestParams.put("orderId",orderInfo.getOrderId());
+        requestParams.put("orderId",order.getOrderId());
         client.post(IPAddress.getIP()+receiveSampleSubmitUrl,requestParams,new JsonHttpResponseHandler(){
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
@@ -170,7 +175,7 @@ public class ReceiveSampleFragment extends Fragment {
 
         AsyncHttpClient client=new AsyncHttpClient();
         RequestParams requestParams=new RequestParams();
-        requestParams.put("orderId",listInfo.getOrderId());
+        requestParams.put("orderId",order.getOrderId());
         SharedPreferences sharedPreferences=getActivity().getSharedPreferences("common",0);
         String jsessionId=sharedPreferences.getString("jsessionId", "wrong");
         requestParams.put("jsessionId",jsessionId);
