@@ -8,38 +8,9 @@
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
+            android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal|top">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/material_price"
-                android:textSize="@dimen/abc_text_size_large_material"/>
-            <include layout="@layout/sublayout_material_price"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/accessories_price"
-                android:textSize="@dimen/abc_text_size_large_material"/>
-            <include layout="@layout/sublayout_accessories_price"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/material_accessories_total_count"
-                android:textSize="@dimen/abc_text_size_large_material"/>
-            <include layout="@layout/sublayout_material_accessories_totalcount"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/technology_price"
-                android:textSize="@dimen/abc_text_size_large_material"/>
-            <include layout="@layout/sublayout_technology_price"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="@dimen/abc_text_size_large_material"
-                android:text="@string/other_cost_fee"/>
-            <include layout="@layout/sublayout_other_cost"/>
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -50,29 +21,33 @@
             <Button
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/upload_sample_money_picture"/>
+                android:text="@string/upload_sample_money_picture"
+                android:id="@+id/confirm_quote_picture_button"/>
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-            <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/remark_info"/>
+                android:id="@+id/receive_sample_money_image"/>
+          
             <EditText
                 android:layout_width="fill_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:hint="@string/remark_info"
+                android:id="@+id/quote_agreed_remark_edit"/>
             <Button
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/ensure_price"/>
+                android:text="@string/ensure_price"
+                android:id="@+id/ensure_quote_agreed_button"/>
             <Button
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
+                android:id="@+id/change_quote_button"
                 android:text="@string/chang_price"/>
             <Button
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/cancel_order"
+                android:id="@+id/unable_confirm_quote_button"
                 style="@style/MyWarningButtonStyle"/>
         </LinearLayout>
     </ScrollView>
