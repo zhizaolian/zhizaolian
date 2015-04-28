@@ -94,7 +94,11 @@ public class OrderListFragment extends Fragment{
             data.put("number",""+orderListInfo.get(i).getOrderId());
             data.put("date", orderListInfo.get(i).getOrder().getOrderTime());
             data.put("state", orderListInfo.get(i).getOrder().getOrderProcessStateName());
-            data.put("s_name", orderListInfo.get(i).getEmployee().getEmployeeName());
+            if(operation==Operation.RECEIVESAMPLE||operation==Operation.DELIVERSAMPLE){
+                data.put("s_name", "无关紧要");
+            }else {
+                data.put("s_name", orderListInfo.get(i).getEmployee().getEmployeeName());
+            }
             data.put("c_name", orderListInfo.get(i).getOrder().getCustomerName());
             data.put("cc_name", orderListInfo.get(i).getOrder().getCustomerCompany());
             data.put("image_url",orderListInfo.get(i).getOrder().getSampleClothesThumbnailPicture());
@@ -118,9 +122,9 @@ public class OrderListFragment extends Fragment{
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                 try {
                     ArrayList<ListInfo> listInfoArrayList =ListInfo.fromJson(response.getJSONArray("list"));
-                    updateListView(listInfoArrayList);
                     operation=operate;
                     list_url=url;
+                    updateListView(listInfoArrayList);
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
