@@ -1,7 +1,9 @@
 package nju.zhizaolian.fragments;
 
 
+import android.app.AlertDialog;
 import android.content.ContentResolver;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
@@ -58,9 +60,11 @@ public class DepartmentDesignEnteringFragment extends Fragment {
     TextView version_maker_name_string;
     TextView version_done_time_string;
     ImageButton design_undo_button;
+    ImageButton design_entering_back_button;
     ListInfo listInfo;
     String taskId;
     String path=null;
+    String orderSampleStatus;
 
     public DepartmentDesignEnteringFragment() {
         // Required empty public constructor
@@ -100,7 +104,20 @@ public class DepartmentDesignEnteringFragment extends Fragment {
                 }else if(design_entering_accept_button.getProgress()==-1){
                     design_entering_accept_button.setProgress(0);
                 }else if (design_entering_accept_button.getProgress()==100){
-                    uploadAllVersionToServer("/fmc/design/mobile_uploadDesignSubmit_all.do", path);
+                    if(orderSampleStatus.equals("1")||orderSampleStatus.equals("2")){
+                        new AlertDialog.Builder(getActivity())
+                        .setTitle("警告")
+                        .setMessage("样衣原料未准备好")
+                        .setPositiveButton("知道了(⊙_⊙)",new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.cancel();
+                            }
+                        })
+                        .show();
+                    }else {
+                        produceSampleSubmitToServer("1");
+                    }
                 }else {
                     Toast.makeText(getActivity(), "上传中，稍候", Toast.LENGTH_SHORT).show();
                 }
@@ -110,7 +127,23 @@ public class DepartmentDesignEnteringFragment extends Fragment {
         design_entering_cancel_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ((DepartmentDesignActivity) getActivity()).goBack();
+                new AlertDialog.Builder(getActivity())
+                        .setTitle("确认终止订单？")
+                        .setMessage("订单编号"+listInfo.getOrderId())
+                        .setPositiveButton("嗯(⊙_⊙)",new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                produceSampleSubmitToServer("0");
+                                dialog.cancel();
+                            }
+                        })
+                        .setNegativeButton("不(>_<)",new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.cancel();
+                            }
+                        })
+                        .show();
             }
         });
         design_undo_button = (ImageButton) view .findViewById(R.id.design_undo_button);
@@ -150,6 +183,13 @@ public class DepartmentDesignEnteringFragment extends Fragment {
                 startActivityForResult(intent,1);
             }
         });
+        design_entering_back_button = (ImageButton) view.findViewById(R.id.design_entering_back_button);
+        design_entering_back_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ((DepartmentDesignActivity) getActivity()).goBack();
+            }
+        });
         getTaskIdFromServer(listInfo.getOrder().getOrderId());
         return view;
     }
@@ -157,7 +197,6 @@ public class DepartmentDesignEnteringFragment extends Fragment {
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         if(resultCode==getActivity().RESULT_OK){
-            //TODO upload the image to server
             Uri uri = data.getData();
             path=getRealFilePath(uri);
             ContentResolver cr = getActivity().getContentResolver();
@@ -171,16 +210,7 @@ public class DepartmentDesignEnteringFragment extends Fragment {
         super.onActivityResult(requestCode, resultCode, data);
     }
 
-    public void uploadAllVersionToServer(String web_url, String path){
-        String name =version_maker_name_edit_text.getText().toString();
-        if(name==null||name.length()==0){
-            Toast.makeText(getActivity(), "制版人名字不为空", Toast.LENGTH_LONG).show();
-            version_maker_name_edit_text.setError("制版人名字不为空");
-            return;
-        }
-        File file = new File(path);
-        if (file.exists() && file.length() > 0) {
-            try {
+    public void produceSampleSubmitToServer(String result){
             AsyncHttpClient client = new AsyncHttpClient();
             RequestParams params = new RequestParams();
             SharedPreferences settings =getActivity().getSharedPreferences("common", 0);
@@ -188,15 +218,22 @@ public class DepartmentDesignEnteringFragment extends Fragment {
             params.put("jsessionId",jSessionId);
             params.put("orderId",listInfo.getOrder().getOrderId());
             params.put("taskId",taskId);
-            params.put("cadSide",version_maker_name_edit_text.getText().toString());
-            params.put("completeTime",version_done_time_edit_text.getText().toString());
-            params.put("CADFile", file);
-            client.post(IPAddress.getIP()+web_url,params,new JsonHttpResponseHandler() {
+            params.put("result",result);
+            client.post(IPAddress.getIP()+"/fmc/design/mobile_produceSampleSubmit.do",params,new JsonHttpResponseHandler() {
                 @Override
                 public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
-                    //TODO 这里要的是一个success的返回值？
-                    Toast.makeText(getActivity(), "成功\n该订单跳转下一步", Toast.LENGTH_SHORT).show();
-                    ((DepartmentDesignActivity) getActivity()).goBack();
+                    try {
+                        boolean isSuccess=response.getBoolean("isSuccess");
+                        if(isSuccess) {
+                             Toast.makeText(getActivity(), "操作成功\n该订单跳转下一步", Toast.LENGTH_SHORT).show();
+                            ((DepartmentDesignActivity) getActivity()).goBack();
+                        }else{
+                            Toast.makeText(getActivity(), "操作失败\n服务器表示亚历山大", Toast.LENGTH_SHORT).show();
+                        }
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+
                 }
 
                 @Override
@@ -204,17 +241,6 @@ public class DepartmentDesignEnteringFragment extends Fragment {
                     Toast.makeText(getActivity(), "网络连接错误", Toast.LENGTH_SHORT).show();
                 }
             });
-
-
-            } catch (FileNotFoundException e) {
-                e.printStackTrace();
-            }
-        }else {
-            Toast.makeText(getActivity(), "文件不存在", Toast.LENGTH_LONG).show();
-        }
-
-
-
     }
 
     public void uploadImageToServer(String web_url, String path){
@@ -242,6 +268,7 @@ public class DepartmentDesignEnteringFragment extends Fragment {
                     public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                         try {
                             JSONObject designCad = response.getJSONObject("orderInfo").getJSONObject("designCad");
+                            orderSampleStatus = response.getString("orderSampleStatus");
                             choose_version_file_button.setEnabled(false);
                             version_maker_name_edit_text.setEnabled(false);
                             setVersionAllText(designCad.getString("cadVersion"), designCad.getString("uploadTime"), designCad.getString("cadSide"), designCad.getString("completeTime"));
@@ -299,9 +326,21 @@ public class DepartmentDesignEnteringFragment extends Fragment {
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                 try {
                     taskId = response.getJSONObject("orderInfo").getString("taskId");
-                    design_entering_accept_button.setEnabled(true);
                     JSONObject designCad = response.getJSONObject("orderInfo").getJSONObject("designCad");
                     setVersionAllText(designCad.getString("cadVersion"),designCad.getString("uploadTime"),designCad.getString("cadSide"),designCad.getString("completeTime"));
+                    orderSampleStatus = response.getString("orderSampleStatus");
+                    if(designCad.getString("cadVersion").equals("1")){
+                        design_entering_accept_button.setProgress(0);
+                        design_undo_button.setVisibility(View.GONE);
+                    }else {
+                        design_entering_accept_button.setProgress(100);
+                        design_undo_button.setVisibility(View.VISIBLE);
+                        choose_version_file_button.setEnabled(false);
+                        version_maker_name_edit_text.setEnabled(false);
+                    }
+                    design_entering_accept_button.setEnabled(true);
+
+
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }

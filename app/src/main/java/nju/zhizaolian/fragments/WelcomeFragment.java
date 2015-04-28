@@ -89,7 +89,6 @@ public class WelcomeFragment extends Fragment implements View.OnClickListener{
         mFragment=this;
         View view = inflater.inflate(R.layout.welcome_layout,container,false);
         account =(Account) getArguments().getSerializable("account");
-        getTaskNumberFromServer();
         inquirySheet=(TextView) view.findViewById(R.id.inquiry_sheet_download);
         inquirySheet.setOnClickListener(this);
         priceSheet=(TextView) view.findViewById(R.id.price_sheet_download);
@@ -196,6 +195,7 @@ public class WelcomeFragment extends Fragment implements View.OnClickListener{
                 break;
         }
 
+        data.clear();
         for(int i=0;i<authorization.length;i++){
             if(authorization[i]==1) {
                 HashMap<String, String> map = new HashMap<>();
@@ -246,6 +246,11 @@ public class WelcomeFragment extends Fragment implements View.OnClickListener{
         });
     }
 
+    @Override
+    public void onResume() {
+        getTaskNumberFromServer();
+        super.onResume();
+    }
 
     public void closeDrawers(){
         drawerLayout.closeDrawers();
