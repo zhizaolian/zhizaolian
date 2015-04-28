@@ -106,22 +106,29 @@ public class DepartmentProductionActivity extends ActionBarActivity {
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if(keyCode==KeyEvent.KEYCODE_BACK){
             if(getFragmentManager().getBackStackEntryCount()>0) {
-                getFragmentManager().popBackStack();
-                getSupportActionBar().show();
-                switch (selectedSpinnerItem){
-                    case CHECK:
-                        getProductionCheckList();
-                        break;
-                    case MASS:
-                        getProductionMassList();
-                        break;
-                    default:
-                        break;
-
-                }
+                goBack();
                 return false;
             }
         }
         return super.onKeyDown(keyCode, event);
+    }
+
+    public void goBack(){
+        if(getFragmentManager().getBackStackEntryCount()>0) {
+            getFragmentManager().popBackStack();
+            getSupportActionBar().show();
+            switch (selectedSpinnerItem){
+                case CHECK:
+                    getProductionCheckList();
+                    break;
+                case MASS:
+                    getProductionMassList();
+                    break;
+                default:
+                    break;
+
+            }
+
+        }
     }
 }
