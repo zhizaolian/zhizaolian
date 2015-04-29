@@ -1,6 +1,7 @@
 package nju.zhizaolian.fragments;
 
 
+import android.app.ProgressDialog;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
@@ -44,6 +45,7 @@ public class OrderListFragment extends Fragment{
     String list_url;
     SwipeRefreshLayout swipeRefreshLayout;
     Account account;
+    ProgressDialog progressDialog;
     public OrderListFragment() {
         // Required empty public constructor
     }
@@ -112,6 +114,7 @@ public class OrderListFragment extends Fragment{
     }
 
     public void getListViewByURLAndOperation(final String url, final Operation operate){
+        progressDialog= ProgressDialog.show(getActivity(),"请等待","正在刷新列表",true);
         if(!isVisible()){
             getActivity().getFragmentManager().popBackStack();
         }
@@ -128,6 +131,7 @@ public class OrderListFragment extends Fragment{
                     operation=operate;
                     list_url=url;
                     updateListView(listInfoArrayList);
+                    progressDialog.dismiss();
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }

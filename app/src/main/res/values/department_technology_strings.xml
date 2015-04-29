@@ -15,6 +15,8 @@
     <string name="unit_yuan_per_one">(元/件)</string>
     <string name="technology_needed">需要工艺</string>
     <string name="technology_not_needed">无需工艺</string>
+    <string name="want_upload">要上传</string>
+    <string name="uploaded" >已上传</string>
 
     <string-array name="technology_department_list">
         <item>设计验证</item>
