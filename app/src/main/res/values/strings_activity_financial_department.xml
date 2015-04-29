@@ -21,7 +21,7 @@
     <string-array name="receive_money_account_list">
         <item>36933145@qq.com</item>
         <item>6228480424649506013</item>
-        <item>872104037</item>
+        <item>872104037@qq.com</item>
     </string-array>
     <string name="number_of_clothes">件数</string>
     <string name="unit_price">单价</string>

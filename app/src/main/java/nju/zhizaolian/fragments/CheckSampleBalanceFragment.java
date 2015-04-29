@@ -2,6 +2,7 @@ package nju.zhizaolian.fragments;
 
 
 import android.app.Fragment;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,25 +13,44 @@ import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.loopj.android.http.AsyncHttpClient;
+import com.loopj.android.http.JsonHttpResponseHandler;
+import com.loopj.android.http.RequestParams;
+
+import org.apache.http.Header;
+import org.json.JSONObject;
+
 import nju.zhizaolian.R;
+import nju.zhizaolian.models.IPAddress;
+import nju.zhizaolian.models.ListInfo;
+import nju.zhizaolian.models.Order;
+import nju.zhizaolian.models.OrderInfo;
 
 /**
  *
  */
 public class CheckSampleBalanceFragment extends Fragment {
-    TextView checkSampleNumberView;
-    TextView checkSampleNumberUnitPriceView;
-    TextView checkSampleReceivableMoneyView;
-    EditText checkSampleRemitPersonEdit;
-    EditText checkSampleRemitCardNumberEdit;
-    EditText checkSampleRemitBankEdit;
-    TextView checkSampleRemitMoneyView;
-    TextView checkSampleReceiveMoneyTimeView;
-    Spinner  checkSampleReceiveMoneyAccountSpinner;
-    TextView checkSampleRemarkView;
-    ImageView checkSampleImageView;
-    Button checkSampleEnsureMoneyButton;
-    Button checkSampleUnableMonryButton;
+    private TextView checkSampleNumberView;
+    private TextView checkSampleNumberUnitPriceView;
+    private TextView checkSampleReceivableMoneyView;
+    private  EditText checkSampleRemitPersonEdit;
+    private  EditText checkSampleRemitCardNumberEdit;
+    private  EditText checkSampleRemitBankEdit;
+    private  TextView checkSampleRemitMoneyView;
+    private  TextView checkSampleReceiveMoneyTimeView;
+    private  Spinner  checkSampleReceiveMoneyAccountSpinner;
+    private  TextView checkSampleRemarkView;
+    private  ImageView checkSampleImageView;
+    private  Button checkSampleEnsureMoneyButton;
+    private  Button checkSampleUnableMoneyButton;
+
+
+    private String confirmSampleMoneyDetailUrl="/fmc/finance/mobile_confirmSampleMoneyDetail.do";
+    private String confirmSampleMoneySubmitUrl="/fmc//finance/mobile_confirmSampleMoneySubmit.do";
+
+    private ListInfo listInfo;
+    private Order order;
+    private OrderInfo orderInfo;
     public CheckSampleBalanceFragment() {
         // Required empty public constructor
     }
@@ -42,6 +62,12 @@ public class CheckSampleBalanceFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view=inflater.inflate(R.layout.fragment_check_sample_balance, container, false);
+        listInfo= (ListInfo) getArguments().getSerializable("info");
+        getCheckSampleMoneyDetail();
+
+
+
+
         checkSampleNumberView=(TextView)view.findViewById(R.id.check_sample_money_clothes_number_view);
         checkSampleNumberUnitPriceView=(TextView)view.findViewById(R.id.check_sample_money_unit_money_view);
         checkSampleReceivableMoneyView=(TextView)view.findViewById(R.id.check_sample_money_receivable_money_view);
@@ -60,8 +86,8 @@ public class CheckSampleBalanceFragment extends Fragment {
 
             }
         });
-        checkSampleUnableMonryButton=(Button)view.findViewById(R.id.unable_receive_sample_money_button);
-        checkSampleUnableMonryButton.setOnClickListener(new View.OnClickListener() {
+        checkSampleUnableMoneyButton=(Button)view.findViewById(R.id.unable_receive_sample_money_button);
+        checkSampleUnableMoneyButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -69,6 +95,28 @@ public class CheckSampleBalanceFragment extends Fragment {
         });
 
         return view;
+    }
+
+    public void getCheckSampleMoneyDetail(){
+        AsyncHttpClient client=new AsyncHttpClient();
+        RequestParams params=new RequestParams();
+        SharedPreferences sharedPreferences=getActivity().getSharedPreferences("common",0);
+        String jsessionId=sharedPreferences.getString("jsessionId", "wrong");
+        params.put("jsessionId",jsessionId);
+        params.put("orderId",listInfo.getOrder().getOrderId());
+        client.get(IPAddress.getIP()+confirmSampleMoneyDetailUrl,params,new JsonHttpResponseHandler(){
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+                super.onSuccess(statusCode, headers, response);
+                checkSampleReceiveMoneyTimeView.setText(response.toString());
+            }
+        });
+
+
+    }
+
+    public void confirmSampleMoneySubmit(){
+
     }
 
 

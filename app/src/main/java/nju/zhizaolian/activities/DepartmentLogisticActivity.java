@@ -11,10 +11,12 @@ import android.widget.Toast;
 
 import nju.zhizaolian.R;
 import nju.zhizaolian.fragments.OrderListFragment;
+import nju.zhizaolian.models.Account;
 import nju.zhizaolian.models.Operation;
 
 public class DepartmentLogisticActivity extends ActionBarActivity {
     private OrderListFragment orderListFragment;
+    private Account account;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,8 +25,13 @@ public class DepartmentLogisticActivity extends ActionBarActivity {
         ActionBar actionBar=getSupportActionBar();
         actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_LIST);
         actionBar.setListNavigationCallbacks(logisticList,onNavigationListener);
+        account= (Account) getIntent().getSerializableExtra("account");
         if(savedInstanceState == null){
+
+            Bundle bundle=new Bundle();
+            bundle.putSerializable("account",account);
             orderListFragment=new OrderListFragment();
+            orderListFragment.setArguments(bundle);
             getFragmentManager().beginTransaction().replace(R.id.logisticContainer,orderListFragment).commit();
         }
     }

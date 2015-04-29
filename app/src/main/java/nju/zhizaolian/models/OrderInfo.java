@@ -36,11 +36,9 @@ public class OrderInfo {
             }catch (JSONException e){
                 e.printStackTrace();
             }
-            try {
-                orderInfo.craft= Craft.fromJson(jsonObject.getJSONObject("craft"));
-            }catch (JSONException e){
-                e.printStackTrace();
-            }
+
+            orderInfo.craft= jsonObject.has("craft")?Craft.fromJson(jsonObject.getJSONObject("craft")):null;
+
             try{
                 orderInfo.accessories=Accessory.fromJson(jsonObject.getJSONArray("accessorys"));
             }catch (JSONException e){

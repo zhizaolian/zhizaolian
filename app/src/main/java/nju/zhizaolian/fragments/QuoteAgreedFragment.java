@@ -1,8 +1,10 @@
 package nju.zhizaolian.fragments;
 
 
+import android.app.AlertDialog;
 import android.app.Fragment;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
@@ -75,6 +77,7 @@ public class QuoteAgreedFragment extends Fragment {
         // Inflate the layout for this fragment
         View view=inflater.inflate(R.layout.fragment_quote_agreed, container, false);
         listInfo= (ListInfo) getArguments().getSerializable("info");
+        progressDialog=ProgressDialog.show(container.getContext(),"请等待","数据更新中",true);
         getConfirmQuoteDetail();
         confirmQuotePictureButton=(Button)view.findViewById(R.id.confirm_quote_picture_button);
         confirmQuoteImage=(ImageView)view.findViewById(R.id.receive_sample_money_image);
@@ -95,9 +98,27 @@ public class QuoteAgreedFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 if(confirmQuoteRemarkEdit.getText().length()==0||confirmQuotePictureByte==null){
-                    Toast.makeText(container.getContext(),"请填写备注",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(container.getContext(),"请填写完整信息",Toast.LENGTH_SHORT).show();
                 }else{
-                    confirmQuoteSubmit();
+                    AlertDialog.Builder builder =new AlertDialog.Builder(container.getContext());
+                    builder.setMessage("确定操作?");
+                    builder.setTitle("提示");
+                    builder.setPositiveButton("确定",new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            progressDialog=ProgressDialog.show(container.getContext(),"请稍等","提交中",true);
+                            confirmQuoteSubmit();
+                        }
+                    });
+                    builder.setNegativeButton("取消",new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                           dialog.dismiss();
+                        }
+                    });
+                    builder.create().show();
+
+
                 }
 
             }
@@ -177,7 +198,7 @@ public class QuoteAgreedFragment extends Fragment {
     }
 
     public void confirmQuoteSubmit(){
-        progressDialog=ProgressDialog.show(getActivity().getApplicationContext(),"请稍等","提交中",true);
+
         ConfirmQuoteSubmitTask task=new ConfirmQuoteSubmitTask();
         task.execute((Void[]) null);
 
@@ -198,8 +219,6 @@ public class QuoteAgreedFragment extends Fragment {
             requestParams.put("moneyremark",confirmQuoteRemarkEdit.getText().toString());
             try {
                 UpLoadUtil.post(IPAddress.getIP()+confirmQuoteSubmitUrl,requestParams,formFile);
-
-                getActivity().finish();
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -248,7 +267,7 @@ public class QuoteAgreedFragment extends Fragment {
     }
 
     public void getConfirmQuoteDetail(){
-        progressDialog=ProgressDialog.show(getActivity().getApplicationContext(),"请等待","数据更新中",true);
+
         AsyncHttpClient client=new AsyncHttpClient();
         RequestParams params=new RequestParams();
         params.put("orderId", listInfo.getOrder().getOrderId());
