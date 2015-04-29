@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="title_activity_department_technology">设计部</string>
+    <string name="title_activity_department_technology">工艺部</string>
     <string name="customer_technology_request">客户工艺要求</string>
     <string name="ironing_flower_cost">印花费</string>
     <string name="washing_cost">水洗吊染费</string>
