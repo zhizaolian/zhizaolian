@@ -65,6 +65,7 @@
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:numeric="decimal"
         android:ems="5"
         android:hint="@string/unit_yuan_per_one"
         android:id="@+id/check_ironing_flower_cost_edit_text"
@@ -86,6 +87,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="5"
+        android:numeric="decimal"
         android:hint="@string/unit_yuan_per_one"
         android:id="@+id/check_washing_cost_edit_text"
         android:layout_below="@+id/check_ironing_flower_cost_edit_text"
@@ -108,6 +110,7 @@
         android:layout_height="wrap_content"
         android:ems="5"
         android:hint="@string/unit_yuan_per_one"
+        android:numeric="decimal"
         android:id="@+id/check_laser_cost_text"
         android:layout_below="@+id/check_washing_cost_edit_text"
         android:layout_alignLeft="@+id/check_washing_cost_edit_text"
@@ -129,6 +132,7 @@
         android:layout_height="wrap_content"
         android:ems="5"
         android:hint="@string/unit_yuan_per_one"
+        android:numeric="decimal"
         android:id="@+id/check_embroidery_cost_edit_text"
         android:layout_below="@+id/check_laser_cost_text"
         android:layout_alignLeft="@+id/check_laser_cost_text"
@@ -150,6 +154,7 @@
         android:layout_height="wrap_content"
         android:ems="5"
         android:hint="@string/unit_yuan_per_one"
+        android:numeric="decimal"
         android:id="@+id/check_crushed_cost_edit_text"
         android:layout_below="@+id/check_embroidery_cost_edit_text"
         android:layout_alignLeft="@+id/check_embroidery_cost_edit_text"
@@ -169,6 +174,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="5"
+        android:numeric="decimal"
         android:hint="@string/unit_yuan_per_one"
         android:id="@+id/check_plate_charge_cost_edit_text"
         android:layout_below="@+id/check_crushed_cost_edit_text"
@@ -222,29 +228,39 @@
         android:layout_below="@+id/view3"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
-
-    <ImageButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/imageButton2"
-        android:src="@drawable/ic_action_accept"
-        android:background="@color/blue"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:orientation="horizontal"
         android:layout_below="@+id/purchase_check_advice_text"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="30dp" />
+        android:layout_alignParentStart="true">
+    <ImageButton
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:id="@+id/technology_back_button"
+        android:src="@drawable/ic_action_back"
+        android:background="@drawable/back_button_selector"/>
 
     <ImageButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/imageButton3"
-        android:src="@drawable/ic_action_cancel"
-        android:background="@color/red"
-        android:layout_alignTop="@+id/imageButton2"
-        android:layout_toRightOf="@+id/imageButton2"
-        android:layout_toEndOf="@+id/imageButton2"
-        android:layout_marginLeft="30dp"/>
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:id="@+id/technology_submit_button"
+        android:src="@drawable/ic_action_accept"
+        android:background="@drawable/commit_button_selector"
+        />
 
+    <ImageButton
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:id="@+id/technology_cancel_button"
+        android:src="@drawable/ic_action_cancel"
+        android:background="@drawable/cancel_button_selector"
+        />
+    </LinearLayout>
 
 
    </RelativeLayout>

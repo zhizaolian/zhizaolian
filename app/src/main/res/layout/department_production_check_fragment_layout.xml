@@ -33,7 +33,7 @@
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="number"
+        android:numeric="decimal"
         android:ems="5"
         android:id="@+id/cut_cost_text"
         android:layout_below="@+id/view"
@@ -52,7 +52,7 @@
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="number"
+        android:numeric="decimal"
         android:ems="5"
         android:id="@+id/management_cost_text"
         android:layout_below="@+id/cut_cost_text"
@@ -71,7 +71,7 @@
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="number"
+        android:numeric="decimal"
         android:ems="5"
         android:id="@+id/make_up_cost_text"
         android:layout_below="@+id/management_cost_text"
@@ -90,7 +90,7 @@
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="number"
+        android:numeric="decimal"
         android:ems="5"
         android:id="@+id/ironing_cost_text"
         android:layout_below="@+id/make_up_cost_text"
@@ -109,7 +109,7 @@
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="number"
+        android:numeric="decimal"
         android:ems="5"
         android:id="@+id/lock_cost_text"
         android:layout_below="@+id/ironing_cost_text"
@@ -128,7 +128,7 @@
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="number"
+        android:numeric="decimal"
         android:ems="5"
         android:id="@+id/packing_cost_text"
         android:layout_below="@+id/lock_cost_text"
@@ -147,7 +147,7 @@
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="number"
+        android:numeric="decimal"
         android:ems="5"
         android:id="@+id/other_cost_text"
         android:layout_below="@+id/packing_cost_text"
@@ -183,7 +183,7 @@
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="number"
+        android:numeric="decimal"
         android:ems="5"
         android:id="@+id/mass_logistics_cost_text"
         android:layout_below="@+id/view2"
