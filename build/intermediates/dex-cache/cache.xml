@@ -2,18 +2,32 @@
 <items version="2" >
 
     <item
-        jar="/Users/lk/.gradle/caches/modules-2/files-2.1/com.squareup.picasso/picasso/2.3.2/d6b7f0093cec6c9faf65dbfd6a6a345d0ed25e27/picasso-2.3.2.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="d6b7f0093cec6c9faf65dbfd6a6a345d0ed25e27">
-        <dex dex="/Users/lk/Desktop/zhizaolian/app/build/intermediates/pre-dexed/debug/picasso-2.3.2-6cfa910c5860fde299e4ce7a6f316b7d8e326f63.jar" />
-    </item>
-    <item
         jar="/Users/lk/Desktop/zhizaolian/app/build/intermediates/exploded-aar/com.android.support/support-v4/21.0.3/libs/internal_impl-21.0.3.jar"
         jumboMode="false"
         revision="21.1.2"
         sha1="01ec05bfbafcc07646ba813000bf2ef11742dd03">
         <dex dex="/Users/lk/Desktop/zhizaolian/app/build/intermediates/pre-dexed/debug/internal_impl-21.0.3-cdc41ce56f0b120f940f560cd40b1ea710100a2f.jar" />
+    </item>
+    <item
+        jar="/Users/lk/android-sdks/extras/android/m2repository/com/android/support/support-annotations/21.0.3/support-annotations-21.0.3.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="4b74cefe1f0c1b819e7260c8627a14674e37fd35">
+        <dex dex="/Users/lk/Desktop/zhizaolian/app/build/intermediates/pre-dexed/debug/support-annotations-21.0.3-9d05ec9ec871fe2bff4eeb72b5d21c0e06842411.jar" />
+    </item>
+    <item
+        jar="/Users/lk/Desktop/zhizaolian/app/build/intermediates/exploded-aar/com.github.dmytrodanylyk.circular-progress-button/library/1.1.3/classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="8a6ed980c74ad35b2dfc4e1daf97bfc0eea5d7c9">
+        <dex dex="/Users/lk/Desktop/zhizaolian/app/build/intermediates/pre-dexed/debug/classes-34bfee57a06ad6a7baeac0cba2fb7a58af6c8a01.jar" />
+    </item>
+    <item
+        jar="/Users/lk/.gradle/caches/modules-2/files-2.1/com.squareup.picasso/picasso/2.3.2/d6b7f0093cec6c9faf65dbfd6a6a345d0ed25e27/picasso-2.3.2.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="d6b7f0093cec6c9faf65dbfd6a6a345d0ed25e27">
+        <dex dex="/Users/lk/Desktop/zhizaolian/app/build/intermediates/pre-dexed/debug/picasso-2.3.2-6cfa910c5860fde299e4ce7a6f316b7d8e326f63.jar" />
     </item>
     <item
         jar="/Users/lk/.gradle/caches/modules-2/files-2.1/com.loopj.android/android-async-http/1.4.6/a845a88238be0b5be9d238652c1bc0605ef91f52/android-async-http-1.4.6.jar"
@@ -30,11 +44,11 @@
         <dex dex="/Users/lk/Desktop/zhizaolian/app/build/intermediates/pre-dexed/debug/classes-4328d3f6c676a9ffce389b5b018e0f18a061dac8.jar" />
     </item>
     <item
-        jar="/Users/lk/android-sdks/extras/android/m2repository/com/android/support/support-annotations/21.0.3/support-annotations-21.0.3.jar"
+        jar="/Users/lk/Desktop/zhizaolian/app/build/intermediates/exploded-aar/com.android.support/support-v4/21.0.3/classes.jar"
         jumboMode="false"
         revision="21.1.2"
-        sha1="4b74cefe1f0c1b819e7260c8627a14674e37fd35">
-        <dex dex="/Users/lk/Desktop/zhizaolian/app/build/intermediates/pre-dexed/debug/support-annotations-21.0.3-9d05ec9ec871fe2bff4eeb72b5d21c0e06842411.jar" />
+        sha1="2c91c949a45a21cdecf26e03951e46c7beec9ad8">
+        <dex dex="/Users/lk/Desktop/zhizaolian/app/build/intermediates/pre-dexed/debug/classes-60c667b4337b1e984ff6f0bb2d7144dad5a94af9.jar" />
     </item>
     <item
         jar="/Users/lk/Desktop/zhizaolian/app/build/intermediates/exploded-aar/com.google.android.gms/play-services/6.5.87/classes.jar"
@@ -49,13 +63,6 @@
         revision="21.1.2"
         sha1="197e497b95d34c42c8725f2bc4a58ede6040ba95">
         <dex dex="/Users/lk/Desktop/zhizaolian/app/build/intermediates/pre-dexed/debug/nineoldandroids-2.4.0-acb4526599be7cd295703106f0c13732150e5e3f.jar" />
-    </item>
-    <item
-        jar="/Users/lk/Desktop/zhizaolian/app/build/intermediates/exploded-aar/com.android.support/support-v4/21.0.3/classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="2c91c949a45a21cdecf26e03951e46c7beec9ad8">
-        <dex dex="/Users/lk/Desktop/zhizaolian/app/build/intermediates/pre-dexed/debug/classes-60c667b4337b1e984ff6f0bb2d7144dad5a94af9.jar" />
     </item>
 
 </items>

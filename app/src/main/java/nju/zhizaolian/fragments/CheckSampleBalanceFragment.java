@@ -1,9 +1,13 @@
 package nju.zhizaolian.fragments;
 
 
+import android.app.AlertDialog;
 import android.app.Fragment;
+import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,11 +20,14 @@ import android.widget.TextView;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.JsonHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
+import com.squareup.picasso.Picasso;
 
 import org.apache.http.Header;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import nju.zhizaolian.R;
+import nju.zhizaolian.help.MyUtils;
 import nju.zhizaolian.models.IPAddress;
 import nju.zhizaolian.models.ListInfo;
 import nju.zhizaolian.models.Order;
@@ -30,6 +37,7 @@ import nju.zhizaolian.models.OrderInfo;
  *
  */
 public class CheckSampleBalanceFragment extends Fragment {
+    private TextView checkSampleMoneyTypeView;
     private TextView checkSampleNumberView;
     private TextView checkSampleNumberUnitPriceView;
     private TextView checkSampleReceivableMoneyView;
@@ -51,6 +59,10 @@ public class CheckSampleBalanceFragment extends Fragment {
     private ListInfo listInfo;
     private Order order;
     private OrderInfo orderInfo;
+
+    private ProgressDialog progressDialog;
+
+
     public CheckSampleBalanceFragment() {
         // Required empty public constructor
     }
@@ -58,16 +70,12 @@ public class CheckSampleBalanceFragment extends Fragment {
 
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(LayoutInflater inflater, final ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view=inflater.inflate(R.layout.fragment_check_sample_balance, container, false);
         listInfo= (ListInfo) getArguments().getSerializable("info");
-        getCheckSampleMoneyDetail();
-
-
-
-
+        checkSampleMoneyTypeView=(TextView)view.findViewById(R.id.money_type_view);
         checkSampleNumberView=(TextView)view.findViewById(R.id.check_sample_money_clothes_number_view);
         checkSampleNumberUnitPriceView=(TextView)view.findViewById(R.id.check_sample_money_unit_money_view);
         checkSampleReceivableMoneyView=(TextView)view.findViewById(R.id.check_sample_money_receivable_money_view);
@@ -83,17 +91,35 @@ public class CheckSampleBalanceFragment extends Fragment {
         checkSampleEnsureMoneyButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                AlertDialog.Builder builder=new AlertDialog.Builder(container.getContext());
+                builder.setMessage("确认收到样衣");
+                builder.setPositiveButton("确定",new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        progressDialog=ProgressDialog.show(container.getContext(),"请等待","正在上传",true);
+                        confirmSampleMoneySubmit(true);
+                    }
+                });
+                builder.setNegativeButton("取消",new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                });
+                builder.create().show();
             }
         });
         checkSampleUnableMoneyButton=(Button)view.findViewById(R.id.unable_receive_sample_money_button);
         checkSampleUnableMoneyButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                progressDialog=ProgressDialog.show(container.getContext(),"请等待","正在上传",true);
+                confirmSampleMoneySubmit(false);
 
             }
         });
-
+        progressDialog=ProgressDialog.show(container.getContext(),"请等待","数据下载中",true);
+        getCheckSampleMoneyDetail();
         return view;
     }
 
@@ -108,14 +134,60 @@ public class CheckSampleBalanceFragment extends Fragment {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                 super.onSuccess(statusCode, headers, response);
-                checkSampleReceiveMoneyTimeView.setText(response.toString());
+                try {
+                    orderInfo=OrderInfo.fromJson(response.getJSONObject("orderInfo"));
+                    order=orderInfo.getOrder();
+                    checkSampleMoneyTypeView.setText(orderInfo.getType());
+                    int sampleAmount= Integer.parseInt(orderInfo.getOrderSampleAmount());
+                    int sampleUnitPrice= Integer.parseInt(orderInfo.getPrice());
+                    checkSampleNumberView.setText(orderInfo.getOrderSampleAmount());
+                    checkSampleNumberUnitPriceView.setText(orderInfo.getPrice());
+
+                    checkSampleReceivableMoneyView.setText(String.valueOf(sampleAmount*sampleUnitPrice));
+                    checkSampleRemitMoneyView.setText(orderInfo.getTotal());
+                    checkSampleReceiveMoneyTimeView.setText(MyUtils.getCurrentDate());
+                    checkSampleRemarkView.setText(order.getMoneyremark());
+                    Picasso.with(getActivity().getApplicationContext()).
+                            load(IPAddress.getIP() + order.getConfirmSampleMoneyFile()).into(checkSampleImageView);
+                    progressDialog.dismiss();
+                } catch (JSONException e) {
+                    progressDialog.dismiss();
+                    e.printStackTrace();
+                }
+
             }
         });
 
 
     }
 
-    public void confirmSampleMoneySubmit(){
+    public void confirmSampleMoneySubmit(boolean result){
+        AsyncHttpClient client=new AsyncHttpClient();
+        RequestParams params=new RequestParams();
+        SharedPreferences sharedPreferences=getActivity().getSharedPreferences("common",0);
+        String jsessionId=sharedPreferences.getString("jsessionId", "wrong");
+        params.put("jsessionId",jsessionId);
+        params.put("orderId",order.getOrderId());
+        params.put("taskId",orderInfo.getTaskId());
+        if(result == true){
+            params.put("result",1);
+        }else {
+            params.put("result",0);
+        }
+        client.post(IPAddress.getIP()+confirmSampleMoneySubmitUrl,params,new JsonHttpResponseHandler(){
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+                super.onSuccess(statusCode, headers, response);
+                progressDialog.dismiss();
+            }
+
+            @Override
+            public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
+                super.onFailure(statusCode, headers, responseString, throwable);
+                Log.d("error",responseString);
+                progressDialog.dismiss();
+            }
+        });
 
     }
 

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent" android:layout_height="match_parent"
-    >
+   >
 
     <TextView
         android:layout_width="wrap_content"
@@ -16,7 +16,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="New Text"
-        android:id="@+id/textView217"
+        android:id="@+id/send_express_name_view"
         android:layout_alignParentTop="true"
         android:layout_toRightOf="@+id/textView216"
         android:layout_toEndOf="@+id/textView216"
@@ -36,10 +36,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="New Text"
-        android:id="@+id/textView219"
-        android:layout_below="@+id/textView217"
-        android:layout_alignLeft="@+id/textView217"
-        android:layout_alignStart="@+id/textView217" />
+        android:id="@+id/send_express_number_view"
+        android:layout_below="@+id/send_express_name_view"
+        android:layout_alignLeft="@+id/send_express_name_view"
+        android:layout_alignStart="@+id/send_express_name_view" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -54,10 +54,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="New Text"
-        android:id="@+id/textView221"
+        android:id="@+id/send_express_price_view"
         android:layout_alignTop="@+id/textView220"
-        android:layout_alignLeft="@+id/textView219"
-        android:layout_alignStart="@+id/textView219" />
+        android:layout_alignLeft="@+id/send_express_number_view"
+        android:layout_alignStart="@+id/send_express_number_view" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -72,8 +72,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="New Text"
-        android:id="@+id/textView223"
-        android:layout_below="@+id/textView221"
-        android:layout_alignLeft="@+id/textView221"
-        android:layout_alignStart="@+id/textView221" />
+        android:id="@+id/send_express_time_view"
+        android:layout_below="@+id/send_express_price_view"
+        android:layout_alignLeft="@+id/send_express_price_view"
+        android:layout_alignStart="@+id/send_express_price_view" />
 </RelativeLayout>

@@ -3,59 +3,70 @@
     android:layout_height="match_parent"
     tools:context="nju.zhizaolian.fragments.DeliverSampleFragment">
 
-    <ScrollView
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content">
+
         <LinearLayout
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="fill_parent"
             android:orientation="vertical">
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/deliver_sample"
-                android:textSize="@dimen/abc_text_size_large_material"/>
+                android:textSize="@dimen/abc_text_size_large_material"
+                />
             <Spinner
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:prompt="@string/title_express_name"
-                android:entries="@array/express_array"/>
+                android:entries="@array/express_array"
+                android:id="@+id/send_sample_type_spinner"/>
             <EditText
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/title_express_number"/>
+                android:hint="@string/title_express_number"
+                android:id="@+id/send_sample_express_number_edit"/>
             <EditText
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/express_price"/>
+                android:hint="@string/express_price"
+                android:id="@+id/send_sample_express_price_edit"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/title_express_time"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/send_sample_express_time_view"/>
             <Button
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/save_this_deliver"/>
-            <LinearLayout
+                android:text="@string/save_this_deliver"
+                android:id="@+id/send_sample_save_button"/>
+            <Button
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:text="@string/complete_total_deliver"
+                android:id="@+id/send_sample_final_button"/>
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/sample_dispatch_record"
                     style="@style/MyImportantTextStyle"
                     />
-                <LinearLayout
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/sample_deliver_record_container"
-                    android:orientation="vertical"/>
 
-            <Button
+            <ListView
                 android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/complete_total_deliver"/>
-            </LinearLayout>
+                android:layout_height="fill_parent"
+                android:id="@+id/send_sample_record_listView"/>
+
+
+
 
 
         </LinearLayout>
-    </ScrollView>
+
+
 
 </FrameLayout>

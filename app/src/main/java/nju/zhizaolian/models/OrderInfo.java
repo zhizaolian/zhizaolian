@@ -24,28 +24,33 @@ public class OrderInfo {
     private Employee employee=null;
     private Logistics logistics;
     private String orderId;
+    private String total;//样衣制作金
+    private String type;//样衣制作金
+    private String taskName;
+    private String price;
+    private ArrayList<DeliveryRecord> deliveryRecords;
+
     public OrderInfo() {
     }
 
     public static OrderInfo fromJson(JSONObject jsonObject){
         OrderInfo orderInfo=new OrderInfo();
         try{
-            orderInfo.taskId= String.valueOf(jsonObject.get("taskId"));
-            try{
-                orderInfo.logistics=Logistics.fromJson(jsonObject.getJSONObject("logistics"));
-            }catch (JSONException e){
-                e.printStackTrace();
-            }
+            orderInfo.taskId=jsonObject.getString("taskId");
+
+            orderInfo.logistics=jsonObject.has("logistics")?Logistics.fromJson(jsonObject.getJSONObject("logistics")):null;
 
             orderInfo.craft= jsonObject.has("craft")?Craft.fromJson(jsonObject.getJSONObject("craft")):null;
 
-            try{
-                orderInfo.accessories=Accessory.fromJson(jsonObject.getJSONArray("accessorys"));
-            }catch (JSONException e){
-                e.printStackTrace();
-            }
+            orderInfo.accessories=jsonObject.has("accessorys")?Accessory.fromJson(jsonObject.getJSONArray("accessorys")):null;
+
+            orderInfo.total=jsonObject.has("total")?jsonObject.getString("total"):null;
+            orderInfo.type=jsonObject.has("type")?jsonObject.getString("type"):null;
+            orderInfo.taskName=jsonObject.has("taskName")?jsonObject.getString("taskName"):null;
+            orderInfo.price=jsonObject.has("price")?jsonObject.getString("price"):null;
 
             orderInfo.custom=Custom.fromJson(jsonObject.getJSONObject("customer"));
+            orderInfo.deliveryRecords=jsonObject.has("deliveryRecord")?DeliveryRecord.fromJson(jsonObject.getJSONArray("deliveryRecord")):null;
             try{
                 orderInfo.fabricCosts=FabricCost.fromJson(jsonObject.getJSONArray("fabricCosts"));
             }catch (JSONException e){
@@ -73,11 +78,9 @@ public class OrderInfo {
             }catch (JSONException e){
                 e.printStackTrace();
             }
-            try{
-                orderInfo.orderSampleAmount=jsonObject.getString("orderSampleAmount");
-            }catch (JSONException e){
-                e.printStackTrace();
-            }
+
+            orderInfo.orderSampleAmount=jsonObject.has("orderSampleAmount")?jsonObject.getString("orderSampleAmount"):null;
+
             try{
                 orderInfo.quote= Quote.fromJson(jsonObject.getJSONObject("quote"));
             }catch (JSONException e){
@@ -101,6 +104,46 @@ public class OrderInfo {
 
 
         return orderInfo;
+    }
+
+    public ArrayList<DeliveryRecord> getDeliveryRecords() {
+        return deliveryRecords;
+    }
+
+    public void setDeliveryRecords(ArrayList<DeliveryRecord> deliveryRecords) {
+        this.deliveryRecords = deliveryRecords;
+    }
+
+    public String getTotal() {
+        return total;
+    }
+
+    public void setTotal(String total) {
+        this.total = total;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public String getTaskName() {
+        return taskName;
+    }
+
+    public void setTaskName(String taskName) {
+        this.taskName = taskName;
+    }
+
+    public String getPrice() {
+        return price;
+    }
+
+    public void setPrice(String price) {
+        this.price = price;
     }
 
     public String getTaskId() {

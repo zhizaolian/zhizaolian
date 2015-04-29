@@ -166,6 +166,7 @@ public class ReceiveSampleFragment extends Fragment {
 
                 } catch (JSONException e) {
                     e.printStackTrace();
+                    getActivity().finish();
                 }
             }
         });
