@@ -158,9 +158,10 @@ public class ReceiveSampleFragment extends Fragment {
                 try {
                     String success=response.getString("isSuccess");
                     if(success.equals("true")){
-                        onFinish();
+                        getActivity().finish();
                     }else{
                         Toast.makeText(getActivity(), "出现异常", Toast.LENGTH_SHORT).show();
+                        getActivity().finish();
                     }
 
                 } catch (JSONException e) {
@@ -187,7 +188,7 @@ public class ReceiveSampleFragment extends Fragment {
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                 super.onSuccess(statusCode, headers, response);
                 Log.d("unreceive",response.toString());
-                onFinish();
+                getActivity().finish();
             }
         });
 

@@ -1,7 +1,10 @@
 package nju.zhizaolian.fragments;
 
 
+import android.app.AlertDialog;
 import android.app.Fragment;
+import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
@@ -37,6 +40,9 @@ public class MergePriceFragment extends Fragment {
     private  OrderInfo orderInfo;
    private String mergeQuoteDetailUrl="/fmc/market/mobile_mergeQuoteDetail.do";
    private String mergeQuoteSubmitUrl="/fmc/market/mobile_mergeQuoteSubmit.do";
+
+    private ProgressDialog progressDialog;
+
     public MergePriceFragment() {
         // Required empty public constructor
     }
@@ -44,12 +50,13 @@ public class MergePriceFragment extends Fragment {
 
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(LayoutInflater inflater, final ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view=inflater.inflate(R.layout.fragment_merge_price, container, false);
         listInfo= (ListInfo) getArguments().getSerializable("info");
         order=listInfo.getOrder();
+        progressDialog=ProgressDialog.show(container.getContext(),"请等待","正在获取数据",true);
         getMergePriceDetail();
         profitPerClothesEdit=(EditText)view.findViewById(R.id.profit_per_clothes_edit);
         mergePriceEnsureButton=(Button)view.findViewById(R.id.merge_price_ensure_button);
@@ -59,7 +66,23 @@ public class MergePriceFragment extends Fragment {
                 if(profitPerClothesEdit.getText().length()==0){
                     Toast.makeText(getActivity(), "请填写信息", Toast.LENGTH_SHORT).show();
                 }else{
-                    mergePriceSubmit();
+                    AlertDialog.Builder builder=new AlertDialog.Builder(container.getContext());
+                    builder.setTitle("提示");
+                    builder.setMessage("确定操作?");
+                    builder.setPositiveButton("确定",new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            mergePriceSubmit();
+                            progressDialog=ProgressDialog.show(container.getContext(),"请等待","正在上传",true);
+                        }
+                    });
+                    builder.setNegativeButton("取消",new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                        }
+                    });
+                    builder.create().show();
                 }
             }
         });
@@ -97,12 +120,17 @@ public class MergePriceFragment extends Fragment {
                 try {
                     String isSuccess=response.getString("isSuccess");
                     if (isSuccess.equals("true")){
+                        progressDialog.dismiss();
                         Toast.makeText(getActivity(), "提交成功", Toast.LENGTH_SHORT).show();
-                        onFinish();
+
+                        getActivity().finish();
                     }else {
+                        progressDialog.dismiss();
                         Toast.makeText(getActivity(), "出现错误", Toast.LENGTH_SHORT).show();
+                        getActivity().finish();
                     }
                 } catch (JSONException e) {
+                    progressDialog.dismiss();
                     e.printStackTrace();
                 }
             }
@@ -124,7 +152,9 @@ public class MergePriceFragment extends Fragment {
                 Log.d("success",response.toString());
                 try {
                     orderInfo= OrderInfo.fromJson(response.getJSONObject("orderInfo"));
+                    progressDialog.dismiss();
                 } catch (JSONException e) {
+                    progressDialog.dismiss();
                     e.printStackTrace();
                 }
 

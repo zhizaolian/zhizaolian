@@ -45,7 +45,10 @@ public class DepartmentSalesActivity extends ActionBarActivity   {
 
         actionBar.setListNavigationCallbacks(spinnerAdapter, onNavigationListener);
         if(savedInstanceState == null){
+            Bundle bundle=new Bundle();
+            bundle.putSerializable("account",account);
             orderListFragment=new OrderListFragment();
+            orderListFragment.setArguments(bundle);
             getFragmentManager().beginTransaction().replace(R.id.salesDepartmentcontainers,orderListFragment).commit();
         }
 

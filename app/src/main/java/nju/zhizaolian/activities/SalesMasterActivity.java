@@ -11,12 +11,13 @@ import android.widget.Toast;
 
 import nju.zhizaolian.R;
 import nju.zhizaolian.fragments.OrderListFragment;
+import nju.zhizaolian.models.Account;
 import nju.zhizaolian.models.Operation;
 
 public class SalesMasterActivity extends ActionBarActivity  {
 
-    OrderListFragment orderListFragment=null;
-
+    private OrderListFragment orderListFragment=null;
+    private Account account;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,8 +30,12 @@ public class SalesMasterActivity extends ActionBarActivity  {
 
 
         actionBar.setListNavigationCallbacks(spinnerAdapter, onNavigationListener);
+        account= (Account) getIntent().getSerializableExtra("account");
         if(savedInstanceState == null){
+            Bundle bundle=new Bundle();
+            bundle.putSerializable("account",account);
             orderListFragment=new OrderListFragment();
+            orderListFragment.setArguments(bundle);
             getFragmentManager().beginTransaction().replace(R.id.salesMasterContainer,orderListFragment).commit();
         }
 

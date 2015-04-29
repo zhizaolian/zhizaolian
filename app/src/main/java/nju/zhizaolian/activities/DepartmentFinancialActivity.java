@@ -13,10 +13,14 @@ import android.widget.SpinnerAdapter;
 import nju.zhizaolian.R;
 import nju.zhizaolian.fragments.CheckFrontMoneyFragment;
 import nju.zhizaolian.fragments.CheckRemainingBalanceFragment;
-import nju.zhizaolian.fragments.CheckSampleBalanceFragment;
+import nju.zhizaolian.fragments.OrderListFragment;
 import nju.zhizaolian.fragments.ReturnMoneyFragment;
+import nju.zhizaolian.models.Account;
+import nju.zhizaolian.models.Operation;
 
 public class DepartmentFinancialActivity extends ActionBarActivity {
+    private OrderListFragment orderListFragment;
+    private Account account;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,13 +30,20 @@ public class DepartmentFinancialActivity extends ActionBarActivity {
         ActionBar actionBar=getSupportActionBar();
         actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_LIST);
         actionBar.setListNavigationCallbacks(financiallist,navigationListener);
+        account= (Account) getIntent().getSerializableExtra("account");
+        Bundle bundle=new Bundle();
+        bundle.putSerializable("account",account);
+        orderListFragment=new OrderListFragment();
+        orderListFragment.setArguments(bundle);
+        getFragmentManager().beginTransaction().replace(R.id.financialContainer,orderListFragment).commit();
     }
     ActionBar.OnNavigationListener navigationListener=new ActionBar.OnNavigationListener() {
         @Override
         public boolean onNavigationItemSelected(int i, long l) {
             Fragment fragment=null;
             switch (i){
-                case 0:fragment= new CheckSampleBalanceFragment();break;
+                case 0:orderListFragment.getListViewByURLAndOperation("/fmc/finance/mobile_confirmSampleMoneyList.do", Operation.CHECKSAMPLEBALANCE);
+                    break;
                 case 1:fragment= new CheckFrontMoneyFragment();break;
                 case 2: fragment= new ReturnMoneyFragment();break;
                 case 3:fragment= new CheckRemainingBalanceFragment();break;
