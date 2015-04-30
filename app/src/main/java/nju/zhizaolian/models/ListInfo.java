@@ -23,22 +23,10 @@ public class ListInfo implements Serializable{
         ListInfo listInfo = null;
         try {
             listInfo=new ListInfo();
-            listInfo.order=Order.fromJson(jsonObject.getJSONObject("order"));
-            try{
-            listInfo.employee=Employee.fromJson(jsonObject.getJSONObject("employee"));
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            try{
-            listInfo.orderId=jsonObject.getString("orderId");
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            try{
-            listInfo.taskTime=jsonObject.getString("taskTime");
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
+            listInfo.order=jsonObject.has("order")?Order.fromJson(jsonObject.getJSONObject("order")):null;
+            listInfo.employee=jsonObject.has("employee")?Employee.fromJson(jsonObject.getJSONObject("employee")):null;
+            listInfo.orderId=jsonObject.has("orderId")?jsonObject.getString("orderId"):"";
+            listInfo.taskTime=jsonObject.has("taskTime")?jsonObject.getString("taskTime"):"";
             return  listInfo;
         } catch (JSONException e) {
             e.printStackTrace();
