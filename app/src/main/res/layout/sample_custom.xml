@@ -45,6 +45,7 @@
     <EditText
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:inputType="number"
         android:id="@+id/express_number_edit"
         android:hint="@string/title_express_number" />
 

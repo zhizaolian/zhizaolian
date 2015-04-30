@@ -89,8 +89,8 @@ public class OrderProcessDetailFragment extends Fragment {
                 datePickerFragment=new DatePickerFragment(){
                     @Override
                     public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-                        super.onDateSet(view, year, monthOfYear, dayOfMonth);
-                            askPeriodView.setText(year+"-"+monthOfYear+"-"+dayOfMonth);
+                            int month=monthOfYear+1;
+                            askPeriodView.setText(year+"-"+month+"-"+dayOfMonth);
                     }
                 };
 

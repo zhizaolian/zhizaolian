@@ -1,7 +1,10 @@
 package nju.zhizaolian.fragments;
 
 
+import android.app.AlertDialog;
 import android.app.Fragment;
+import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
@@ -52,22 +55,22 @@ public class ReceiveSampleFragment extends Fragment {
     private OrderInfo orderInfo;
     private Order order;
     private Logistics logistics;
+
+    private ProgressDialog progressDialog;
     public ReceiveSampleFragment() {
         // Required empty public constructor
     }
 
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(LayoutInflater inflater, final ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view=inflater.inflate(R.layout.fragment_receive__sample_, container, false);
         listInfo= (ListInfo) getArguments().getSerializable("info");
         order=listInfo.getOrder();
-
+        progressDialog=ProgressDialog.show(container.getContext(),"请等待","数据更新中",true);
         getReceiveSampleDetail();
-
-
 
 
         isProvideSampleView= (TextView) view.findViewById(R.id.is_Provide_Sample_view);
@@ -83,7 +86,21 @@ public class ReceiveSampleFragment extends Fragment {
         ensureReceiveSampleButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                receiveSampleSubmit();
+                AlertDialog.Builder builder=new AlertDialog.Builder(container.getContext());
+                builder.setMessage("确认收到样衣？");
+                builder.setPositiveButton("确定",new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        receiveSampleSubmit();
+                    }
+                });
+                builder.setNegativeButton("取消", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                });
+
             }
         });
         unableReceiveSampleButton=(Button)view.findViewById(R.id.unable_receive_sample_button);
@@ -124,8 +141,10 @@ public class ReceiveSampleFragment extends Fragment {
                     postManView.setText(logistics.getSampleClothesName());
                     postManPhoneView.setText(logistics.getSampleClothesPhone());
                     expressAddressView.setText(logistics.getSampleClothesAddress());
+                    progressDialog.dismiss();
                 } catch (JSONException e) {
                     e.printStackTrace();
+                    progressDialog.dismiss();
                 }
             }
 
@@ -133,6 +152,7 @@ public class ReceiveSampleFragment extends Fragment {
             public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
                 super.onFailure(statusCode, headers, responseString, throwable);
                 Log.d("errorString", responseString);
+                progressDialog.dismiss();
             }
 
         });
@@ -158,6 +178,7 @@ public class ReceiveSampleFragment extends Fragment {
                 try {
                     String success=response.getString("isSuccess");
                     if(success.equals("true")){
+                        Toast.makeText(getActivity(), "进入下一步", Toast.LENGTH_SHORT).show();
                         getActivity().finish();
                     }else{
                         Toast.makeText(getActivity(), "出现异常", Toast.LENGTH_SHORT).show();
