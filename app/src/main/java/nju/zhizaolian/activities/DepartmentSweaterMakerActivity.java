@@ -101,22 +101,29 @@ public class DepartmentSweaterMakerActivity extends ActionBarActivity {
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if(keyCode==KeyEvent.KEYCODE_BACK){
             if(getFragmentManager().getBackStackEntryCount()>0) {
-                getFragmentManager().popBackStack();
-                getSupportActionBar().show();
-                switch (selectedSpinnerItem){
-                    case SAMPLE:
-                        getSweaterMakerSampleList();
-                        break;
-                    case SEND:
-                        getSweaterMakerSendList();
-                        break;
-                    default:
-                        break;
-
-                }
+                goBack();
                 return false;
             }
         }
         return super.onKeyDown(keyCode, event);
+    }
+
+    public void goBack(){
+        if(getFragmentManager().getBackStackEntryCount()>0) {
+            getFragmentManager().popBackStack();
+            getSupportActionBar().show();
+            switch (selectedSpinnerItem){
+                case SAMPLE:
+                    getSweaterMakerSampleList();
+                    break;
+                case SEND:
+                    getSweaterMakerSendList();
+                    break;
+                default:
+                    break;
+
+            }
+
+        }
     }
 }

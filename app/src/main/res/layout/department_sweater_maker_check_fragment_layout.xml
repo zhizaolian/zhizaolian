@@ -55,7 +55,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/completed_date_edit_text"
-        android:ems="5"
+        android:editable="false"
+        android:ems="10"
         android:layout_below="@+id/mission_choose_radio_group"
         android:layout_toRightOf="@+id/textView221"
         android:layout_toEndOf="@+id/textView221"
@@ -76,7 +77,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/check_leading_name_edit_text"
-        android:ems="5"
+        android:ems="10"
         android:editable="false"
         android:layout_below="@+id/completed_date_edit_text"
         android:layout_alignLeft="@+id/completed_date_edit_text"
@@ -95,8 +96,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="textMultiLine"
-        android:ems="5"
-        android:editable="false"
+        android:ems="10"
         android:id="@+id/remark_info_edit_text"
         android:layout_below="@+id/textView222"
         android:layout_alignLeft="@+id/check_leading_name_edit_text"
@@ -130,11 +130,26 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
-<ImageButton
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:src="@drawable/ic_action_accept"
-    android:background="@color/blue"
-    android:id="@+id/sweater_maker_check_accept_button"
-    android:layout_below="@+id/operate_history_list"/>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="80dp"
+    android:orientation="horizontal"
+    android:layout_below="@+id/operate_history_list">
+    <ImageButton
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:src="@drawable/ic_action_back"
+        android:background="@drawable/back_button_selector"
+        android:id="@+id/sweater_maker_check_back_button"
+        />
+    <ImageButton
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:src="@drawable/ic_action_accept"
+        android:background="@drawable/commit_button_selector"
+        android:id="@+id/sweater_maker_check_accept_button"
+        />
+</LinearLayout>
 </RelativeLayout>
