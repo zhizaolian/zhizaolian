@@ -29,7 +29,7 @@ public class OrderInfo {
     private String taskName;
     private String price;
     private ArrayList<DeliveryRecord> deliveryRecords;
-
+    private ArrayList<Produce> produceArrayList;
     public OrderInfo() {
     }
 
@@ -51,6 +51,8 @@ public class OrderInfo {
 
             orderInfo.custom=Custom.fromJson(jsonObject.getJSONObject("customer"));
             orderInfo.deliveryRecords=jsonObject.has("deliveryRecord")?DeliveryRecord.fromJson(jsonObject.getJSONArray("deliveryRecord")):null;
+            orderInfo.produceArrayList=jsonObject.has("produce")?Produce.fromJson(jsonObject.getJSONArray("produce")):null;
+
             try{
                 orderInfo.fabricCosts=FabricCost.fromJson(jsonObject.getJSONArray("fabricCosts"));
             }catch (JSONException e){
@@ -92,7 +94,7 @@ public class OrderInfo {
                 e.printStackTrace();
             }
 
-            //orderInfo.employee=Employee.fromJson(jsonObject.getJSONObject("employee"));
+            orderInfo.employee=jsonObject.has("employee")?Employee.fromJson(jsonObject.getJSONObject("employee")):null;
 
             orderInfo.orderId=jsonObject.getString("orderId");
 
@@ -104,6 +106,14 @@ public class OrderInfo {
 
 
         return orderInfo;
+    }
+
+    public ArrayList<Produce> getProduceArrayList() {
+        return produceArrayList;
+    }
+
+    public void setProduceArrayList(ArrayList<Produce> produceArrayList) {
+        this.produceArrayList = produceArrayList;
     }
 
     public ArrayList<DeliveryRecord> getDeliveryRecords() {

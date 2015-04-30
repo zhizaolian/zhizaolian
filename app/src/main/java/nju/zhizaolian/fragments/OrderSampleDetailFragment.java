@@ -70,8 +70,8 @@ public class OrderSampleDetailFragment extends Fragment {
                 datePickerFragment=new DatePickerFragment(){
                     @Override
                     public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-                        super.onDateSet(view, year, monthOfYear, dayOfMonth);
-                        expressTimeView.setText(year+"-"+monthOfYear+"-"+dayOfMonth);
+                        int month=monthOfYear+1;
+                        expressTimeView.setText(year+"-"+month+"-"+dayOfMonth);
                     }
                 };
                 datePickerFragment.show(getActivity().getFragmentManager(),"datePicker");

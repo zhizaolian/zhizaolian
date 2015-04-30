@@ -16,6 +16,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.JsonHttpResponseHandler;
@@ -91,22 +92,27 @@ public class CheckSampleBalanceFragment extends Fragment {
         checkSampleEnsureMoneyButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                AlertDialog.Builder builder=new AlertDialog.Builder(container.getContext());
-                builder.setMessage("确认收到样衣");
-                builder.setPositiveButton("确定",new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        progressDialog=ProgressDialog.show(container.getContext(),"请等待","正在上传",true);
-                        confirmSampleMoneySubmit(true);
-                    }
-                });
-                builder.setNegativeButton("取消",new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        dialog.dismiss();
-                    }
-                });
-                builder.create().show();
+                if(checkSampleRemitPersonEdit.getText().length() == 0||checkSampleRemitCardNumberEdit.getText().length()==0||checkSampleRemitBankEdit.getText().length() == 0){
+                    Toast.makeText(container.getContext(),"请填写数据",Toast.LENGTH_SHORT).show();
+                }else {
+                    AlertDialog.Builder builder=new AlertDialog.Builder(container.getContext());
+                    builder.setMessage("确认收到样衣");
+                    builder.setPositiveButton("确定",new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            progressDialog=ProgressDialog.show(container.getContext(),"请等待","正在上传",true);
+                            confirmSampleMoneySubmit(true);
+                        }
+                    });
+                    builder.setNegativeButton("取消",new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                        }
+                    });
+                    builder.create().show();
+                }
+
             }
         });
         checkSampleUnableMoneyButton=(Button)view.findViewById(R.id.unable_receive_sample_money_button);
@@ -134,6 +140,7 @@ public class CheckSampleBalanceFragment extends Fragment {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                 super.onSuccess(statusCode, headers, response);
+                Log.d("money",response.toString());
                 try {
                     orderInfo=OrderInfo.fromJson(response.getJSONObject("orderInfo"));
                     order=orderInfo.getOrder();
@@ -169,23 +176,39 @@ public class CheckSampleBalanceFragment extends Fragment {
         params.put("jsessionId",jsessionId);
         params.put("orderId",order.getOrderId());
         params.put("taskId",orderInfo.getTaskId());
-        if(result == true){
+        if(result){
             params.put("result",1);
         }else {
             params.put("result",0);
         }
+
+        params.put("money_amount",checkSampleRemitMoneyView.getText().toString());
+        params.put("money_state","");
+        params.put("money_type","");
+        params.put("money_bank",checkSampleRemitBankEdit.getText().toString());
+        params.put("money_name",checkSampleRemitPersonEdit.getText().toString());
+        params.put("money_number",checkSampleRemitCardNumberEdit.getText().toString());
+        params.put("money_remark",checkSampleRemarkView.getText().toString());
+        params.put("time",checkSampleReceiveMoneyTimeView.getText().toString());
+        params.put("account",checkSampleReceiveMoneyAccountSpinner.getSelectedItem().toString());
         client.post(IPAddress.getIP()+confirmSampleMoneySubmitUrl,params,new JsonHttpResponseHandler(){
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                 super.onSuccess(statusCode, headers, response);
+
                 progressDialog.dismiss();
+                Toast.makeText(getActivity(),"上传成功,请进入下一步",Toast.LENGTH_SHORT).show();
+                getActivity().finish();
             }
 
             @Override
             public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
                 super.onFailure(statusCode, headers, responseString, throwable);
                 Log.d("error",responseString);
+
                 progressDialog.dismiss();
+                Toast.makeText(getActivity(),"出现错误",Toast.LENGTH_SHORT).show();
+                getActivity().finish();
             }
         });
 
