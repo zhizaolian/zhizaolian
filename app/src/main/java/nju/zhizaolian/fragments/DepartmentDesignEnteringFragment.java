@@ -30,6 +30,7 @@ import com.dd.CircularProgressButton;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.JsonHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
+import com.squareup.picasso.Picasso;
 
 import org.apache.http.Header;
 import org.json.JSONException;
@@ -333,6 +334,7 @@ public class DepartmentDesignEnteringFragment extends Fragment {
                         design_entering_accept_button.setProgress(0);
                         design_undo_button.setVisibility(View.GONE);
                     }else {
+                        Picasso.with(getActivity()).load(IPAddress.getIP()+designCad.getString("cadUrl")).error(R.drawable.ic_action_cancel).into(version_file_image_view);
                         design_entering_accept_button.setProgress(100);
                         design_undo_button.setVisibility(View.VISIBLE);
                         choose_version_file_button.setEnabled(false);

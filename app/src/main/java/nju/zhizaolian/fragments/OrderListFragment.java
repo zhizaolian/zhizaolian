@@ -119,6 +119,7 @@ public class OrderListFragment extends Fragment{
             getActivity().getFragmentManager().popBackStack();
         }
         AsyncHttpClient client = new AsyncHttpClient();
+        client.setTimeout(20000);
         RequestParams params = new RequestParams();
         SharedPreferences settings =getActivity().getSharedPreferences("common", 0);
         String jSessionId=settings.getString("jsessionId","");
@@ -131,7 +132,6 @@ public class OrderListFragment extends Fragment{
                     operation=operate;
                     list_url=url;
                     updateListView(listInfoArrayList);
-                    progressDialog.dismiss();
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
@@ -141,7 +141,14 @@ public class OrderListFragment extends Fragment{
             public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
                 Toast.makeText(getActivity(),"网络错误",Toast.LENGTH_SHORT).show();
             }
+
+            @Override
+            public void onFinish() {
+                progressDialog.dismiss();
+                super.onFinish();
+            }
         });
+
 
     }
 

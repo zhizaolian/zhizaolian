@@ -24,7 +24,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/new_text"
-        android:id="@+id/check_customer_technology_request_text"
+        android:id="@+id/design_check_customer_technology_request_text"
         android:layout_alignTop="@id/textView151"
         android:layout_toRightOf="@+id/textView151"
         android:layout_toEndOf="@+id/textView151"
@@ -33,7 +33,7 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="5dp"
-        android:layout_below="@+id/check_customer_technology_request_text"
+        android:layout_below="@+id/design_check_customer_technology_request_text"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:background="?android:attr/listDivider"
@@ -70,8 +70,8 @@
         android:hint="@string/unit_yuan_per_one"
         android:id="@+id/check_ironing_flower_cost_edit_text"
         android:layout_below="@+id/technology_radio_group"
-        android:layout_alignLeft="@+id/check_customer_technology_request_text"
-        android:layout_alignStart="@+id/check_customer_technology_request_text"
+        android:layout_alignLeft="@+id/design_check_customer_technology_request_text"
+        android:layout_alignStart="@+id/design_check_customer_technology_request_text"
         android:layout_marginTop="10dp"/>
 
     <TextView

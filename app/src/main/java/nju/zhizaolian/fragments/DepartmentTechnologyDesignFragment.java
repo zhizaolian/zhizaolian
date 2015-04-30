@@ -4,10 +4,8 @@ package nju.zhizaolian.fragments;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
-import android.media.Image;
 import android.os.Bundle;
 import android.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,8 +22,6 @@ import com.loopj.android.http.RequestParams;
 import org.apache.http.Header;
 import org.json.JSONException;
 import org.json.JSONObject;
-
-import java.awt.font.TextAttribute;
 
 import nju.zhizaolian.R;
 import nju.zhizaolian.activities.DepartmentTechnologyActivity;
@@ -72,7 +68,7 @@ public class DepartmentTechnologyDesignFragment extends Fragment {
         check_crushed_cost_edit_text=(EditText) view.findViewById(R.id.check_crushed_cost_edit_text);
         check_plate_charge_cost_edit_text=(EditText) view.findViewById(R.id.check_plate_charge_cost_edit_text);
         purchase_check_advice_text =(EditText) view.findViewById(R.id.purchase_check_advice_text);
-        check_customer_technology_request_text = (TextView) view.findViewById(R.id.check_customer_technology_request_text);
+        check_customer_technology_request_text = (TextView) view.findViewById(R.id.design_check_customer_technology_request_text);
         editTexts = new EditText[]{
                 check_ironing_flower_cost_edit_text,
                 check_washing_cost_edit_text,

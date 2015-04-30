@@ -22,7 +22,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/new_text"
-        android:id="@+id/check_customer_technology_request_text"
+        android:id="@+id/mass_check_customer_technology_request_text"
         android:layout_alignParentTop="true"
         android:layout_toRightOf="@+id/textView151"
         android:layout_toEndOf="@+id/textView151"
@@ -31,7 +31,7 @@
         <View
             android:layout_width="match_parent"
             android:layout_height="5dp"
-            android:layout_below="@+id/check_customer_technology_request_text"
+            android:layout_below="@+id/mass_check_customer_technology_request_text"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:background="?android:attr/listDivider"
@@ -40,10 +40,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/new_text"
-        android:id="@+id/check_ironing_flower_cost_edit_text"
+        android:id="@+id/mass_check_ironing_flower_cost_edit_text"
         android:layout_below="@+id/view"
-        android:layout_alignLeft="@+id/check_customer_technology_request_text"
-        android:layout_alignStart="@+id/check_customer_technology_request_text"
+        android:layout_alignLeft="@+id/mass_check_customer_technology_request_text"
+        android:layout_alignStart="@+id/mass_check_customer_technology_request_text"
         android:layout_marginTop="10dp"/>
 
     <TextView
@@ -51,7 +51,7 @@
         android:layout_height="wrap_content"
         android:text="@string/ironing_flower_cost"
         android:id="@+id/textView154"
-        android:layout_alignTop="@+id/check_ironing_flower_cost_edit_text"
+        android:layout_alignTop="@+id/mass_check_ironing_flower_cost_edit_text"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
@@ -59,10 +59,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/new_text"
-        android:id="@+id/check_washing_cost_edit_text"
-        android:layout_below="@+id/check_ironing_flower_cost_edit_text"
-        android:layout_alignLeft="@+id/check_ironing_flower_cost_edit_text"
-        android:layout_alignStart="@+id/check_ironing_flower_cost_edit_text"
+        android:id="@+id/mass_check_washing_cost_edit_text"
+        android:layout_below="@+id/mass_check_ironing_flower_cost_edit_text"
+        android:layout_alignLeft="@+id/mass_check_ironing_flower_cost_edit_text"
+        android:layout_alignStart="@+id/mass_check_ironing_flower_cost_edit_text"
         android:layout_marginTop="10dp"/>
 
     <TextView
@@ -70,7 +70,7 @@
         android:layout_height="wrap_content"
         android:text="@string/washing_cost"
         android:id="@+id/textView156"
-        android:layout_below="@+id/check_ironing_flower_cost_edit_text"
+        android:layout_below="@+id/mass_check_ironing_flower_cost_edit_text"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginTop="10dp"/>
@@ -79,10 +79,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/new_text"
-        android:id="@+id/check_laser_cost_text"
-        android:layout_below="@+id/check_washing_cost_edit_text"
-        android:layout_alignLeft="@+id/check_washing_cost_edit_text"
-        android:layout_alignStart="@+id/check_washing_cost_edit_text"
+        android:id="@+id/mass_check_laser_cost_text"
+        android:layout_below="@+id/mass_check_washing_cost_edit_text"
+        android:layout_alignLeft="@+id/mass_check_washing_cost_edit_text"
+        android:layout_alignStart="@+id/mass_check_washing_cost_edit_text"
         android:layout_marginTop="10dp"/>
 
     <TextView
@@ -90,7 +90,7 @@
         android:layout_height="wrap_content"
         android:text="@string/laser_cost"
         android:id="@+id/textView158"
-        android:layout_below="@+id/check_washing_cost_edit_text"
+        android:layout_below="@+id/mass_check_washing_cost_edit_text"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginTop="10dp"/>
@@ -99,10 +99,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/new_text"
-        android:id="@+id/check_embroidery_cost_edit_text"
-        android:layout_below="@+id/check_laser_cost_text"
-        android:layout_alignLeft="@+id/check_laser_cost_text"
-        android:layout_alignStart="@+id/check_laser_cost_text"
+        android:id="@+id/mass_check_embroidery_cost_edit_text"
+        android:layout_below="@+id/mass_check_laser_cost_text"
+        android:layout_alignLeft="@+id/mass_check_laser_cost_text"
+        android:layout_alignStart="@+id/mass_check_laser_cost_text"
         android:layout_marginTop="10dp"/>
 
     <TextView
@@ -110,7 +110,7 @@
         android:layout_height="wrap_content"
         android:text="@string/embroidery_cost"
         android:id="@+id/textView160"
-        android:layout_below="@+id/check_laser_cost_text"
+        android:layout_below="@+id/mass_check_laser_cost_text"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginTop="10dp"/>
@@ -119,10 +119,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/new_text"
-        android:id="@+id/check_crushed_cost_edit_text"
-        android:layout_below="@+id/check_embroidery_cost_edit_text"
-        android:layout_alignLeft="@+id/check_embroidery_cost_edit_text"
-        android:layout_alignStart="@+id/check_embroidery_cost_edit_text"
+        android:id="@+id/mass_check_crushed_cost_edit_text"
+        android:layout_below="@+id/mass_check_embroidery_cost_edit_text"
+        android:layout_alignLeft="@+id/mass_check_embroidery_cost_edit_text"
+        android:layout_alignStart="@+id/mass_check_embroidery_cost_edit_text"
         android:layout_marginTop="10dp"/>
 
     <TextView
@@ -130,7 +130,7 @@
         android:layout_height="wrap_content"
         android:text="@string/crushed_cost"
         android:id="@+id/textView162"
-        android:layout_alignTop="@+id/check_crushed_cost_edit_text"
+        android:layout_alignTop="@+id/mass_check_crushed_cost_edit_text"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
@@ -138,10 +138,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/new_text"
-        android:id="@+id/check_plate_charge_cost_edit_text"
-        android:layout_below="@+id/check_crushed_cost_edit_text"
-        android:layout_alignLeft="@+id/check_crushed_cost_edit_text"
-        android:layout_alignStart="@+id/check_crushed_cost_edit_text"
+        android:id="@+id/mass_check_plate_charge_cost_edit_text"
+        android:layout_below="@+id/mass_check_crushed_cost_edit_text"
+        android:layout_alignLeft="@+id/mass_check_crushed_cost_edit_text"
+        android:layout_alignStart="@+id/mass_check_crushed_cost_edit_text"
         android:layout_marginTop="10dp"/>
 
     <TextView
@@ -149,7 +149,7 @@
         android:layout_height="wrap_content"
         android:text="@string/plate_charge_cost"
         android:id="@+id/textView164"
-        android:layout_below="@+id/check_crushed_cost_edit_text"
+        android:layout_below="@+id/mass_check_crushed_cost_edit_text"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginTop="10dp"/>
@@ -157,7 +157,7 @@
          android:layout_width="match_parent"
          android:layout_height="5dp"
          android:id="@+id/view2"
-         android:layout_below="@+id/check_plate_charge_cost_edit_text"
+         android:layout_below="@+id/mass_check_plate_charge_cost_edit_text"
          android:background="?android:attr/listDivider"
          />
 
@@ -166,7 +166,7 @@
         android:layout_height="wrap_content"
         android:text="@string/technology_image_sample"
         android:id="@+id/textView165"
-        android:layout_alignTop="@+id/technology_sample_image_view"
+        android:layout_alignTop="@+id/mass_technology_sample_image_view"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginTop="10dp"/>
@@ -174,27 +174,27 @@
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/technology_sample_image_view"
+        android:id="@+id/mass_technology_sample_image_view"
         android:layout_below="@+id/view2"
-        android:layout_alignLeft="@+id/check_plate_charge_cost_edit_text"
-        android:layout_alignStart="@+id/check_plate_charge_cost_edit_text"
+        android:layout_alignLeft="@+id/mass_check_plate_charge_cost_edit_text"
+        android:layout_alignStart="@+id/mass_check_plate_charge_cost_edit_text"
         android:layout_marginTop="10dp"/>
 
         <View
             android:layout_width="wrap_content"
             android:layout_height="5dp"
             android:id="@+id/view3"
-            android:layout_below="@+id/technology_sample_image_view"
+            android:layout_below="@+id/mass_technology_sample_image_view"
             android:background="?android:attr/listDivider"
             />
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/sample_technology_leading_name_edit_text"
-        android:ems="5"
+        android:id="@+id/mass_sample_technology_leading_name_edit_text"
+        android:ems="10"
         android:layout_below="@+id/view3"
-        android:layout_alignLeft="@+id/technology_sample_image_view"
-        android:layout_alignStart="@+id/technology_sample_image_view"
+        android:layout_alignLeft="@+id/mass_technology_sample_image_view"
+        android:layout_alignStart="@+id/mass_technology_sample_image_view"
         android:layout_marginTop="20dp"/>
 
     <TextView
@@ -202,7 +202,7 @@
         android:layout_height="wrap_content"
         android:text="@string/technology_leading_name"
         android:id="@+id/textView166"
-        android:layout_alignBottom="@+id/sample_technology_leading_name_edit_text"
+        android:layout_alignBottom="@+id/mass_sample_technology_leading_name_edit_text"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
@@ -211,30 +211,46 @@
         android:layout_height="wrap_content"
         android:text="@string/technology_mass_complete_date"
         android:id="@+id/textView167"
-        android:layout_alignBottom="@+id/sample_technology_mass_complete_date_edit_text"
+        android:layout_alignBottom="@+id/mass_sample_technology_mass_complete_date_edit_text"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/sample_technology_mass_complete_date_edit_text"
-        android:ems="5"
+        android:id="@+id/mass_sample_technology_mass_complete_date_edit_text"
+        android:ems="10"
         android:editable="false"
-        android:layout_below="@+id/sample_technology_leading_name_edit_text"
-        android:layout_alignLeft="@+id/sample_technology_leading_name_edit_text"
-        android:layout_alignStart="@+id/sample_technology_leading_name_edit_text" />
+        android:layout_below="@+id/mass_sample_technology_leading_name_edit_text"
+        android:layout_alignLeft="@+id/mass_sample_technology_leading_name_edit_text"
+        android:layout_alignStart="@+id/mass_sample_technology_leading_name_edit_text" />
 
-    <ImageButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/sample_technology_mass_accept_button"
-        android:src="@drawable/ic_action_accept"
-        android:background="@color/blue"
-        android:layout_below="@+id/textView167"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="30dp" />
+     <LinearLayout
+         android:layout_width="match_parent"
+         android:layout_height="80dp"
+         android:orientation="horizontal"
+         android:layout_below="@+id/textView167"
+         android:layout_alignParentLeft="true"
+         android:layout_alignParentStart="true"
+         android:layout_marginTop="30dp">
+             <ImageButton
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             android:layout_weight="1"
+             android:id="@+id/sample_technology_mass_back_button"
+             android:src="@drawable/ic_action_back"
+             android:background="@drawable/back_button_selector"
+             />
+              <ImageButton
+                 android:layout_width="match_parent"
+                 android:layout_height="match_parent"
+                 android:layout_weight="1"
+                 android:id="@+id/sample_technology_mass_accept_button"
+                 android:src="@drawable/ic_action_accept"
+                 android:background="@drawable/commit_button_selector"
+                />
+
+     </LinearLayout>
 
 </RelativeLayout>
 </ScrollView>
