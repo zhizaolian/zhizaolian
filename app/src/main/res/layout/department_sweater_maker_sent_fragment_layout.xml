@@ -6,9 +6,13 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
     <HorizontalScrollView
         android:layout_width="wrap_content"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:id="@+id/my_horizontalScrollView">
     <RelativeLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
@@ -33,53 +37,63 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/color"
+                android:gravity="center_horizontal"
                 android:layout_marginLeft="15dp"
                 />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/title_XS"
+                android:gravity="center_horizontal"
                 android:layout_marginLeft="15dp"
                 />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
                 android:text="@string/title_S"
                 android:layout_marginLeft="15dp"
                 />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
                 android:text="@string/title_M"
                 android:layout_marginLeft="15dp"
                 />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
                 android:text="@string/title_L"
                 android:layout_marginLeft="15dp"
                 />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
                 android:text="@string/title_XL"
                 android:layout_marginLeft="15dp"
                 />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
                 android:text="@string/title_XXL"
                 android:layout_marginLeft="15dp"
                 />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
                 android:text="@string/title_average_size"
                 android:layout_marginLeft="15dp"
                 />
         </TableRow>
      </TableLayout>
 
+    </RelativeLayout>
+    </HorizontalScrollView>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -94,11 +108,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/processing_name_edit_text"
-        android:ems="5"
-        android:layout_below="@+id/sweater_maker_plan_table"
+        android:ems="10"
+        android:layout_below="@+id/my_horizontalScrollView"
         android:layout_toRightOf="@+id/textView217"
         android:layout_toEndOf="@+id/textView217"
-        android:layout_marginLeft="30dp"/>
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="30dp"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -113,7 +128,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/send_out_time_edit_text"
-        android:ems="5"
+        android:ems="10"
         android:editable="false"
         android:layout_below="@+id/processing_name_edit_text"
         android:layout_alignLeft="@+id/processing_name_edit_text"
@@ -123,7 +138,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/sent_leading_name_edit_text"
-        android:ems="5"
+        android:ems="10"
         android:editable="false"
         android:layout_below="@+id/send_out_time_edit_text"
         android:layout_alignLeft="@+id/send_out_time_edit_text"
@@ -138,18 +153,31 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
-    <ImageButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/sweater_maker_sent_accept_button"
-        android:src="@drawable/ic_action_accept"
-        android:background="@color/blue"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:orientation="horizontal"
         android:layout_below="@+id/textView219"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="20dp"/>
-
+        android:layout_marginTop="30dp">
+        <ImageButton
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:id="@+id/sweater_maker_sent_back_button"
+            android:src="@drawable/ic_action_back"
+            android:background="@drawable/back_button_selector"
+            />
+        <ImageButton
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:id="@+id/sweater_maker_sent_accept_button"
+            android:src="@drawable/ic_action_accept"
+            android:background="@drawable/commit_button_selector"
+            />
+    </LinearLayout>
     </RelativeLayout>
-    </HorizontalScrollView>
     </ScrollView>
 </RelativeLayout>
