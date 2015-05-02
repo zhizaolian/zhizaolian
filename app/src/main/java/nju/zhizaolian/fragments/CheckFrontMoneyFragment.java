@@ -1,8 +1,10 @@
 package nju.zhizaolian.fragments;
 
 
+import android.app.AlertDialog;
 import android.app.Fragment;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
@@ -14,27 +16,31 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.JsonHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
+import com.squareup.picasso.Picasso;
 
 import org.apache.http.Header;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import nju.zhizaolian.R;
+import nju.zhizaolian.help.MyUtils;
 import nju.zhizaolian.models.IPAddress;
 import nju.zhizaolian.models.ListInfo;
 import nju.zhizaolian.models.Order;
 import nju.zhizaolian.models.OrderInfo;
+import nju.zhizaolian.models.Quote;
 
 /**
  *.首定金
  */
 public class CheckFrontMoneyFragment extends Fragment {
-    private static  String confirmDepositDetailUrl="/fmc/finance/mobile_returnDepositDetail.do";
-    private static  String confirmDepositSubmitUrl="/fmc//finance/mobile_returnDepositSubmit.do";
+    private static  String confirmDepositDetailUrl="/fmc/finance/mobile_confirmDepositDetail.do";
+    private static  String confirmDepositSubmitUrl="/fmc/finance/mobile_confirmDepositSubmit.do";
 
    private TextView moneyTypeView;
     private TextView moneyDiscountView;
@@ -99,7 +105,60 @@ public class CheckFrontMoneyFragment extends Fragment {
 
         progressDialog=ProgressDialog.show(container.getContext(),"请等待","数据更新中",true);
 
-         getConfirmDepositDetail();
+        getConfirmDepositDetail();
+        ensureDepositMoneyButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(remitNameEdit.getText().length() == 0 || remitNumberEdit.getText().length() == 0 ||
+                        remitBankEdit.getText().length() == 0){
+                    Toast.makeText(getActivity(),"请填写数据",Toast.LENGTH_SHORT).show();
+                }else {
+                    AlertDialog.Builder builder=new AlertDialog.Builder(getActivity());
+
+                    builder.setMessage("确定操作");
+                    builder.setPositiveButton("确定",new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            progressDialog=ProgressDialog.show(getActivity(),"请等待","数据上传中",true,true);
+                            confirmDepositSubmit(1);
+                        }
+                    });
+                    builder.setNegativeButton("取消",new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                        }
+                    });
+                    builder.create().show();
+                }
+
+
+            }
+        });
+
+        unableDepositMoneyButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AlertDialog.Builder builder=new AlertDialog.Builder(getActivity());
+
+                builder.setMessage("确定操作");
+                builder.setPositiveButton("确定",new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        progressDialog=ProgressDialog.show(getActivity(),"请等待","数据上传中",true,true);
+                        confirmDepositSubmit(0);
+                    }
+                });
+                builder.setNegativeButton("取消",new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                });
+                builder.create().show();
+            }
+        });
+
         return view;
     }
 
@@ -119,6 +178,29 @@ public class CheckFrontMoneyFragment extends Fragment {
                 try {
                     orderInfo=OrderInfo.fromJson(response.getJSONObject("orderInfo"));
                     order=orderInfo.getOrder();
+                    Quote quote=orderInfo.getQuote();
+                    moneyTypeView.setText(orderInfo.getMoneyName());
+
+                    float discount= Float.parseFloat(order.getDiscount());
+                    float askAmount= Float.valueOf(order.getAskAmount());
+                    float askUnitPrice= Float.valueOf(quote.getOuterPrice());
+                    float totalPrice=askAmount*askUnitPrice;
+                    float moneyPayPrice= (float) ((askAmount*askUnitPrice-discount)*0.3);
+                    moneyDiscountView.setText(String.valueOf(discount));
+                    moneyPayView.setText(String.valueOf(moneyPayPrice));
+                    goodsAmountView.setText(String.valueOf(discount));
+                    goodsUnitPriceView.setText(String.valueOf(askUnitPrice));
+                    goodsTotalPriceView.setText(String.valueOf(totalPrice));
+                    sampleAmountView.setText(orderInfo.getOrderSampleAmount());
+                    sampleUnitPriceView.setText(String.valueOf(orderInfo.getSamplePrice()));
+                    double sampleAmount= Double.parseDouble(orderInfo.getOrderSampleAmount());
+                    double sampleUnitPrice=orderInfo.getSamplePrice();
+                    sampleTotalPriceView.setText(String.valueOf(sampleAmount*sampleUnitPrice));
+                    remitMoneyView.setText(String.valueOf(moneyPayPrice));
+                    depositTimeView.setText(MyUtils.getCurrentDate());
+                    depositRemarkView.setText(order.getMoneyremark());
+                    Picasso.with(getActivity()).load(IPAddress.getIP()+orderInfo.getUrl()).into(depositMoneyImage);
+
                     progressDialog.dismiss();
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -130,6 +212,7 @@ public class CheckFrontMoneyFragment extends Fragment {
             @Override
             public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
                 super.onFailure(statusCode, headers, responseString, throwable);
+                Log.d("30%定金",responseString);
                 progressDialog.dismiss();
             }
         });
@@ -143,16 +226,49 @@ public class CheckFrontMoneyFragment extends Fragment {
         params.put("jsessionId",jsessionId);
         params.put("orderId",order.getOrderId());
         params.put("taskId",orderInfo.getTaskId());
-        params.put("result",String.valueOf(result));
+        params.put("result",String.valueOf(result));//收到传1，未收到传0
         params.put("money_amount",remitMoneyView.getText().toString());
-        params.put("money_state","");
-        params.put("money_type","");
+        if(result == 1){
+            params.put("money_state","已收到");
+        }else {
+            params.put("money_state","未收到");
+        }
+
+        params.put("money_type",orderInfo.getMoneyName());
         params.put("money_bank",remitBankEdit.getText().toString());
         params.put("money_name",remitNameEdit.getText().toString());
         params.put("money_number",remitNumberEdit.getText().toString());
         params.put("money_remark",depositRemarkView.getText().toString());
         params.put("time",depositTimeView.getText().toString());
         params.put("account",depositAccountSpinner.getSelectedItem().toString());
+        client.post(IPAddress.getIP()+confirmDepositSubmitUrl,params,new JsonHttpResponseHandler(){
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+                super.onSuccess(statusCode, headers, response);
+                try {
+                    String success=response.getString("isSuccess");
+                    if(success.equals("true")){
+                        Toast.makeText(getActivity(),"确认成功",Toast.LENGTH_SHORT).show();
+
+                    }else {
+                        Toast.makeText(getActivity(),"未能收到样衣",Toast.LENGTH_SHORT).show();
+                    }
+                    progressDialog.dismiss();
+                    getActivity().finish();
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                    progressDialog.dismiss();
+
+                }
+
+
+            }
+
+            @Override
+            public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
+                super.onFailure(statusCode, headers, responseString, throwable);
+            }
+        });
     }
 
 

@@ -30,8 +30,9 @@ public class OrderInfo {
     private ArrayList<DeliveryRecord> deliveryRecords;
     private ArrayList<Produce> produceArrayList;
     private String verifyQuoteComment;//报价时的意见
-
-
+    private String moneyName;//现金名称
+    private double samplePrice;
+    private String url;
     public OrderInfo() {
     }
 
@@ -85,6 +86,9 @@ public class OrderInfo {
             orderInfo.employee=jsonObject.has("employee")?Employee.fromJson(jsonObject.getJSONObject("employee")):null;
 
             orderInfo.orderId=jsonObject.getString("orderId");
+            orderInfo.moneyName=jsonObject.has("moneyName")?jsonObject.getString("moneyName"):null;
+            orderInfo.samplePrice= jsonObject.has("samplePrice")?Double.parseDouble(jsonObject.getString("samplePrice")):null;
+            orderInfo.url=jsonObject.has("url")?jsonObject.getString("url"):null;
 
         }catch (Exception e){
             e.printStackTrace();
@@ -94,6 +98,31 @@ public class OrderInfo {
 
 
         return orderInfo;
+    }
+
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    public double getSamplePrice() {
+        return samplePrice;
+    }
+
+    public void setSamplePrice(double samplePrice) {
+        this.samplePrice = samplePrice;
+    }
+
+    public String getMoneyName() {
+        return moneyName;
+    }
+
+    public void setMoneyName(String moneyName) {
+        this.moneyName = moneyName;
     }
 
     public String getVerifyQuoteComment() {
