@@ -138,7 +138,7 @@ public class DepartmentProductionMassFragment extends Fragment {
         return view;
     }
 
-private  class MyTextWatcher implements TextWatcher{
+    private  class MyTextWatcher implements TextWatcher{
 
     int i=0;
     int j=0;
@@ -173,6 +173,7 @@ private  class MyTextWatcher implements TextWatcher{
             TableRow row = new TableRow(getActivity());
             TextView tv = new TextView(getActivity());
             tv.setText("计划生产任务");
+            tv.setPadding(0,20,0,0);
             row.addView(tv);
             planTable.addView(row);
             for(int i=0;i<planData.get(0).size();i++){
@@ -194,6 +195,7 @@ private  class MyTextWatcher implements TextWatcher{
             TableRow row1 = new TableRow(getActivity());
             TextView tv1 = new TextView(getActivity());
             tv1.setText("实际生产任务");
+            tv1.setPadding(0,20,0,0);
             row1.addView(tv1);
             planTable.addView(row1);
             for(int i=0;i<planData.get(0).size();i++){

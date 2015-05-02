@@ -7,6 +7,11 @@
     <string name="save_this_quality">保存本次质检</string>
     <string name="complete_total_quality">完成最终质检</string>
     <string name="choose_data">选择日期</string>
+    <string name="date">日期</string>
     <string name="processing">加工方</string>
     <string name="quality_record">质检记录</string>
+
+    <string-array name="quality_department_list">
+        <item>质量检查</item>
+    </string-array>
 </resources>
