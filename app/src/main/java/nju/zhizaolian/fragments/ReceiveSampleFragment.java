@@ -100,7 +100,7 @@ public class ReceiveSampleFragment extends Fragment {
                         dialog.dismiss();
                     }
                 });
-
+                builder.create().show();
             }
         });
         unableReceiveSampleButton=(Button)view.findViewById(R.id.unable_receive_sample_button);

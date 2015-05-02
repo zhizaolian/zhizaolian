@@ -146,7 +146,7 @@ public class SignContractFragment extends Fragment {
                    produce.setXl(signContractXLEdit.getText().toString());
                    produce.setXxl(signContractXXLEdit.getText().toString());
                    produce.setJ(signContractJEdit.getText().toString());
-                   produceAdapter.add(produce);
+
                    produceArrayList.add(produce);
                    produceAdapter.notifyDataSetChanged();
                }
@@ -213,7 +213,7 @@ public class SignContractFragment extends Fragment {
                         public void onClick(DialogInterface dialog, int which) {
                             progressDialog=ProgressDialog.show(container.getContext(),"请等待","",true);
 
-                            signContractSubmit();
+                            signContractSubmit(true);
 
                         }
                     });
@@ -231,7 +231,25 @@ public class SignContractFragment extends Fragment {
         cancelOrderButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(container.getContext(),"暂不可用",Toast.LENGTH_SHORT).show();
+                AlertDialog.Builder builder=new AlertDialog.Builder(container.getContext());
+                builder.setMessage("确定取消合同?");
+                builder.setPositiveButton("确认",new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        progressDialog=ProgressDialog.show(container.getContext(),"请等待","",true);
+
+                        signContractSubmit(false);
+
+                    }
+                });
+                builder.setNegativeButton("取消",new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                });
+                builder.create().show();
+
             }
         });
 
@@ -282,7 +300,7 @@ public class SignContractFragment extends Fragment {
 
 
 
-    public void signContractSubmit(){
+    public void signContractSubmit(boolean success){
         AsyncHttpClient client=new AsyncHttpClient();
         RequestParams params=new RequestParams();
         SharedPreferences sharedPreferences=getActivity().getSharedPreferences("common", 0);
@@ -291,7 +309,7 @@ public class SignContractFragment extends Fragment {
         params.put("orderId",order.getOrderId());
         params.put("taskId",orderInfo.getTaskId());
         params.put("processId",orderInfo.getProcessInstanceId());
-        params.put("tof","1");
+        params.put("tof",String.valueOf(success));
 
         for(Produce p:produceArrayList){
             String produceColor=p.getColor()+",";

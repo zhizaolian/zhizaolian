@@ -1,82 +1,81 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent">
-
-    <TextView
-        android:layout_width="wrap_content"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="@string/accessories_name"
-        android:id="@+id/textView161"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/accessories_name"
+            />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="晴纶"
-        android:id="@+id/textView162"
-        android:layout_alignParentTop="true"
-        android:layout_toRightOf="@+id/textView161"
-        android:layout_toEndOf="@+id/textView161"
-        android:layout_marginLeft="41dp"
-        android:layout_marginStart="41dp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/accessory_cost_name_view"
+            android:text="无"
+            android:layout_marginLeft="30dp"
+            />
+        </LinearLayout>
 
-    <TextView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="@string/cost_per_accessories"
-        android:id="@+id/textView163"
-        android:layout_alignParentTop="true"
-        android:layout_toRightOf="@+id/textView162"
-        android:layout_toEndOf="@+id/textView162"
-        android:layout_marginLeft="49dp"
-        android:layout_marginStart="49dp" />
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/cost_per_accessories"
+            />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="5"
-        android:id="@+id/textView164"
-        android:layout_marginLeft="51dp"
-        android:layout_marginStart="51dp"
-        android:layout_alignParentTop="true"
-        android:layout_toRightOf="@+id/textView163"
-        android:layout_toEndOf="@+id/textView163" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/accessory_cost_tear_per_piece_view"
+            android:text="0"
+            android:layout_marginLeft="30dp"
+            />
+        </LinearLayout>
 
-    <TextView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="@string/price"
-        android:id="@+id/textView165"
-        android:layout_below="@+id/textView161"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/price"
+            />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="5"
-        android:id="@+id/textView166"
-        android:layout_alignTop="@+id/textView165"
-        android:layout_alignLeft="@+id/textView162"
-        android:layout_alignStart="@+id/textView162" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0"
+            android:layout_marginLeft="59dp"
+            android:id="@+id/accessory_cost_price_view"
+            />
+        </LinearLayout>
 
-    <TextView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="@string/cost_per_clothes"
-        android:id="@+id/textView167"
-        android:layout_below="@+id/textView163"
-        android:layout_alignLeft="@+id/textView163"
-        android:layout_alignStart="@+id/textView163" />
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/cost_per_clothes"
+            />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="100"
-        android:id="@+id/textView168"
-        android:layout_alignTop="@+id/textView167"
-        android:layout_alignLeft="@+id/textView164"
-        android:layout_alignStart="@+id/textView164" />
-</RelativeLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0"
+            android:layout_marginLeft="30dp"
+            android:id="@+id/accessory_cost_per_piece_view"
+            />
+        </LinearLayout>
+
+</LinearLayout>

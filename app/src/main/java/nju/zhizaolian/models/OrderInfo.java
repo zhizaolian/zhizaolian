@@ -1,6 +1,5 @@
 package nju.zhizaolian.models;
 
-import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
@@ -30,6 +29,9 @@ public class OrderInfo {
     private String price;
     private ArrayList<DeliveryRecord> deliveryRecords;
     private ArrayList<Produce> produceArrayList;
+    private String verifyQuoteComment;//报价时的意见
+
+
     public OrderInfo() {
     }
 
@@ -53,46 +55,32 @@ public class OrderInfo {
             orderInfo.deliveryRecords=jsonObject.has("deliveryRecord")?DeliveryRecord.fromJson(jsonObject.getJSONArray("deliveryRecord")):null;
             orderInfo.produceArrayList=jsonObject.has("produce")?Produce.fromJson(jsonObject.getJSONArray("produce")):null;
 
-            try{
-                orderInfo.fabricCosts=FabricCost.fromJson(jsonObject.getJSONArray("fabricCosts"));
-            }catch (JSONException e){
-                e.printStackTrace();
-            }
-            try{
-                orderInfo.versionDatas=VersionData.fromJson(jsonObject.getJSONArray("versions"));
+            orderInfo.fabricCosts=jsonObject.has("fabricCosts")?FabricCost.fromJson(jsonObject.getJSONArray("fabricCosts")):null;
+            orderInfo.verifyQuoteComment=jsonObject.has("verifyQuoteComment")?jsonObject.getString("verifyQuoteComment"):null;
 
-            }catch (JSONException e){
-                e.printStackTrace();
-            }
-            try{
-                orderInfo.processInstanceId=jsonObject.getString("processInstanceId");
 
-            }catch (JSONException e){
-                e.printStackTrace();
-            }
-            try{
-                orderInfo.order=Order.fromJson(jsonObject.getJSONObject("order"));
-            }catch (JSONException e){
-                e.printStackTrace();
-            }
-            try{
-                orderInfo.accessoryCosts=AccessoryCost.fromJson(jsonObject.getJSONArray("accessoryCosts"));
-            }catch (JSONException e){
-                e.printStackTrace();
-            }
+           orderInfo.versionDatas=jsonObject.has("versions")?VersionData.fromJson(jsonObject.getJSONArray("versions")):null;
+
+
+
+            orderInfo.processInstanceId=jsonObject.getString("processInstanceId");
+
+
+
+           orderInfo.order=Order.fromJson(jsonObject.getJSONObject("order"));
+
+
+          orderInfo.accessoryCosts=jsonObject.has("accessoryCosts")?AccessoryCost.fromJson(jsonObject.getJSONArray("accessoryCosts")):null;
+
 
             orderInfo.orderSampleAmount=jsonObject.has("orderSampleAmount")?jsonObject.getString("orderSampleAmount"):null;
 
-            try{
-                orderInfo.quote= Quote.fromJson(jsonObject.getJSONObject("quote"));
-            }catch (JSONException e){
-                e.printStackTrace();
-            }
-            try{
-                orderInfo.fabrics=Fabric.fromJson(jsonObject.getJSONArray("fabrics"));
-            }catch (JSONException e){
-                e.printStackTrace();
-            }
+
+           orderInfo.quote= jsonObject.has("quote")?Quote.fromJson(jsonObject.getJSONObject("quote")):null;
+
+
+                orderInfo.fabrics=jsonObject.has("fabrics")?Fabric.fromJson(jsonObject.getJSONArray("fabrics")):null;
+
 
             orderInfo.employee=jsonObject.has("employee")?Employee.fromJson(jsonObject.getJSONObject("employee")):null;
 
@@ -106,6 +94,14 @@ public class OrderInfo {
 
 
         return orderInfo;
+    }
+
+    public String getVerifyQuoteComment() {
+        return verifyQuoteComment;
+    }
+
+    public void setVerifyQuoteComment(String verifyQuoteComment) {
+        this.verifyQuoteComment = verifyQuoteComment;
     }
 
     public ArrayList<Produce> getProduceArrayList() {

@@ -11,7 +11,6 @@ import android.widget.ArrayAdapter;
 import android.widget.SpinnerAdapter;
 
 import nju.zhizaolian.R;
-import nju.zhizaolian.fragments.CheckFrontMoneyFragment;
 import nju.zhizaolian.fragments.CheckRemainingBalanceFragment;
 import nju.zhizaolian.fragments.OrderListFragment;
 import nju.zhizaolian.fragments.ReturnMoneyFragment;
@@ -42,9 +41,8 @@ public class DepartmentFinancialActivity extends ActionBarActivity {
         public boolean onNavigationItemSelected(int i, long l) {
             Fragment fragment=null;
             switch (i){
-                case 0:orderListFragment.getListViewByURLAndOperation("/fmc/finance/mobile_confirmSampleMoneyList.do", Operation.CHECKSAMPLEBALANCE);
-                    break;
-                case 1:fragment= new CheckFrontMoneyFragment();break;
+                case 0:orderListFragment.getListViewByURLAndOperation("/fmc/finance/mobile_confirmSampleMoneyList.do", Operation.CHECKSAMPLEBALANCE);break;
+                case 1:orderListFragment.getListViewByURLAndOperation("/fmc/finance/mobile_confirmDepositList.do",Operation.CHECKFRONTMONEY);break;
                 case 2: fragment= new ReturnMoneyFragment();break;
                 case 3:fragment= new CheckRemainingBalanceFragment();break;
 

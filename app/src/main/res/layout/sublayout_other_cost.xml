@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent">
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    >
 
     <TextView
         android:layout_width="wrap_content"
@@ -14,8 +15,8 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="10"
-        android:id="@+id/textView186"
+        android:text="0"
+        android:id="@+id/cutCostView"
         android:layout_alignParentTop="true"
         android:layout_toRightOf="@+id/textView185"
         android:layout_toEndOf="@+id/textView185"
@@ -34,11 +35,11 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="10"
-        android:id="@+id/textView188"
-        android:layout_below="@+id/textView198"
-        android:layout_alignLeft="@+id/textView198"
-        android:layout_alignStart="@+id/textView198" />
+        android:text="0"
+        android:id="@+id/manageCostView"
+        android:layout_below="@+id/otherCostView"
+        android:layout_alignLeft="@+id/otherCostView"
+        android:layout_alignStart="@+id/otherCostView" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -52,11 +53,11 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="10"
-        android:id="@+id/textView190"
-        android:layout_below="@+id/textView186"
-        android:layout_alignLeft="@+id/textView186"
-        android:layout_alignStart="@+id/textView186" />
+        android:text="0"
+        android:id="@+id/swingCostView"
+        android:layout_below="@+id/cutCostView"
+        android:layout_alignLeft="@+id/cutCostView"
+        android:layout_alignStart="@+id/cutCostView" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -70,11 +71,11 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="10"
-        android:id="@+id/textView192"
+        android:text="0"
+        android:id="@+id/ironingCostView"
         android:layout_alignTop="@+id/textView191"
-        android:layout_alignLeft="@+id/textView188"
-        android:layout_alignStart="@+id/textView188" />
+        android:layout_alignLeft="@+id/manageCostView"
+        android:layout_alignStart="@+id/manageCostView" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -88,11 +89,11 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="1000"
-        android:id="@+id/textView194"
-        android:layout_below="@+id/textView190"
-        android:layout_alignLeft="@+id/textView190"
-        android:layout_alignStart="@+id/textView190" />
+        android:text="0"
+        android:id="@+id/nailCostView"
+        android:layout_below="@+id/swingCostView"
+        android:layout_alignLeft="@+id/swingCostView"
+        android:layout_alignStart="@+id/swingCostView" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -106,11 +107,11 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="100"
-        android:id="@+id/textView196"
-        android:layout_below="@+id/textView192"
-        android:layout_alignLeft="@+id/textView192"
-        android:layout_alignStart="@+id/textView192" />
+        android:text="0"
+        android:id="@+id/packageCostView"
+        android:layout_below="@+id/ironingCostView"
+        android:layout_alignLeft="@+id/ironingCostView"
+        android:layout_alignStart="@+id/ironingCostView" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -124,11 +125,11 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="100000"
-        android:id="@+id/textView198"
-        android:layout_below="@+id/textView194"
-        android:layout_alignLeft="@+id/textView194"
-        android:layout_alignStart="@+id/textView194" />
+        android:text="0"
+        android:id="@+id/otherCostView"
+        android:layout_below="@+id/nailCostView"
+        android:layout_alignLeft="@+id/nailCostView"
+        android:layout_alignStart="@+id/nailCostView" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -142,9 +143,9 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="1000"
-        android:id="@+id/textView200"
-        android:layout_below="@+id/textView196"
-        android:layout_alignLeft="@+id/textView196"
-        android:layout_alignStart="@+id/textView196" />
+        android:text="0"
+        android:id="@+id/degisnCostView"
+        android:layout_below="@+id/packageCostView"
+        android:layout_alignLeft="@+id/packageCostView"
+        android:layout_alignStart="@+id/packageCostView" />
 </RelativeLayout>

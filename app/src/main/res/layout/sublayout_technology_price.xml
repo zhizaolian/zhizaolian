@@ -15,9 +15,9 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="5"
-        android:layout_marginLeft="55dp"
-        android:id="@+id/textView174"
+        android:text="0"
+        android:layout_marginLeft="50dp"
+        android:id="@+id/stamp_duty_money_view"
         />
     </LinearLayout>
 
@@ -35,9 +35,9 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="5"
-            android:layout_marginLeft="30dp"
-            android:id="@+id/textView176"
+            android:text="0"
+            android:layout_marginLeft="22dp"
+            android:id="@+id/wash_hang_dye_money_view"
             />
         </LinearLayout>
 
@@ -54,9 +54,9 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="100"
+            android:text="0"
             android:layout_marginLeft="50dp"
-            android:id="@+id/textView178"
+            android:id="@+id/laser_money_view"
             />
         </LinearLayout>
 
@@ -73,9 +73,9 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="100"
+            android:text="0"
             android:layout_marginLeft="50dp"
-            android:id="@+id/textView180"
+            android:id="@+id/embroidery_money_view"
             />
 
         </LinearLayout>
@@ -93,9 +93,9 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="100"
+            android:text="0"
             android:layout_marginLeft="50dp"
-            android:id="@+id/textView182"
+            android:id="@+id/crumple_money_view"
             />
         </LinearLayout>
 
@@ -112,9 +112,9 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="100000"
+            android:text="0"
             android:layout_marginLeft="50dp"
-            android:id="@+id/textView184"
+            android:id="@+id/open_version_money_view"
             />
 
         </LinearLayout>

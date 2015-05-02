@@ -1,48 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
+   <LinearLayout
+       android:layout_width="fill_parent"
+       android:layout_height="wrap_content"
+       android:orientation="horizontal">
+       <TextView
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:text="@string/material_total_count"
+           />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/material_total_count"
-        android:id="@+id/textView169"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+       <TextView
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_marginLeft="30dp"
+           android:text="0"
+           android:id="@+id/fabric_total_cost_view"
+           />
+       </LinearLayout>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="100"
-        android:id="@+id/textView170"
-        android:layout_alignParentTop="true"
-        android:layout_toRightOf="@+id/textView169"
-        android:layout_toEndOf="@+id/textView169"
-        android:layout_marginLeft="29dp"
-        android:layout_marginStart="29dp" />
-
+<LinearLayout
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/accessories_total_count"
-        android:id="@+id/textView171"
-        android:layout_alignParentTop="true"
-        android:layout_toRightOf="@+id/textView170"
-        android:layout_toEndOf="@+id/textView170"
-        android:layout_marginLeft="33dp"
-        android:layout_marginStart="33dp" />
+        />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="100"
-        android:id="@+id/textView172"
-        android:layout_alignParentTop="true"
-        android:layout_toRightOf="@+id/textView171"
-        android:layout_toEndOf="@+id/textView171"
-        android:layout_marginLeft="29dp"
-        android:layout_marginStart="29dp" />
+        android:text="0"
+        android:layout_marginLeft="30dp"
+        android:id="@+id/accessories_total_cost_view"
+        />
 
-</RelativeLayout>
+    </LinearLayout>
+
+
+</LinearLayout>

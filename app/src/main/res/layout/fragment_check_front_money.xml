@@ -26,7 +26,9 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="30%定金"/>
+                    android:text="30%定金"
+                    android:id="@+id/deposit_money_type_view"/>
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -35,7 +37,8 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="2343333"/>
+                    android:text="2343333"
+                    android:id="@+id/deposit_money_discount_view"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -44,7 +47,8 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="3253245"/>
+                    android:text="3253245"
+                    android:id="@+id/deposit_money_pay_view"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -53,6 +57,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:id="@+id/deposit_money_goods_amount_view"
                     android:text="352352"/>
                 <TextView
                     android:layout_width="wrap_content"
@@ -62,7 +67,8 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="242342"/>
+                    android:text="242342"
+                    android:id="@+id/deposit_money_goods_unit_price_view"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -71,7 +77,8 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="354235"/>
+                    android:text="354235"
+                    android:id="@+id/deposit_money_goods_total_price_view"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -80,6 +87,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:id="@+id/deposit_money_sample_number_view"
                     android:text="354235"/>
                 <TextView
                     android:layout_width="wrap_content"
@@ -89,6 +97,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:id="@+id/deposit_money_sample_unit_price_view"
                     android:text="@string/sample_unit_price"
                     />
                 <TextView
@@ -99,6 +108,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:id="@+id/deposit_money_sample_total_price_view"
                     android:text="@string/sample_total_price"
                     />
 
@@ -115,14 +125,17 @@
                 <EditText
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
+                    android:id="@+id/deposit_money_remit_name_edit"
                     android:hint="@string/remit_person"/>
                 <EditText
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
+                    android:id="@+id/deposit_money_remit_number_edit"
                     android:hint="@string/remit_card_number"/>
                 <EditText
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
+                    android:id="@+id/deposit_money_remit_bank_edit"
                     android:hint="@string/remit_bank"/>
                 <TextView
                     android:layout_width="wrap_content"
@@ -132,7 +145,18 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:id="@+id/deposit_money_remit_money_view"
+
                     android:text="3414"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/receive_money_account"/>
+                <Spinner
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:entries="@array/receive_money_account_list"
+                    android:id="@+id/deposit_money_account_spinner"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -141,11 +165,10 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:id="@+id/deposit_money_time_view"
                     android:text="1664/5/2"
                     />
-                <Spinner
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"/>
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -154,12 +177,8 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="lsghoshgeoajg"/>
-
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content">
+                    android:id="@+id/deposit_money_remark_view"
+                   />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -167,17 +186,22 @@
                     style="@style/MyTextStyle"/>
                 <ImageView
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:id="@+id/deposit_money_image"/>
+                <Button
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/ensure_receive_money"
+                    android:id="@+id/ensure_deposit_money_button"/>
+                <Button
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/unable_receive_money"
+                    style="@style/MyWarningButtonStyle"
+                    android:id="@+id/unable_deposit_money_button"/>
             </LinearLayout>
-            <Button
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/ensure_receive_money"/>
-            <Button
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/unable_receive_money"
-                style="@style/MyWarningButtonStyle"/>
+
+
         </LinearLayout>
     </ScrollView>
 
