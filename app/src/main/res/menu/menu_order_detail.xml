@@ -5,6 +5,6 @@
     <item android:id="@+id/action_submitData" android:title="@string/submit"
         android:orderInCategory="100" app:showAsAction="never" />
     <item android:id="@+id/action_deleteOrderData"
-        android:title="@string/delete"
+        android:title="删除订单"
         app:showAsAction="never"/>
 </menu>

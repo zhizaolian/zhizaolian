@@ -21,6 +21,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.loopj.android.http.AsyncHttpClient;
@@ -42,6 +43,7 @@ import nju.zhizaolian.models.IPAddress;
 import nju.zhizaolian.models.ListInfo;
 import nju.zhizaolian.models.Order;
 import nju.zhizaolian.models.OrderInfo;
+import nju.zhizaolian.models.Quote;
 
 /**
  *
@@ -58,6 +60,13 @@ public class QuoteAgreedFragment extends Fragment {
     private Button changeQuoteButton;
     private Button unableConfirmQuoteButton;
     private EditText profitPerClothesEdit;
+    private TextView singleCostView;
+    private TextView innerCostView;
+    private TextView outerCostView;
+
+
+
+
 
     private byte[] confirmQuotePictureByte;
     private ListInfo listInfo;
@@ -86,6 +95,11 @@ public class QuoteAgreedFragment extends Fragment {
         changeQuoteButton=(Button)view.findViewById(R.id.change_quote_button);
         unableConfirmQuoteButton=(Button)view.findViewById(R.id.unable_confirm_quote_button);
         profitPerClothesEdit=(EditText)view.findViewById(R.id.profit_per_clothes_edit);
+        singleCostView=(TextView)view.findViewById(R.id.total_cost_view);
+        innerCostView=(TextView)view.findViewById(R.id.produce_price_view);
+        outerCostView=(TextView)view.findViewById(R.id.custom_quote_view);
+
+
 
 
         confirmQuotePictureButton.setOnClickListener(new View.OnClickListener() {
@@ -282,8 +296,12 @@ public class QuoteAgreedFragment extends Fragment {
                     try {
                         orderInfo= OrderInfo.fromJson(response.getJSONObject("orderInfo"));
                         order=orderInfo.getOrder();
+                        Quote quote=orderInfo.getQuote();
                         profitPerClothesEdit.setText(orderInfo.getQuote().getProfitPerPiece());
                         profitPerClothesEdit.setEnabled(false);
+                        singleCostView.setText(String.valueOf(quote.getSingleCost()));
+                        innerCostView.setText(quote.getInnerPrice());
+                        outerCostView.setText(quote.getOuterPrice());
                         progressDialog.dismiss();
                     } catch (JSONException e) {
                         e.printStackTrace();

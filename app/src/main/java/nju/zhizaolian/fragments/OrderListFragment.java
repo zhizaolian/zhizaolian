@@ -1,11 +1,10 @@
 package nju.zhizaolian.fragments;
 
 
+import android.app.Fragment;
 import android.app.ProgressDialog;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-
-import android.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -128,7 +127,13 @@ public class OrderListFragment extends Fragment{
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                 try {
-                    ArrayList<ListInfo> listInfoArrayList =ListInfo.fromJson(response.getJSONArray("list"));
+                    ArrayList<ListInfo> listInfoArrayList=new ArrayList<ListInfo>();
+                    if(operate==Operation.WAREHOUSE){
+                        listInfoArrayList =ListInfo.fromJson(response.getJSONArray("packageList"));
+                    }else {
+                       listInfoArrayList =ListInfo.fromJson(response.getJSONArray("list"));
+                    }
+
                     operation=operate;
                     list_url=url;
                     updateListView(listInfoArrayList);
@@ -161,6 +166,10 @@ public class OrderListFragment extends Fragment{
         Fragment fragment = null;
         int id=0;
         switch (operation){
+            case WAREHOUSE:
+                fragment=new WarehouseEntryFragment();
+                id=R.id.logisticContainer;
+                break;
             case MERGEPRICE:
                 fragment = new MergePriceFragment();
                 id=R.id.salesDepartmentcontainers;

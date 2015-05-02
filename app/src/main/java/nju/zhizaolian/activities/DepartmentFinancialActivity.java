@@ -9,11 +9,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ArrayAdapter;
 import android.widget.SpinnerAdapter;
+import android.widget.Toast;
 
 import nju.zhizaolian.R;
-import nju.zhizaolian.fragments.CheckRemainingBalanceFragment;
 import nju.zhizaolian.fragments.OrderListFragment;
-import nju.zhizaolian.fragments.ReturnMoneyFragment;
 import nju.zhizaolian.models.Account;
 import nju.zhizaolian.models.Operation;
 
@@ -43,11 +42,11 @@ public class DepartmentFinancialActivity extends ActionBarActivity {
             switch (i){
                 case 0:orderListFragment.getListViewByURLAndOperation("/fmc/finance/mobile_confirmSampleMoneyList.do", Operation.CHECKSAMPLEBALANCE);break;
                 case 1:orderListFragment.getListViewByURLAndOperation("/fmc/finance/mobile_confirmDepositList.do",Operation.CHECKFRONTMONEY);break;
-                case 2: fragment= new ReturnMoneyFragment();break;
-                case 3:fragment= new CheckRemainingBalanceFragment();break;
+                case 2: orderListFragment.getListViewByURLAndOperation("/fmc/finance/mobile_returnDepositList.do",Operation.RETURNMONEY);break;
+                case 3:
+                    Toast.makeText(getApplicationContext(),"zangbukeyong",Toast.LENGTH_SHORT).show();
+                    break;
 
-                default:
-                    fragment= new CheckRemainingBalanceFragment();break;
 
             }
 

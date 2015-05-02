@@ -23,7 +23,8 @@ public enum Operation {
     //物流部
     RECEIVESAMPLE,//ReceiveSampleFragment 样衣收取
     DELIVERSAMPLE,//DeliverSampleFragment 样衣发货
-
+    WAREHOUSE, //warehouseEntryFragment 产品入库
+    SENDCLOTHES,//
     //质检部
     CHECKQALITY,//CheckQualityFragment 质量检查
 

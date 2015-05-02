@@ -91,7 +91,7 @@ public class ReceiveSampleFragment extends Fragment {
                 builder.setPositiveButton("确定",new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        receiveSampleSubmit();
+                        receiveSampleSubmit(2);
                     }
                 });
                 builder.setNegativeButton("取消", new DialogInterface.OnClickListener() {
@@ -107,7 +107,21 @@ public class ReceiveSampleFragment extends Fragment {
         unableReceiveSampleButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                unReceiveSampleSubmit();
+                AlertDialog.Builder builder=new AlertDialog.Builder(container.getContext());
+                builder.setMessage("确认收到样衣？");
+                builder.setPositiveButton("确定",new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        receiveSampleSubmit(1);
+                    }
+                });
+                builder.setNegativeButton("取消", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                });
+                builder.create().show();
             }
         });
 
@@ -160,14 +174,14 @@ public class ReceiveSampleFragment extends Fragment {
 
     }
 
-    public void receiveSampleSubmit(){
+    public void receiveSampleSubmit(int result){
         AsyncHttpClient client=new AsyncHttpClient();
         RequestParams requestParams=new RequestParams();
         requestParams.put("orderId",order.getOrderId());
         SharedPreferences sharedPreferences=getActivity().getSharedPreferences("common",0);
         String jsessionId=sharedPreferences.getString("jsessionId", "wrong");
         requestParams.put("jsessionId",jsessionId);
-        requestParams.put("result","2");
+        requestParams.put("result",String.valueOf(result));
         requestParams.put("taskId",orderInfo.getTaskId());
         requestParams.put("orderId",order.getOrderId());
         client.post(IPAddress.getIP()+receiveSampleSubmitUrl,requestParams,new JsonHttpResponseHandler(){
@@ -194,26 +208,6 @@ public class ReceiveSampleFragment extends Fragment {
 
 
     }
-    public void unReceiveSampleSubmit(){
 
-        AsyncHttpClient client=new AsyncHttpClient();
-        RequestParams requestParams=new RequestParams();
-        requestParams.put("orderId",order.getOrderId());
-        SharedPreferences sharedPreferences=getActivity().getSharedPreferences("common",0);
-        String jsessionId=sharedPreferences.getString("jsessionId", "wrong");
-        requestParams.put("jsessionId",jsessionId);
-        requestParams.put("result","1");
-        requestParams.put("taskId",orderInfo.getTaskId());
-        requestParams.put("orderId",orderInfo.getOrderId());
-        client.post(IPAddress.getIP()+receiveSampleSubmitUrl,requestParams,new JsonHttpResponseHandler(){
-            @Override
-            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
-                super.onSuccess(statusCode, headers, response);
-                Log.d("unreceive",response.toString());
-                getActivity().finish();
-            }
-        });
-
-    }
 
 }

@@ -211,66 +211,8 @@ public class OrderDetailActivity extends ActionBarActivity implements ActionBar.
 
             }
         }else if(id == R.id.action_deleteOrderData){
+          finish();
 
-            orderSource="";
-            styleName="";
-            clothesType="";
-              styleSex="";
-              styleSeason="";
-         materialType="";
-              specialProcess="";
-         otherRequirements="";
-             referenceUrl="";
-            //面辅信息
-            fabricName="";
-            fabricAmount="";
-            accessoryName="";
-            accessoryAmount="";
-            //sample info
-
-            inPostSampleClothesTime="";
-            inPostSampleClothesType="";
-            inPostSampleClothesNumber="";
-            sampleClothesName="";
-            sampleClothesPhone="";
-             sampleClothesAddress="";
-             sampleClothesRemark="";
-           sampleClothesPicture="";
-             referenceClothesPicture="";
-            //process info
-            askAmount="";
-             askProducePeriod="";
-             askDeliverDate="";
-            // private int  ask_code_number;
-            produceColor="";
-           produceXS="";
-            produceS="";
-              produceM="";
-            produceL="";
-             produceXL="";
-             produceXXL="";
-            produceJ="";
-           sampleProduceColor="";
-            sampleProduceXS="";
-             sampleProduceS="";
-             sampleProduceM="";
-              sampleProduceL="";
-             sampleProduceXL="";
-             sampleProduceXXL="";
-              sampleProduceJ="";
-
-            //version info
-              versionSize="";
-              versionCenterBackLength="";
-              versionBust="";
-             versionWaistLine="";
-              versionShoulder="";
-              versionButtock="";
-             versionHem="";
-              versionTrousers="";
-              versionSkirt="";
-             versionSleeves="";
-            Toast.makeText(getApplicationContext(),"删除成功",Toast.LENGTH_SHORT).show();
 
         }
 
@@ -530,7 +472,7 @@ public class OrderDetailActivity extends ActionBarActivity implements ActionBar.
             requestParams.put("in_post_sample_clothes_type",inPostSampleClothesType);
             requestParams.put("in_post_sample_clothes_number",inPostSampleClothesNumber);
             requestParams.put("sample_clothes_name",sampleClothesName);
-            requestParams.put("sample_clothes_phone",sampleClothesName);
+            requestParams.put("sample_clothes_phone",sampleClothesPhone);
             requestParams.put("sample_clothes_address",sampleClothesAddress);
             requestParams.put("sample_clothes_remark",sampleClothesRemark);
 

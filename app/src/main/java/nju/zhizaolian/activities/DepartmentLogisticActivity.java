@@ -44,7 +44,8 @@ public class DepartmentLogisticActivity extends ActionBarActivity {
                     orderListFragment.getListViewByURLAndOperation("/fmc/logistics/mobile_receiveSampleList.do", Operation.RECEIVESAMPLE);
                     break;
                 case 1:orderListFragment.getListViewByURLAndOperation("/fmc/logistics/mobile_sendSampleList.do",Operation.DELIVERSAMPLE);break;
-                case 2:Toast.makeText(getApplicationContext(), "暂不可用", Toast.LENGTH_SHORT).show();break;
+                case 2:orderListFragment.getListViewByURLAndOperation("/fmc/logistics/mobile_warehouseList.do",Operation.WAREHOUSE);break;
+
                 case 3:
                     Toast.makeText(getApplicationContext(), "暂不可用", Toast.LENGTH_SHORT).show();break;
 
