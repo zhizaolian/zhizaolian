@@ -1,9 +1,11 @@
 package nju.zhizaolian.models;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 /**
  * Created by ColorfulCode on 2015/4/23.
@@ -68,7 +70,20 @@ public class Employee implements Serializable{
         return employee;
     }
 
+    public static ArrayList<Employee> fromJson(JSONArray array){
+        ArrayList<Employee> employees = new ArrayList<>();
+        for(int i=0;i<array.length();i++){
+            try {
+                JSONObject object = array.getJSONObject(i);
+                Employee employee = fromJson(object);
+                employees.add(employee);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
 
+        }
+        return  employees;
+    }
 
     public String getAddress() {
         return address;
