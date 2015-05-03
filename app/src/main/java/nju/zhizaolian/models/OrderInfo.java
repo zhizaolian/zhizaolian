@@ -31,8 +31,9 @@ public class OrderInfo {
     private ArrayList<Produce> produceArrayList;
     private String verifyQuoteComment;//报价时的意见
     private String moneyName;//现金名称
-    private double samplePrice;
+    private String samplePrice;
     private String url;
+    private ArrayList<PackageDetail> packageDetailArrayList=new ArrayList<PackageDetail>();
     public OrderInfo() {
     }
 
@@ -64,30 +65,38 @@ public class OrderInfo {
 
 
 
-            orderInfo.processInstanceId=jsonObject.getString("processInstanceId");
+           orderInfo.processInstanceId=jsonObject.getString("processInstanceId");
 
 
 
-           orderInfo.order=Order.fromJson(jsonObject.getJSONObject("order"));
+          orderInfo.order=Order.fromJson(jsonObject.getJSONObject("order"));
 
 
           orderInfo.accessoryCosts=jsonObject.has("accessoryCosts")?AccessoryCost.fromJson(jsonObject.getJSONArray("accessoryCosts")):null;
 
 
-            orderInfo.orderSampleAmount=jsonObject.has("orderSampleAmount")?jsonObject.getString("orderSampleAmount"):null;
+          orderInfo.orderSampleAmount=jsonObject.has("orderSampleAmount")?jsonObject.getString("orderSampleAmount"):null;
 
 
            orderInfo.quote= jsonObject.has("quote")?Quote.fromJson(jsonObject.getJSONObject("quote")):null;
 
 
-                orderInfo.fabrics=jsonObject.has("fabrics")?Fabric.fromJson(jsonObject.getJSONArray("fabrics")):null;
+           orderInfo.fabrics=jsonObject.has("fabrics")?Fabric.fromJson(jsonObject.getJSONArray("fabrics")):null;
 
 
             orderInfo.employee=jsonObject.has("employee")?Employee.fromJson(jsonObject.getJSONObject("employee")):null;
 
             orderInfo.orderId=jsonObject.getString("orderId");
             orderInfo.moneyName=jsonObject.has("moneyName")?jsonObject.getString("moneyName"):null;
-            orderInfo.samplePrice= jsonObject.has("samplePrice")?Double.parseDouble(jsonObject.getString("samplePrice")):null;
+            if(jsonObject.has("packageDetails")){
+                for(int i=0 ;i<jsonObject.getJSONArray("packageDetails").length();i++){
+                    ArrayList<PackageDetail> packageDetailItem=PackageDetail.fromJson(jsonObject.getJSONArray("packageDetails").getJSONArray(i));
+                    orderInfo.packageDetailArrayList.addAll(packageDetailItem);
+                }
+
+            }
+
+            orderInfo.samplePrice= jsonObject.has("samplePrice")?jsonObject.getString("samplePrice"):null;
             orderInfo.url=jsonObject.has("url")?jsonObject.getString("url"):null;
 
         }catch (Exception e){
@@ -100,6 +109,13 @@ public class OrderInfo {
         return orderInfo;
     }
 
+    public ArrayList<PackageDetail> getPackageDetailArrayList() {
+        return packageDetailArrayList;
+    }
+
+    public void setPackageDetailArrayList(ArrayList<PackageDetail> packageDetailArrayList) {
+        this.packageDetailArrayList = packageDetailArrayList;
+    }
 
     public String getUrl() {
         return url;
@@ -109,11 +125,11 @@ public class OrderInfo {
         this.url = url;
     }
 
-    public double getSamplePrice() {
+    public String getSamplePrice() {
         return samplePrice;
     }
 
-    public void setSamplePrice(double samplePrice) {
+    public void setSamplePrice(String samplePrice) {
         this.samplePrice = samplePrice;
     }
 

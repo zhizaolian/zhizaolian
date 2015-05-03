@@ -1,7 +1,7 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="nju.zhizaolian.fragments.WarehouseEntryFragment">
+    tools:context="nju.zhizaolian.fragments.PackageFragment">
 
     <ScrollView
         android:layout_width="fill_parent"
@@ -21,7 +21,8 @@
                 android:text="@string/color"/>
             <Spinner
                 android:layout_width="fill_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:id="@+id/package_color_spinner"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -29,27 +30,39 @@
             <Spinner
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
+                android:id="@+id/package_clothes_size_spinner"
                 android:entries="@array/size_list"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/number_of_clothes"/>
             <EditText
                 android:layout_width="fill_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:id="@+id/package_clothes_number_edit"
+                android:hint="@string/number_of_clothes"/>
             <Button
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/button_add"/>
-            <LinearLayout
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:text="@string/button_add"
+                android:id="@+id/package_add_button"/>
 
-            </LinearLayout>
+            <ListView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/package_item_list_view"/>
+
             <Button
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
+                android:id="@+id/package_add_package_number_button"
+                android:text="添加箱号"/>
+
+            <ListView
+                android:layout_width="fill_parent"
+                android:layout_height="200dp"
+                android:id="@+id/package_detail_list_view"/>
+            <Button
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/package_submit_button"
                 android:text="@string/complete_box"/>
         </LinearLayout>
     </ScrollView>

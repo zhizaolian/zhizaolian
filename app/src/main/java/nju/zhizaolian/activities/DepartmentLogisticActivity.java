@@ -1,5 +1,6 @@
 package nju.zhizaolian.activities;
 
+import android.app.Fragment;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
@@ -7,10 +8,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ArrayAdapter;
 import android.widget.SpinnerAdapter;
-import android.widget.Toast;
 
 import nju.zhizaolian.R;
 import nju.zhizaolian.fragments.OrderListFragment;
+import nju.zhizaolian.fragments.RegisterAndScanningFragment;
 import nju.zhizaolian.models.Account;
 import nju.zhizaolian.models.Operation;
 
@@ -46,9 +47,12 @@ public class DepartmentLogisticActivity extends ActionBarActivity {
                 case 1:orderListFragment.getListViewByURLAndOperation("/fmc/logistics/mobile_sendSampleList.do",Operation.DELIVERSAMPLE);break;
                 case 2:orderListFragment.getListViewByURLAndOperation("/fmc/logistics/mobile_warehouseList.do",Operation.WAREHOUSE);break;
 
-                case 3:
-                    Toast.makeText(getApplicationContext(), "暂不可用", Toast.LENGTH_SHORT).show();break;
+                case 3:break;
 
+                case 4:
+                    Fragment newFragment=new RegisterAndScanningFragment();
+                    getFragmentManager().beginTransaction().replace(R.id.logisticContainer,newFragment).addToBackStack(null).commit();
+                    break;
                 default:break;
             }
 

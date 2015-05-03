@@ -8,6 +8,7 @@
         <item>样衣发货</item>
         <item>产品入库</item>
         <item>产品发货</item>
+        <item>入库登记发货扫描</item>
     </string-array>
     <string name="deliver_sample">样衣发货</string>
     <string name="save_this_deliver">保存此次发货</string>

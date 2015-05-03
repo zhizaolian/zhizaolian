@@ -194,7 +194,7 @@ public class CheckFrontMoneyFragment extends Fragment {
                     sampleAmountView.setText(orderInfo.getOrderSampleAmount());
                     sampleUnitPriceView.setText(String.valueOf(orderInfo.getSamplePrice()));
                     double sampleAmount= Double.parseDouble(orderInfo.getOrderSampleAmount());
-                    double sampleUnitPrice=orderInfo.getSamplePrice();
+                    double sampleUnitPrice= Double.parseDouble(orderInfo.getSamplePrice());
                     sampleTotalPriceView.setText(String.valueOf(sampleAmount*sampleUnitPrice));
                     remitMoneyView.setText(String.valueOf(moneyPayPrice));
                     depositTimeView.setText(MyUtils.getCurrentDate());

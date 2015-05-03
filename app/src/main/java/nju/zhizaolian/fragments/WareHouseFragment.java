@@ -1,8 +1,8 @@
 package nju.zhizaolian.fragments;
 
 
-import android.os.Bundle;
 import android.app.Fragment;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,10 +12,10 @@ import nju.zhizaolian.R;
 /**
  *
  */
-public class WarehouseEntryFragment extends Fragment {
+public class WareHouseFragment extends Fragment {
 
 
-    public WarehouseEntryFragment() {
+    public WareHouseFragment() {
         // Required empty public constructor
     }
 
@@ -24,7 +24,7 @@ public class WarehouseEntryFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_warehouse_entry, container, false);
+        return inflater.inflate(R.layout.fragment_ware_house_register, container, false);
     }
 
 

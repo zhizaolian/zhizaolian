@@ -130,7 +130,12 @@ public class OrderListFragment extends Fragment{
                     ArrayList<ListInfo> listInfoArrayList=new ArrayList<ListInfo>();
                     if(operate==Operation.WAREHOUSE){
                         listInfoArrayList =ListInfo.fromJson(response.getJSONArray("packageList"));
-                    }else {
+
+                        listInfoArrayList.addAll(ListInfo.fromJson(response.getJSONArray("packageHaoDuoYiList")));
+
+                    }
+                    else
+                    {
                        listInfoArrayList =ListInfo.fromJson(response.getJSONArray("list"));
                     }
 
@@ -167,7 +172,7 @@ public class OrderListFragment extends Fragment{
         int id=0;
         switch (operation){
             case WAREHOUSE:
-                fragment=new WarehouseEntryFragment();
+                fragment=new PackageFragment();
                 id=R.id.logisticContainer;
                 break;
             case MERGEPRICE:

@@ -24,7 +24,9 @@ public enum Operation {
     RECEIVESAMPLE,//ReceiveSampleFragment 样衣收取
     DELIVERSAMPLE,//DeliverSampleFragment 样衣发货
     WAREHOUSE, //warehouseEntryFragment 产品入库
-    SENDCLOTHES,//
+    WAREHOUSEREGISTER,//入库登记
+    SENDCLOTHES,//产品发货
+    SENDCLOTHESSCAN,//发货扫描
     //质检部
     CHECKQALITY,//CheckQualityFragment 质量检查
 
