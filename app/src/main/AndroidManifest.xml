@@ -27,13 +27,11 @@
         </activity>
         <activity
             android:name=".activities.MainActivity"
-            android:label="@string/title_activity_main"
-            >
+            android:label="@string/title_activity_main" >
         </activity>
         <activity
             android:name=".activities.OrderDetailActivity"
-            android:label="@string/title_activity_add_order_detail"
-            >
+            android:label="@string/title_activity_add_order_detail" >
         </activity>
 
         <service
@@ -92,6 +90,10 @@
         <activity
             android:name=".activities.DepartmentLogisticActivity"
             android:label="@string/title_activity_department_logistic" >
+        </activity>
+        <activity
+            android:name=".activities.DepartmentSecretaryActivity"
+            android:label="@string/title_activity_department_secretary" >
         </activity>
     </application>
 

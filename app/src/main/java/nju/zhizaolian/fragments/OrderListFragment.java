@@ -290,6 +290,10 @@ public class OrderListFragment extends Fragment{
                 fragment = new Fragment();
                 id=R.id.activity_order_list_layout;
                 return;
+            case SECRETARY_CHANGE:
+                fragment = new DepartmentSecretaryChangeFragment();
+                id=R.id.department_secretary_activity_layout;
+                break;
 
         }
         fragment.setArguments(bundle);
