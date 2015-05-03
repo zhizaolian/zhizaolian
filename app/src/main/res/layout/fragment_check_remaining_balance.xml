@@ -26,6 +26,7 @@
            <TextView
                android:layout_width="wrap_content"
                android:layout_height="wrap_content"
+               android:id="@+id/remaining_money_type_view"
                android:text="大货尾款"/>
            <TextView
                android:layout_width="wrap_content"
@@ -35,7 +36,8 @@
            <TextView
                android:layout_width="wrap_content"
                android:layout_height="wrap_content"
-               android:text="2343333"/>
+               android:id="@+id/remaining_discount_view"
+               android:text="0"/>
            <TextView
                android:layout_width="wrap_content"
                android:layout_height="wrap_content"
@@ -44,7 +46,8 @@
            <TextView
                android:layout_width="wrap_content"
                android:layout_height="wrap_content"
-               android:text="3253245"/>
+               android:id="@+id/remaining_deserve_money_view"
+               android:text="0"/>
            <TextView
                android:layout_width="wrap_content"
                android:layout_height="wrap_content"
@@ -53,7 +56,8 @@
            <TextView
                android:layout_width="wrap_content"
                android:layout_height="wrap_content"
-               android:text="352352"/>
+               android:id="@+id/remaining_goods_number_view"
+               android:text="0"/>
            <TextView
                android:layout_width="wrap_content"
                android:layout_height="wrap_content"
@@ -62,7 +66,8 @@
            <TextView
                android:layout_width="wrap_content"
                android:layout_height="wrap_content"
-               android:text="242342"/>
+               android:id="@+id/remaining_goods_unit_price_view"
+               android:text="0"/>
            <TextView
                android:layout_width="wrap_content"
                android:layout_height="wrap_content"
@@ -71,7 +76,8 @@
            <TextView
                android:layout_width="wrap_content"
                android:layout_height="wrap_content"
-               android:text="354235"/>
+               android:id="@+id/remaining_goods_total_price_view"
+               android:text="0"/>
            <TextView
                android:layout_width="wrap_content"
                android:layout_height="wrap_content"
@@ -80,7 +86,8 @@
            <TextView
                android:layout_width="wrap_content"
                android:layout_height="wrap_content"
-               android:text="354235"/>
+               android:id="@+id/remaining_sample_number_view"
+               android:text="0"/>
            <TextView
                android:layout_width="wrap_content"
                android:layout_height="wrap_content"
@@ -89,7 +96,8 @@
            <TextView
                android:layout_width="wrap_content"
                android:layout_height="wrap_content"
-               android:text="@string/sample_unit_price"
+               android:id="@+id/remaining_sample_unit_price_view"
+               android:text="0"
                />
            <TextView
                android:layout_width="wrap_content"
@@ -99,7 +107,8 @@
            <TextView
                android:layout_width="wrap_content"
                android:layout_height="wrap_content"
-               android:text="@string/sample_total_price"
+               android:id="@+id/remaining_sample_total_price_view"
+               android:text="0"
                />
            <TextView
                android:layout_width="wrap_content"
@@ -109,7 +118,8 @@
            <TextView
                android:layout_width="wrap_content"
                android:layout_height="wrap_content"
-               android:text="@string/goods_express_price"
+               android:id="@+id/remaining_goods_logistic_cost_view"
+               android:text="0"
                />
            <TextView
                android:layout_width="wrap_content"
@@ -119,7 +129,8 @@
            <TextView
                android:layout_width="wrap_content"
                android:layout_height="wrap_content"
-               android:text="@string/sample_express_price"
+               android:id="@+id/remaining_sample_logistic_cost_view"
+               android:text="0"
                />
            <TextView
                android:layout_width="wrap_content"
@@ -129,7 +140,8 @@
            <TextView
                android:layout_width="wrap_content"
                android:layout_height="wrap_content"
-               android:text="@string/express_total_price" />
+               android:id="@+id/remaining_logistic_total_cost_view"
+               android:text="0" />
        </LinearLayout>
         <LinearLayout
             android:layout_width="fill_parent"
@@ -143,14 +155,17 @@
             <EditText
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
+                android:id="@+id/remaining_remit_name_edit"
                 android:hint="@string/remit_person"/>
             <EditText
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
+                android:id="@+id/remaining_number_edit"
                 android:hint="@string/remit_card_number"/>
             <EditText
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
+                android:id="@+id/remaining_bank_edit"
                 android:hint="@string/remit_bank"/>
             <TextView
                 android:layout_width="wrap_content"
@@ -160,10 +175,13 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="14123423"/>
+                android:id="@+id/remaining_remit_money_view"
+                android:text="0"/>
             <Spinner
                 android:layout_width="fill_parent"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:entries="@array/financial_list"
+                android:id="@+id/remaining_spinner"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -172,16 +190,13 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="1993/6/6"/>
-            <TextView
-                android:layout_width="wrap_content"
+                android:id="@+id/remaining_time_view"
+                android:text="0"/>
+            <EditText
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/remark_info"
-                style="@style/MyTextStyle"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="egtrt"/>
+                android:hint="@string/remark_info"
+                android:id="@+id/remaining_remark_info_edit"/>
         </LinearLayout>
         <LinearLayout
             android:layout_width="fill_parent"
@@ -192,16 +207,19 @@
                 android:text="@string/receive_money_picture"/>
             <ImageView
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:id="@+id/remaining_image_view"/>
         </LinearLayout>
         <Button
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
+            android:id="@+id/ensure_remaining_button"
             android:text="@string/ensure_receive_money"/>
        <Button
            android:layout_width="fill_parent"
            android:layout_height="wrap_content"
            android:text="@string/unable_receive_money"
+           android:id="@+id/unable_remaining_button"
            style="@style/MyWarningButtonStyle"/>
 
    </LinearLayout>

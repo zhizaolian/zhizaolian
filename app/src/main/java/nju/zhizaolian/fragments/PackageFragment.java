@@ -5,6 +5,7 @@ import android.app.AlertDialog;
 import android.app.Fragment;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -289,6 +290,9 @@ public class PackageFragment extends Fragment  {
         AsyncHttpClient client=new AsyncHttpClient();
         RequestParams params=new RequestParams();
         params.put("orderId",order.getOrderId());
+        SharedPreferences sharedPreferences=getActivity().getSharedPreferences("common",0);
+        String jsessionId=sharedPreferences.getString("jsessionId", "wrong");
+        params.put("jsessionId",jsessionId);
         client.post(IPAddress.getIP(),params,new JsonHttpResponseHandler(){
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
@@ -298,6 +302,9 @@ public class PackageFragment extends Fragment  {
                     if(result){
                        Toast.makeText(getActivity(),"提交成功!请点击入库登记",Toast.LENGTH_SHORT).show();
                        getActivity().finish();
+
+                    }else {
+                        Toast.makeText(getActivity(),"提交失败!",Toast.LENGTH_SHORT).show();
 
                     }
                 } catch (JSONException e) {
@@ -312,6 +319,7 @@ public class PackageFragment extends Fragment  {
             @Override
             public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
                 super.onFailure(statusCode, headers, responseString, throwable);
+                Log.d("result",responseString);
                 progressDialog.dismiss();
             }
         });

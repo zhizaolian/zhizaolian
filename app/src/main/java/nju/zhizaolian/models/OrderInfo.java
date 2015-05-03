@@ -34,6 +34,7 @@ public class OrderInfo {
     private String samplePrice;
     private String url;
     private ArrayList<PackageDetail> packageDetailArrayList=new ArrayList<PackageDetail>();
+    private String deposit;
     public OrderInfo() {
     }
 
@@ -85,7 +86,7 @@ public class OrderInfo {
 
 
             orderInfo.employee=jsonObject.has("employee")?Employee.fromJson(jsonObject.getJSONObject("employee")):null;
-
+            orderInfo.deposit=jsonObject.has("deposit")?jsonObject.getString("deposit"):null;
             orderInfo.orderId=jsonObject.getString("orderId");
             orderInfo.moneyName=jsonObject.has("moneyName")?jsonObject.getString("moneyName"):null;
             if(jsonObject.has("packageDetails")){
@@ -107,6 +108,14 @@ public class OrderInfo {
 
 
         return orderInfo;
+    }
+
+    public String getDeposit() {
+        return deposit;
+    }
+
+    public void setDeposit(String deposit) {
+        this.deposit = deposit;
     }
 
     public ArrayList<PackageDetail> getPackageDetailArrayList() {

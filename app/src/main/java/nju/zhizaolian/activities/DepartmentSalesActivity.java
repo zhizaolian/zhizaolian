@@ -79,7 +79,7 @@ public class DepartmentSalesActivity extends ActionBarActivity   {
                 case QUOTEAGREES:orderListFragment.getListViewByURLAndOperation("/fmc/market/mobile_confirmQuoteList.do",Operation.QUOTEAGREED);break;
                 case CHANGEQUOTE:Toast.makeText(DepartmentSalesActivity.this, "暂不可用", Toast.LENGTH_SHORT).show();break;
                 case SIGNCONTRACT:orderListFragment.getListViewByURLAndOperation("/fmc/market/mobile_confirmProduceOrderList.do",Operation.SIGNCONTRACT);break;
-                case 6:Toast.makeText(DepartmentSalesActivity.this, "暂不可用", Toast.LENGTH_SHORT).show();break;
+                case URGEREMAININGMONEY:orderListFragment.getListViewByURLAndOperation("/fmc/market/mobile_getPushRestOrderList.do",Operation.URGEREMAININGBALANCE);break;
                 case 7:Toast.makeText(DepartmentSalesActivity.this, "暂不可用", Toast.LENGTH_SHORT).show();break;
                 default:break;
             }
