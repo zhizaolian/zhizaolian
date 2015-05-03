@@ -62,13 +62,11 @@ public class WelcomeFragment extends Fragment implements View.OnClickListener{
             "财务部",
             "物流部",
             "质检部",
-            "人事部",
-            "系统管理"
     };
 
-    private int authorization[]={0,0,0,0,0,0,0,0,0,0,0,0,0}; //用户权限，1表示显示，0表示不显示
+    private int authorization[]={0,0,0,0,0,0,0,0,0,0,0}; //用户权限，1表示显示，0表示不显示
 
-    private int departmentNumber[]={0,0,0,0,0,0,0,0,0,0,0,0,0};//待办项目默认为零
+    private int departmentNumber[]={0,0,0,0,0,0,0,0,0,0,0};//待办项目默认为零
 
     public WelcomeFragment() {
         // Required empty public constructor

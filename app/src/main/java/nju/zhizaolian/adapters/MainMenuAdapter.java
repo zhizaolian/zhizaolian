@@ -22,6 +22,7 @@ import nju.zhizaolian.activities.DepartmentProductionActivity;
 import nju.zhizaolian.activities.DepartmentPurchaseActivity;
 import nju.zhizaolian.activities.DepartmentQualityActivity;
 import nju.zhizaolian.activities.DepartmentSalesActivity;
+import nju.zhizaolian.activities.DepartmentSecretaryActivity;
 import nju.zhizaolian.activities.DepartmentSweaterMakerActivity;
 import nju.zhizaolian.activities.DepartmentTechnologyActivity;
 import nju.zhizaolian.activities.MainActivity;
@@ -65,7 +66,7 @@ public class MainMenuAdapter extends SimpleAdapter{
                         intent=new Intent(activity, DepartmentSalesActivity.class);
                         break;
                     case "秘书部":
-                        //TODO
+                        intent=new Intent(activity, DepartmentSecretaryActivity.class);
                         break;
                     case "设计部":
                         intent=new Intent(activity, DepartmentDesignActivity.class);
@@ -90,12 +91,6 @@ public class MainMenuAdapter extends SimpleAdapter{
                         break;
                     case "质检部":
                         intent=new Intent(activity, DepartmentQualityActivity.class);
-                        break;
-                    case "系统管理":
-                        //TODO
-                        break;
-                    case "人事部":
-                        //TODO
                         break;
                 }
                 intent.putExtras(bundle);
