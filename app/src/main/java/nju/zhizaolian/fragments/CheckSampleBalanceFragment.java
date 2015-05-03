@@ -100,7 +100,7 @@ public class CheckSampleBalanceFragment extends Fragment {
                     builder.setPositiveButton("确定",new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
-                            progressDialog=ProgressDialog.show(container.getContext(),"请等待","正在上传",true);
+                            progressDialog=ProgressDialog.show(container.getContext(),"请等待","正在上传",true,true);
                             confirmSampleMoneySubmit(true);
                         }
                     });
@@ -178,13 +178,15 @@ public class CheckSampleBalanceFragment extends Fragment {
         params.put("taskId",orderInfo.getTaskId());
         if(result){
             params.put("result",1);
+            params.put("money_state","已收到");
         }else {
             params.put("result",0);
+            params.put("money_state","未收到");
         }
 
         params.put("money_amount",checkSampleRemitMoneyView.getText().toString());
-        params.put("money_state","");
-        params.put("money_type","");
+
+        params.put("money_type",orderInfo.getMoneyName());
         params.put("money_bank",checkSampleRemitBankEdit.getText().toString());
         params.put("money_name",checkSampleRemitPersonEdit.getText().toString());
         params.put("money_number",checkSampleRemitCardNumberEdit.getText().toString());

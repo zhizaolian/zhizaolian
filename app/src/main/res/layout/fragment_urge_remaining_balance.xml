@@ -20,46 +20,60 @@
                   android:text="@string/money_type"
                   />
               <TextView
+                  android:id="@+id/urge_money_type_view"
                   android:text="大货尾款"/>
           </TableRow>
           <TableRow>
               <TextView android:text="@string/discount_amount" />
-              <TextView android:text="45555"
+              <TextView
+                  android:id="@+id/urge_money_discount_view"
+                  android:text="45555"
                   />
           </TableRow>
 
           <TableRow>
               <TextView android:text="@string/receivable_accounts" />
-              <TextView android:text="24234525"
+              <TextView
+                  android:id="@+id/urge_money_view"
+                  android:text="24234525"
                   />
           </TableRow>
           <TableRow>
               <TextView android:text="@string/actual_goods_amounts"/>
-              <TextView android:text="25253"
+              <TextView
+                  android:id="@+id/urge_goods_number_view"
+                  android:text="25253"
                   />
           </TableRow>
           <TableRow>
               <TextView android:text="@string/goods_unit_price"/>
-              <TextView android:text="144"
+              <TextView
+                  android:id="@+id/urge_goods_unit_price_view"
+                  android:text="144"
                   />
           </TableRow>
           <TableRow>
               <TextView android:text="@string/goods_total_price" />
-              <TextView android:text="14345235346347"
+              <TextView
+                  android:id="@+id/urge_goods_total_price_view"
+                  android:text="14345235346347"
                   />
           </TableRow>
           <TableRow>
               <TextView android:text="@string/sample_number"/>
-              <TextView android:text="45235"/>
+              <TextView android:text="45235"
+                  android:id="@+id/urge_sample_number_view"/>
 
           </TableRow>
           <TableRow>
               <TextView android:text="@string/sample_unit_price"/>
-              <TextView android:text="133"/>
+              <TextView android:text="133"
+                  android:id="@+id/urge_sample_unit_price_view"/>
           </TableRow>
            <TableRow>
                <TextView android:text="@string/sample_total_price"/>
-               <TextView android:text="41414"/>
+               <TextView android:text="41414"
+                   android:id="@+id/urge_sample_total_price_view"/>
            </TableRow>
           </TableLayout>
         <LinearLayout
@@ -69,36 +83,29 @@
             <Button
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
+                android:id="@+id/urge_remaining_money_picture_button"
                 android:text="@string/choose_remaining_balance_picture"/>
-            <TextView
-                android:layout_width="wrap_content"
+            <ImageView
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/remark_info"/>
-            <TextView
-                android:layout_width="wrap_content"
+                android:id="@+id/urge_imageView"/>
+            <EditText
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:text="whrrqfhwaef"/>
+                android:hint="@string/remark_info"
+                android:id="@+id/urge_remark_info_edit"/>
         </LinearLayout>
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/sample_dispatch_record"
-                android:textSize="@dimen/abc_text_size_large_material"
-                android:textColor="@color/red"/>
-            <include layout="@layout/item_sample_express_record"/>
-        </LinearLayout>
+
         <Button
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
+            android:id="@+id/ensure_receive_urge_money_button"
             android:text="@string/ensure_receive_money"/>
         <Button
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:text="@string/unable_receive_money"
+            android:id="@+id/unable_receive_urge_money_button"
             style="@style/MyWarningButtonStyle"/>
 
         </LinearLayout>

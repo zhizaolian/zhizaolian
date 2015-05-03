@@ -9,7 +9,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ArrayAdapter;
 import android.widget.SpinnerAdapter;
-import android.widget.Toast;
 
 import nju.zhizaolian.R;
 import nju.zhizaolian.fragments.OrderListFragment;
@@ -43,9 +42,7 @@ public class DepartmentFinancialActivity extends ActionBarActivity {
                 case 0:orderListFragment.getListViewByURLAndOperation("/fmc/finance/mobile_confirmSampleMoneyList.do", Operation.CHECKSAMPLEBALANCE);break;
                 case 1:orderListFragment.getListViewByURLAndOperation("/fmc/finance/mobile_confirmDepositList.do",Operation.CHECKFRONTMONEY);break;
                 case 2: orderListFragment.getListViewByURLAndOperation("/fmc/finance/mobile_returnDepositList.do",Operation.RETURNMONEY);break;
-                case 3:
-                    Toast.makeText(getApplicationContext(),"zangbukeyong",Toast.LENGTH_SHORT).show();
-                    break;
+                case 3:orderListFragment.getListViewByURLAndOperation("/fmc/finance/mobile_confirmFinalPaymentList.do",Operation.CHECKREMAININGBALANCE);break;
 
 
             }
