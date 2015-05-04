@@ -6,10 +6,15 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import android.app.Fragment;
+import android.preference.PreferenceManager;
+import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
@@ -67,6 +72,8 @@ public class WelcomeFragment extends Fragment implements View.OnClickListener{
     private int authorization[]={0,0,0,0,0,0,0,0,0,0,0}; //用户权限，1表示显示，0表示不显示
 
     private int departmentNumber[]={0,0,0,0,0,0,0,0,0,0,0};//待办项目默认为零
+
+    private ActionBarDrawerToggle mDrawerToggle;
 
     public WelcomeFragment() {
         // Required empty public constructor
@@ -137,6 +144,45 @@ public class WelcomeFragment extends Fragment implements View.OnClickListener{
             }
         });
         departmentList =(ListView) drawerLayout.findViewById(R.id.menuList);
+
+        ActionBar actionBar = ((ActionBarActivity) getActivity()).getSupportActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
+        actionBar.setHomeButtonEnabled(true);
+        mDrawerToggle = new ActionBarDrawerToggle(
+                getActivity(),                    /* host Activity */
+                drawerLayout,                    /* DrawerLayout object */
+                R.drawable.ic_drawer,             /* nav drawer image to replace 'Up' caret */
+                R.string.navigation_drawer_open,  /* "open drawer" description for accessibility */
+                R.string.navigation_drawer_close  /* "close drawer" description for accessibility */
+        ) {
+            @Override
+            public void onDrawerClosed(View drawerView) {
+                super.onDrawerClosed(drawerView);
+                if (!isAdded()) {
+                    return;
+                }
+
+                getActivity().invalidateOptionsMenu(); // calls onPrepareOptionsMenu()
+            }
+
+            @Override
+            public void onDrawerOpened(View drawerView) {
+                super.onDrawerOpened(drawerView);
+                if (!isAdded()) {
+                    return;
+                }
+
+                getActivity().invalidateOptionsMenu(); // calls onPrepareOptionsMenu()
+            }
+        };
+
+        drawerLayout.post(new Runnable() {
+            @Override
+            public void run() {
+                mDrawerToggle.syncState();
+            }
+        });
+        drawerLayout.setDrawerListener(mDrawerToggle);
         return  view;
     }
 
@@ -256,5 +302,21 @@ public class WelcomeFragment extends Fragment implements View.OnClickListener{
 
     public boolean isDrawerOpen(){
         return drawerLayout.isDrawerOpen(Gravity.LEFT);
+    }
+
+    @Override
+    public void onActivityCreated(Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        // Indicate that this fragment would like to influence the set of actions in the action bar.
+        setHasOptionsMenu(true);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (mDrawerToggle.onOptionsItemSelected(item)) {
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 }

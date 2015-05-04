@@ -5,6 +5,7 @@ import android.app.FragmentTransaction;
 import android.content.Context;
 import android.os.Bundle;
 import android.os.Environment;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.view.KeyEvent;
@@ -29,16 +30,17 @@ import nju.zhizaolian.models.IPAddress;
 public class MainActivity extends ActionBarActivity implements
         WelcomeFragment.InquirySheetDownloadListener,
         WelcomeFragment.PriceSheetDownloadListener{
-
         private  WelcomeFragment welcomeFragment;
         private Context mContext;
-
         private long firstPressTime=0l; //双击退出参数
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        ActionBar actionBar=getSupportActionBar();
+        actionBar.setLogo(R.drawable.ic_drawer);
+
         mContext=this;
         Account account= (Account) getIntent().getSerializableExtra("account");
         if(savedInstanceState==null) {
