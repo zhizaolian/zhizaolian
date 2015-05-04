@@ -80,7 +80,7 @@ public class OrderProcessListAdapter  extends SimpleAdapter{
             viewHolder.employeeName=(TextView) convertView.findViewById(R.id.order_process_list_item_order_salesman_name);
             viewHolder.customerName=(TextView) convertView.findViewById(R.id.order_process_list_item_customer_name);
             viewHolder.customerCompany=(TextView) convertView.findViewById(R.id.order_process_list_item_custom_company_name);
-            viewHolder.clickableTextView = (TextView) convertView.findViewById(R.id.order_process_list_item_view_detail);
+//            viewHolder.clickableTextView = (TextView) convertView.findViewById(R.id.order_process_list_item_view_detail);
             viewHolder.sampleClothesThumbnailPicture = (ImageView) convertView.findViewById(R.id.order_detail_image);
             convertView.setTag(viewHolder);
         }else{
