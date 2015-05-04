@@ -136,7 +136,7 @@ public class MainActivity extends ActionBarActivity implements
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if(keyCode==KeyEvent.KEYCODE_BACK){
-            if(welcomeFragment.isDrawerOpen()) {
+            if(welcomeFragment!=null&&welcomeFragment.isDrawerOpen()) {
                 welcomeFragment.closeDrawers();
             }else{
                 if(System.currentTimeMillis()-firstPressTime>2000){

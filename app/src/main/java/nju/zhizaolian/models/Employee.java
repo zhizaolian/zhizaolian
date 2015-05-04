@@ -37,9 +37,8 @@ public class Employee implements Serializable{
     private String sex;
 
     public static Employee fromJson(JSONObject jsonObject){
-        Employee employee = null;
+        Employee employee=new Employee();
         try {
-        employee=new Employee();
         employee.address=jsonObject.getString("address");
         employee.age=jsonObject.getString("age");
         employee.chinaId=jsonObject.getString("chinaId");
