@@ -20,17 +20,23 @@ import android.widget.Toast;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.JsonHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
+import com.squareup.picasso.Picasso;
 
 import org.apache.http.Header;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
+
 import nju.zhizaolian.R;
+import nju.zhizaolian.help.MyUtils;
+import nju.zhizaolian.models.DeliveryRecord;
 import nju.zhizaolian.models.IPAddress;
 import nju.zhizaolian.models.ListInfo;
 import nju.zhizaolian.models.Logistics;
 import nju.zhizaolian.models.Order;
 import nju.zhizaolian.models.OrderInfo;
+import nju.zhizaolian.models.Quote;
 
 /**
  *
@@ -110,7 +116,7 @@ public class CheckRemainingBalanceFragment extends Fragment {
             public void onClick(View v) {
                 if(remitNameEdit.getText().length() == 0 || remitNumberEdit.getText().length() == 0||
                         remitBankEdit.getText().length() == 0 ||remarkInfoEdit.getText().length() == 0){
-                    Toast.makeText(getActivity(),"",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(),"请填写信息",Toast.LENGTH_SHORT).show();
 
                 }else {
                     AlertDialog.Builder builder=new AlertDialog.Builder(getActivity());
@@ -173,27 +179,45 @@ public class CheckRemainingBalanceFragment extends Fragment {
                 try {
                     orderInfo=OrderInfo.fromJson(response.getJSONObject("orderInfo"));
                     order=orderInfo.getOrder();
+                    Quote quote=orderInfo.getQuote();
                     Logistics logistics=orderInfo.getLogistics();
-                    moneyTypeView.setText(orderInfo.getMoneyName());
-                    discountView.setText(order.getDiscount());
+                    ArrayList<DeliveryRecord> deliveryRecordArrayList=orderInfo.getDeliveryRecords();
                     double number= Double.parseDouble(order.getAskAmount());
                     double price= Double.parseDouble(orderInfo.getPrice());
                     double discount= Double.parseDouble(order.getDiscount());
                     double deposit= Double.parseDouble(orderInfo.getDeposit());
-                    double deserveMoney=number*price-discount-deposit;
+
                     double sampleNumber= Double.parseDouble(orderInfo.getOrderSampleAmount());
                     double sampleUnitPrice= Double.parseDouble(orderInfo.getSamplePrice());
+                    double sampleLogisticMoney=0;
+                    double deserveMoney=0;
+                    double goodsLogisticMoney=quote.getDesignCost();
+                    if(deliveryRecordArrayList != null){
+                        for(DeliveryRecord deliveryRecord:deliveryRecordArrayList){
+                            sampleLogisticMoney+=Double.parseDouble(deliveryRecord.getExpressPrice());
+                        }
+                        deserveMoney =sampleLogisticMoney+goodsLogisticMoney+number*price-discount-deposit;
+                    }else {
+                        deserveMoney=goodsLogisticMoney+number*price-discount-deposit;
+                    }
 
-
+                    moneyTypeView.setText(orderInfo.getMoneyName());
+                    discountView.setText(order.getDiscount());
                     deserveMoneyView.setText(String.valueOf(deserveMoney));
+                    remitMoneyView.setText(String.valueOf(deserveMoney));
                     goodsNumberView.setText(order.getAskAmount());
                     goodsUnitPriceView.setText(orderInfo.getPrice());
                     goodsTotalPriceView.setText(String.valueOf(number*price));
                     sampleNumberView.setText(orderInfo.getOrderSampleAmount());
                     sampleUnitPriceView.setText(orderInfo.getSamplePrice());
                     sampleTotalPriceView.setText(String.valueOf(sampleNumber*sampleUnitPrice));
-
-
+                    goodsLogisticCostView.setText(String.valueOf(quote.getDesignCost()));
+                    sampleLogisticCostView.setText(String.valueOf(sampleLogisticMoney));
+                    remainingTimeView.setText(MyUtils.getCurrentDate());
+                    remarkInfoEdit.setText(order.getMoneyremark());
+                    remarkInfoEdit.setEnabled(false);
+                    logisticTotalView.setText(String.valueOf(goodsLogisticMoney+sampleLogisticMoney));
+                    Picasso.with(getActivity()).load(IPAddress.getIP()+order.getConfirmFinalPaymentFile()).into(remainingImageView);
 
 
                 } catch (JSONException e) {

@@ -1,0 +1,88 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="nju.zhizaolian.fragments.SendClothesFragment">
+
+   <ScrollView
+       android:layout_width="fill_parent"
+       android:layout_height="wrap_content">
+       <LinearLayout
+           android:layout_width="fill_parent"
+           android:layout_height="wrap_content"
+           android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="衣服箱数"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/clothes_number_view"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="收货人"/>
+           <TextView
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:id="@+id/receive_goods_name_view"/>
+           <TextView
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="@string/title_cellphone"/>
+           <TextView
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:id="@+id/send_clothes_phone_view"/>
+           <TextView
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="收货地址"/>
+           <TextView
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:id="@+id/send_clothes_post_address_view"/>
+           <TextView
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="@string/title_express_time"/>
+           <TextView
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:id="@+id/send_clothes_time_view"/>
+           <Spinner
+               android:layout_width="fill_parent"
+               android:layout_height="wrap_content"
+               android:entries="@array/express_array"
+               android:id="@+id/send_clothes_express_name_spinner"/>
+           <EditText
+               android:layout_width="fill_parent"
+               android:layout_height="wrap_content"
+               android:hint="@string/title_express_number"
+               android:id="@+id/send_clothes_express_number_edit"/>
+           <EditText
+               android:layout_width="fill_parent"
+               android:layout_height="wrap_content"
+               android:hint="实际快递价格"
+               android:id="@+id/send_clothes_actual_price_edit"/>
+           <EditText
+               android:layout_width="fill_parent"
+               android:layout_height="wrap_content"
+               android:hint="@string/remark_info"
+               android:id="@+id/send_clothes_remark_edit"
+               />
+            <Button
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="完成最终发货"
+                android:id="@+id/send_clothes_button"/>
+
+
+
+           </LinearLayout>
+
+
+
+       </ScrollView>
+
+</FrameLayout>

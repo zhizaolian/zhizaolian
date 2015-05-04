@@ -15,6 +15,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -49,6 +50,17 @@ public class CheckQuoteFragment extends Fragment {
     private TextView customQuoteView;
     private TextView singleCostView;
     private TextView innerCostView;
+
+    private ListView confirmQuoteFabricCostListView;
+    private ListView confirmQuoteAccessoriesListView;
+    private TextView fabricTotalCostView;
+    private TextView accessoriesTotalCostView;
+    private TextView stampDutyMoneyView;
+    private TextView washHangDyeMoneyView;
+    private TextView laserMoneyView;
+    private TextView embroideryMoneyView;
+    private TextView crumpleMoneyView;
+    private TextView openVersionMoneyView;
 
 
 
