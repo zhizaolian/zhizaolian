@@ -293,7 +293,7 @@ public class PackageFragment extends Fragment  {
         SharedPreferences sharedPreferences=getActivity().getSharedPreferences("common",0);
         String jsessionId=sharedPreferences.getString("jsessionId", "wrong");
         params.put("jsessionId",jsessionId);
-        client.post(IPAddress.getIP(),params,new JsonHttpResponseHandler(){
+        client.post(IPAddress.getIP()+packageSubmitUrl,params,new JsonHttpResponseHandler(){
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                 super.onSuccess(statusCode, headers, response);

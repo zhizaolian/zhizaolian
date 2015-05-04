@@ -20,6 +20,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -33,9 +34,12 @@ import org.json.JSONObject;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
 
 import nju.zhizaolian.R;
+import nju.zhizaolian.adapters.SendRecordAdapter;
 import nju.zhizaolian.help.PictureUtil;
+import nju.zhizaolian.models.DeliveryRecord;
 import nju.zhizaolian.models.IPAddress;
 import nju.zhizaolian.models.ListInfo;
 import nju.zhizaolian.models.Order;
@@ -70,6 +74,10 @@ public class UrgeRemainingBalance extends Fragment {
     private EditText remarkEdit;
     private Button ensureButton;
     private Button unableButton;
+    private ListView finalMoneyDeliveryListView;
+    private SendRecordAdapter sendRecordAdapter;
+
+
 
     private ProgressDialog progressDialog;
     public UrgeRemainingBalance() {
@@ -97,7 +105,7 @@ public class UrgeRemainingBalance extends Fragment {
         remarkEdit=(EditText)view.findViewById(R.id.urge_remark_info_edit);
          ensureButton=(Button)view.findViewById(R.id.ensure_receive_urge_money_button);
          unableButton=(Button)view.findViewById(R.id.unable_receive_urge_money_button);
-
+         finalMoneyDeliveryListView=(ListView)view.findViewById(R.id.final_money_delivery_record_list_view);
 
 
         progressDialog=ProgressDialog.show(getActivity(),"请等待","数据下载中",true,true);
@@ -211,24 +219,59 @@ public class UrgeRemainingBalance extends Fragment {
                     orderInfo=OrderInfo.fromJson(response.getJSONObject("orderInfo"));
                     order=orderInfo.getOrder();
                     Quote quote=orderInfo.getQuote();
-                    moneyTypeView.setText(orderInfo.getMoneyName());
-                    moneyDiscountView.setText(order.getDiscount());
-                    double designCost=quote.getDesignCost();
-                    double price= Double.parseDouble(orderInfo.getPrice());
-                    double number= Double.parseDouble(order.getAskAmount());
-                    double discount= Double.parseDouble(order.getDiscount());
-                    double deposit= Double.parseDouble(orderInfo.getDeposit());
-                    double deserveMoney=designCost+price*number-discount-deposit;
-                    double sampleNumber= Double.parseDouble(order.getSampleAmount());
-                    double samplePrice= Double.parseDouble(orderInfo.getSamplePrice());
-                    moneyDeserveView.setText(String.valueOf(deserveMoney));
-                    goodsNumberView.setText(String.valueOf(number));
-                    goodsUnitPriceView.setText(String.valueOf(price));
-                    goodsTotalPriceView.setText(String.valueOf(price*number));
-                    sampleNumberView.setText(order.getSampleAmount());
-                    sampleUnitPriceView.setText(orderInfo.getSamplePrice());
-                    sampleTotalPriceView.setText(String.valueOf(sampleNumber*samplePrice));
+                    ArrayList<DeliveryRecord> deliveryRecordArrayList=orderInfo.getDeliveryRecords();
+                    if(deliveryRecordArrayList != null){
+                        moneyTypeView.setText(orderInfo.getMoneyName());
+                        moneyDiscountView.setText(order.getDiscount());
+                        double designCost=quote.getDesignCost();
+                        double price= Double.parseDouble(orderInfo.getPrice());
+                        double number= Double.parseDouble(order.getAskAmount());
+                        double discount= Double.parseDouble(order.getDiscount());
+                        double deposit= Double.parseDouble(orderInfo.getDeposit());
 
+                        double sampleNumber= Double.parseDouble(order.getSampleAmount());
+                        double samplePrice= Double.parseDouble(orderInfo.getSamplePrice());
+                        double deliveryMoney=0;
+                        for(DeliveryRecord d:deliveryRecordArrayList){
+                            deliveryMoney+=Double.parseDouble(d.getExpressPrice());
+                        }
+                        double deserveMoney=designCost+deliveryMoney+price*number-discount-deposit;
+
+
+                        moneyDeserveView.setText(String.valueOf(deserveMoney));
+                        goodsNumberView.setText(String.valueOf(number));
+                        goodsUnitPriceView.setText(String.valueOf(price));
+                        goodsTotalPriceView.setText(String.valueOf(price*number));
+                        sampleNumberView.setText(order.getSampleAmount());
+                        sampleUnitPriceView.setText(orderInfo.getSamplePrice());
+                        sampleTotalPriceView.setText(String.valueOf(sampleNumber*samplePrice));
+                        sendRecordAdapter=new SendRecordAdapter(getActivity(),0,orderInfo.getDeliveryRecords());
+                        finalMoneyDeliveryListView.setAdapter(sendRecordAdapter);
+                    }else {
+                        moneyTypeView.setText(orderInfo.getMoneyName());
+                        moneyDiscountView.setText(order.getDiscount());
+                        double designCost=quote.getDesignCost();
+                        double price= Double.parseDouble(orderInfo.getPrice());
+                        double number= Double.parseDouble(order.getAskAmount());
+                        double discount= Double.parseDouble(order.getDiscount());
+                        double deposit= Double.parseDouble(orderInfo.getDeposit());
+
+                        double sampleNumber= Double.parseDouble(order.getSampleAmount());
+                        double samplePrice= Double.parseDouble(orderInfo.getSamplePrice());
+
+                        double deserveMoney=designCost+price*number-discount-deposit;
+
+
+                        moneyDeserveView.setText(String.valueOf(deserveMoney));
+                        goodsNumberView.setText(String.valueOf(number));
+                        goodsUnitPriceView.setText(String.valueOf(price));
+                        goodsTotalPriceView.setText(String.valueOf(price*number));
+                        sampleNumberView.setText(order.getSampleAmount());
+                        sampleUnitPriceView.setText(orderInfo.getSamplePrice());
+                        sampleTotalPriceView.setText(String.valueOf(sampleNumber*samplePrice));
+
+                    }
+                        remarkEdit.setText(order.getMoneyremark());
 
                 } catch (JSONException e) {
                     e.printStackTrace();

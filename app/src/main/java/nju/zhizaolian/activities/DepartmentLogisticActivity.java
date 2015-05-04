@@ -47,7 +47,7 @@ public class DepartmentLogisticActivity extends ActionBarActivity {
                 case 1:orderListFragment.getListViewByURLAndOperation("/fmc/logistics/mobile_sendSampleList.do",Operation.DELIVERSAMPLE);break;
                 case 2:orderListFragment.getListViewByURLAndOperation("/fmc/logistics/mobile_warehouseList.do",Operation.WAREHOUSE);break;
 
-                case 3:break;
+                case 3:orderListFragment.getListViewByURLAndOperation("/fmc/logistics/mobile_sendClothesList.do",Operation.SENDCLOTHES);break;
 
                 case 4:
                     Fragment newFragment=new RegisterAndScanningFragment();

@@ -133,6 +133,8 @@ public class OrderListFragment extends Fragment{
 
                         listInfoArrayList.addAll(ListInfo.fromJson(response.getJSONArray("packageHaoDuoYiList")));
 
+                    }else if (operate == Operation.SENDCLOTHES){
+                        listInfoArrayList=ListInfo.fromJson(response.getJSONArray("sendList"));
                     }
                     else
                     {
@@ -171,6 +173,10 @@ public class OrderListFragment extends Fragment{
         Fragment fragment = null;
         int id=0;
         switch (operation){
+            case SENDCLOTHES:
+                fragment=new SendClothesFragment();
+                id=R.id.logisticContainer;
+                break;
             case WAREHOUSE:
                 fragment=new PackageFragment();
                 id=R.id.logisticContainer;

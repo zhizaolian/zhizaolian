@@ -95,6 +95,15 @@
                 android:hint="@string/remark_info"
                 android:id="@+id/urge_remark_info_edit"/>
         </LinearLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/deliver_sample"/>
+        <ListView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/final_money_delivery_record_list_view"/>
+
 
         <Button
             android:layout_width="fill_parent"

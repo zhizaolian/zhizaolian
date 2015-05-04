@@ -180,7 +180,7 @@
             <Spinner
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:entries="@array/financial_list"
+                android:entries="@array/receive_money_account_list"
                 android:id="@+id/remaining_spinner"/>
             <TextView
                 android:layout_width="wrap_content"
