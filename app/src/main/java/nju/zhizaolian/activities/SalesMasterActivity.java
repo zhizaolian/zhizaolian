@@ -50,7 +50,7 @@ public class SalesMasterActivity extends ActionBarActivity  {
 
                     break;
                 case 1:
-                    Toast.makeText(getApplicationContext(),"暂不可用",Toast.LENGTH_SHORT).show();
+                    orderListFragment.getListViewByURLAndOperation("/fmc/market/mobile_verifyAlterList.do", Operation.CHANGEEMPLOYEE);
 
                     break;
             }

@@ -1,0 +1,112 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="nju.zhizaolian.fragments.SalesManagerChangeEmployeeFragment">
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/reason"
+        android:id="@+id/textView10"
+        android:layout_alignBottom="@+id/change_employee_reason_edit_text"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textMultiLine"
+        android:ems="10"
+        android:id="@+id/change_employee_reason_edit_text"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/textView10"
+        android:layout_toEndOf="@+id/textView10"
+        android:layout_marginLeft="20dp"
+        android:layout_marginStart="20dp" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textMultiLine"
+        android:ems="10"
+        android:id="@+id/change_employee_advice_edit_text"
+        android:layout_below="@+id/change_employee_reason_edit_text"
+        android:layout_alignLeft="@+id/change_employee_reason_edit_text"
+        android:layout_alignStart="@+id/change_employee_reason_edit_text"
+        android:layout_marginTop="30dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/advice"
+        android:id="@+id/textView11"
+        android:layout_alignBottom="@+id/change_employee_advice_edit_text"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/change_employee"
+        android:id="@+id/textView12"
+        android:layout_below="@+id/textView11"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="30dp" />
+
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/change_employee_spinner"
+        android:layout_below="@+id/change_employee_advice_edit_text"
+        android:layout_toRightOf="@+id/textView12"
+        android:layout_toEndOf="@+id/textView12"
+        android:layout_marginLeft="20dp"
+        android:layout_marginStart="20dp" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_below="@+id/textView12"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="30dp"
+        android:id="@+id/linearLayout">
+
+
+        <ImageButton
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:id="@+id/change_employee_back_button"
+            android:src="@drawable/ic_action_back"
+            android:background="@drawable/back_button_selector"/>
+
+        <ImageButton
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:id="@+id/change_employee_submit_button"
+            android:src="@drawable/ic_action_accept"
+            android:background="@drawable/commit_button_selector"/>
+
+        <ImageButton
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:id="@+id/change_employee_cancel_button"
+            android:src="@drawable/ic_action_cancel"
+            android:background="@drawable/cancel_button_selector"/>
+
+
+    </LinearLayout>
+
+
+
+
+</RelativeLayout>

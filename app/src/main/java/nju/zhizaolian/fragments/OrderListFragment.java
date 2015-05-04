@@ -199,6 +199,10 @@ public class OrderListFragment extends Fragment{
                 fragment = new CheckQuoteFragment();
                 id=R.id.salesMasterContainer;
                 break;
+            case CHANGEEMPLOYEE:
+                fragment = new SalesManagerChangeEmployeeFragment();
+                id=R.id.salesMasterContainer;
+                break;
             case CHECKSAMPLEBALANCE:
                 fragment = new CheckSampleBalanceFragment();
                 id=R.id.financialContainer;

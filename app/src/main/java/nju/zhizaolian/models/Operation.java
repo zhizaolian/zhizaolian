@@ -13,6 +13,7 @@ public enum Operation {
     URGEREMAININGBALANCE , //UrgeRemainingBalance 催尾款
 
     CHECKQUOTE , //CheckQuoteFragment 审核报价 市场主管
+    CHANGEEMPLOYEE, //SalesManagerChangeEmployeeFragment 变更市场专员 市场主管
 
     //财务部
     CHECKSAMPLEBALANCE,     //CheckSampleBalanceFragment 样衣费确认
