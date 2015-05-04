@@ -42,7 +42,7 @@ public class CheckFrontMoneyFragment extends Fragment {
     private static  String confirmDepositDetailUrl="/fmc/finance/mobile_confirmDepositDetail.do";
     private static  String confirmDepositSubmitUrl="/fmc/finance/mobile_confirmDepositSubmit.do";
 
-   private TextView moneyTypeView;
+    private TextView moneyTypeView;
     private TextView moneyDiscountView;
     private TextView moneyPayView;
     private TextView goodsAmountView;
@@ -188,7 +188,7 @@ public class CheckFrontMoneyFragment extends Fragment {
                     float moneyPayPrice= (float) ((askAmount*askUnitPrice-discount)*0.3);
                     moneyDiscountView.setText(String.valueOf(discount));
                     moneyPayView.setText(String.valueOf(moneyPayPrice));
-                    goodsAmountView.setText(String.valueOf(discount));
+                    goodsAmountView.setText(String.valueOf(askAmount));
                     goodsUnitPriceView.setText(String.valueOf(askUnitPrice));
                     goodsTotalPriceView.setText(String.valueOf(totalPrice));
                     sampleAmountView.setText(orderInfo.getOrderSampleAmount());
@@ -199,7 +199,7 @@ public class CheckFrontMoneyFragment extends Fragment {
                     remitMoneyView.setText(String.valueOf(moneyPayPrice));
                     depositTimeView.setText(MyUtils.getCurrentDate());
                     depositRemarkView.setText(order.getMoneyremark());
-                    Picasso.with(getActivity()).load(IPAddress.getIP()+orderInfo.getUrl()).into(depositMoneyImage);
+                    Picasso.with(getActivity()).load(IPAddress.getIP()+order.getConfirmDepositFile()).into(depositMoneyImage);
 
                     progressDialog.dismiss();
                 } catch (JSONException e) {

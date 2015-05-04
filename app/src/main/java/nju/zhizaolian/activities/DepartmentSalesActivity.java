@@ -27,7 +27,7 @@ public class DepartmentSalesActivity extends ActionBarActivity   {
     public static final int CHANGEQUOTE=4;
     public static final int SIGNCONTRACT=5;
     public static final int URGEREMAININGMONEY=6;
-    public static final int CHANGECONTRACT=7;
+    //public static final int CHANGECONTRACT=7;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -77,10 +77,10 @@ public class DepartmentSalesActivity extends ActionBarActivity   {
 
 
                 case QUOTEAGREES:orderListFragment.getListViewByURLAndOperation("/fmc/market/mobile_confirmQuoteList.do",Operation.QUOTEAGREED);break;
-                case CHANGEQUOTE:Toast.makeText(DepartmentSalesActivity.this, "暂不可用", Toast.LENGTH_SHORT).show();break;
+                case CHANGEQUOTE:orderListFragment.getListViewByURLAndOperation("/fmc/market/mobile_mobile_modifyQuoteList.do",Operation.CHANGEQUOTE);break;
                 case SIGNCONTRACT:orderListFragment.getListViewByURLAndOperation("/fmc/market/mobile_confirmProduceOrderList.do",Operation.SIGNCONTRACT);break;
                 case URGEREMAININGMONEY:orderListFragment.getListViewByURLAndOperation("/fmc/market/mobile_getPushRestOrderList.do",Operation.URGEREMAININGBALANCE);break;
-                case 7:Toast.makeText(DepartmentSalesActivity.this, "暂不可用", Toast.LENGTH_SHORT).show();break;
+               // case 7:Toast.makeText(DepartmentSalesActivity.this, "暂不可用", Toast.LENGTH_SHORT).show();break;
                 default:break;
             }
 

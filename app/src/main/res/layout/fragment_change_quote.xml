@@ -8,20 +8,26 @@
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
+            android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal|top">
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/material_price"
                 android:textSize="@dimen/abc_text_size_large_material"/>
-            <include layout="@layout/sublayout_material_price"/>
+           <ListView
+               android:layout_width="fill_parent"
+               android:layout_height="wrap_content"
+               android:id="@+id/change_quote_fabric_cost_list_view"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/accessories_price"
                 android:textSize="@dimen/abc_text_size_large_material"/>
-            <include layout="@layout/sublayout_accessories_price"/>
+           <ListView
+               android:layout_width="fill_parent"
+               android:layout_height="wrap_content"
+               android:id="@+id/change_quote_accessories_cost_list_view"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -50,6 +56,7 @@
             <Button
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
+                android:id="@+id/change_quote_button"
                 android:text="@string/ensure"/>
 
         </LinearLayout>

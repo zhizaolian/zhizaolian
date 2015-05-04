@@ -21,6 +21,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -32,13 +33,19 @@ import org.apache.http.Header;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
 import nju.zhizaolian.R;
+import nju.zhizaolian.adapters.AccessoriesCostAdapter;
+import nju.zhizaolian.adapters.FabricCostAdapter;
 import nju.zhizaolian.help.FormFile;
 import nju.zhizaolian.help.PictureUtil;
 import nju.zhizaolian.help.UpLoadUtil;
+import nju.zhizaolian.models.AccessoryCost;
+import nju.zhizaolian.models.Craft;
+import nju.zhizaolian.models.FabricCost;
 import nju.zhizaolian.models.IPAddress;
 import nju.zhizaolian.models.ListInfo;
 import nju.zhizaolian.models.Order;
@@ -66,12 +73,39 @@ public class QuoteAgreedFragment extends Fragment {
 
 
 
+    private ListView fabricCostListView;
+    private ListView accessoriesCostListView;
+    private TextView fabricTotalCostView;
+    private TextView accessoriesTotalCostView;
+
+    private TextView stampDutyMoneyView;
+    private TextView washHangDyeMoneyView;
+    private TextView laserMoneyView;
+    private TextView embroideryMoneyView;
+    private TextView crumpleMoneyView;
+    private TextView openVersionMoneyView;
+
+    private TextView cutCostView;
+    private TextView manageCostView;
+    private TextView swingCostView;
+    private TextView ironingCostView;
+    private TextView nailCostView;
+    private TextView packageCostView;
+    private TextView otherCostView;
+    private TextView designCostView;
+
+
 
 
     private byte[] confirmQuotePictureByte;
     private ListInfo listInfo;
     private Order order;
     private OrderInfo orderInfo;
+    private FabricCostAdapter fabricCostAdapter;
+    private AccessoriesCostAdapter accessoriesCostAdapter;
+
+
+
 
     private String  confirmQuotePictureUrl;
     private ProgressDialog progressDialog;
@@ -86,8 +120,7 @@ public class QuoteAgreedFragment extends Fragment {
         // Inflate the layout for this fragment
         View view=inflater.inflate(R.layout.fragment_quote_agreed, container, false);
         listInfo= (ListInfo) getArguments().getSerializable("info");
-        progressDialog=ProgressDialog.show(container.getContext(),"请等待","数据更新中",true);
-        getConfirmQuoteDetail();
+
         confirmQuotePictureButton=(Button)view.findViewById(R.id.confirm_quote_picture_button);
         confirmQuoteImage=(ImageView)view.findViewById(R.id.receive_sample_money_image);
         confirmQuoteRemarkEdit=(EditText)view.findViewById(R.id.quote_agreed_remark_edit);
@@ -99,7 +132,28 @@ public class QuoteAgreedFragment extends Fragment {
         innerCostView=(TextView)view.findViewById(R.id.produce_price_view);
         outerCostView=(TextView)view.findViewById(R.id.custom_quote_view);
 
+        cutCostView=(TextView)view.findViewById(R.id.cutCostView);
+        manageCostView=(TextView)view.findViewById(R.id.manageCostView);
+        swingCostView=(TextView)view.findViewById(R.id.swingCostView);
+        ironingCostView=(TextView)view.findViewById(R.id.ironingCostView);
+        nailCostView=(TextView)view.findViewById(R.id.nailCostView);
+        packageCostView=(TextView)view.findViewById(R.id.packageCostView);
+        otherCostView=(TextView)view.findViewById(R.id.otherCostView);
+        designCostView=(TextView)view.findViewById(R.id.degisnCostView);
+        fabricCostListView=(ListView)view.findViewById(R.id.quote_agree_fabric_cost_list_view);
+        accessoriesCostListView=(ListView)view.findViewById(R.id.quote_agree_accessories_list_view);
 
+        fabricTotalCostView=(TextView)view.findViewById(R.id.fabric_total_cost_view);
+        accessoriesTotalCostView=(TextView)view.findViewById(R.id.accessories_total_cost_view);
+
+        stampDutyMoneyView=(TextView)view.findViewById(R.id.stamp_duty_money_view);
+        washHangDyeMoneyView=(TextView)view.findViewById(R.id.wash_hang_dye_money_view);
+        laserMoneyView=(TextView)view.findViewById(R.id.laser_money_view);
+        embroideryMoneyView=(TextView)view.findViewById(R.id.embroidery_money_view);
+        crumpleMoneyView=(TextView)view.findViewById(R.id.crumple_money_view);
+        openVersionMoneyView=(TextView)view.findViewById(R.id.open_version_money_view);
+        progressDialog=ProgressDialog.show(container.getContext(),"请等待","数据更新中",true,true);
+        getConfirmQuoteDetail();
 
 
         confirmQuotePictureButton.setOnClickListener(new View.OnClickListener() {
@@ -140,13 +194,48 @@ public class QuoteAgreedFragment extends Fragment {
         changeQuoteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                changeQuoteSubmit();
+                AlertDialog.Builder builder =new AlertDialog.Builder(container.getContext());
+                builder.setMessage("确定操作?");
+                builder.setTitle("提示");
+                builder.setPositiveButton("确定",new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        progressDialog=ProgressDialog.show(container.getContext(),"请稍等","提交中",true,true);
+                        changeQuoteSubmit();
+                    }
+                });
+                builder.setNegativeButton("取消",new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                });
+                builder.create().show();
+
             }
         });
         unableConfirmQuoteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                unableConfirmQuoteSubmit();
+                AlertDialog.Builder builder =new AlertDialog.Builder(container.getContext());
+                builder.setMessage("确定操作?");
+                builder.setTitle("提示");
+                builder.setPositiveButton("确定",new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        progressDialog=ProgressDialog.show(container.getContext(),"请稍等","提交中",true,true);
+                        unableConfirmQuoteSubmit();
+                    }
+                });
+                builder.setNegativeButton("取消",new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                });
+                builder.create().show();
+
+
             }
         });
 
@@ -204,6 +293,8 @@ public class QuoteAgreedFragment extends Fragment {
                     }else {
                         Toast.makeText(getActivity().getApplicationContext(), "出现异常", Toast.LENGTH_SHORT).show();
                     }
+                    getActivity().finish();
+                    progressDialog.dismiss();
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
@@ -273,8 +364,10 @@ public class QuoteAgreedFragment extends Fragment {
                     }else {
                         Toast.makeText(getActivity().getApplicationContext(), "出现异常", Toast.LENGTH_SHORT).show();
                     }
+                    progressDialog.dismiss();
                 } catch (JSONException e) {
                     e.printStackTrace();
+                    progressDialog.dismiss();
                 }
             }
         });
@@ -297,11 +390,37 @@ public class QuoteAgreedFragment extends Fragment {
                         orderInfo= OrderInfo.fromJson(response.getJSONObject("orderInfo"));
                         order=orderInfo.getOrder();
                         Quote quote=orderInfo.getQuote();
+                        Craft craft=orderInfo.getCraft();
                         profitPerClothesEdit.setText(orderInfo.getQuote().getProfitPerPiece());
                         profitPerClothesEdit.setEnabled(false);
                         singleCostView.setText(String.valueOf(quote.getSingleCost()));
                         innerCostView.setText(quote.getInnerPrice());
                         outerCostView.setText(quote.getOuterPrice());
+                        ArrayList<FabricCost> fabricCostArrayList=orderInfo.getFabricCosts();
+                        ArrayList<AccessoryCost> accessoryCostArrayList=orderInfo.getAccessoryCosts();
+                        fabricCostAdapter=new FabricCostAdapter(getActivity(),0,fabricCostArrayList);
+                        fabricCostListView.setAdapter(fabricCostAdapter);
+                        accessoriesCostAdapter=new AccessoriesCostAdapter(getActivity(),0,accessoryCostArrayList);
+                        accessoriesCostListView.setAdapter(accessoriesCostAdapter);
+                        fabricTotalCostView.setText(quote.getFabricCost().toString());
+                        accessoriesTotalCostView.setText(quote.getAccessoryCost().toString());
+                        cutCostView.setText(quote.getCutCost().toString());
+                        manageCostView.setText(quote.getManageCost().toString());
+                        swingCostView.setText(quote.getSwingCost().toString());
+                        ironingCostView.setText((quote.getIroningCost().toString()));
+                        nailCostView.setText(quote.getNailCost().toString());
+                        packageCostView.setText(quote.getPackageCost().toString());
+                        otherCostView.setText(quote.getOtherCost().toString());
+                        designCostView.setText(quote.getDesignCost().toString());
+                        stampDutyMoneyView.setText(String.valueOf(craft.getStampDutyMoney()));
+                        washHangDyeMoneyView.setText(String.valueOf(craft.getWashHangDyeMoney()));
+                        laserMoneyView.setText(String.valueOf(craft.getLaserMoney()));
+                        embroideryMoneyView.setText(String.valueOf(craft.getEmbroideryMoney()));
+                        crumpleMoneyView.setText(String.valueOf(craft.getCrumpleMoney()));
+                        openVersionMoneyView.setText(String.valueOf(craft.getOpenVersionMoney()));
+
+
+
                         progressDialog.dismiss();
                     } catch (JSONException e) {
                         e.printStackTrace();
@@ -314,6 +433,7 @@ public class QuoteAgreedFragment extends Fragment {
             public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
                 super.onFailure(statusCode, headers, responseString, throwable);
                 Log.d("failure",responseString);
+                progressDialog.dismiss();
             }
         });
     }

@@ -179,7 +179,9 @@ public class SendClothesFragment extends Fragment {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                 super.onSuccess(statusCode, headers, response);
+                progressDialog.dismiss();
                 Toast.makeText(getActivity(),"完成最终发货",Toast.LENGTH_SHORT).show();
+
                 getActivity().finish();
             }
 

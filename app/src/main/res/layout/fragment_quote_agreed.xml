@@ -10,7 +10,42 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal|top">
-
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/material_price"
+                android:textSize="@dimen/abc_text_size_large_material"/>
+            <ListView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/quote_agree_fabric_cost_list_view"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/accessories_price"
+                android:textSize="@dimen/abc_text_size_large_material"/>
+            <ListView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/quote_agree_accessories_list_view"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/material_accessories_total_count"
+                android:textSize="@dimen/abc_text_size_large_material"/>
+            <include layout="@layout/sublayout_material_accessories_totalcount"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/technology_price"
+                android:textSize="@dimen/abc_text_size_large_material"/>
+            <include layout="@layout/sublayout_technology_price"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/abc_text_size_large_material"
+                android:text="@string/other_cost_fee"/>
+            <include layout="@layout/sublayout_other_cost"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
