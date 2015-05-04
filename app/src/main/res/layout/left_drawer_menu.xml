@@ -9,60 +9,118 @@
 
     <LinearLayout
         android:layout_marginTop="30dp"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-
         android:orientation="vertical">
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-
+            android:background="@drawable/menu_item_selector"
             android:text="@string/prompt_username"
             android:id="@+id/user_name"
-            android:layout_marginLeft="20dp"/>
+            android:paddingLeft="20dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-
             android:text="@string/welcome"
             android:id="@+id/textView104"
-            android:layout_marginLeft="20dp"/>
-
-
-
+            android:layout_marginLeft="20dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"/>
         </LinearLayout>
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:layout_marginTop="20dp"
-        android:layout_marginLeft="20dp">
+        android:background="@drawable/menu_item_selector"
+        >
 
-     <TextView
-            android:layout_width="wrap_content"
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@drawable/menu_item_selector"
+        android:clickable="true"
+        android:focusable="true"
+        android:descendantFocusability="beforeDescendants">
+    <TextView
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/title_activity_main"
+            android:paddingLeft="20dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:background="@drawable/menu_item_selector"
             android:id="@+id/go_to_main_view"
-            android:clickable="true"/>
+            />
 
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/ic_action_next_item"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:id="@+id/imageView" />
+    </RelativeLayout>
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="@drawable/menu_item_selector"
+            android:clickable="true"
+            android:focusable="true"
+            android:descendantFocusability="beforeDescendants">
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:background="@drawable/menu_item_selector"
+        android:paddingLeft="20dp"
         android:text="@string/customer_manager"
         android:id="@+id/go_to_customer_manager_view"
         android:clickable="true"/>
+        <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/ic_action_next_item"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:id="@+id/imageView2" />
+        </RelativeLayout>
 
-     <TextView
-            android:layout_width="wrap_content"
+    <RelativeLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="@drawable/menu_item_selector"
+            android:clickable="true"
+            android:focusable="true"
+            android:descendantFocusability="beforeDescendants">
+     <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/menu_item_selector"
+            android:paddingLeft="20dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
             android:text="@string/order_manager"
             android:id="@+id/go_to_order_manager_view"
-         android:layout_marginTop="10dp"
             android:clickable="true"/>
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/ic_action_next_item"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:id="@+id/imageView3" />
+    </RelativeLayout>
         </LinearLayout>
 
 
@@ -72,7 +130,6 @@
         android:layout_height="wrap_content"
         android:clickable="true"
         android:id="@+id/menuList"
-        android:paddingLeft="20dp"
         android:paddingTop="10dp"
         android:paddingBottom="10dp"/>
 
