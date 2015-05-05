@@ -1,6 +1,7 @@
 package nju.zhizaolian.activities;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -32,8 +33,8 @@ public class LoginActivity extends Activity  {
     // UI references.
     private EditText mUserNameView;
     private EditText mPasswordView;
-
-
+    private ProgressDialog progressDialog;
+    private Button mSignInButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,10 +48,11 @@ public class LoginActivity extends Activity  {
         mPasswordView = (EditText) findViewById(R.id.password);
 
 
-        Button mSignInButton = (Button) findViewById(R.id.sign_in_button);
+       mSignInButton = (Button) findViewById(R.id.sign_in_button);
         mSignInButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
+                mSignInButton.setClickable(false);
                 attemptLogin();
             }
         });
@@ -105,6 +107,7 @@ public class LoginActivity extends Activity  {
             // form field with an error.
             focusView.requestFocus();
         } else {
+
             AsyncHttpClient client=new AsyncHttpClient();
             RequestParams params=new RequestParams();
             params.put("user_name",username);
@@ -127,9 +130,11 @@ public class LoginActivity extends Activity  {
                             } catch (JSONException e) {
                                 e.printStackTrace();
                             }
+                            progressDialog=ProgressDialog.show(LoginActivity.this,"请等待","登录中",true,true);
                             login(account);
                         }else{
                             Toast.makeText(getApplicationContext(),"密码错误",Toast.LENGTH_SHORT).show();
+                            mSignInButton.setClickable(false);
                         }
                     } catch (JSONException e) {
                         e.printStackTrace();
@@ -141,6 +146,7 @@ public class LoginActivity extends Activity  {
                 public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
                     Log.d("fail",responseString);
                     mPasswordView.setError(getString(R.string.error_incorrect_password));
+                    mSignInButton.setClickable(false);
 
                 }
             });
@@ -161,7 +167,8 @@ public class LoginActivity extends Activity  {
         Intent i=new Intent(this,MainActivity.class);
 
         i.putExtra("account",account);
-        startActivity(i);
+        startActivityForResult(i, 0);
+        progressDialog.dismiss();
     }
 
     @Override

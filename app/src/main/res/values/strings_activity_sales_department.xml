@@ -16,7 +16,7 @@
         <item>修改报价</item>
         <item>签订合同</item>
         <item>催尾款</item>
-        <item>修改大货合同</item>
+
     </string-array>
     <string name="actual_produce_number">实际生产数</string>
     <string name="discount_amount">优惠金额</string>

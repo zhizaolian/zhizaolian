@@ -41,10 +41,10 @@ public class CustomAdapter extends ArrayAdapter<Custom> {
         TextView customNameView= (TextView) convertView.findViewById(R.id.custom_name);
         TextView customPhoneView= (TextView) convertView.findViewById(R.id.custom_phone);
         TextView customCompanyView= (TextView) convertView.findViewById(R.id.custom_company);
-        TextView customCompanyAddressView= (TextView) convertView.findViewById(R.id.custom_company_address);
+
         TextView customCompanyPhoneView= (TextView) convertView.findViewById(R.id.custom_company_phone);
         Button addOrder=(Button)convertView.findViewById(R.id.button_add_order);
-        Button addDuplicateOrder=(Button)convertView.findViewById(R.id.button_add_duplicate_order);
+
         addOrder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -54,20 +54,11 @@ public class CustomAdapter extends ArrayAdapter<Custom> {
                 getContext().startActivity(i);
             }
         });
-        addDuplicateOrder.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(getContext(),"暂不可用",Toast.LENGTH_SHORT);
-            }
-        });
+
         customNameView.setText(custom.getCustomerName());
         customPhoneView.setText(custom.getCustomerPhone());
         customCompanyView.setText(custom.getCompanyName());
-        if(custom.getCompanyAddress().length()==0){
-            customCompanyAddressView.setText("无");
-        }else {
-            customCompanyAddressView.setText(custom.getCompanyAddress());
-        }
+
         if(custom.getCompanyPhone().length()==0){
             customCompanyPhoneView.setText("无");
         }else{

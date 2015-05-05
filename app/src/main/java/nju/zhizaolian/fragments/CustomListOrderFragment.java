@@ -61,6 +61,7 @@ public class CustomListOrderFragment extends Fragment {
         customAdapter=new CustomAdapter(container.getContext(),customList,account);
 
         customListView.setAdapter(customAdapter);
+
         fetchCustom();
         return view;
     }

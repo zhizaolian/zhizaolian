@@ -40,7 +40,7 @@ public class MainActivity extends ActionBarActivity implements
         setContentView(R.layout.activity_main);
         ActionBar actionBar=getSupportActionBar();
         actionBar.setLogo(R.drawable.ic_drawer);
-
+        setResult(RESULT_OK);
         mContext=this;
         Account account= (Account) getIntent().getSerializableExtra("account");
         if(savedInstanceState==null) {

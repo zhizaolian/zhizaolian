@@ -67,7 +67,7 @@ public class DepartmentSalesActivity extends ActionBarActivity   {
                        getFragmentManager().beginTransaction().replace(R.id.salesDepartmentcontainers,newFragment).addToBackStack(null).commit();
 
                     break;
-                case CHANGEORDER:Toast.makeText(DepartmentSalesActivity.this, "暂不可用", Toast.LENGTH_SHORT).show();
+                case CHANGEORDER:Toast.makeText(DepartmentSalesActivity.this, "请在电脑上操作....", Toast.LENGTH_SHORT).show();
 
                     break;
 

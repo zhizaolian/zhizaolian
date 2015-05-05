@@ -1,117 +1,111 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="fill_parent"
     android:layout_height="match_parent"
     >
-
-    <TextView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="@string/title_custom_name"
-        android:id="@+id/textView71"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:orientation="horizontal">
 
-    <TextView
-        android:layout_width="wrap_content"
+        <ImageView
+            android:layout_width="76dp"
+            android:layout_height="75dp"
+            android:background="@mipmap/ic_head"/>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="New Text"
-        android:id="@+id/custom_name"
-        android:layout_marginLeft="29dp"
-        android:layout_marginStart="29dp"
-        android:layout_alignParentTop="true"
-        android:layout_toRightOf="@+id/textView71"
-        android:layout_toEndOf="@+id/textView71" />
+        android:orientation="vertical"
+       >
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/abc_text_size_medium_material"
+                android:text="@string/title_custom_name"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/abc_text_size_medium_material"
+                android:layout_marginLeft="20dp"
+                android:text="无"
+                android:id="@+id/custom_name"
+                />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/title_custom_phone"
-        android:id="@+id/textView73"
-        android:layout_below="@+id/textView71"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/title_custom_phone"
+                android:id="@+id/textView73"
+                />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="New Text"
-        android:id="@+id/custom_phone"
-        android:layout_alignTop="@+id/textView73"
-        android:layout_alignLeft="@+id/custom_name"
-        android:layout_alignStart="@+id/custom_name" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="New Text"
+                android:layout_marginLeft="20dp"
+                android:id="@+id/custom_phone"
+                />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/title_custom_company"
-        android:id="@+id/textView75"
-        android:layout_below="@+id/textView73"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="New Text"
-        android:id="@+id/custom_company"
-        android:layout_alignTop="@+id/textView75"
-        android:layout_alignLeft="@+id/custom_phone"
-        android:layout_alignStart="@+id/custom_phone" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/title_custom_company"
+                />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/title_custom_company_address"
-        android:id="@+id/textView77"
-        android:layout_below="@+id/textView75"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:text="New Text"
+                android:id="@+id/custom_company"
+                />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="New Text"
-        android:id="@+id/custom_company_address"
-        android:layout_alignTop="@+id/textView77"
-        android:layout_alignLeft="@+id/custom_company"
-        android:layout_alignStart="@+id/custom_company" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/title_custom_company_phone"
+                />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/title_custom_company_phone"
-        android:id="@+id/textView79"
-        android:layout_below="@+id/textView77"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:text="New Text"
+                android:id="@+id/custom_company_phone"
+                />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="New Text"
-        android:id="@+id/custom_company_phone"
-        android:layout_alignTop="@+id/textView79"
-        android:layout_alignLeft="@+id/custom_company_address"
-        android:layout_alignStart="@+id/custom_company_address" />
+        </LinearLayout>
 
+
+    </LinearLayout>
+
+
+    </LinearLayout>
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="@string/button_add_order"
-        android:id="@+id/button_add_order"
-        android:layout_below="@+id/textView79"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:id="@+id/button_add_order"/>
+</LinearLayout>
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/button_add_duplicate_order"
-        android:id="@+id/button_add_duplicate_order"
-        android:layout_alignBottom="@+id/button_add_order"
-        android:layout_toRightOf="@+id/button_add_order"
-        android:layout_toEndOf="@+id/button_add_order" />
 
-</RelativeLayout>
+
