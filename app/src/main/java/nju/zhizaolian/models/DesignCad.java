@@ -2,8 +2,6 @@ package nju.zhizaolian.models;
 
 import org.json.JSONObject;
 
-import java.sql.Timestamp;
-
 /**
  * Created by lk on 15/4/27.
  */
@@ -13,7 +11,7 @@ public class DesignCad {
     private Integer orderId;
     private String cadUrl;
     private Short cadVersion;
-    private Timestamp uploadTime;
+    private String uploadTime;
     private String cadFabric; //面料
     private String cadPackage; //装箱
     private String cadVersionData; //版型
@@ -21,7 +19,7 @@ public class DesignCad {
     private String cadTech; //工艺
     private String cadOther; //其他
     private String cadSide;//制版人姓名
-    private Timestamp completeTime;//制版完成时间
+    private String completeTime;//制版完成时间
 
     /** default constructor */
     public DesignCad() {
@@ -29,7 +27,7 @@ public class DesignCad {
 
     /** full constructor */
     public DesignCad(Integer orderId, String cadUrl, Short cadVersion,
-                     Timestamp uploadTime) {
+                     String uploadTime) {
         this.orderId = orderId;
         this.cadUrl = cadUrl;
         this.cadVersion = cadVersion;
@@ -48,9 +46,9 @@ public class DesignCad {
             designCad.cadUrl=jsonObject.getString("cadUrl");
             designCad.cadVersion= Short.valueOf(jsonObject.getString("cadVersion"));
             designCad.cadVersionData=jsonObject.getString("cadVersionData");
-            designCad.completeTime= Timestamp.valueOf(jsonObject.getString("completeTime"));
+            designCad.completeTime= jsonObject.getString("completeTime");
             designCad.orderId= Integer.valueOf(jsonObject.getString("orderId"));
-            designCad.uploadTime= Timestamp.valueOf(jsonObject.getString("uploadTime"));
+            designCad.uploadTime= jsonObject.getString("uploadTime");
 
         }catch (Exception e){
             e.printStackTrace();
@@ -60,11 +58,11 @@ public class DesignCad {
     }
 
 
-    public Timestamp getCompleteTime() {
+    public String getCompleteTime() {
         return completeTime;
     }
 
-    public void setCompleteTime(Timestamp completeTime) {
+    public void setCompleteTime(String completeTime) {
         this.completeTime = completeTime;
     }
 
@@ -124,11 +122,11 @@ public class DesignCad {
         this.cadFabric = cadFabric;
     }
 
-    public Timestamp getUploadTime() {
+    public String getUploadTime() {
         return uploadTime;
     }
 
-    public void setUploadTime(Timestamp uploadTime) {
+    public void setUploadTime(String uploadTime) {
         this.uploadTime = uploadTime;
     }
 

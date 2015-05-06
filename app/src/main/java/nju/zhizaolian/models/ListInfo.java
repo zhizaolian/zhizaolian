@@ -27,6 +27,7 @@ public class ListInfo implements Serializable{
             listInfo.employee=jsonObject.has("employee")?Employee.fromJson(jsonObject.getJSONObject("employee")):new Employee();
             listInfo.orderId=jsonObject.has("orderId")?jsonObject.getString("orderId"):"";
             listInfo.taskTime=jsonObject.has("taskTime")?jsonObject.getString("taskTime"):"";
+
             return  listInfo;
         } catch (JSONException e) {
             e.printStackTrace();
@@ -50,6 +51,8 @@ public class ListInfo implements Serializable{
         }
         return listInfos;
     }
+
+
 
     public Order getOrder() {
         return order;

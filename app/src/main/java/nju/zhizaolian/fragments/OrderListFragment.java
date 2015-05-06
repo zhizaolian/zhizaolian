@@ -3,6 +3,7 @@ package nju.zhizaolian.fragments;
 
 import android.app.Fragment;
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -25,6 +26,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import nju.zhizaolian.R;
+import nju.zhizaolian.activities.OrderShowActivity;
 import nju.zhizaolian.adapters.OrderProcessListAdapter;
 import nju.zhizaolian.models.Account;
 import nju.zhizaolian.models.IPAddress;
@@ -296,9 +298,9 @@ public class OrderListFragment extends Fragment{
                 id=R.id.department_sweater_maker_activity_layout;
                 break;
             case ORDER_MANAGER_DETAIL:
-                //TODO 跳到OrderDetailActivity？求Set方法！
-                fragment = new Fragment();
-                id=R.id.activity_order_list_layout;
+                Intent i=new Intent(getActivity(), OrderShowActivity.class);
+                i.putExtra("bundle",bundle);
+                startActivity(i);
                 return;
             case SECRETARY_CHANGE:
                 fragment = new DepartmentSecretaryChangeFragment();

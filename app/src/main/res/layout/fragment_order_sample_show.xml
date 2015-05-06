@@ -3,7 +3,9 @@
     android:layout_height="match_parent"
     tools:context="nju.zhizaolian.fragments.OrderSampleShowFragment">
 
-
+<ScrollView
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content">
        <LinearLayout
            android:layout_width="fill_parent"
            android:layout_height="wrap_content"
@@ -12,7 +14,11 @@
                android:layout_width="fill_parent"
                android:layout_height="wrap_content"
                android:orientation="vertical">
-
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/title_custom_sample"
+                android:textSize="@dimen/abc_text_size_large_material"/>
                <TextView
                    android:layout_width="wrap_content"
                    android:layout_height="wrap_content"
@@ -53,6 +59,20 @@
                <TextView
                    android:layout_width="wrap_content"
                    android:layout_height="wrap_content"
+                   android:text="生产样衣"
+                   android:textSize="@dimen/abc_text_size_large_material"/>
+               <TextView
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:text="制作样衣"
+                   style="@style/MyTextStyle"/>
+               <TextView
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:id="@+id/if_make_sample_view"/>
+               <TextView
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
                    style="@style/MyTextStyle"
                    android:text="@string/title_post_man"/>
                <TextView
@@ -81,6 +101,43 @@
                    android:layout_width="wrap_content"
                    android:layout_height="wrap_content"
                    style="@style/MyTextStyle"
+                   android:text="@string/title_express_time"/>
+               <TextView
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:id="@+id/produce_express_time_view"/>
+               <TextView
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   style="@style/MyTextStyle"
+                   android:text="@string/title_express_name"/>
+               <TextView
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:id="@+id/produce_express_name_view"/>
+               <TextView
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   style="@style/MyTextStyle"
+                   android:text="@string/title_express_number"/>
+               <TextView
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:id="@+id/produce_express_number_view"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/remark_info"
+                    style="@style/MyTextStyle"/>
+               <TextView
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:id="@+id/remark_info_view"/>
+
+               <TextView
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   style="@style/MyTextStyle"
                    android:text="@string/title_sample_picture"/>
                <ImageView
                    android:layout_width="fill_parent"
@@ -99,6 +156,6 @@
 
 
            </LinearLayout>
-
+</ScrollView>
 
 </FrameLayout>

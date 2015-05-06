@@ -109,6 +109,10 @@
             android:label="@string/title_activity_department_secretary"
            >
         </activity>
+        <activity
+            android:name=".activities.OrderShowActivity"
+            android:label="@string/title_activity_order_show" >
+        </activity>
     </application>
 
 </manifest>

@@ -2,12 +2,14 @@ package nju.zhizaolian.models;
 
 import org.json.JSONObject;
 
+import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by lk on 15/4/27.
  */
-public class OrderInfo {
+public class OrderInfo implements Serializable {
     private String taskId;
     private Craft craft;
     private ArrayList<Accessory> accessories;
@@ -36,13 +38,18 @@ public class OrderInfo {
     private ArrayList<PackageDetail> packageDetailArrayList=new ArrayList<PackageDetail>();
     private String deposit;
     private String packageNumber;
+
+    private List<Produce> sample;
+    private List<Produce> produce;
+    private DesignCad designCad;
+    private List<RepairRecord> repairRecords;
     public OrderInfo() {
     }
 
     public static OrderInfo fromJson(JSONObject jsonObject){
         OrderInfo orderInfo=new OrderInfo();
         try{
-            orderInfo.taskId=jsonObject.getString("taskId");
+            orderInfo.taskId=jsonObject.has("taskId")?jsonObject.getString("taskId"):"";
 
             orderInfo.logistics=jsonObject.has("logistics")?Logistics.fromJson(jsonObject.getJSONObject("logistics")):null;
 
@@ -55,7 +62,7 @@ public class OrderInfo {
             orderInfo.taskName=jsonObject.has("taskName")?jsonObject.getString("taskName"):null;
             orderInfo.price=jsonObject.has("price")?jsonObject.getString("price"):null;
 
-            orderInfo.custom=Custom.fromJson(jsonObject.getJSONObject("customer"));
+            orderInfo.custom=jsonObject.has("customer")?Custom.fromJson(jsonObject.getJSONObject("customer")):null;
             orderInfo.deliveryRecords=jsonObject.has("deliveryRecord")?DeliveryRecord.fromJson(jsonObject.getJSONArray("deliveryRecord")):null;
             orderInfo.produceArrayList=jsonObject.has("produce")?Produce.fromJson(jsonObject.getJSONArray("produce")):null;
 
@@ -67,11 +74,14 @@ public class OrderInfo {
 
 
 
-           orderInfo.processInstanceId=jsonObject.getString("processInstanceId");
+           orderInfo.processInstanceId=jsonObject.has("processInstanceId")?jsonObject.getString("processInstanceId"):"";
+            orderInfo.sample=jsonObject.has("sample")?Produce.fromJson(jsonObject.getJSONArray("sample")):null;
+            orderInfo.produce=jsonObject.has("produce")?Produce.fromJson(jsonObject.getJSONArray("produce")):null;
+            orderInfo.designCad=jsonObject.has("designCad")?DesignCad.fromJson(jsonObject.getJSONObject("designCad")):null;
 
 
 
-          orderInfo.order=Order.fromJson(jsonObject.getJSONObject("order"));
+            orderInfo.order=Order.fromJson(jsonObject.getJSONObject("order"));
 
 
           orderInfo.accessoryCosts=jsonObject.has("accessoryCosts")?AccessoryCost.fromJson(jsonObject.getJSONArray("accessoryCosts")):null;
@@ -79,8 +89,14 @@ public class OrderInfo {
 
           orderInfo.orderSampleAmount=jsonObject.has("orderSampleAmount")?jsonObject.getString("orderSampleAmount"):null;
 
+            if(jsonObject.has("quote")){
+                if(jsonObject.getString("quote").equals("null")){
+                    orderInfo.quote=null;
+                }else {
+                    orderInfo.quote=Quote.fromJson(jsonObject.getJSONObject("quote"));
+                }
+            }
 
-           orderInfo.quote= jsonObject.has("quote")?Quote.fromJson(jsonObject.getJSONObject("quote")):null;
 
 
            orderInfo.fabrics=jsonObject.has("fabrics")?Fabric.fromJson(jsonObject.getJSONArray("fabrics")):null;
@@ -100,7 +116,7 @@ public class OrderInfo {
 
             orderInfo.samplePrice= jsonObject.has("samplePrice")?jsonObject.getString("samplePrice"):null;
             orderInfo.url=jsonObject.has("url")?jsonObject.getString("url"):null;
-
+            orderInfo.repairRecords=jsonObject.has("repairRecord")?RepairRecord.fromJson(jsonObject.getJSONArray("repairRecord")):null;
         }catch (Exception e){
             e.printStackTrace();
 
@@ -109,6 +125,38 @@ public class OrderInfo {
 
 
         return orderInfo;
+    }
+
+    public List<RepairRecord> getRepairRecords() {
+        return repairRecords;
+    }
+
+    public void setRepairRecords(List<RepairRecord> repairRecords) {
+        this.repairRecords = repairRecords;
+    }
+
+    public List<Produce> getSample() {
+        return sample;
+    }
+
+    public void setSample(List<Produce> sample) {
+        this.sample = sample;
+    }
+
+    public List<Produce> getProduce() {
+        return produce;
+    }
+
+    public void setProduce(List<Produce> produce) {
+        this.produce = produce;
+    }
+
+    public DesignCad getDesignCad() {
+        return designCad;
+    }
+
+    public void setDesignCad(DesignCad designCad) {
+        this.designCad = designCad;
     }
 
     public String getPackageNumber() {

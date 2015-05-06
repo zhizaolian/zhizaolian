@@ -57,22 +57,22 @@ public class Quote {
     public static Quote fromJson(JSONObject jsonObject){
         Quote quote=new Quote();
         try {
-            quote.accessoryCost= Float.valueOf(jsonObject.getString("accessoryCost"));
-            quote.craftCost= Float.valueOf(jsonObject.getString("craftCost"));
-            quote.cutCost= Float.valueOf(jsonObject.getString("cutCost"));
-            quote.designCost= Float.valueOf(jsonObject.getString("designCost"));
-            quote.fabricCost= Float.valueOf(jsonObject.getString("fabricCost"));
-            quote.innerPrice=jsonObject.getString("innerPrice");
-            quote.ironingCost= Float.valueOf(jsonObject.getString("ironingCost"));
-            quote.manageCost= Float.valueOf(jsonObject.getString("manageCost"));
-            quote.nailCost= Float.valueOf(jsonObject.getString("nailCost"));
-            quote.orderId= Integer.valueOf(jsonObject.getString("orderId"));
-            quote.otherCost= Float.valueOf(jsonObject.getString("otherCost"));
-           quote.outerPrice=jsonObject.getString("outerPrice");
-            quote.packageCost= Float.valueOf(jsonObject.getString("packageCost"));
-            quote.profitPerPiece=jsonObject.getString("profitPerPiece");
-            quote.singleCost= Float.valueOf(jsonObject.getString("singleCost"));
-            quote.swingCost= Float.valueOf(jsonObject.getString("swingCost"));
+            quote.accessoryCost= jsonObject.has("accessoryCost")?Float.valueOf(jsonObject.getString("accessoryCost")):null;
+            quote.craftCost=jsonObject.has("craftCost")? Float.valueOf(jsonObject.getString("craftCost")):null;
+            quote.cutCost=jsonObject.has("cutCost")? Float.valueOf(jsonObject.getString("cutCost")):null;
+            quote.designCost= jsonObject.has("designCost")?Float.valueOf(jsonObject.getString("designCost")):null;
+            quote.fabricCost= jsonObject.has("fabricCost")?Float.valueOf(jsonObject.getString("fabricCost")):null;
+            quote.innerPrice=jsonObject.has("innerPrice")?jsonObject.getString("innerPrice"):null;
+            quote.ironingCost= jsonObject.has("ironingCost")?Float.valueOf(jsonObject.getString("ironingCost")):null;
+            quote.manageCost=jsonObject.has("manageCost")? Float.valueOf(jsonObject.getString("manageCost")):null;
+            quote.nailCost=jsonObject.has("nailCost")? Float.valueOf(jsonObject.getString("nailCost")):null;
+            quote.orderId= jsonObject.has("orderId")?Integer.valueOf(jsonObject.getString("orderId")):null;
+            quote.otherCost= jsonObject.has("otherCost")?Float.valueOf(jsonObject.getString("otherCost")):null;
+           quote.outerPrice=jsonObject.has("outerPrice")?jsonObject.getString("outerPrice"):null;
+            quote.packageCost= jsonObject.has("packageCost")?Float.valueOf(jsonObject.getString("packageCost")):null;
+            quote.profitPerPiece=jsonObject.has("profitPerPiece")?jsonObject.getString("profitPerPiece"):null;
+            quote.singleCost= jsonObject.has("singleCost")?Float.valueOf(jsonObject.getString("singleCost")):null;
+            quote.swingCost=jsonObject.has("swingCost")? Float.valueOf(jsonObject.getString("swingCost")):null;
 
 
         } catch (JSONException e) {
