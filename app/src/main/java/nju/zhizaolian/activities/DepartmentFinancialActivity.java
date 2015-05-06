@@ -10,23 +10,35 @@ import android.view.MenuItem;
 import android.widget.ArrayAdapter;
 import android.widget.SpinnerAdapter;
 
+import java.util.ArrayList;
+
 import nju.zhizaolian.R;
 import nju.zhizaolian.fragments.OrderListFragment;
 import nju.zhizaolian.models.Account;
 import nju.zhizaolian.models.Operation;
+import nju.zhizaolian.models.TaskNumber;
 
 public class DepartmentFinancialActivity extends ActionBarActivity {
     private OrderListFragment orderListFragment;
     private Account account;
+    TaskNumber taskNumber;
+    ArrayList<String> itemList;
+    ArrayAdapter<String> arrayAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_department_financial);
-        SpinnerAdapter financiallist= ArrayAdapter.createFromResource(this,R.array.financial_list,R.layout.support_simple_spinner_dropdown_item);
+        taskNumber = (TaskNumber) getIntent().getSerializableExtra("taskNumber");
+        itemList = new ArrayList<>();
+        itemList.add("样衣费确认("+taskNumber.getConfirmSampleMoney()+")");
+        itemList.add("首定金确认("+taskNumber.getConfirmDeposit()+")");
+        itemList.add("退还定金("+taskNumber.getReturnDeposit()+")");
+        itemList.add("尾款金确认("+taskNumber.getConfirmFinalPayment()+")");
+        arrayAdapter = new ArrayAdapter<String>(this,R.layout.support_simple_spinner_dropdown_item,itemList);
         ActionBar actionBar=getSupportActionBar();
         actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_LIST);
-        actionBar.setListNavigationCallbacks(financiallist,navigationListener);
+        actionBar.setListNavigationCallbacks(arrayAdapter,navigationListener);
         account= (Account) getIntent().getSerializableExtra("account");
         Bundle bundle=new Bundle();
         bundle.putSerializable("account",account);

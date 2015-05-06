@@ -11,6 +11,8 @@ import android.view.MenuItem;
 import android.widget.ArrayAdapter;
 import android.widget.SpinnerAdapter;
 
+import java.util.ArrayList;
+
 import nju.zhizaolian.R;
 import nju.zhizaolian.fragments.OrderListFragment;
 import nju.zhizaolian.models.Account;
@@ -25,6 +27,8 @@ public class DepartmentPurchaseActivity extends ActionBarActivity {
     public static final int MASS =2;
     public static final int SWEATER =3;
     int selectedSpinnerItem = CONFIRM;
+    ArrayList<String> itemList;
+    ArrayAdapter<String> arrayAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,11 +36,15 @@ public class DepartmentPurchaseActivity extends ActionBarActivity {
         setContentView(R.layout.department_purchase_activity_layout);
         Account account =(Account) getIntent().getSerializableExtra("account");
         TaskNumber taskNumber =(TaskNumber) getIntent().getSerializableExtra("taskNumber");
-        SpinnerAdapter spinnerAdapter= ArrayAdapter.createFromResource(this,
-                R.array.purchase_department_list, R.layout.support_simple_spinner_dropdown_item);
+        itemList = new ArrayList<>();
+        itemList.add("成本验证("+taskNumber.getComputePurchaseCost()+")");
+        itemList.add("样衣采购("+taskNumber.getPurchaseSampleMaterial()+")");
+        itemList.add("大货采购("+taskNumber.getPurchaseMaterial()+")");
+        itemList.add("毛衣采购("+taskNumber.getBuySweaterMaterial()+")");
+        arrayAdapter = new ArrayAdapter<String>(this,R.layout.support_simple_spinner_dropdown_item,itemList);
         ActionBar actionBar=getSupportActionBar();
         actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_LIST);
-        actionBar.setListNavigationCallbacks(spinnerAdapter, onNavigationListener);
+        actionBar.setListNavigationCallbacks(arrayAdapter, onNavigationListener);
         if(savedInstanceState==null){
             orderListFragment = new OrderListFragment();
             Bundle bundle = new Bundle();

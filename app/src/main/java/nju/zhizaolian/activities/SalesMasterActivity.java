@@ -20,29 +20,34 @@ import org.apache.http.Header;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
+
 import nju.zhizaolian.R;
 import nju.zhizaolian.fragments.OrderListFragment;
 import nju.zhizaolian.models.Account;
 import nju.zhizaolian.models.IPAddress;
 import nju.zhizaolian.models.Operation;
+import nju.zhizaolian.models.TaskNumber;
 
 public class SalesMasterActivity extends ActionBarActivity  {
 
     private OrderListFragment orderListFragment=null;
     private Account account;
     private int selectedSpinnerItem=0;
+    ArrayList<String> itemList;
+    ArrayAdapter<String> arrayAdapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sales_master);
-        SpinnerAdapter spinnerAdapter= ArrayAdapter.createFromResource(this,
-                R.array.sales_master_list, R.layout.support_simple_spinner_dropdown_item);
+        TaskNumber taskNumber =(TaskNumber) getIntent().getSerializableExtra("taskNumber");
+        itemList = new ArrayList<>();
+        itemList.add("审核报价("+taskNumber.getVerifyQuote()+")");
+        itemList.add("审核申请("+taskNumber.getVerifyAlter()+")");
+        arrayAdapter = new ArrayAdapter<String>(this,R.layout.support_simple_spinner_dropdown_item,itemList);
         ActionBar actionBar=getSupportActionBar();
-
         actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_LIST);
-
-
-        actionBar.setListNavigationCallbacks(spinnerAdapter, onNavigationListener);
+        actionBar.setListNavigationCallbacks(arrayAdapter, onNavigationListener);
         account= (Account) getIntent().getSerializableExtra("account");
         if(savedInstanceState == null){
             Bundle bundle=new Bundle();
@@ -63,9 +68,7 @@ public class SalesMasterActivity extends ActionBarActivity  {
                     orderListFragment.getListViewByURLAndOperation("/fmc/market/mobile_verifyQuoteList.do", Operation.CHECKQUOTE);
                     break;
                 case 1:
-//                    selectedSpinnerItem=1;
-//                    orderListFragment.getListViewByURLAndOperation("/fmc/market/mobile_verifyAlterList.do", Operation.CHANGEEMPLOYEE);
-                    Toast.makeText(SalesMasterActivity.this,"不可用",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(SalesMasterActivity.this,"请到电脑上操作",Toast.LENGTH_SHORT).show();
                     break;
             }
 
@@ -119,9 +122,6 @@ public class SalesMasterActivity extends ActionBarActivity  {
                 case 0:
                     orderListFragment.getListViewByURLAndOperation("/fmc/market/mobile_verifyQuoteList.do", Operation.CHECKQUOTE);
                     break;
-//                case 1:
-//                    orderListFragment.getListViewByURLAndOperation("/fmc/market/mobile_verifyAlterList.do", Operation.CHANGEEMPLOYEE);
-//                    break;
                 default:
                     break;
 

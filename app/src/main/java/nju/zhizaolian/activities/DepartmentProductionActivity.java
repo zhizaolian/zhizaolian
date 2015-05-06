@@ -28,6 +28,8 @@ public class DepartmentProductionActivity extends ActionBarActivity {
     public static final int CHECK=0;
     public static final int MASS=1;
     int selectedSpinnerItem = CHECK;
+    ArrayList<String> itemList;
+    ArrayAdapter<String> arrayAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,11 +37,13 @@ public class DepartmentProductionActivity extends ActionBarActivity {
         setContentView(R.layout.department_production_activity_layout);
         Account account =(Account) getIntent().getSerializableExtra("account");
         TaskNumber taskNumber =(TaskNumber) getIntent().getSerializableExtra("taskNumber");
-        SpinnerAdapter spinnerAdapter= ArrayAdapter.createFromResource(this,
-                R.array.production_department_list, R.layout.support_simple_spinner_dropdown_item);
+        itemList = new ArrayList<>();
+        itemList.add("成本验证核算("+taskNumber.getComputeProduceCost()+")");
+        itemList.add("大货批量生产("+taskNumber.getProduce()+")");
+        arrayAdapter = new ArrayAdapter<String>(this,R.layout.support_simple_spinner_dropdown_item,itemList);
         ActionBar actionBar=getSupportActionBar();
         actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_LIST);
-        actionBar.setListNavigationCallbacks(spinnerAdapter, onNavigationListener);
+        actionBar.setListNavigationCallbacks(arrayAdapter, onNavigationListener);
         if(savedInstanceState==null){
             orderListFragment = new OrderListFragment();
             Bundle bundle = new Bundle();

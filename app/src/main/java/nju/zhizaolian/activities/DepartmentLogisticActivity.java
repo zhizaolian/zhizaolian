@@ -9,23 +9,36 @@ import android.view.MenuItem;
 import android.widget.ArrayAdapter;
 import android.widget.SpinnerAdapter;
 
+import java.util.ArrayList;
+
 import nju.zhizaolian.R;
 import nju.zhizaolian.fragments.OrderListFragment;
 import nju.zhizaolian.fragments.RegisterAndScanningFragment;
 import nju.zhizaolian.models.Account;
 import nju.zhizaolian.models.Operation;
+import nju.zhizaolian.models.TaskNumber;
 
 public class DepartmentLogisticActivity extends ActionBarActivity {
     private OrderListFragment orderListFragment;
     private Account account;
+    TaskNumber taskNumber;
+    ArrayList<String> itemList;
+    ArrayAdapter<String> arrayAdapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_department_logistic);
-        SpinnerAdapter logisticList= ArrayAdapter.createFromResource(this,R.array.logistic_list,R.layout.support_simple_spinner_dropdown_item);
+        taskNumber = (TaskNumber) getIntent().getSerializableExtra("taskNumber");
+        itemList = new ArrayList<>();
+        itemList.add("样衣收取("+taskNumber.getReceiveSample()+")");
+        itemList.add("样衣发货("+taskNumber.getSendSample()+")");
+        itemList.add("产品入库("+taskNumber.getWarehouse()+")");
+        itemList.add("产品发货("+taskNumber.getSendClothes()+")");
+        itemList.add("入库登记发货扫描");
+        arrayAdapter = new ArrayAdapter<String>(this,R.layout.support_simple_spinner_dropdown_item,itemList);
         ActionBar actionBar=getSupportActionBar();
         actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_LIST);
-        actionBar.setListNavigationCallbacks(logisticList,onNavigationListener);
+        actionBar.setListNavigationCallbacks(arrayAdapter,onNavigationListener);
         account= (Account) getIntent().getSerializableExtra("account");
         if(savedInstanceState == null){
 

@@ -11,6 +11,8 @@ import android.view.MenuItem;
 import android.widget.ArrayAdapter;
 import android.widget.SpinnerAdapter;
 
+import java.util.ArrayList;
+
 import nju.zhizaolian.R;
 import nju.zhizaolian.fragments.OrderListFragment;
 import nju.zhizaolian.models.Account;
@@ -22,6 +24,8 @@ public class DepartmentQualityActivity extends ActionBarActivity {
     OrderListFragment orderListFragment;
     public static final int QUALITY =0;
     int selectedSpinnerItem = QUALITY;
+    ArrayList<String> itemList;
+    ArrayAdapter<String> arrayAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,11 +33,12 @@ public class DepartmentQualityActivity extends ActionBarActivity {
         setContentView(R.layout.activity_department_quality);
         Account account =(Account) getIntent().getSerializableExtra("account");
         TaskNumber taskNumber =(TaskNumber) getIntent().getSerializableExtra("taskNumber");
-        SpinnerAdapter spinnerAdapter= ArrayAdapter.createFromResource(this,
-                R.array.quality_department_list, R.layout.support_simple_spinner_dropdown_item);
+        itemList = new ArrayList<>();
+        itemList.add("质量检查("+taskNumber.getCheckQuality()+")");
+        arrayAdapter = new ArrayAdapter<String>(this,R.layout.support_simple_spinner_dropdown_item,itemList);
         ActionBar actionBar=getSupportActionBar();
         actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_LIST);
-        actionBar.setListNavigationCallbacks(spinnerAdapter, onNavigationListener);
+        actionBar.setListNavigationCallbacks(arrayAdapter, onNavigationListener);
         if(savedInstanceState==null){
             orderListFragment = new OrderListFragment();
             Bundle bundle = new Bundle();

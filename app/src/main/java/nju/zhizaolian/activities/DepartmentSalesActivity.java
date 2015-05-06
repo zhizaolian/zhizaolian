@@ -10,6 +10,8 @@ import android.widget.ArrayAdapter;
 import android.widget.SpinnerAdapter;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+
 import nju.zhizaolian.R;
 import nju.zhizaolian.fragments.CustomListOrderFragment;
 import nju.zhizaolian.fragments.OrderListFragment;
@@ -28,22 +30,26 @@ public class DepartmentSalesActivity extends ActionBarActivity   {
     public static final int SIGNCONTRACT=5;
     public static final int URGEREMAININGMONEY=6;
     //public static final int CHANGECONTRACT=7;
+    ArrayList<String> itemList;
+    ArrayAdapter<String> arrayAdapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sales_department);
         account= (Account) getIntent().getSerializableExtra("account");
-
-
         TaskNumber taskNumber= (TaskNumber) getIntent().getSerializableExtra("taskNumber");
-        SpinnerAdapter spinnerAdapter= ArrayAdapter.createFromResource(this,
-                R.array.sales_list,R.layout.support_simple_spinner_dropdown_item);
+        itemList = new ArrayList<>();
+        itemList.add("客户下单");
+        itemList.add("修改询单("+taskNumber.getModifyOrder()+")");
+        itemList.add("合并报价("+taskNumber.getMergeQuote()+")");
+        itemList.add("报价商定("+taskNumber.getConfirmQuote()+")");
+        itemList.add("修改报价("+taskNumber.getModifyQuote()+")");
+        itemList.add("签订合同("+taskNumber.getConfirmProduceOrder()+")");
+        itemList.add("催尾款("+taskNumber.getPushRest()+")");
+        arrayAdapter = new ArrayAdapter<String>(this,R.layout.support_simple_spinner_dropdown_item,itemList);
         ActionBar actionBar=getSupportActionBar();
-
         actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_LIST);
-
-
-        actionBar.setListNavigationCallbacks(spinnerAdapter, onNavigationListener);
+        actionBar.setListNavigationCallbacks(arrayAdapter, onNavigationListener);
         if(savedInstanceState == null){
             Bundle bundle=new Bundle();
             bundle.putSerializable("account",account);
