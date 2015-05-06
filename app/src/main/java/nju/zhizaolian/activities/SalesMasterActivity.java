@@ -126,7 +126,39 @@ public class SalesMasterActivity extends ActionBarActivity  {
                     break;
 
             }
-
+            updateTaskNumberFromServer();
         }
+    }
+
+    public void updateTaskNumberFromServer(){
+        SharedPreferences settings = getSharedPreferences("common", 0);
+        String jSessionId=settings.getString("jsessionId","");
+        AsyncHttpClient asyncHttpClient = new AsyncHttpClient();
+        RequestParams params = new RequestParams();
+        params.put("jsessionId",jSessionId);
+        asyncHttpClient.get(IPAddress.getIP()+"/fmc/common/mobile_getTaskNumber.do",params,new JsonHttpResponseHandler(){
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+                if(response.has("notify")){
+                    Toast.makeText(SalesMasterActivity.this,"登陆超时，退出重试",Toast.LENGTH_SHORT).show();
+                }else {
+                    TaskNumber taskNumber = TaskNumber.fromJson(response);
+                    if (taskNumber == null) {
+                        Toast.makeText(SalesMasterActivity.this, "服务器错误，稍后重试", Toast.LENGTH_SHORT).show();
+                    } else {
+                        itemList.clear();
+                        itemList.add("审核报价("+taskNumber.getVerifyQuote()+")");
+                        itemList.add("审核申请("+taskNumber.getVerifyAlter()+")");
+                        arrayAdapter.notifyDataSetChanged();
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
+                Toast.makeText(SalesMasterActivity.this,"网络连接错误，稍后重试",Toast.LENGTH_SHORT).show();
+                Log.e("error","error",throwable);
+            }
+        });
     }
 }

@@ -2,20 +2,31 @@ package nju.zhizaolian.activities;
 
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.content.SharedPreferences;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ArrayAdapter;
 import android.widget.SpinnerAdapter;
+import android.widget.Toast;
+
+import com.loopj.android.http.AsyncHttpClient;
+import com.loopj.android.http.JsonHttpResponseHandler;
+import com.loopj.android.http.RequestParams;
+
+import org.apache.http.Header;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 
 import nju.zhizaolian.R;
 import nju.zhizaolian.fragments.OrderListFragment;
 import nju.zhizaolian.models.Account;
+import nju.zhizaolian.models.IPAddress;
 import nju.zhizaolian.models.Operation;
 import nju.zhizaolian.models.TaskNumber;
 
@@ -129,7 +140,40 @@ public class DepartmentSweaterMakerActivity extends ActionBarActivity {
                     break;
 
             }
+            updateTaskNumberFromServer();
 
         }
+    }
+
+    public void updateTaskNumberFromServer(){
+        SharedPreferences settings = getSharedPreferences("common", 0);
+        String jSessionId=settings.getString("jsessionId","");
+        AsyncHttpClient asyncHttpClient = new AsyncHttpClient();
+        RequestParams params = new RequestParams();
+        params.put("jsessionId",jSessionId);
+        asyncHttpClient.get(IPAddress.getIP()+"/fmc/common/mobile_getTaskNumber.do",params,new JsonHttpResponseHandler(){
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+                if(response.has("notify")){
+                    Toast.makeText(DepartmentSweaterMakerActivity.this, "登陆超时，退出重试", Toast.LENGTH_SHORT).show();
+                }else {
+                    TaskNumber taskNumber = TaskNumber.fromJson(response);
+                    if (taskNumber == null) {
+                        Toast.makeText(DepartmentSweaterMakerActivity.this, "服务器错误，稍后重试", Toast.LENGTH_SHORT).show();
+                    } else {
+                        itemList.clear();
+                        itemList.add("样衣工艺("+taskNumber.getConfirmSweaterSampleAndCraft()+")");
+                        itemList.add("毛衣外发("+taskNumber.getSendSweater()+")");
+                        arrayAdapter.notifyDataSetChanged();
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
+                Toast.makeText(DepartmentSweaterMakerActivity.this,"网络连接错误，稍后重试",Toast.LENGTH_SHORT).show();
+                Log.e("error", "error", throwable);
+            }
+        });
     }
 }

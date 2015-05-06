@@ -130,37 +130,35 @@ public class DepartmentSecretaryActivity extends ActionBarActivity {
         }
     }
 
-    public void updateTaskNumber(){
-            SharedPreferences settings = getSharedPreferences("common", 0);
-            String jSessionId=settings.getString("jsessionId","");
-            AsyncHttpClient asyncHttpClient = new AsyncHttpClient();
-            RequestParams params = new RequestParams();
-            params.put("jsessionId",jSessionId);
-            asyncHttpClient.get(IPAddress.getIP()+"/fmc/common/mobile_getTaskNumber.do",params,new JsonHttpResponseHandler(){
-                @Override
-                public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
-
-                    if(response.toString().contains("notify")){
-                        Toast.makeText(DepartmentSecretaryActivity.this,"登陆超时，退出重试", Toast.LENGTH_SHORT).show();
-                    }else {
-                        TaskNumber taskNumber;
-                        taskNumber = TaskNumber.fromJson(response);
-                        if (taskNumber == null) {
-                            Toast.makeText(DepartmentSecretaryActivity.this, "服务器错误，稍后重试", Toast.LENGTH_SHORT).show();
-                        } else {
-                            itemList.clear();
-                            itemList.add("变更专员("+taskNumber.getAllocateOrder()+")");
-                            arrayAdapter.notifyDataSetChanged();
-                        }
+    public void updateTaskNumberFromServer(){
+        SharedPreferences settings = getSharedPreferences("common", 0);
+        String jSessionId=settings.getString("jsessionId","");
+        AsyncHttpClient asyncHttpClient = new AsyncHttpClient();
+        RequestParams params = new RequestParams();
+        params.put("jsessionId",jSessionId);
+        asyncHttpClient.get(IPAddress.getIP()+"/fmc/common/mobile_getTaskNumber.do",params,new JsonHttpResponseHandler(){
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+                if(response.has("notify")){
+                    Toast.makeText(DepartmentSecretaryActivity.this,"登陆超时，退出重试",Toast.LENGTH_SHORT).show();
+                }else {
+                    TaskNumber taskNumber = TaskNumber.fromJson(response);
+                    if (taskNumber == null) {
+                        Toast.makeText(DepartmentSecretaryActivity.this, "服务器错误，稍后重试", Toast.LENGTH_SHORT).show();
+                    } else {
+                        itemList.clear();
+                        itemList.add("变更专员("+taskNumber.getAllocateOrder()+")");
+                        arrayAdapter.notifyDataSetChanged();
                     }
                 }
+            }
 
-                @Override
-                public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
-                    Toast.makeText(DepartmentSecretaryActivity.this,"网络连接错误，稍后重试",Toast.LENGTH_SHORT).show();
-                    Log.e("error", "error", throwable);
-                }
-            });
-        }
+            @Override
+            public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
+                Toast.makeText(DepartmentSecretaryActivity.this,"网络连接错误，稍后重试",Toast.LENGTH_SHORT).show();
+                Log.e("error","error",throwable);
+            }
+        });
+    }
 
 }
