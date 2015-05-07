@@ -18,6 +18,7 @@
            <TextView
                android:layout_width="wrap_content"
                android:layout_height="wrap_content"
+               style="@style/MyTextStyle"
                android:text="业务编号"/>
           <TextView
               android:layout_width="wrap_content"
@@ -27,6 +28,7 @@
           <TextView
               android:layout_width="wrap_content"
               android:layout_height="wrap_content"
+              style="@style/MyTextStyle"
               android:text="接单时间"/>
           <TextView
               android:layout_width="wrap_content"
@@ -35,6 +37,7 @@
           <TextView
               android:layout_width="wrap_content"
               android:layout_height="wrap_content"
+              style="@style/MyTextStyle"
               android:text="接单业务员"/>
           <TextView
               android:layout_width="wrap_content"
@@ -43,6 +46,7 @@
           <TextView
               android:layout_width="wrap_content"
               android:layout_height="wrap_content"
+              style="@style/MyTextStyle"
               android:text="订单来源"/>
           <TextView
               android:layout_width="wrap_content"
@@ -51,6 +55,7 @@
           <TextView
               android:layout_width="wrap_content"
               android:layout_height="wrap_content"
+              style="@style/MyTextStyle"
               android:text="是否是翻单"/>
           <TextView
               android:layout_width="wrap_content"
@@ -62,6 +67,7 @@
           <TextView
               android:layout_width="wrap_content"
               android:layout_height="wrap_content"
+              style="@style/MyTextStyle"
               android:text="款式名称"/>
           <TextView
               android:layout_width="wrap_content"
@@ -70,6 +76,7 @@
           <TextView
               android:layout_width="wrap_content"
               android:layout_height="wrap_content"
+              style="@style/MyTextStyle"
               android:text="款式性别"/>
           <TextView
               android:layout_width="wrap_content"
@@ -78,6 +85,7 @@
           <TextView
               android:layout_width="wrap_content"
               android:layout_height="wrap_content"
+              style="@style/MyTextStyle"
               android:text="款式季节"/>
           <TextView
               android:layout_width="wrap_content"
@@ -86,6 +94,7 @@
           <TextView
               android:layout_width="wrap_content"
               android:layout_height="wrap_content"
+              style="@style/MyTextStyle"
               android:text="面料类型"/>
           <TextView
               android:layout_width="wrap_content"
@@ -94,6 +103,7 @@
           <TextView
               android:layout_width="wrap_content"
               android:layout_height="wrap_content"
+              style="@style/MyTextStyle"
               android:text="特殊工艺"/>
           <TextView
               android:layout_width="wrap_content"
@@ -102,6 +112,7 @@
           <TextView
               android:layout_width="wrap_content"
               android:layout_height="wrap_content"
+              style="@style/MyTextStyle"
               android:text="@string/title_other"/>
           <TextView
               android:layout_width="wrap_content"
@@ -110,6 +121,7 @@
           <TextView
               android:layout_width="wrap_content"
               android:layout_height="wrap_content"
+              style="@style/MyTextStyle"
               android:text="@string/title_reference"/>
           <TextView
               android:layout_width="wrap_content"
@@ -118,6 +130,7 @@
           <TextView
               android:layout_width="wrap_content"
               android:layout_height="wrap_content"
+              style="@style/MyTextStyle"
               android:text="业务员电话"/>
           <TextView
               android:layout_width="wrap_content"
@@ -126,6 +139,7 @@
           <TextView
               android:layout_width="wrap_content"
               android:layout_height="wrap_content"
+              style="@style/MyTextStyle"
               android:text="业务员邮箱"/>
           <TextView
               android:layout_width="wrap_content"
@@ -134,6 +148,7 @@
           <TextView
               android:layout_width="wrap_content"
               android:layout_height="wrap_content"
+              style="@style/MyTextStyle"
               android:text="业务员办公电话"/>
           <TextView
               android:layout_width="wrap_content"
@@ -142,6 +157,7 @@
           <TextView
               android:layout_width="wrap_content"
               android:layout_height="wrap_content"
+              style="@style/MyTextStyle"
               android:text="业务员QQ"/>
           <TextView
               android:layout_width="wrap_content"

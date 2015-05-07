@@ -26,7 +26,7 @@ public class ProduceAdapter extends ArrayAdapter<Produce>{
     public View getView(int position, View convertView, ViewGroup parent) {
         Produce produce=getItem(position);
         if(convertView == null){
-            convertView= LayoutInflater.from(parent.getContext()).inflate(R.layout.produce_add_item_layout,parent,false);
+            convertView= LayoutInflater.from(parent.getContext()).inflate(R.layout.produce_item_layout,parent,false);
         }
         TextView produceColorView=(TextView)convertView.findViewById(R.id.produce_add_color_view);
         TextView produceXSView=(TextView)convertView.findViewById(R.id.produce_xs_add_view);

@@ -9,11 +9,13 @@
        <TextView
            android:layout_width="wrap_content"
            android:layout_height="wrap_content"
+           android:textSize="@dimen/abc_text_size_large_material"
            android:text="版型数据类型"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            style="@style/MyTextStyle"
             android:text="面料"/>
 
        <TextView
@@ -23,6 +25,7 @@
        <TextView
            android:layout_width="wrap_content"
            android:layout_height="wrap_content"
+           style="@style/MyTextStyle"
            android:text="包装"/>
        <TextView
            android:layout_width="wrap_content"
@@ -31,6 +34,7 @@
        <TextView
            android:layout_width="wrap_content"
            android:layout_height="wrap_content"
+           style="@style/MyTextStyle"
            android:text="版型"/>
        <TextView
            android:layout_width="wrap_content"
@@ -39,6 +43,7 @@
        <TextView
            android:layout_width="wrap_content"
            android:layout_height="wrap_content"
+           style="@style/MyTextStyle"
            android:text="装箱"/>
        <TextView
            android:layout_width="wrap_content"
@@ -47,6 +52,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            style="@style/MyTextStyle"
             android:text="工艺"/>
         <TextView
             android:layout_width="wrap_content"
@@ -55,6 +61,7 @@
        <TextView
            android:layout_width="wrap_content"
            android:layout_height="wrap_content"
+           style="@style/MyTextStyle"
            android:text="其他"/>
        <TextView
            android:layout_width="wrap_content"

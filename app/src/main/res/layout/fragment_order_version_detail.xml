@@ -43,6 +43,7 @@
               <EditText
                   android:layout_width="fill_parent"
                   android:layout_height="wrap_content"
+                  android:inputType="number"
                   android:hint="@string/title_waist"
                   android:id="@+id/version_waist_line"/>
               <EditText
@@ -88,11 +89,13 @@
                  android:id="@+id/version_add_button"/>
 
               </LinearLayout>
-            <LinearLayout
-                android:layout_width="fill_parent"
+            <ListView
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:id="@+id/version_add_layout"/>
+                android:id="@+id/order_version_list_view"/>
+          <include layout="@layout/design_cad_layout"/>
+
+
             <Button
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"

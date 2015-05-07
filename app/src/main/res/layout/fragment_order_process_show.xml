@@ -18,6 +18,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            style="@style/MyTextStyle"
             android:text="样衣总数"/>
         <TextView
             android:layout_width="wrap_content"
@@ -26,6 +27,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            style="@style/MyTextStyle"
             android:text="大货总数"/>
         <TextView
             android:layout_width="wrap_content"
@@ -34,6 +36,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            style="@style/MyTextStyle"
             android:text="@string/title_delivery_time"/>
         <TextView
             android:layout_width="wrap_content"
@@ -42,6 +45,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            style="@style/MyTextStyle"
             android:text="@string/title_finish_time"/>
         <TextView
             android:layout_width="wrap_content"

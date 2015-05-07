@@ -106,6 +106,13 @@ public class OrderDetailActivity extends ActionBarActivity implements ActionBar.
     private String versionTrousers="";
     private String versionSkirt="";
     private String versionSleeves="";
+    private String cadFabricData="";
+    private  String cadPackageData="";
+    private  String cadVersionData="";
+    private  String cadBoxingData="";
+    private  String cadTechnologyData="";
+    private  String cadOtherData="";
+
 
     //picture byte
     private byte[] samplePictureByte;
@@ -352,6 +359,12 @@ public class OrderDetailActivity extends ActionBarActivity implements ActionBar.
         versionTrousers=version[7];
         versionSkirt=version[8];
         versionSleeves=version[9];
+         cadFabricData=version[10];
+         cadPackageData=version[11];
+         cadVersionData=version[12];
+         cadBoxingData=version[13];
+        cadTechnologyData=version[14];
+         cadOtherData=version[15];
         Toast.makeText(getApplicationContext(),"保存成功",Toast.LENGTH_SHORT).show();
     }
 
@@ -464,8 +477,12 @@ public class OrderDetailActivity extends ActionBarActivity implements ActionBar.
             requestParams.put("version_trousers",versionTrousers);
             requestParams.put("version_skirt",versionSkirt);
             requestParams.put("version_sleeves",versionSleeves);
-
-
+            requestParams.put("cadFabric",cadFabricData);
+            requestParams.put("cadBox",cadBoxingData);
+            requestParams.put("cadPackage",cadPackageData);
+            requestParams.put("cadVersionData",cadVersionData);
+            requestParams.put("cadTech",cadTechnologyData);
+            requestParams.put("cadOther",cadOtherData);
 
 
             requestParams.put("in_post_sample_clothes_time",inPostSampleClothesTime);

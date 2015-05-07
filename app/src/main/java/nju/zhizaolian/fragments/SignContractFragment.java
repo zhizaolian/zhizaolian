@@ -19,6 +19,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -153,7 +154,19 @@ public class SignContractFragment extends Fragment {
 
             }
         });
+        signContractProduceListView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
 
+                Produce p= (Produce) signContractProduceListView.getItemAtPosition(position);
+
+                produceArrayList.remove(p);
+
+                produceAdapter.notifyDataSetChanged();
+                Toast.makeText(getActivity(),"删除成功",Toast.LENGTH_SHORT).show();
+                return true;
+            }
+        });
         signContractDiscountEdit.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {

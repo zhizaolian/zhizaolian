@@ -125,8 +125,9 @@ public class OrderSampleDetailFragment extends Fragment {
                 samplePictureUrl=cursor.getString(columnIndex);
                 cursor.close();
                 Bitmap bitmap= BitmapFactory.decodeFile(samplePictureUrl);
-                samplePictureByte= PictureUtil.Bitmap2Bytes(bitmap);
-                samplePicture.setImageBitmap(bitmap);
+                Bitmap newBitmap=PictureUtil.reduce(bitmap,220,220,true);
+                samplePictureByte= PictureUtil.Bitmap2Bytes(newBitmap);
+                samplePicture.setImageBitmap(newBitmap);
 
             }else if(requestCode == Result_LOAD_REFERENCE_IMAGE && resultCode==getActivity().RESULT_OK && null != data){
                 Uri selectImage=data.getData();
@@ -137,8 +138,9 @@ public class OrderSampleDetailFragment extends Fragment {
                 referencePictureUrl=cursor.getString(columnIndex);
                 cursor.close();
                 Bitmap bitmap= BitmapFactory.decodeFile(referencePictureUrl);
-                referencePictureByte=PictureUtil.Bitmap2Bytes(bitmap);
-                referencePicture.setImageBitmap(bitmap);
+                Bitmap newBitmap=PictureUtil.reduce(bitmap,220,220,true);
+                referencePictureByte=PictureUtil.Bitmap2Bytes(newBitmap);
+                referencePicture.setImageBitmap(newBitmap);
 
             }else {
                 Toast.makeText(getActivity().getApplicationContext(),"你还没有选择图片",Toast.LENGTH_SHORT).show();

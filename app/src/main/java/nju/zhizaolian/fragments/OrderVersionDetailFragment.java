@@ -6,15 +6,17 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.LinearLayout;
-import android.widget.TextView;
+import android.widget.ListView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
 
 import nju.zhizaolian.R;
+import nju.zhizaolian.adapters.VersionAdapter;
+import nju.zhizaolian.models.VersionData;
 
 
 public class OrderVersionDetailFragment extends Fragment {
@@ -31,17 +33,18 @@ public class OrderVersionDetailFragment extends Fragment {
     private EditText versionSleevesEdit;
     private Button versionAddButton;
     private Button versionSaveButton;
-    private LinearLayout versionAddLayout;
-    ArrayList<String> versionSizeArray=new ArrayList<String>();
-    ArrayList<String> versionCenterBackLengthArray=new ArrayList<String>();
-    ArrayList<String> versionBustArray=new ArrayList<String>();
-    ArrayList<String> versionWaistLineArray=new ArrayList<String>();
-    ArrayList<String> versionShoulderArray=new ArrayList<String>();
-    ArrayList<String> versionButtockArray=new ArrayList<String>();
-    ArrayList<String> versionHemArray=new ArrayList<String>();
-    ArrayList<String> versionTrousersArray=new ArrayList<String>();
-    ArrayList<String> versionSkirtArray=new ArrayList<String>();
-    ArrayList<String> versionSleevesArray=new ArrayList<String>();
+    private ListView versionDataListView;
+    private VersionAdapter versionAdapter;
+    private EditText cadFabricEdit;
+    private EditText cadPackageEdit;
+    private EditText cadVersionEdit;
+    private EditText cadBoxingEdit;
+    private EditText cadTechnologyEdit;
+    private EditText cadOtherEdit;
+
+
+
+    ArrayList<VersionData> versionDatas=new ArrayList<VersionData>();
 
     private SaveVerisonData saveVerisonData;
 
@@ -67,8 +70,20 @@ public class OrderVersionDetailFragment extends Fragment {
         versionTrousersEdit=(EditText)view.findViewById(R.id.version_trousers_edit);
         versionSkirtEdit=(EditText)view.findViewById(R.id.version_skirt_edit);
         versionSleevesEdit=(EditText)view.findViewById(R.id.version_sleeve_edit);
-
+        versionSaveButton=(Button)view.findViewById(R.id.save_version_data);
         versionAddButton=(Button)view.findViewById(R.id.version_add_button);
+        versionDataListView=(ListView)view.findViewById(R.id.order_version_list_view);
+        versionAdapter=new VersionAdapter(container.getContext(),0,versionDatas);
+        versionDataListView.setAdapter(versionAdapter);
+
+        cadFabricEdit=(EditText)view.findViewById(R.id.order_cad_fabric_edit);
+        cadPackageEdit=(EditText)view.findViewById(R.id.order_cad_package_edit);
+        cadVersionEdit=(EditText)view.findViewById(R.id.order_cad_version_edit);
+        cadBoxingEdit=(EditText)view.findViewById(R.id.order_boxing_edit);
+        cadTechnologyEdit=(EditText)view.findViewById(R.id.order_technology_edit);
+        cadOtherEdit=(EditText)view.findViewById(R.id.order_cad_other_edit);
+
+
         versionAddButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -79,135 +94,85 @@ public class OrderVersionDetailFragment extends Fragment {
                     Toast.makeText(getActivity().getApplicationContext(), "请填写完整信息", Toast.LENGTH_SHORT).show();
                 }else{
 
-                    View addView=createVersionAddView(inflater,container);
-                    versionAddLayout.addView(addView);
-
-                    versionSizeArray.add(versionSizeEdit.getText().toString());
-                    versionCenterBackLengthArray.add(versionCenterBackLengthEdit.getText().toString());
-                    versionBustArray.add(versionBustEdit.getText().toString());
-                    versionWaistLineArray.add(versionWaistLineEdit.getText().toString());
-                    versionShoulderArray.add(versionShoulderEdit.getText().toString());
-                    versionButtockArray.add(versionButtockEdit.getText().toString());
-                    versionHemArray.add(versionHemEdit.getText().toString());
-                    versionTrousersArray.add(versionTrousersEdit.getText().toString());
-                    versionSkirtArray.add(versionSkirtEdit.getText().toString());
-                    versionSleevesArray.add(versionSleevesEdit.getText().toString());
+                    VersionData versionData=new VersionData();
+                    versionData.setSize(versionSizeEdit.getText().toString());
+                    versionData.setBust(versionBustEdit.getText().toString());
+                    versionData.setButtock(versionButtockEdit.getText().toString());
+                    versionData.setCenterBackLength(versionCenterBackLengthEdit.getText().toString());
+                    versionData.setHem(versionHemEdit.getText().toString());
+                    versionData.setShoulder(versionShoulderEdit.getText().toString());
+                    versionData.setSkirt(versionSkirtEdit.getText().toString());
+                    versionData.setWaistline(versionWaistLineEdit.getText().toString());
+                    versionData.setTrousers(versionTrousersEdit.getText().toString());
+                    versionData.setSleeves(versionSleevesEdit.getText().toString());
+                    versionDatas.add(versionData);
+                    versionAdapter.notifyDataSetChanged();
                 }
-
-
-
 
             }
         });
 
 
-        versionSaveButton=(Button)view.findViewById(R.id.save_version_data);
+
         versionSaveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String versionSizeData=null;
-                String versionCenterBackLengthData=null;
-                String versionBustData=null;
-                String versionWaistLineData=null;
-                String versionShoulderData=null;
-                String versionButtockData=null;
-                String versionHemData=null;
-                String versionTrousersData=null;
-                String versionSkirtData=null;
-                String versionSleevesData=null;
-                if(versionSizeArray.size()==0){
-                     versionSizeData="0";
-                     versionCenterBackLengthData="0";
-                     versionBustData="0";
-                     versionWaistLineData="0";
-                     versionShoulderData="0";
-                     versionButtockData="0";
-                     versionHemData="0";
-                     versionTrousersData="0";
-                     versionSkirtData="0";
-                     versionSleevesData="0";
-                }else{
-                    for(String s:versionSizeArray){
-                        if (versionSizeData==null){
-                            versionSizeData=s+",";
-                        }else {
-                            versionSizeData+=s+",";
-                        }
+                if(versionDatas.size() == 0 ||cadFabricEdit.getText().length() == 0 ||cadPackageEdit.getText().length() == 0||
+                        cadVersionEdit.getText().length() == 0 ||cadBoxingEdit.getText().length() == 0 ||cadTechnologyEdit.getText().length()  == 0||
+                        cadOtherEdit.getText().length() == 0){
+                    Toast.makeText(getActivity(),"请填写完整信息",Toast.LENGTH_SHORT).show();
+                }else {
+                    String versionSizeData="0";
+                    String versionCenterBackLengthData="0";
+                    String versionBustData="0";
+                    String versionWaistLineData="0";
+                    String versionShoulderData="0";
+                    String versionButtockData="0";
+                    String versionHemData="0";
+                    String versionTrousersData="0";
+                    String versionSkirtData="0";
+                    String versionSleevesData="0";
+                    for(VersionData version:versionDatas){
+                        versionSizeData+=version.getSize()+",";
+                        versionCenterBackLengthData+=version.getCenterBackLength()+",";
+                        versionBustData+=version.getBust()+",";
+                        versionWaistLineData+=version.getWaistline()+",";
+                        versionShoulderData+=version.getShoulder()+",";
+                        versionButtockData+=version.getButtock()+",";
+                        versionHemData+=version.getHem()+",";
+                        versionTrousersData+=version.getTrousers()+",";
+                        versionSkirtData+=version.getSkirt()+",";
+                        versionSleevesData+=version.getSleeves()+",";
                     }
-                    for(String s:versionCenterBackLengthArray){
-                        if (versionCenterBackLengthData==null){
-                            versionCenterBackLengthData=s+",";
-                        }else {
-                            versionCenterBackLengthData+=s+",";
-                        }
-                    }
-                    for(String s:versionBustArray){
-                        if (versionBustData==null){
-                            versionBustData=s+",";
-                        }else {
-                            versionBustData+=s+",";
-                        }
-                    }
-                    for(String s:versionWaistLineArray){
-                        if (versionWaistLineData==null){
-                            versionWaistLineData=s+",";
-                        }else {
-                            versionWaistLineData+=s+",";
-                        }
-                    }
-                    for(String s:versionShoulderArray){
-                        if (versionShoulderData==null){
-                            versionShoulderData=s+",";
-                        }else {
-                            versionShoulderData+=s+",";
-                        }
-                    }
-                    for(String s:versionButtockArray){
-                        if (versionButtockData==null){
-                            versionButtockData=s+",";
-                        }else {
-                            versionButtockData+=s+",";
-                        }
-                    }
-                    for(String s:versionHemArray){
-                        if (versionHemData==null){
-                            versionHemData=s+",";
-                        }else {
-                            versionHemData+=s+",";
-                        }
-                    }
-                    for(String s:versionTrousersArray){
-                        if (versionTrousersData==null){
-                            versionTrousersData=s+",";
-                        }else {
-                            versionTrousersData+=s+",";
-                        }
-                    }
-                    for(String s:versionSkirtArray){
-                        if (versionSkirtData==null){
-                            versionSkirtData=s+",";
-                        }else {
-                            versionSkirtData+=s+",";
-                        }
-                    }
-                    for(String s:versionSleevesArray){
-                        if (versionSleevesData==null){
-                            versionSleevesData=s+",";
-                        }else {
-                            versionSleevesData+=s+",";
-                        }
-                    }
+                    String cadFabricData=cadFabricEdit.getText().toString();
+                    String cadPackageData=cadPackageEdit.getText().toString();
+                    String cadVersionData=cadVersionEdit.getText().toString();
+                    String cadBoxingData=cadBoxingEdit.getText().toString();
+                    String cadTechnologyData=cadTechnologyEdit.getText().toString();
+                    String cadOtherData=cadOtherEdit.getText().toString();
+
+
+                    String data=versionSizeData+"@"+versionCenterBackLengthData+"@"+versionBustData+"@"+versionWaistLineData+"@"+versionShoulderData+"@"+
+                            versionButtockData+"@"+versionHemData+"@"+versionTrousersData+"@"+versionSkirtData+"@"+versionSleevesData+"@"+cadFabricData+"@"+
+                            cadPackageData+"@"+cadVersionData+"@"+cadBoxingData+"@"+cadTechnologyData+"@"+cadOtherData;
+                    saveVerisonData.saveVersionData(data);
                 }
 
-                String data=versionSizeData+"@"+versionCenterBackLengthData+"@"+versionBustData+"@"+versionWaistLineData+"@"+versionShoulderData+"@"+
-                        versionButtockData+"@"+versionHemData+"@"+versionTrousersData+"@"+versionSkirtData+"@"+versionSleevesData;
-                saveVerisonData.saveVersionData(data);
 
             }
         });
 
 
-        versionAddLayout=(LinearLayout)view.findViewById(R.id.version_add_layout);
+        versionDataListView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+                VersionData versionData= (VersionData) versionDataListView.getItemAtPosition(position);
+                versionDatas.remove(versionData);
+                versionAdapter.notifyDataSetChanged();
+
+                return false;
+            }
+        });
 
 
 
@@ -216,48 +181,7 @@ public class OrderVersionDetailFragment extends Fragment {
 
 
 
-    public View createVersionAddView(LayoutInflater inflater,ViewGroup container){
-        final View newview=inflater.inflate(R.layout.version_data,container,false);
-        final TextView versionSizeView=(TextView)newview.findViewById(R.id.version_size_view);
-        TextView versionCenterBackLengthView=(TextView)newview.findViewById(R.id.version_center_back_length_view);
-        TextView versionBustView=(TextView)newview.findViewById(R.id.version_bust_view);
-        TextView versionWaistLineView=(TextView)newview.findViewById(R.id.version_waist_line_view);
-        TextView versionShoulderView=(TextView)newview.findViewById(R.id.version_shoulder_view);
-        TextView versionButtockView =(TextView)newview.findViewById(R.id.version_buttock_view);
-        TextView versionHemView=(TextView)newview.findViewById(R.id.version_Hem_view);
-        TextView versionTrousersView=(TextView)newview.findViewById(R.id.version_trousers_view);
-        TextView versionSkirtView=(TextView)newview.findViewById(R.id.version_skirt_view);
-        TextView versionSleevesView=(TextView)newview.findViewById(R.id.version_sleeve_view);
-        Button  versionDeleteButton=(Button)newview.findViewById(R.id.version_add_delete_button);
-        versionDeleteButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                versionAddLayout.removeView(newview);
-                int t=versionSizeArray.indexOf(versionSizeView.getText().toString());
-                versionCenterBackLengthArray.remove(t);
-                versionBustArray.remove(t);
-                versionWaistLineArray.remove(t);
-                versionShoulderArray.remove(t);
-                versionButtockArray.remove(t);
-                versionHemArray.remove(t);
-                versionTrousersArray.remove(t);
-                versionSkirtArray.remove(t);
-                versionSleevesArray.remove(t);
 
-            }
-        });
-        versionSizeView.setText(versionSizeEdit.getText());
-        versionCenterBackLengthView.setText(versionCenterBackLengthEdit.getText());
-        versionBustView.setText(versionBustEdit.getText());
-        versionWaistLineView.setText(versionWaistLineEdit.getText());
-        versionShoulderView.setText(versionShoulderEdit.getText());
-        versionButtockView.setText(versionBustEdit.getText());
-        versionHemView.setText(versionHemEdit.getText());
-        versionTrousersView.setText(versionTrousersEdit.getText());
-        versionSkirtView.setText(versionSkirtEdit.getText());
-        versionSleevesView.setText(versionSleevesEdit.getText());
-   return newview;
-    }
 
     @Override
     public void onAttach(Activity activity) {

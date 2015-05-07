@@ -10,14 +10,17 @@
      <TextView
          android:layout_width="wrap_content"
          android:layout_height="wrap_content"
+         style="@style/MyTextStyle"
          android:text="@string/custom_id"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        style="@style/MyTextStyle"
         android:id="@+id/custom_id"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        style="@style/MyTextStyle"
         android:text="@string/custom_name"/>
     <TextView
         android:layout_width="wrap_content"
@@ -26,6 +29,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        style="@style/MyTextStyle"
         android:text="@string/company"/>
     <TextView
         android:layout_width="wrap_content"
@@ -34,6 +38,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        style="@style/MyTextStyle"
         android:text="@string/company_fax"/>
     <TextView
         android:layout_width="wrap_content"
@@ -42,6 +47,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        style="@style/MyTextStyle"
         android:text="@string/custom_contract_phone1"/>
     <TextView
         android:layout_width="wrap_content"
@@ -50,6 +56,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        style="@style/MyTextStyle"
         android:text="@string/custom_contract_phone2"/>
     <TextView
         android:layout_width="wrap_content"
@@ -58,6 +65,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        style="@style/MyTextStyle"
         android:text="@string/company_address"/>
     <TextView
         android:layout_width="wrap_content"

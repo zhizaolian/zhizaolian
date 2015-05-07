@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+    <LinearLayout android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <EditText
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/title_fabric"
+            android:id="@+id/order_cad_fabric_edit"/>
+        <EditText
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/title_packing"
+            android:id="@+id/order_cad_package_edit"/>
+        <EditText
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/title_version_data"
+            android:id="@+id/order_cad_version_edit"/>
+        <EditText
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/title_boxing"
+            android:id="@+id/order_boxing_edit"/>
+        <EditText
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/title_technology"
+            android:id="@+id/order_technology_edit"/>
+         <EditText
+             android:layout_width="fill_parent"
+             android:layout_height="wrap_content"
+             android:hint="@string/title_other"
+             android:id="@+id/order_cad_other_edit"/>
+    </LinearLayout>
+
+
+</merge>
