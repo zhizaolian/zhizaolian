@@ -100,13 +100,16 @@ public class LoginActivity extends Activity  {
                 mUserNameView.setError(getString(R.string.error_invalid_username));
                 focusView = mUserNameView;
                  cancel = true;
+
             }
 
         if (cancel) {
             // There was an error; don't attempt login and focus the first
             // form field with an error.
             focusView.requestFocus();
+            mSignInButton.setClickable(cancel);
         } else {
+
 
             AsyncHttpClient client=new AsyncHttpClient();
             RequestParams params=new RequestParams();
