@@ -25,4 +25,5 @@
     <string name="title_activity_department_quality">质检部</string>
     <string name="title_activity_department_logistic">物流部</string>
     <string name="title_activity_order_show">订单详情</string>
+    <string name="title_activity_warehouse_scanning">WarehouseScanningActivity</string>
 </resources>

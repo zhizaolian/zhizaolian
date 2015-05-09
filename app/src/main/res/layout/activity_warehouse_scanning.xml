@@ -1,0 +1,67 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context="nju.zhizaolian.activities.WarehouseScanningActivity">
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/entry_register"
+                android:textSize="@dimen/abc_text_size_large_material"/>
+            <Button
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="开始扫描"
+                android:id="@+id/start_scenning_button"/>
+
+            <EditText
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/package_number"
+                android:id="@+id/package_number_edit"/>
+            <EditText
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/warehouse"
+                android:id="@+id/warehouse_id_Edit"/>
+            <EditText
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/storage_rack"
+                android:id="@+id/shelf_id_edit"/>
+            <EditText
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/location"
+                android:id="@+id/location_edit"/>
+            <Button
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/submit"
+                android:id="@+id/warehouse_update_package_button"/>
+
+                <ListView
+                    android:layout_width="fill_parent"
+                    android:layout_height="220dp"
+                    android:id="@+id/warehouseScanningListview"/>
+
+            <Button
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/complete_put_in_storage"
+                android:id="@+id/warehouse_submit_button"/>
+
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>

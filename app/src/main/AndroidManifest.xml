@@ -32,7 +32,7 @@
         <activity
             android:name=".activities.OrderDetailActivity"
             android:label="@string/title_activity_add_order_detail"
-            android:parentActivityName=".activities.DepartmentSalesActivity">
+            android:parentActivityName=".activities.DepartmentSalesActivity" >
         </activity>
 
         <service
@@ -43,52 +43,42 @@
 
         <activity
             android:name=".activities.CustomerManagerActivity"
-            android:label="@string/customer_manager"
-            >
+            android:label="@string/customer_manager" >
         </activity>
         <activity
             android:name=".activities.OrderListActivity"
-            android:label="@string/title_activity_order_list"
-           >
+            android:label="@string/title_activity_order_list" >
         </activity>
         <activity
             android:name=".activities.SalesMasterActivity"
-            android:label="@string/title_activity_sales_master"
-           >
+            android:label="@string/title_activity_sales_master" >
         </activity>
         <activity
             android:name=".activities.DepartmentSalesActivity"
-            android:label="@string/title_activity_sales_department"
-          />
+            android:label="@string/title_activity_sales_department" />
         <activity
             android:name=".activities.DepartmentFinancialActivity"
-            android:label="@string/title_activity_department_financial"
-           >
+            android:label="@string/title_activity_department_financial" >
         </activity>
         <activity
             android:name=".activities.DepartmentDesignActivity"
-            android:label="@string/title_activity_department_design"
-           >
+            android:label="@string/title_activity_department_design" >
         </activity>
         <activity
             android:name=".activities.DepartmentProductionActivity"
-            android:label="@string/title_activity_department_production"
-            >
+            android:label="@string/title_activity_department_production" >
         </activity>
         <activity
             android:name=".activities.DepartmentPurchaseActivity"
-            android:label="@string/title_activity_department_purchase"
-           >
+            android:label="@string/title_activity_department_purchase" >
         </activity>
         <activity
             android:name=".activities.DepartmentSweaterMakerActivity"
-            android:label="@string/title_activity_department_sweater_maker"
-            >
+            android:label="@string/title_activity_department_sweater_maker" >
         </activity>
         <activity
             android:name=".activities.DepartmentTechnologyActivity"
-            android:label="@string/title_activity_department_technology"
-           >
+            android:label="@string/title_activity_department_technology" >
         </activity>
         <activity
             android:name=".activities.SettingsActivity"
@@ -96,22 +86,23 @@
         </activity>
         <activity
             android:name=".activities.DepartmentQualityActivity"
-            android:label="@string/title_activity_department_quality"
-            >
+            android:label="@string/title_activity_department_quality" >
         </activity>
         <activity
             android:name=".activities.DepartmentLogisticActivity"
-            android:label="@string/title_activity_department_logistic"
-          >
+            android:label="@string/title_activity_department_logistic" >
         </activity>
         <activity
             android:name=".activities.DepartmentSecretaryActivity"
-            android:label="@string/title_activity_department_secretary"
-           >
+            android:label="@string/title_activity_department_secretary" >
         </activity>
         <activity
             android:name=".activities.OrderShowActivity"
             android:label="@string/title_activity_order_show" >
+        </activity>
+        <activity
+            android:name=".activities.WarehouseScanningActivity"
+            android:label="@string/title_activity_warehouse_scanning" >
         </activity>
     </application>
 
